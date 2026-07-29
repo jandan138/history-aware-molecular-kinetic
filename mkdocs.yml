@@ -1,0 +1,83 @@
+site_name: History-Aware Molecular–Kinetic
+site_description: Benchmark-first collision-history-aware molecular–kinetic simulation research
+repo_url: https://github.com/jandan138/history-aware-molecular-kinetic
+
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.indexes
+    - content.code.copy
+    - content.tabs.link
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+nav:
+  - Home: index.md
+  - Vision:
+      - Research thesis: vision/research-thesis.md
+      - Scope and non-goals: vision/scope-and-non-goals.md
+      - Paper positioning: vision/paper-positioning.md
+  - Research:
+      - 中文研究总览: research/zh-research-overview.md
+      - Hard-sphere to kinetic primer: research/hard-sphere-kinetic-primer.md
+      - Deng–Hani–Ma connection: research/deng-hard-sphere-connection.md
+      - Hypotheses: research/hypotheses.md
+      - Related work: research/related-work.md
+      - Novelty map: research/novelty-map.md
+      - Feasibility assessment: research/feasibility-assessment.md
+      - Scientific risks: research/scientific-risks.md
+      - Source ledger: research/source-ledger.md
+  - Architecture:
+      - Overview: architecture/overview.md
+      - Module boundaries: architecture/module-boundaries.md
+      - Runtime state model: architecture/runtime-state-model.md
+      - Representation conversion: architecture/representation-conversion.md
+      - Data contracts: architecture/data-contracts.md
+      - External oracles: architecture/external-oracles.md
+      - Experiment lifecycle: architecture/experiment-lifecycle.md
+      - Dependency and license boundaries: architecture/dependency-and-license-boundaries.md
+  - Benchmarks:
+      - Suite: benchmarks/suite.md
+      - R0 External oracles: benchmarks/r0-external-oracles.md
+      - B0 Single-regime primitives: benchmarks/b0-single-regime-primitives.md
+      - B1 Discrepancy atlas: benchmarks/b1-discrepancy-atlas.md
+      - B2 History indicator: benchmarks/b2-history-indicator.md
+      - B3 Representation conversion: benchmarks/b3-representation-conversion.md
+      - B4 Dynamic LOD: benchmarks/b4-dynamic-lod.md
+      - B5 Graphics evidence: benchmarks/b5-graphics-evidence.md
+      - Canonical cases: benchmarks/canonical-cases.md
+      - Metrics: benchmarks/metrics.md
+      - Dataset policy: benchmarks/dataset-policy.md
+  - Demo:
+      - Strategy: demos/demo-strategy.md
+      - Hero scenes: demos/hero-scenes.md
+      - Renderer contract: demos/renderer-contract.md
+      - Visual diagnostics: demos/visual-diagnostics.md
+  - Roadmap:
+      - Milestones: roadmap/milestones.md
+      - Eight-week spike: roadmap/eight-week-feasibility-spike.md
+      - Go/No-Go gates: roadmap/go-no-go-gates.md
+      - Risk register: roadmap/risk-register.md
+      - Implementation backlog: roadmap/implementation-backlog.md
+  - Reproducibility:
+      - Contract: reproducibility/reproducibility-contract.md
+      - Artifact policy: reproducibility/artifact-policy.md
+      - Benchmark freezing: reproducibility/benchmark-freezing.md
+  - Decisions:
+      - Index: decisions/README.md

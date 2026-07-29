@@ -1,0 +1,23 @@
+name: Experiment
+description: Register a reproducible experiment.
+title: "[EXP] "
+labels: ["experiment"]
+body:
+  - type: input
+    id: benchmark
+    attributes:
+      label: Frozen or candidate benchmark ID
+    validations:
+      required: true
+  - type: textarea
+    id: matrix
+    attributes:
+      label: Method, parameter, resolution, and seed matrix
+    validations:
+      required: true
+  - type: textarea
+    id: outputs
+    attributes:
+      label: Expected artifacts and metrics
+    validations:
+      required: true

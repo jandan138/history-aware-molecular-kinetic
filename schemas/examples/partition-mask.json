@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0.0",
+  "time": 1.0,
+  "blocks": [
+    {
+      "block_id": "b0",
+      "representation": "exact_hard_sphere",
+      "score": 0.8,
+      "decision_reason": "probe_error_high"
+    },
+    {
+      "block_id": "b1",
+      "representation": "boltzmann_dsmc",
+      "score": 0.1,
+      "decision_reason": "below_demote_threshold"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+schema_version: "1.0.0"
+case_id: R0-UNI-HYBRID-v0
+suite: R0
+title: uniGasFoam USP-DSMC hybrid tutorial reproduction
+status: candidate
+physics:
+  dimension: 2
+  model: hybrid_usp_dsmc
+  domain:
+    lower: [0.0, 0.0]
+    upper: [1.0, 1.0]
+    boundary: upstream_tutorial
+  species:
+    - name: gas
+      diameter: 1.0e-10
+      mass: 6.63e-26
+  packing_fraction: 0.0
+initial_condition:
+  kind: upstream_documented_case
+  temperature: 273.0
+  mean_velocity: [0.0, 0.0]
+methods: [external_unigasfoam]
+sampling:
+  end_time: 1.0e-5
+  interval: 1.0e-7
+  seeds: [0]
+outputs: [raw_upstream, partition_mask, block_state_bundle, metrics_report]
+acceptance:
+  - metric: upstream_command_success
+    operator: equal
+    value: 1

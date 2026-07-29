@@ -1,0 +1,26 @@
+{
+  "time": 0.5,
+  "particle_a": 1,
+  "particle_b": 7,
+  "block_id": "block-0",
+  "pre_velocity_a": [
+    1.0,
+    0.0,
+    0.0
+  ],
+  "pre_velocity_b": [
+    -1.0,
+    0.0,
+    0.0
+  ],
+  "post_velocity_a": [
+    -1.0,
+    0.0,
+    0.0
+  ],
+  "post_velocity_b": [
+    1.0,
+    0.0,
+    0.0
+  ]
+}

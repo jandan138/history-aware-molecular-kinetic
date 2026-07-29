@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hamk.dev/schemas/kinetic-bundle/1.0.0",
+  "title": "Kinetic backend bundle metadata",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "time",
+    "backend",
+    "collision_model",
+    "cells",
+    "particles",
+    "random_stream"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "time": {
+      "type": "number",
+      "minimum": 0
+    },
+    "backend": {
+      "enum": [
+        "boltzmann_dsmc",
+        "enskog_particle",
+        "usp",
+        "other"
+      ]
+    },
+    "collision_model": {
+      "type": "object"
+    },
+    "cells": {
+      "type": "object"
+    },
+    "particles": {
+      "type": "object"
+    },
+    "random_stream": {
+      "type": "object",
+      "required": [
+        "algorithm",
+        "seed",
+        "stream_id"
+      ],
+      "properties": {
+        "algorithm": {
+          "type": "string"
+        },
+        "seed": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "stream_id": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

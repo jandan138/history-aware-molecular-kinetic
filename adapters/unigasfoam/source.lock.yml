@@ -1,0 +1,11 @@
+schema_version: "1.0.0"
+source_id: unigasfoam_repo
+repository: https://github.com/NVasileiadis93/uniGasFoam
+revision: 3f6cf77cf0d1f5a540a59fb1918139ce9afabef2
+default_branch: main
+license: GPL-3.0-or-later according to upstream README
+integration: external_process
+validated_against: "2026-07-29"
+notes:
+  - Upstream README identifies uniGasFoam as an OpenFOAM-based multiscale particle framework.
+  - Pin the OpenFOAM environment separately before freezing R0 evidence.

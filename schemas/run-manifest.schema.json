@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hamk.dev/schemas/run-manifest/1.0.0",
+  "title": "HAMK run manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "run_id",
+    "case_id",
+    "method",
+    "status",
+    "provenance",
+    "parameters",
+    "artifacts"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 8
+    },
+    "case_id": {
+      "type": "string"
+    },
+    "method": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "running",
+        "passed",
+        "failed_metric",
+        "numerical_instability",
+        "adapter_failure",
+        "resource_exhaustion",
+        "invalid_input",
+        "license_blocked",
+        "not_applicable"
+      ]
+    },
+    "provenance": {
+      "type": "object",
+      "required": [
+        "git_commit",
+        "git_dirty",
+        "created_utc",
+        "host",
+        "software"
+      ],
+      "properties": {
+        "git_commit": {
+          "type": "string"
+        },
+        "git_dirty": {
+          "type": "boolean"
+        },
+        "created_utc": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "host": {
+          "type": "object"
+        },
+        "software": {
+          "type": "array"
+        }
+      }
+    },
+    "parameters": {
+      "type": "object"
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}

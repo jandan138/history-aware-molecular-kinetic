@@ -1,0 +1,15 @@
+{
+  "block_id": "block-0",
+  "window_start": 0.0,
+  "window_end": 1.0,
+  "collision_count": 100,
+  "unique_pair_count": 90,
+  "repeated_pair_ratio": 0.1,
+  "vertex_count": 120,
+  "component_count": 31,
+  "cycle_rank": 1,
+  "largest_component_fraction": 0.25,
+  "mean_lineage_depth": 2.3,
+  "c2_proxy_norm": 0.04,
+  "feature_visibility": "oracle_only"
+}

@@ -1,0 +1,34 @@
+schema_version: "1.0.0"
+case_id: B5-ZOOM-MIX-v0
+suite: B5
+title: Zoomable mixing chamber shared-renderer evidence
+status: candidate
+physics:
+  dimension: 3
+  model: artifact_replay
+  domain:
+    lower: [0.0, 0.0, 0.0]
+    upper: [2.0, 1.0, 1.0]
+    boundary: reflective_geometry
+  species:
+    - name: red
+      diameter: 0.01
+      mass: 1.0
+    - name: blue
+      diameter: 0.01
+      mass: 1.0
+  packing_fraction: 0.02
+initial_condition:
+  kind: frozen_b4_artifact_reference
+  temperature: 1.0
+  mean_velocity: [0.0, 0.0, 0.0]
+methods: [shared_renderer]
+sampling:
+  end_time: 10.0
+  interval: 0.0333333333
+  seeds: [0]
+outputs: [render_manifest, image_sequence, metrics_report]
+acceptance:
+  - metric: physics_artifact_hash_locked
+    operator: equal
+    value: 1

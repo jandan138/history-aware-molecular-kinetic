@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hamk.dev/schemas/block-state/1.0.0",
+  "title": "Block state summary",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "block_id",
+    "time",
+    "density",
+    "packing_fraction",
+    "mean_velocity",
+    "temperature",
+    "knudsen_gll",
+    "maxwellian_residual",
+    "stress_deviator_norm",
+    "heat_flux_norm",
+    "sample_count"
+  ],
+  "properties": {
+    "block_id": {
+      "type": "string"
+    },
+    "time": {
+      "type": "number",
+      "minimum": 0
+    },
+    "density": {
+      "type": "number",
+      "minimum": 0
+    },
+    "packing_fraction": {
+      "type": "number",
+      "minimum": 0,
+      "exclusiveMaximum": 1
+    },
+    "mean_velocity": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "type": "number"
+      }
+    },
+    "temperature": {
+      "type": "number",
+      "minimum": 0
+    },
+    "knudsen_gll": {
+      "type": "number",
+      "minimum": 0
+    },
+    "maxwellian_residual": {
+      "type": "number",
+      "minimum": 0
+    },
+    "stress_deviator_norm": {
+      "type": "number",
+      "minimum": 0
+    },
+    "heat_flux_norm": {
+      "type": "number",
+      "minimum": 0
+    },
+    "sample_count": {
+      "type": "integer",
+      "minimum": 0
+    }
+  }
+}

@@ -1,0 +1,49 @@
+[build-system]
+requires = ["hatchling>=1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "history-aware-molecular-kinetic"
+version = "0.1.0"
+description = "Benchmark-first research platform for collision-history-aware molecular–kinetic simulation"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {file = "LICENSE"}
+authors = [{name = "Zhu Zihou"}]
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+  "jsonschema>=4.23",
+  "mypy>=1.13",
+  "pytest>=8.3",
+  "pyyaml>=6.0",
+  "ruff>=0.8",
+]
+docs = [
+  "mkdocs-material>=9.5",
+  "pymdown-extensions>=10.12",
+]
+
+[project.scripts]
+hamk = "historykinetic.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/historykinetic"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "RUF"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+packages = ["historykinetic"]
+mypy_path = "src"

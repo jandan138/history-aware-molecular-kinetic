@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Native builds
+build/
+cmake-build-*/
+CMakeCache.txt
+CMakeFiles/
+Testing/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+
+# Experiment outputs
+results/*
+!results/.gitignore
+!results/README.md
+artifacts/
+runs/
+cache/
+
+# External software and licensed third-party checkouts
+third_party/checkouts/
+third_party/build/
+third_party/cache/
+
+# Large scientific data
+*.npy
+*.npz
+*.h5
+*.hdf5
+*.vtk
+*.vtu
+*.vtp
+*.xdmf
+*.bin
+*.mp4
+*.mov
+*.exr
+
+# Local environment
+.env
+.env.local

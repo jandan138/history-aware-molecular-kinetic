@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hamk.dev/schemas/particle-bundle/1.0.0",
+  "title": "Particle bundle metadata",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "time",
+    "representation",
+    "identity_semantics",
+    "ownership",
+    "units",
+    "arrays"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "time": {
+      "type": "number",
+      "minimum": 0
+    },
+    "representation": {
+      "enum": [
+        "exact_hard_sphere",
+        "boltzmann_dsmc",
+        "enskog_particle",
+        "shadow_edmd_probe",
+        "render_only"
+      ]
+    },
+    "identity_semantics": {
+      "enum": [
+        "persistent_exact",
+        "superparticle",
+        "newly_promoted",
+        "probe_only",
+        "render_only"
+      ]
+    },
+    "ownership": {
+      "enum": [
+        "physical_owner",
+        "ghost",
+        "probe",
+        "render_only"
+      ]
+    },
+    "units": {
+      "type": "object",
+      "required": [
+        "length",
+        "time",
+        "mass"
+      ],
+      "properties": {
+        "length": {
+          "type": "string"
+        },
+        "time": {
+          "type": "string"
+        },
+        "mass": {
+          "type": "string"
+        }
+      }
+    },
+    "arrays": {
+      "type": "object",
+      "required": [
+        "container",
+        "position",
+        "velocity",
+        "mass",
+        "radius",
+        "species",
+        "weight"
+      ],
+      "additionalProperties": {
+        "type": "object"
+      }
+    }
+  }
+}

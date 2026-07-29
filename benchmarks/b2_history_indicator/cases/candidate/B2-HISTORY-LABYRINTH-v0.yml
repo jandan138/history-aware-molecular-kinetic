@@ -1,0 +1,31 @@
+schema_version: "1.0.0"
+case_id: B2-HISTORY-LABYRINTH-v0
+suite: B2
+title: Grouped held-out history-value evaluation
+status: candidate
+physics:
+  dimension: 2
+  model: paired_exact_kinetic_dataset
+  domain:
+    lower: [0.0, 0.0]
+    upper: [4.0, 2.0]
+    boundary: reflective_geometry
+  species:
+    - name: gas
+      diameter: 0.02
+      mass: 1.0
+  packing_fraction: 0.04
+initial_condition:
+  kind: matched_two_region_ensemble
+  temperature: 1.0
+  mean_velocity: [0.8, 0.0]
+methods: [state_only_indicator, history_oracle_indicator, probe_aware_indicator]
+sampling:
+  end_time: 20.0
+  interval: 0.05
+  seeds: [10, 11, 12, 13, 14, 15, 16, 17]
+outputs: [discrepancy_dataset, metrics_report]
+acceptance:
+  - metric: grouped_split_integrity
+    operator: equal
+    value: 1

@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hamk.dev/schemas/collision-event/1.0.0",
+  "title": "Collision event row",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "time",
+    "particle_a",
+    "particle_b",
+    "block_id",
+    "pre_velocity_a",
+    "pre_velocity_b",
+    "post_velocity_a",
+    "post_velocity_b"
+  ],
+  "properties": {
+    "time": {
+      "type": "number",
+      "minimum": 0
+    },
+    "particle_a": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "particle_b": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "block_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "pre_velocity_a": {
+      "$ref": "#/$defs/vec3"
+    },
+    "pre_velocity_b": {
+      "$ref": "#/$defs/vec3"
+    },
+    "post_velocity_a": {
+      "$ref": "#/$defs/vec3"
+    },
+    "post_velocity_b": {
+      "$ref": "#/$defs/vec3"
+    }
+  },
+  "$defs": {
+    "vec3": {
+      "type": "array",
+      "prefixItems": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "number"
+        }
+      ],
+      "minItems": 3,
+      "maxItems": 3
+    }
+  }
+}

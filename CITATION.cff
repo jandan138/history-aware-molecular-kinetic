@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "Please cite the software release and the eventual paper associated with the artifact you use."
+title: "History-Aware Molecular–Kinetic"
+type: software
+authors:
+  - family-names: Zhu
+    given-names: Zihou
+repository-code: "https://github.com/jandan138/history-aware-molecular-kinetic"
+license: Apache-2.0
+version: 0.1.0
+Date-released: 2026-07-29

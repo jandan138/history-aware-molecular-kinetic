@@ -1,0 +1,30 @@
+name: Benchmark case
+description: Add or revise a candidate benchmark case.
+title: "[BENCH] "
+labels: ["benchmark"]
+body:
+  - type: input
+    id: suite
+    attributes:
+      label: Suite and candidate case ID
+      placeholder: B2 / B2-HISTORY-LABYRINTH-v0
+    validations:
+      required: true
+  - type: textarea
+    id: question
+    attributes:
+      label: What failure does this case expose?
+    validations:
+      required: true
+  - type: textarea
+    id: oracle
+    attributes:
+      label: Oracle, baselines, and metrics
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance and no-go thresholds
+    validations:
+      required: true

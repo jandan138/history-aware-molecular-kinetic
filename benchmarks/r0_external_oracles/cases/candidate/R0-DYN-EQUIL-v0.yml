@@ -1,0 +1,31 @@
+schema_version: "1.0.0"
+case_id: R0-DYN-EQUIL-v0
+suite: R0
+title: DynamO official hard-sphere equilibrium tutorial
+status: candidate
+physics:
+  dimension: 3
+  model: elastic_hard_sphere
+  domain:
+    lower: [0.0, 0.0, 0.0]
+    upper: [1.0, 1.0, 1.0]
+    boundary: periodic
+  species:
+    - name: gas
+      diameter: 1.0
+      mass: 1.0
+  packing_fraction: 0.5
+initial_condition:
+  kind: upstream_fcc_tutorial
+  temperature: 1.0
+  mean_velocity: [0.0, 0.0, 0.0]
+methods: [external_dynamo]
+sampling:
+  end_time: 1.0
+  interval: 0.1
+  seeds: [0]
+outputs: [raw_upstream, particle_bundle, metrics_report]
+acceptance:
+  - metric: upstream_command_success
+    operator: equal
+    value: 1

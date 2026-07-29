@@ -1,0 +1,27 @@
+name: Research question
+description: Propose a falsifiable scientific question.
+title: "[RQ] "
+labels: ["research-question"]
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: Falsifiable question
+    validations:
+      required: true
+  - type: textarea
+    id: hypothesis
+    attributes:
+      label: Hypothesis and alternatives
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Required evidence and failure condition
+    validations:
+      required: true
+  - type: textarea
+    id: boundaries
+    attributes:
+      label: Claim boundaries

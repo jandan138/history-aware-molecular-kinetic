@@ -1,0 +1,11 @@
+schema_version: "1.0.0"
+source_id: sparta_repo
+repository: https://github.com/sparta/sparta
+revision: 912c9e163c38ea5c3562d039e65215f6e2a4f3f8
+default_branch: master
+license: GNU GPL; exact upstream LICENSE is authoritative
+integration: external_process
+validated_against: "2026-07-29"
+notes:
+  - Upstream README describes SPARTA as a parallel DSMC code.
+  - Adapter evidence must record all DSMC cell, time-step, weight, and seed parameters.

@@ -1,0 +1,39 @@
+schema_version: "1.0.0"
+case_id: B3-DEMOTION-CONSERVATION-v0
+suite: B3
+title: Exact-to-kinetic conservative demotion
+status: candidate
+physics:
+  dimension: 2
+  model: elastic_hard_sphere
+  domain:
+    lower: [0.0, 0.0]
+    upper: [1.0, 1.0]
+    boundary: periodic
+  species:
+    - name: gas
+      diameter: 0.01
+      mass: 1.0
+  packing_fraction: 0.03
+initial_condition:
+  kind: anisotropic_non_equilibrium
+  temperature: 1.0
+  mean_velocity: [0.2, -0.1]
+methods:
+  - exact_to_dsmc_converter
+sampling:
+  end_time: 1.0
+  interval: 0.05
+  seeds: [0, 1, 2, 3]
+outputs:
+  - conversion_report
+  - particle_bundle
+  - kinetic_bundle
+  - metrics_report
+acceptance:
+  - metric: relative_mass_error
+    operator: less_equal
+    value: 1.0e-12
+  - metric: relative_energy_error
+    operator: less_equal
+    value: 1.0e-10

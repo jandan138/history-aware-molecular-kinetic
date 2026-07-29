@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hamk.dev/schemas/geometry-bundle/1.0.0",
+  "title": "Geometry bundle metadata",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "dimension",
+    "coordinate_system",
+    "units",
+    "primitives",
+    "motion"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "dimension": {
+      "enum": [
+        2,
+        3
+      ]
+    },
+    "coordinate_system": {
+      "type": "string"
+    },
+    "units": {
+      "type": "string"
+    },
+    "primitives": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "motion": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  }
+}

@@ -1,0 +1,164 @@
+schema_version: "1.0.0"
+accessed_utc: "2026-07-29T00:00:00Z"
+sources:
+  - id: deng_hani_ma_hard_spheres_2024
+    kind: paper
+    title: Long time derivation of the Boltzmann equation from hard sphere dynamics
+    authors: [Yu Deng, Zaher Hani, Xiao Ma]
+    year: 2024
+    url: https://arxiv.org/abs/2408.07818
+    role: theorem_context
+    supports:
+      - long-time hard-sphere-to-Boltzmann derivation under stated assumptions
+      - cumulant and collision-history-molecule proof framework
+    does_not_support:
+      - an online collision-history indicator
+      - a GPU cutting or partition algorithm
+      - dense-gas or arbitrary-geometry guarantees
+
+  - id: deng_hani_ma_hydrodynamic_2025
+    kind: paper
+    title: "Hilbert's sixth problem: derivation of fluid equations via Boltzmann's kinetic theory"
+    authors: [Yu Deng, Zaher Hani, Xiao Ma]
+    year: 2025
+    url: https://arxiv.org/abs/2503.01800
+    role: hydrodynamic_context
+    supports:
+      - stated hard-sphere to Boltzmann to fluid-equation program
+    does_not_support:
+      - correctness of our finite numerical hybrid
+
+  - id: dynamo_repo
+    kind: software
+    title: DynamO
+    repository: https://github.com/dynamomd/DynamO
+    pinned_revision: a6a0f4580d560124eab6ebb619e9850f8b9271ff
+    default_branch: master
+    license: GPL-3.0 unless otherwise marked upstream
+    integration: external_process
+    role: exact_edmd_oracle
+    notes:
+      - upstream README states GPL3 unless otherwise marked
+      - verify exact LICENSE.txt before redistributing any upstream binary
+
+  - id: dynamo_paper_2010
+    kind: paper
+    title: "DynamO: A free O(N) general event-driven molecular-dynamics simulator"
+    authors: [Marcus N. Bannerman, Richard Sargant, Leo Lue]
+    year: 2010
+    url: https://arxiv.org/abs/1004.3501
+    role: exact_edmd_reference
+
+  - id: dynamo_tutorial_2
+    kind: documentation
+    title: DynamO Tutorial 2 — Introduction to DynamO
+    url: https://dynamomd.com/index.php/tutorial2.html
+    role: r0_case_definition
+
+  - id: dynamo_output_plugins
+    kind: documentation
+    title: DynamO Output Plugin Reference
+    url: https://dynamomd.com/index.php/outputplugins.html
+    role: radial_distribution_and_metrics_reference
+
+  - id: sparta_repo
+    kind: software
+    title: SPARTA
+    repository: https://github.com/sparta/sparta
+    pinned_revision: 912c9e163c38ea5c3562d039e65215f6e2a4f3f8
+    default_branch: master
+    license: GNU GPL; exact upstream LICENSE is authoritative
+    integration: external_process
+    role: boltzmann_dsmc_oracle
+
+  - id: sparta_docs
+    kind: documentation
+    title: SPARTA documentation and benchmarks
+    url: https://sparta.github.io/bench.html
+    role: r0_case_and_acceleration_reference
+
+  - id: sparta_software_record
+    kind: software_record
+    title: Stochastic PArallel Rarefied-gas Time-accurate Analyzer
+    authors: [Michael Gallis, Steve Plimpton]
+    year: 2014
+    url: https://www.osti.gov/biblio/1232086
+    role: software_description
+
+  - id: unigasfoam_repo
+    kind: software
+    title: uniGasFoam
+    repository: https://github.com/NVasileiadis93/uniGasFoam
+    pinned_revision: 3f6cf77cf0d1f5a540a59fb1918139ce9afabef2
+    default_branch: main
+    license: GPL-3.0-or-later according to upstream README
+    integration: external_process
+    role: state_based_adaptive_baseline
+
+  - id: unigasfoam_paper_2025
+    kind: paper
+    title: "uniGasFoam: a particle-based OpenFOAM solver for multiscale rarefied gas flows"
+    authors: [Nikos Vasileiadis, Giorgos Tatsios, Craig White, Duncan A. Lockerby, Matthew K. Borg, Livio Gibelli]
+    year: 2025
+    doi: 10.1016/j.cpc.2025.109532
+    url: https://arxiv.org/abs/2409.10288
+    role: adaptive_particle_baseline
+
+  - id: donev_garcia_alder_sedmd_2007
+    kind: paper
+    title: An Event-Driven Hybrid Molecular Dynamics and Direct Simulation Monte Carlo Algorithm
+    authors: [Aleksandar Donev, Alejandro L. Garcia, Berni J. Alder]
+    year: 2007
+    url: https://arxiv.org/abs/0708.0251
+    role: prior_edmd_dsmc_hybrid
+    claim_boundary:
+      - prevents claiming first EDMD-DSMC hybrid
+      - differs from same-gas dynamic representation and discrepancy-driven partitioning
+
+  - id: frezzotti_enskog_1997
+    kind: paper
+    title: A particle scheme for the numerical solution of the Enskog equation
+    authors: [Aldo Frezzotti]
+    year: 1997
+    doi: 10.1063/1.869247
+    role: finite_density_kinetic_reference
+
+  - id: donev_alder_garcia_shsd_2009
+    kind: paper
+    title: A Thermodynamically-Consistent Non-Ideal Stochastic Hard-Sphere Fluid
+    authors: [Aleksandar Donev, Berni J. Alder, Alejandro L. Garcia]
+    year: 2009
+    url: https://arxiv.org/abs/0908.0510
+    role: nonideal_stochastic_particle_context
+
+  - id: ugkwp_2019
+    kind: paper
+    title: "Unified Gas-kinetic Wave-Particle Methods II: Multiscale Simulation on Unstructured Mesh"
+    authors: [Yajun Zhu, Chang Liu, Chengwen Zhong, Kun Xu]
+    year: 2019
+    url: https://arxiv.org/abs/1903.11861
+    role: adaptive_multiscale_context
+
+  - id: continuous_scale_kinetic_graphics_2018
+    kind: paper
+    title: Continuous-Scale Kinetic Fluid Simulation
+    authors: [Wei Li, Kai Bai, Xiaopei Liu]
+    year: 2018
+    url: https://arxiv.org/abs/1807.02284
+    role: graphics_kinetic_context
+
+  - id: home_lbm_2023
+    kind: project
+    title: High-Order Moment-Encoded Kinetic Simulation of Turbulent Flows
+    authors: [Wei Li, Tongtong Wang, Zherong Pan, Xifeng Gao, Kui Wu, Mathieu Desbrun]
+    year: 2023
+    url: https://kuiwuchn.github.io/homelbm.html
+    role: siggraph_visual_and_systems_reference
+
+  - id: collision_statistics_sheared_hard_spheres_2009
+    kind: paper
+    title: Collision statistics in sheared inelastic hard spheres
+    authors: [Marcus N. Bannerman, Thomas E. Green, Paul Grassia, Leo Lue]
+    year: 2009
+    url: https://pubmed.ncbi.nlm.nih.gov/19518225/
+    role: collision_statistics_metric_context

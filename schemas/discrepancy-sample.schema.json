@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hamk.dev/schemas/discrepancy-sample/1.0.0",
+  "title": "Exact-versus-kinetic discrepancy sample",
+  "type": "object",
+  "required": [
+    "case_id",
+    "seed",
+    "block_id",
+    "time",
+    "state_features",
+    "history_features",
+    "feature_visibility",
+    "targets"
+  ],
+  "properties": {
+    "case_id": {
+      "type": "string"
+    },
+    "seed": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "block_id": {
+      "type": "string"
+    },
+    "time": {
+      "type": "number",
+      "minimum": 0
+    },
+    "state_features": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "number"
+      }
+    },
+    "history_features": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "number"
+      }
+    },
+    "feature_visibility": {
+      "type": "object",
+      "additionalProperties": {
+        "enum": [
+          "runtime_observable",
+          "shadow_probe",
+          "oracle_only"
+        ]
+      }
+    },
+    "targets": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "number"
+      }
+    }
+  }
+}

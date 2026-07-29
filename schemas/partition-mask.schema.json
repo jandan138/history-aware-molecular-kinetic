@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hamk.dev/schemas/partition-mask/1.0.0",
+  "title": "Dynamic representation partition",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "time",
+    "blocks"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "time": {
+      "type": "number",
+      "minimum": 0
+    },
+    "blocks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "block_id",
+          "representation",
+          "score",
+          "decision_reason"
+        ],
+        "properties": {
+          "block_id": {
+            "type": "string"
+          },
+          "representation": {
+            "enum": [
+              "exact_hard_sphere",
+              "boltzmann_dsmc",
+              "enskog_particle",
+              "shadow_edmd_probe",
+              "unresolved"
+            ]
+          },
+          "score": {
+            "type": "number"
+          },
+          "decision_reason": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

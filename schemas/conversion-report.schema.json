@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hamk.dev/schemas/conversion-report/1.0.0",
+  "title": "Representation conversion report",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "conversion_id",
+    "time",
+    "source",
+    "target",
+    "block_ids",
+    "conservation",
+    "statistics",
+    "artifacts"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "conversion_id": {
+      "type": "string"
+    },
+    "time": {
+      "type": "number",
+      "minimum": 0
+    },
+    "source": {
+      "type": "string"
+    },
+    "target": {
+      "type": "string"
+    },
+    "block_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "conservation": {
+      "type": "object",
+      "required": [
+        "mass_before",
+        "mass_after",
+        "momentum_before",
+        "momentum_after",
+        "energy_before",
+        "energy_after"
+      ],
+      "properties": {
+        "mass_before": {
+          "type": "number"
+        },
+        "mass_after": {
+          "type": "number"
+        },
+        "momentum_before": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "number"
+          }
+        },
+        "momentum_after": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "number"
+          }
+        },
+        "energy_before": {
+          "type": "number"
+        },
+        "energy_after": {
+          "type": "number"
+        }
+      }
+    },
+    "statistics": {
+      "type": "object"
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  }
+}

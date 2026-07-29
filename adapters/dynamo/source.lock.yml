@@ -1,0 +1,11 @@
+schema_version: "1.0.0"
+source_id: dynamo_repo
+repository: https://github.com/dynamomd/DynamO
+revision: a6a0f4580d560124eab6ebb619e9850f8b9271ff
+default_branch: master
+license: GPL-3.0 unless otherwise marked upstream
+integration: external_process
+validated_against: "2026-07-29"
+notes:
+  - Upstream Readme.md states GPL3 unless otherwise marked.
+  - Inspect the exact upstream LICENSE.txt before redistributing binaries.
