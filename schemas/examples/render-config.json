@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0.0",
+  "config_id": "render-example-v0",
+  "mode": "diagnostic",
+  "scene_id": "example",
+  "output": {
+    "width": 640,
+    "height": 360,
+    "fps": 30.0,
+    "frame_format": "png",
+    "color_space": "srgb",
+    "alpha": false
+  },
+  "timeline": {
+    "start_time": 0.0,
+    "end_time": 1.0,
+    "sample_interval": 0.1,
+    "shutter_fraction": 0.0
+  },
+  "camera": {
+    "projection": "perspective",
+    "fov_degrees": 45.0,
+    "near": 0.01,
+    "far": 100.0,
+    "paths": [
+      {
+        "shot_id": "example",
+        "start_time": 0.0,
+        "end_time": 1.0,
+        "kind": "artifact_locked",
+        "path_ref": "cameras/example.json",
+        "sha256": "c9602804d350aa043f6f881a3fc2212a85116a510b988690b35f3d046ef79587"
+      }
+    ]
+  },
+  "layers": [
+    {
+      "id": "particles",
+      "kind": "exact_particles",
+      "source_kind": "particle-bundle",
+      "enabled": true
+    }
+  ],
+  "display_policy": {
+    "physics_camera_decoupled": true,
+    "exact_particle_radius_scale": 1.0,
+    "statistical_particles": {
+      "enabled": false,
+      "max_samples": 0,
+      "seed": 0,
+      "temporal_identity": "none",
+      "weight_compensation": true,
+      "non_physical_label": true
+    },
+    "volume": {
+      "enabled": false,
+      "field": "density",
+      "transfer_function": "neutral",
+      "sampling_step": 0.01
+    },
+    "partition_mask": {
+      "enabled": false,
+      "opacity": 0.0
+    },
+    "collision_graph": {
+      "enabled": false,
+      "max_edges": 0,
+      "window": 0.0
+    }
+  },
+  "comparison_lock": {
+    "enabled": false,
+    "group_id": "example",
+    "lock_fields": [],
+    "method_specific_overrides_forbidden": true
+  },
+  "postprocess": {
+    "temporal_filter": "none",
+    "motion_blur": false,
+    "tone_mapping": "linear",
+    "future_frame_access": false
+  },
+  "evidence": {
+    "require_run_ids": true,
+    "require_artifact_hashes": true,
+    "require_renderer_hash": true,
+    "require_metric_links": false,
+    "forbidden_postprocess": []
+  }
+}

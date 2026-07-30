@@ -19,6 +19,9 @@ contracts rather than through backend-specific in-memory structures.
 | `geometry-bundle.schema.json` | Canonical domain and boundary geometry metadata |
 | `metrics-report.schema.json` | Metric values, uncertainty, applicability, and evidence provenance |
 | `source-lock.schema.json` | Pinned external source identity, revision, license, and integration boundary |
+| `camera-path.schema.json` | Versioned keyframed camera paths used by locked scientific and Hero shots |
+| `render-config.schema.json` | Renderer mode, camera, layers, comparison locks, temporal policy, and outputs |
+| `render-manifest.schema.json` | Shot plus optional case/run/claim linkage, input hashes, renderer provenance, comparison locks, frames, and outputs |
 
 ## Rules
 
@@ -30,3 +33,6 @@ contracts rather than through backend-specific in-memory structures.
 - Candidate benchmark cases must validate before review; frozen cases are
   immutable and content-addressed.
 - External source locks must agree with `references/sources.yaml`.
+- Planning or diagnostic renders may have incomplete evidence links. A frozen
+  B5 primary render must set `evidence_links.complete=true`, which requires a
+  benchmark case, run IDs, claim IDs, shot IDs, and at least one metrics artifact.

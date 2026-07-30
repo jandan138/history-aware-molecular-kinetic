@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0.0",
+  "camera_path_id": "diagnostic-static",
+  "coordinate_system": "right-handed-y-up",
+  "interpolation": "hold",
+  "keyframes": [
+    {
+      "time": 0.0,
+      "eye": [
+        3.0,
+        2.0,
+        3.0
+      ],
+      "target": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "up": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "fov_degrees": 45.0,
+      "note": "generic diagnostic overview"
+    },
+    {
+      "time": 1.0,
+      "eye": [
+        3.0,
+        2.0,
+        3.0
+      ],
+      "target": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "up": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "fov_degrees": 45.0,
+      "note": "locked end"
+    }
+  ]
+}

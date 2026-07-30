@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0.0",
+  "camera_path_id": "EV-05",
+  "coordinate_system": "right-handed-y-up",
+  "interpolation": "hold",
+  "keyframes": [
+    {
+      "time": 8.5,
+      "eye": [
+        4.8,
+        2.3,
+        4.2
+      ],
+      "target": [
+        3.4,
+        1.2,
+        1.5
+      ],
+      "up": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "fov_degrees": 33.0,
+      "note": "transitional block diagnostic"
+    },
+    {
+      "time": 10.5,
+      "eye": [
+        4.8,
+        2.3,
+        4.2
+      ],
+      "target": [
+        3.4,
+        1.2,
+        1.5
+      ],
+      "up": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "fov_degrees": 33.0,
+      "note": "locked end"
+    }
+  ]
+}

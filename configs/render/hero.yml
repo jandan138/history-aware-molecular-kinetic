@@ -1,0 +1,96 @@
+schema_version: 1.0.0
+config_id: render-hero-v0
+mode: hero
+scene_id: scene-hero-frozen
+output:
+  width: 3840
+  height: 2160
+  fps: 30.0
+  frame_format: exr
+  color_space: linear
+  alpha: false
+timeline:
+  start_time: 0.0
+  end_time: 15.0
+  sample_interval: 0.03333333333333333
+  shutter_fraction: 0.35
+camera:
+  projection: perspective
+  fov_degrees: 38.0
+  near: 0.001
+  far: 1000.0
+  paths:
+  - shot_id: hero
+    start_time: 0.0
+    end_time: 15.0
+    kind: artifact_locked
+    path_ref: cameras/scene-hero-frozen-v0.json
+    sha256: edc1f102fc4065160230f7537dc8790ae8a2380f6efb0fabe3b9c83870de095e
+layers:
+- id: exact
+  kind: exact_particles
+  source_kind: particle-bundle
+  enabled: true
+- id: statistical
+  kind: statistical_display_particles
+  source_kind: kinetic-bundle
+  enabled: true
+- id: geometry
+  kind: geometry
+  source_kind: geometry-bundle
+  enabled: true
+- id: density
+  kind: density_volume
+  source_kind: block-state
+  enabled: true
+- id: species
+  kind: species_volume
+  source_kind: block-state
+  enabled: true
+display_policy:
+  physics_camera_decoupled: true
+  exact_particle_radius_scale: 1.0
+  statistical_particles:
+    enabled: true
+    max_samples: 750000
+    seed: 0
+    temporal_identity: finite_lifetime
+    weight_compensation: true
+    non_physical_label: true
+  volume:
+    enabled: true
+    field: species
+    transfer_function: hero-density-species-v0
+    sampling_step: 0.003
+  partition_mask:
+    enabled: false
+    opacity: 0.0
+  collision_graph:
+    enabled: false
+    max_edges: 0
+    window: 0.0
+comparison_lock:
+  enabled: true
+  group_id: hero-art-freeze-v0
+  lock_fields:
+  - output
+  - timeline
+  - camera
+  - layers
+  - display_policy
+  - postprocess
+  method_specific_overrides_forbidden: true
+postprocess:
+  temporal_filter: causal-shared-v0
+  motion_blur: true
+  tone_mapping: hero-filmic-v0
+  future_frame_access: false
+evidence:
+  require_run_ids: true
+  require_artifact_hashes: true
+  require_renderer_hash: true
+  require_metric_links: true
+  forbidden_postprocess:
+  - future_frame_filter
+  - method_specific_denoiser
+  - method_specific_transfer_function

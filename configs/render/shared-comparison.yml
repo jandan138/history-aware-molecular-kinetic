@@ -1,0 +1,108 @@
+schema_version: 1.0.0
+config_id: render-shared-comparison-v0
+mode: shared_comparison
+scene_id: scene-frozen-primary
+output:
+  width: 3840
+  height: 2160
+  fps: 30.0
+  frame_format: exr
+  color_space: linear
+  alpha: false
+timeline:
+  start_time: 0.0
+  end_time: 10.0
+  sample_interval: 0.03333333333333333
+  shutter_fraction: 0.25
+camera:
+  projection: perspective
+  fov_degrees: 42.0
+  near: 0.001
+  far: 1000.0
+  paths:
+  - shot_id: primary
+    start_time: 0.0
+    end_time: 10.0
+    kind: artifact_locked
+    path_ref: cameras/scene-frozen-primary-v0.json
+    sha256: d1439ae7fcca3cf71dbf7e10c1c8065c76206d4d9e2ad16b9bc13e47c8e41e9b
+layers:
+- id: exact
+  kind: exact_particles
+  source_kind: particle-bundle
+  enabled: true
+- id: statistical
+  kind: statistical_display_particles
+  source_kind: kinetic-bundle
+  enabled: true
+- id: geometry
+  kind: geometry
+  source_kind: geometry-bundle
+  enabled: true
+- id: density
+  kind: density_volume
+  source_kind: block-state
+  enabled: true
+- id: species
+  kind: species_volume
+  source_kind: block-state
+  enabled: true
+- id: mask
+  kind: partition_mask
+  source_kind: partition-mask
+  enabled: true
+- id: error
+  kind: reference_error
+  source_kind: metrics-report
+  enabled: true
+- id: metrics
+  kind: metrics_inset
+  source_kind: metrics-report
+  enabled: true
+display_policy:
+  physics_camera_decoupled: true
+  exact_particle_radius_scale: 1.0
+  statistical_particles:
+    enabled: true
+    max_samples: 500000
+    seed: 0
+    temporal_identity: persistent
+    weight_compensation: true
+    non_physical_label: true
+  volume:
+    enabled: true
+    field: species
+    transfer_function: shared-density-species-v0
+    sampling_step: 0.005
+  partition_mask:
+    enabled: true
+    opacity: 0.25
+  collision_graph:
+    enabled: false
+    max_edges: 0
+    window: 0.0
+comparison_lock:
+  enabled: true
+  group_id: primary-scene-comparison-v0
+  lock_fields:
+  - output
+  - timeline
+  - camera
+  - layers
+  - display_policy
+  - postprocess
+  method_specific_overrides_forbidden: true
+postprocess:
+  temporal_filter: causal-shared-v0
+  motion_blur: true
+  tone_mapping: shared-filmic-v0
+  future_frame_access: false
+evidence:
+  require_run_ids: true
+  require_artifact_hashes: true
+  require_renderer_hash: true
+  require_metric_links: true
+  forbidden_postprocess:
+  - future_frame_filter
+  - method_specific_denoiser
+  - method_specific_transfer_function

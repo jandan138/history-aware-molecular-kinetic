@@ -1,0 +1,141 @@
+schema_version: 1.0.0
+config_id: render-scene-expansion-vacuum-v0
+mode: hero
+scene_id: B5-EXPANSION-VACUUM-v0
+output:
+  width: 3840
+  height: 2160
+  fps: 30.0
+  frame_format: exr
+  color_space: acescg
+  alpha: false
+timeline:
+  start_time: 0.0
+  end_time: 14.0
+  sample_interval: 0.0333333333
+  shutter_fraction: 0.3
+camera:
+  projection: perspective
+  fov_degrees: 36.0
+  near: 0.005
+  far: 100.0
+  paths:
+  - shot_id: EV-01
+    start_time: 0.0
+    end_time: 2.0
+    kind: artifact_locked
+    path_ref: cameras/expansion-vacuum/EV-01.json
+    sha256: 401d6375b61262db1a3f029ed3f4bba11be949d4e85a169c36c4a4b338418504
+  - shot_id: EV-02
+    start_time: 2.0
+    end_time: 4.0
+    kind: artifact_locked
+    path_ref: cameras/expansion-vacuum/EV-02.json
+    sha256: 22707d41c8ab0b85f65bfd7a5c396a379b179329f01805ba64c6278a72013ce4
+  - shot_id: EV-03
+    start_time: 4.0
+    end_time: 6.0
+    kind: keyframed
+    path_ref: cameras/expansion-vacuum/EV-03.json
+    sha256: 762fc95a7a2d4e33b5966f5653ed649846a7032bae517cf4ff04841a4714581b
+  - shot_id: EV-04
+    start_time: 6.0
+    end_time: 8.5
+    kind: keyframed
+    path_ref: cameras/expansion-vacuum/EV-04.json
+    sha256: 4227a275a2d1f7ffd9eaff3edc54549a95dc618882ff408f2aea1015b7f24511
+  - shot_id: EV-05
+    start_time: 8.5
+    end_time: 10.5
+    kind: artifact_locked
+    path_ref: cameras/expansion-vacuum/EV-05.json
+    sha256: 71588887515a3ed0c0b84efd49027dce90736c6fd3bb9c8d838c43e6f73401b7
+  - shot_id: EV-06
+    start_time: 10.5
+    end_time: 12.5
+    kind: artifact_locked
+    path_ref: cameras/expansion-vacuum/EV-06.json
+    sha256: 67fea8eb18d6232e6b6dc38b2ff1dc154f8f8fdc9cedbb5284999380a8833318
+  - shot_id: EV-07
+    start_time: 12.5
+    end_time: 14.0
+    kind: artifact_locked
+    path_ref: cameras/expansion-vacuum/EV-07.json
+    sha256: 892dc70c48e2a86ddeb4143db9e8aad1741a441e0afb987a829e7cabb6e08dea
+layers:
+- id: plume-volume
+  kind: density_volume
+  source_kind: kinetic-bundle
+  enabled: true
+- id: exact-particles
+  kind: exact_particles
+  source_kind: particle-bundle
+  enabled: true
+- id: statistical-display
+  kind: statistical_display_particles
+  source_kind: kinetic-bundle
+  enabled: true
+- id: chamber-nozzle
+  kind: geometry
+  source_kind: geometry-bundle
+  enabled: true
+- id: partition-mini-map
+  kind: partition_mask
+  source_kind: partition-mask
+  enabled: true
+- id: velocity-inset
+  kind: velocity_distribution
+  source_kind: block-state
+  enabled: true
+- id: pareto-inset
+  kind: metrics_inset
+  source_kind: metrics-report
+  enabled: true
+display_policy:
+  physics_camera_decoupled: true
+  exact_particle_radius_scale: 1.4
+  statistical_particles:
+    enabled: true
+    max_samples: 1200000
+    seed: 303
+    temporal_identity: persistent
+    weight_compensation: true
+    non_physical_label: true
+  volume:
+    enabled: true
+    field: density
+    transfer_function: vacuum-plume-v0
+    sampling_step: 0.003
+  partition_mask:
+    enabled: true
+    opacity: 0.15
+  collision_graph:
+    enabled: false
+    max_edges: 0
+    window: 0.0
+comparison_lock:
+  enabled: true
+  group_id: B5-EXPANSION-VACUUM-v0-primary
+  lock_fields:
+  - output
+  - timeline
+  - camera
+  - layers
+  - display_policy
+  - postprocess
+  method_specific_overrides_forbidden: true
+postprocess:
+  temporal_filter: shared
+  motion_blur: true
+  tone_mapping: aces
+  future_frame_access: false
+evidence:
+  require_run_ids: true
+  require_artifact_hashes: true
+  require_renderer_hash: true
+  require_metric_links: true
+  forbidden_postprocess:
+  - camera_triggered_physics_refinement
+  - method_specific_transfer_function
+  - proposed_only_temporal_filter
+  - artist_authored_plume_noise

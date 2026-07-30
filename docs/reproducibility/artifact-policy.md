@@ -26,3 +26,8 @@ and must include checksums and a manifest connecting each file to run IDs.
 
 Oracle raw output is preserved until the canonical converter and primary metrics
 are independently audited.
+
+
+## Render evidence
+
+Render configs, camera paths, manifests, frame recipes, comparison-lock reports, and small contact sheets are committed when compact. Large image sequences and videos remain external artifacts with checksums. Every released primary frame maps to run IDs, input artifact hashes, render config hash, camera hash, display-policy hash, and renderer version.

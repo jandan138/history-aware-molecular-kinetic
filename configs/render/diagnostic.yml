@@ -1,0 +1,105 @@
+schema_version: 1.0.0
+config_id: render-diagnostic-v0
+mode: diagnostic
+scene_id: generic-diagnostic
+output:
+  width: 1920
+  height: 1080
+  fps: 30.0
+  frame_format: png
+  color_space: srgb
+  alpha: false
+timeline:
+  start_time: 0.0
+  end_time: 10.0
+  sample_interval: 0.03333333333333333
+  shutter_fraction: 0.0
+camera:
+  projection: perspective
+  fov_degrees: 45.0
+  near: 0.001
+  far: 1000.0
+  paths:
+  - shot_id: diagnostic
+    start_time: 0.0
+    end_time: 10.0
+    kind: artifact_locked
+    path_ref: cameras/diagnostic-orbit-v0.json
+    sha256: 1428304d13c485b3c7f9a1bf4cabe042e4352e17317a461427ba3fb8a6b9b905
+layers:
+- id: exact
+  kind: exact_particles
+  source_kind: particle-bundle
+  enabled: true
+- id: statistical
+  kind: statistical_display_particles
+  source_kind: kinetic-bundle
+  enabled: true
+- id: geometry
+  kind: geometry
+  source_kind: geometry-bundle
+  enabled: true
+- id: grid
+  kind: block_grid
+  source_kind: block-state
+  enabled: true
+- id: mask
+  kind: partition_mask
+  source_kind: partition-mask
+  enabled: true
+- id: graph
+  kind: collision_graph
+  source_kind: collision-event
+  enabled: true
+- id: distribution
+  kind: velocity_distribution
+  source_kind: metrics-report
+  enabled: true
+- id: conservation
+  kind: conservation_timeline
+  source_kind: conversion-report
+  enabled: true
+- id: error
+  kind: reference_error
+  source_kind: metrics-report
+  enabled: true
+display_policy:
+  physics_camera_decoupled: true
+  exact_particle_radius_scale: 1.0
+  statistical_particles:
+    enabled: true
+    max_samples: 200000
+    seed: 0
+    temporal_identity: persistent
+    weight_compensation: true
+    non_physical_label: true
+  volume:
+    enabled: true
+    field: density
+    transfer_function: diagnostic-density-v0
+    sampling_step: 0.01
+  partition_mask:
+    enabled: true
+    opacity: 0.35
+  collision_graph:
+    enabled: true
+    max_edges: 5000
+    window: 0.25
+comparison_lock:
+  enabled: false
+  group_id: diagnostic-v0
+  lock_fields: []
+  method_specific_overrides_forbidden: true
+postprocess:
+  temporal_filter: none
+  motion_blur: false
+  tone_mapping: linear
+  future_frame_access: false
+evidence:
+  require_run_ids: true
+  require_artifact_hashes: true
+  require_renderer_hash: true
+  require_metric_links: false
+  forbidden_postprocess:
+  - future_frame_filter
+  - method_specific_denoiser

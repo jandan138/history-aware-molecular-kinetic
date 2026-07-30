@@ -1,0 +1,373 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hamk.dev/schemas/render-manifest/1.0.0",
+  "title": "HAMK render manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "render_id",
+    "schema_version",
+    "renderer",
+    "config",
+    "timeline",
+    "camera",
+    "artifacts",
+    "evidence_links",
+    "output",
+    "evidence",
+    "physics_state_mutated"
+  ],
+  "properties": {
+    "render_id": {
+      "type": "string",
+      "pattern": "^render-[a-f0-9]{16}$"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "renderer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "version",
+        "digest"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "digest": {
+          "type": "string",
+          "pattern": "^renderer-[a-f0-9]{16}$"
+        }
+      }
+    },
+    "config": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "config_id",
+        "mode",
+        "scene_id",
+        "digest",
+        "display_policy_digest",
+        "comparison_lock_digest"
+      ],
+      "properties": {
+        "config_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "mode": {
+          "enum": [
+            "diagnostic",
+            "shared_comparison",
+            "hero"
+          ]
+        },
+        "scene_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "digest": {
+          "type": "string",
+          "pattern": "^render-config-[a-f0-9]{16}$"
+        },
+        "comparison_lock_digest": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^comparison-lock-[a-f0-9]{16}$"
+        },
+        "display_policy_digest": {
+          "type": "string",
+          "pattern": "^display-policy-[a-f0-9]{16}$"
+        }
+      }
+    },
+    "timeline": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "start_time",
+        "end_time",
+        "sample_interval",
+        "frame_count"
+      ],
+      "properties": {
+        "start_time": {
+          "type": "number",
+          "minimum": 0
+        },
+        "end_time": {
+          "type": "number",
+          "minimum": 0
+        },
+        "sample_interval": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "frame_count": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "camera": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "projection",
+        "paths"
+      ],
+      "properties": {
+        "projection": {
+          "enum": [
+            "perspective",
+            "orthographic"
+          ]
+        },
+        "paths": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "path_ref",
+              "sha256"
+            ],
+            "properties": {
+              "path_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              }
+            }
+          }
+        }
+      }
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "kind",
+          "path",
+          "schema_version",
+          "sha256"
+        ],
+        "properties": {
+          "kind": {
+            "type": "string",
+            "minLength": 1
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "schema_version": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sha256": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        }
+      }
+    },
+    "evidence_links": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "case_id",
+        "shot_ids",
+        "run_ids",
+        "claim_ids",
+        "metric_artifact_paths",
+        "complete"
+      ],
+      "properties": {
+        "case_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "shot_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "run_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "claim_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^C[0-9]+$"
+          }
+        },
+        "metric_artifact_paths": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "complete": {
+          "type": "boolean"
+        }
+      }
+    },
+    "output": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "width",
+        "height",
+        "fps",
+        "frame_format",
+        "color_space",
+        "alpha"
+      ],
+      "properties": {
+        "width": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "fps": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "frame_format": {
+          "enum": [
+            "png",
+            "exr"
+          ]
+        },
+        "color_space": {
+          "type": "string",
+          "minLength": 1
+        },
+        "alpha": {
+          "type": "boolean"
+        }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "all_artifacts_hashed",
+        "physics_camera_decoupled",
+        "method_specific_overrides_forbidden",
+        "require_run_ids",
+        "require_artifact_hashes",
+        "require_renderer_hash",
+        "require_metric_links"
+      ],
+      "properties": {
+        "all_artifacts_hashed": {
+          "type": "boolean"
+        },
+        "physics_camera_decoupled": {
+          "type": "boolean"
+        },
+        "method_specific_overrides_forbidden": {
+          "type": "boolean"
+        },
+        "require_run_ids": {
+          "type": "boolean"
+        },
+        "require_artifact_hashes": {
+          "type": "boolean"
+        },
+        "require_renderer_hash": {
+          "type": "boolean"
+        },
+        "require_metric_links": {
+          "type": "boolean"
+        }
+      }
+    },
+    "physics_state_mutated": {
+      "const": false
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "evidence_links": {
+            "properties": {
+              "complete": {
+                "const": true
+              }
+            },
+            "required": [
+              "complete"
+            ]
+          }
+        },
+        "required": [
+          "evidence_links"
+        ]
+      },
+      "then": {
+        "properties": {
+          "evidence_links": {
+            "properties": {
+              "case_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "run_ids": {
+                "minItems": 1
+              },
+              "claim_ids": {
+                "minItems": 1
+              },
+              "metric_artifact_paths": {
+                "minItems": 1
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

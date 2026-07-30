@@ -27,3 +27,15 @@ recorded per method.
 
 External reference behavior is bound to pinned revisions. A new upstream version
 creates a new adapter evidence revision.
+
+
+## Graphics evidence
+
+A primary visual result additionally records the B5 case and shot ID, render-config and camera-path hashes, comparison-lock group/hash, display particle policy/seed, transfer function, temporal filtering, renderer version, frame times, and links to the physical metric displayed.
+
+
+## Render comparison audit
+
+Frozen primary comparisons must pass `scripts/audit_render_manifests.py` with
+complete evidence links. This prevents camera, timeline, renderer, or display
+settings from drifting between methods after metrics have been selected.

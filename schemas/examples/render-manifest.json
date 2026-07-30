@@ -1,0 +1,68 @@
+{
+  "artifacts": [
+    {
+      "kind": "particle-bundle",
+      "path": "artifacts/particles.json",
+      "schema_version": "1.0.0",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  ],
+  "camera": {
+    "paths": [
+      {
+        "path_ref": "cameras/example.json",
+        "sha256": "c9602804d350aa043f6f881a3fc2212a85116a510b988690b35f3d046ef79587"
+      }
+    ],
+    "projection": "perspective"
+  },
+  "config": {
+    "comparison_lock_digest": null,
+    "config_id": "render-example-v0",
+    "digest": "render-config-0215e08502fc3acc",
+    "display_policy_digest": "display-policy-9ac111ec8dcc433b",
+    "mode": "diagnostic",
+    "scene_id": "example"
+  },
+  "evidence": {
+    "all_artifacts_hashed": true,
+    "method_specific_overrides_forbidden": true,
+    "physics_camera_decoupled": true,
+    "require_artifact_hashes": true,
+    "require_metric_links": false,
+    "require_renderer_hash": true,
+    "require_run_ids": true
+  },
+  "evidence_links": {
+    "case_id": null,
+    "claim_ids": [],
+    "complete": false,
+    "metric_artifact_paths": [],
+    "run_ids": [],
+    "shot_ids": [
+      "example"
+    ]
+  },
+  "output": {
+    "alpha": false,
+    "color_space": "srgb",
+    "fps": 30.0,
+    "frame_format": "png",
+    "height": 360,
+    "width": 640
+  },
+  "physics_state_mutated": false,
+  "render_id": "render-c0424bf3a3a07aa4",
+  "renderer": {
+    "digest": "renderer-e9236b196cb1c815",
+    "name": "manifest-only",
+    "version": "0.1.0"
+  },
+  "schema_version": "1.0.0",
+  "timeline": {
+    "end_time": 1.0,
+    "frame_count": 11,
+    "sample_interval": 0.1,
+    "start_time": 0.0
+  }
+}

@@ -59,8 +59,7 @@ partitions. Compare against uniform and state-only adaptive baselines.
 
 ## 9. B5 — Graphics evidence
 
-Render the same physical artifacts with a shared pipeline and freeze three hero
-scenes. No new physics should debut in B5.
+Render the same frozen B2–B4 artifact families with a shared pipeline and freeze three Hero Scenes: Zoomable Mixing, Correlation Labyrinth, and Expansion into Vacuum. No new physics may debut in B5. Every comparison uses a render manifest and comparison-lock hash; at least two predeclared physical observables must remain visible under matched display density. See [B5 Graphics Evidence](b5-graphics-evidence.md) and the [Visual Production Roadmap](../demos/visual-production-roadmap.md).
 
 ## 10. Case lifecycle
 

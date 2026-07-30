@@ -1,0 +1,74 @@
+schema_version: "1.0.0"
+case_id: B5-EXPANSION-VACUUM-v0
+suite: B5
+title: Expansion into vacuum flagship dynamic-LOD evidence
+status: candidate
+physics:
+  dimension: 3
+  model: artifact_replay
+  domain:
+    lower: [0.0, 0.0, 0.0]
+    upper: [8.0, 3.0, 3.0]
+    boundary: chamber_aperture_and_open_far_field
+  species:
+    - name: gas
+      diameter: 0.01
+      mass: 1.0
+  packing_fraction: 0.02
+  render_config: configs/render/scenes/expansion-into-vacuum.yml
+  primary_claims: [C4, C7, C8, C9]
+initial_condition:
+  kind: frozen_transient_expansion_artifact_reference
+  scene_spec: docs/demos/scene-specs/expansion-into-vacuum.md
+  source_case_ids:
+    - R0-UNI-HYBRID-v0
+    - B4-DYNAMIC-LOD-SMOKE-v0
+  require_reference_applicability_report: true
+  required_artifacts:
+    - particle-bundle
+    - kinetic-bundle
+    - block-state
+    - history-feature
+    - partition-mask
+    - geometry-bundle
+    - metrics-report
+    - run-manifest
+methods:
+  - full_dsmc
+  - state_only_policy
+  - practical_history_policy
+  - oracle_history_upper_bound
+  - reduced_scale_full_exact_reference
+sampling:
+  end_time: 20.0
+  interval: 0.0333333333
+  seeds: [0]
+outputs:
+  - render_manifest
+  - image_sequence
+  - particle_bundle
+  - kinetic_bundle
+  - partition_mask
+  - metrics_report
+acceptance:
+  - metric: physics_artifact_hash_locked
+    operator: equal
+    value: 1
+  - metric: reference_applicability_report_present
+    operator: equal
+    value: 1
+  - metric: camera_physics_coupling_events
+    operator: equal
+    value: 0
+  - metric: method_specific_render_override_count
+    operator: equal
+    value: 0
+  - metric: comparison_lock_match
+    operator: equal
+    value: 1
+  - metric: artifact_hash_coverage
+    operator: equal
+    value: 1.0
+  - metric: display_density_relative_mismatch
+    operator: less_equal
+    value: 0.02

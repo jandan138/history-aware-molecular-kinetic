@@ -1,0 +1,457 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hamk.dev/schemas/render-config/1.0.0",
+  "title": "HAMK render configuration",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "config_id",
+    "mode",
+    "scene_id",
+    "output",
+    "timeline",
+    "camera",
+    "layers",
+    "display_policy",
+    "comparison_lock",
+    "postprocess",
+    "evidence"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "config_id": {
+      "type": "string",
+      "pattern": "^render-[a-z0-9-]+-v[0-9]+$"
+    },
+    "mode": {
+      "enum": [
+        "diagnostic",
+        "shared_comparison",
+        "hero"
+      ]
+    },
+    "scene_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "output": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "width",
+        "height",
+        "fps",
+        "frame_format",
+        "color_space",
+        "alpha"
+      ],
+      "properties": {
+        "width": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "fps": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "frame_format": {
+          "enum": [
+            "png",
+            "exr",
+            "jpg"
+          ]
+        },
+        "color_space": {
+          "type": "string",
+          "minLength": 1
+        },
+        "alpha": {
+          "type": "boolean"
+        }
+      }
+    },
+    "timeline": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "start_time",
+        "end_time",
+        "sample_interval",
+        "shutter_fraction"
+      ],
+      "properties": {
+        "start_time": {
+          "type": "number",
+          "minimum": 0
+        },
+        "end_time": {
+          "type": "number",
+          "minimum": 0
+        },
+        "sample_interval": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "shutter_fraction": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "camera": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "projection",
+        "fov_degrees",
+        "near",
+        "far",
+        "paths"
+      ],
+      "properties": {
+        "projection": {
+          "enum": [
+            "perspective",
+            "orthographic"
+          ]
+        },
+        "fov_degrees": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "exclusiveMaximum": 180
+        },
+        "near": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "far": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "paths": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "shot_id",
+              "start_time",
+              "end_time",
+              "kind",
+              "path_ref",
+              "sha256"
+            ],
+            "properties": {
+              "shot_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "start_time": {
+                "type": "number",
+                "minimum": 0
+              },
+              "end_time": {
+                "type": "number",
+                "minimum": 0
+              },
+              "kind": {
+                "enum": [
+                  "artifact_locked",
+                  "fixed",
+                  "orbit",
+                  "keyframed"
+                ]
+              },
+              "path_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              }
+            }
+          }
+        }
+      }
+    },
+    "layers": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "kind",
+          "source_kind",
+          "enabled"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "enum": [
+              "exact_particles",
+              "statistical_display_particles",
+              "geometry",
+              "block_grid",
+              "density_volume",
+              "species_volume",
+              "temperature_volume",
+              "partition_mask",
+              "collision_graph",
+              "velocity_distribution",
+              "pair_statistics",
+              "conservation_timeline",
+              "reference_error",
+              "metrics_inset"
+            ]
+          },
+          "source_kind": {
+            "type": "string",
+            "minLength": 1
+          },
+          "enabled": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "display_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "physics_camera_decoupled",
+        "exact_particle_radius_scale",
+        "statistical_particles",
+        "volume",
+        "partition_mask",
+        "collision_graph"
+      ],
+      "properties": {
+        "physics_camera_decoupled": {
+          "const": true
+        },
+        "exact_particle_radius_scale": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "statistical_particles": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "enabled",
+            "max_samples",
+            "seed",
+            "temporal_identity",
+            "weight_compensation",
+            "non_physical_label"
+          ],
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "max_samples": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "seed": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "temporal_identity": {
+              "enum": [
+                "none",
+                "persistent",
+                "finite_lifetime"
+              ]
+            },
+            "weight_compensation": {
+              "type": "boolean"
+            },
+            "non_physical_label": {
+              "const": true
+            }
+          }
+        },
+        "volume": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "enabled",
+            "field",
+            "transfer_function",
+            "sampling_step"
+          ],
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "field": {
+              "enum": [
+                "none",
+                "density",
+                "species",
+                "temperature"
+              ]
+            },
+            "transfer_function": {
+              "type": "string",
+              "minLength": 1
+            },
+            "sampling_step": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            }
+          }
+        },
+        "partition_mask": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "enabled",
+            "opacity"
+          ],
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "opacity": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          }
+        },
+        "collision_graph": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "enabled",
+            "max_edges",
+            "window"
+          ],
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "max_edges": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "window": {
+              "type": "number",
+              "minimum": 0
+            }
+          }
+        }
+      }
+    },
+    "comparison_lock": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "enabled",
+        "group_id",
+        "lock_fields",
+        "method_specific_overrides_forbidden"
+      ],
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "group_id": {
+          "type": "string"
+        },
+        "lock_fields": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "output",
+              "timeline",
+              "camera",
+              "layers",
+              "display_policy",
+              "postprocess"
+            ]
+          }
+        },
+        "method_specific_overrides_forbidden": {
+          "const": true
+        }
+      }
+    },
+    "postprocess": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "temporal_filter",
+        "motion_blur",
+        "tone_mapping",
+        "future_frame_access"
+      ],
+      "properties": {
+        "temporal_filter": {
+          "type": "string",
+          "minLength": 1
+        },
+        "motion_blur": {
+          "type": "boolean"
+        },
+        "tone_mapping": {
+          "type": "string",
+          "minLength": 1
+        },
+        "future_frame_access": {
+          "const": false
+        }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "require_run_ids",
+        "require_artifact_hashes",
+        "require_renderer_hash",
+        "require_metric_links",
+        "forbidden_postprocess"
+      ],
+      "properties": {
+        "require_run_ids": {
+          "type": "boolean"
+        },
+        "require_artifact_hashes": {
+          "type": "boolean"
+        },
+        "require_renderer_hash": {
+          "type": "boolean"
+        },
+        "require_metric_links": {
+          "type": "boolean"
+        },
+        "forbidden_postprocess": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  }
+}

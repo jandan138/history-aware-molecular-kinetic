@@ -1,0 +1,14 @@
+[
+  {
+    "kind": "particle-bundle",
+    "path": "artifacts/particles.json",
+    "schema_version": "1.0.0",
+    "content_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  },
+  {
+    "kind": "metrics-report",
+    "path": "artifacts/metrics.json",
+    "schema_version": "1.0.0",
+    "content_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+  }
+]

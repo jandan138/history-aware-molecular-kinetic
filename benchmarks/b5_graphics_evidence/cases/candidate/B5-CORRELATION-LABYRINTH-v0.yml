@@ -1,0 +1,75 @@
+schema_version: "1.0.0"
+case_id: B5-CORRELATION-LABYRINTH-v0
+suite: B5
+title: Correlation labyrinth matched-state history evidence
+status: candidate
+physics:
+  dimension: 3
+  model: artifact_replay
+  domain:
+    lower: [0.0, 0.0, 0.0]
+    upper: [4.0, 2.0, 0.5]
+    boundary: reflective_geometry
+  species:
+    - name: tracer
+      diameter: 0.02
+      mass: 1.0
+  packing_fraction: 0.04
+  render_config: configs/render/scenes/correlation-labyrinth.yml
+  primary_claims: [C3, C4, C8]
+initial_condition:
+  kind: frozen_matched_state_artifact_reference
+  scene_spec: docs/demos/scene-specs/correlation-labyrinth.md
+  source_case_ids:
+    - B1-CORRELATION-LABYRINTH-v0
+    - B2-HISTORY-LABYRINTH-v0
+    - B4-DYNAMIC-LOD-SMOKE-v0
+  require_grouped_holdout: true
+  required_artifacts:
+    - particle-bundle
+    - kinetic-bundle
+    - block-state
+    - history-feature
+    - partition-mask
+    - discrepancy-sample
+    - geometry-bundle
+    - metrics-report
+methods:
+  - full_exact_reference
+  - full_kinetic
+  - state_only_policy
+  - practical_history_policy
+  - oracle_history_upper_bound
+sampling:
+  end_time: 20.0
+  interval: 0.0333333333
+  seeds: [0]
+outputs:
+  - render_manifest
+  - image_sequence
+  - partition_mask
+  - history_feature_bundle
+  - discrepancy_dataset
+  - metrics_report
+acceptance:
+  - metric: physics_artifact_hash_locked
+    operator: equal
+    value: 1
+  - metric: matched_state_pair_registry_present
+    operator: equal
+    value: 1
+  - metric: method_specific_render_override_count
+    operator: equal
+    value: 0
+  - metric: comparison_lock_match
+    operator: equal
+    value: 1
+  - metric: artifact_hash_coverage
+    operator: equal
+    value: 1.0
+  - metric: display_density_relative_mismatch
+    operator: less_equal
+    value: 0.02
+  - metric: held_out_scene_flag
+    operator: equal
+    value: 1

@@ -1,0 +1,124 @@
+schema_version: 1.0.0
+config_id: render-scene-zoomable-mixing-v0
+mode: shared_comparison
+scene_id: B5-ZOOM-MIX-v0
+output:
+  width: 1920
+  height: 1080
+  fps: 30.0
+  frame_format: exr
+  color_space: acescg
+  alpha: false
+timeline:
+  start_time: 0.0
+  end_time: 10.0
+  sample_interval: 0.0333333333
+  shutter_fraction: 0.0
+camera:
+  projection: perspective
+  fov_degrees: 40.0
+  near: 0.005
+  far: 20.0
+  paths:
+  - shot_id: ZM-01
+    start_time: 0.0
+    end_time: 2.0
+    kind: artifact_locked
+    path_ref: cameras/zoomable-mixing/ZM-01.json
+    sha256: 3fd8c178cc6506f0f43f460c5608029b976fb4aeb7e64b1e0e6d05579dba641c
+  - shot_id: ZM-02
+    start_time: 2.0
+    end_time: 4.0
+    kind: keyframed
+    path_ref: cameras/zoomable-mixing/ZM-02.json
+    sha256: 9a3bac85f9dc7c1910e1410d2fbd36cd7e2d4a54a40749e82378edd46bf09409
+  - shot_id: ZM-03
+    start_time: 4.0
+    end_time: 6.5
+    kind: keyframed
+    path_ref: cameras/zoomable-mixing/ZM-03.json
+    sha256: 86bee3a6cbb5a06413a19d7a5e07202e56f1151d55dde941ffabbe548333e1b2
+  - shot_id: ZM-04
+    start_time: 6.5
+    end_time: 8.0
+    kind: artifact_locked
+    path_ref: cameras/zoomable-mixing/ZM-04.json
+    sha256: 6825210e74a9d683405cb72cad2a985ee42dcb761eaa6644400c21638bcfe528
+  - shot_id: ZM-05
+    start_time: 8.0
+    end_time: 10.0
+    kind: keyframed
+    path_ref: cameras/zoomable-mixing/ZM-05.json
+    sha256: f5d34f45b5fd685c0413428d89990826932def4d4eeeb118164332723be90f67
+layers:
+- id: species-volume
+  kind: species_volume
+  source_kind: kinetic-bundle
+  enabled: true
+- id: exact-particles
+  kind: exact_particles
+  source_kind: particle-bundle
+  enabled: true
+- id: statistical-display
+  kind: statistical_display_particles
+  source_kind: kinetic-bundle
+  enabled: true
+- id: chamber
+  kind: geometry
+  source_kind: geometry-bundle
+  enabled: true
+- id: partition-inset
+  kind: partition_mask
+  source_kind: partition-mask
+  enabled: true
+- id: conversion-timeline
+  kind: conservation_timeline
+  source_kind: conversion-report
+  enabled: true
+display_policy:
+  physics_camera_decoupled: true
+  exact_particle_radius_scale: 1.35
+  statistical_particles:
+    enabled: true
+    max_samples: 600000
+    seed: 101
+    temporal_identity: persistent
+    weight_compensation: true
+    non_physical_label: true
+  volume:
+    enabled: true
+    field: species
+    transfer_function: species-mix-v0
+    sampling_step: 0.004
+  partition_mask:
+    enabled: true
+    opacity: 0.2
+  collision_graph:
+    enabled: true
+    max_edges: 1200
+    window: 0.05
+comparison_lock:
+  enabled: true
+  group_id: B5-ZOOM-MIX-v0-primary
+  lock_fields:
+  - output
+  - timeline
+  - camera
+  - layers
+  - display_policy
+  - postprocess
+  method_specific_overrides_forbidden: true
+postprocess:
+  temporal_filter: none
+  motion_blur: false
+  tone_mapping: aces
+  future_frame_access: false
+evidence:
+  require_run_ids: true
+  require_artifact_hashes: true
+  require_renderer_hash: true
+  require_metric_links: true
+  forbidden_postprocess:
+  - camera_triggered_physics_refinement
+  - proposed_only_temporal_filter
+  - method_specific_particle_deletion

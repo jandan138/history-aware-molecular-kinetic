@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0.0",
+  "camera_path_id": "comparison-static",
+  "coordinate_system": "right-handed-y-up",
+  "interpolation": "hold",
+  "keyframes": [
+    {
+      "time": 0.0,
+      "eye": [
+        4.0,
+        2.5,
+        4.0
+      ],
+      "target": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "up": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "fov_degrees": 42.0,
+      "note": "shared comparison overview"
+    },
+    {
+      "time": 1.0,
+      "eye": [
+        4.0,
+        2.5,
+        4.0
+      ],
+      "target": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "up": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "fov_degrees": 42.0,
+      "note": "locked end"
+    }
+  ]
+}

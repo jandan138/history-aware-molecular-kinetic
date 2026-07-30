@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hamk.dev/schemas/camera-path/1.0.0",
+  "title": "HAMK camera path",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "camera_path_id",
+    "coordinate_system",
+    "interpolation",
+    "keyframes"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "camera_path_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "coordinate_system": {
+      "type": "string",
+      "minLength": 1
+    },
+    "interpolation": {
+      "enum": [
+        "hold",
+        "linear",
+        "catmull_rom"
+      ]
+    },
+    "keyframes": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "time",
+          "eye",
+          "target",
+          "up",
+          "fov_degrees"
+        ],
+        "properties": {
+          "time": {
+            "type": "number",
+            "minimum": 0
+          },
+          "eye": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 3,
+            "items": {
+              "type": "number"
+            }
+          },
+          "target": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 3,
+            "items": {
+              "type": "number"
+            }
+          },
+          "up": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 3,
+            "items": {
+              "type": "number"
+            }
+          },
+          "fov_degrees": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "exclusiveMaximum": 180
+          },
+          "note": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

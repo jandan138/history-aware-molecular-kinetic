@@ -120,3 +120,18 @@ Internal native solvers may use reduced units. Canonical artifacts must either:
 2. include the complete reduced-unit scale and conversion.
 
 Adapters may not guess units from filenames or tutorial defaults.
+
+
+### 2.5 Visualization plane
+
+The shared renderer consumes particle, field, partition, history, geometry, conversion, and metric artifacts. It may vary draw density and camera, but it cannot modify the physics partition.
+
+Render inputs and provenance are themselves versioned:
+
+- `render-config.schema.json` defines mode, frame schedule, camera paths, layers, display policy, comparison lock, postprocess, and evidence requirements;
+- `render-manifest.schema.json` records renderer identity, input hashes,
+  camera/display/comparison hashes, frame schedule, output specification, shot
+  IDs, and optional case/run/claim/metric evidence links. Frozen B5 primary
+  renders require those links to be complete.
+
+A camera or display-policy change must never mutate B0–B4 artifacts. Statistical display particles have display ownership only and cannot enter physical metrics or collision history.

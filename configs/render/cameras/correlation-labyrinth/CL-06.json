@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0.0",
+  "camera_path_id": "CL-06",
+  "coordinate_system": "right-handed-y-up",
+  "interpolation": "hold",
+  "keyframes": [
+    {
+      "time": 10.0,
+      "eye": [
+        5.5,
+        4.2,
+        6.0
+      ],
+      "target": [
+        2.0,
+        0.7,
+        0.5
+      ],
+      "up": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "fov_degrees": 38.0,
+      "note": "held-out geometry"
+    },
+    {
+      "time": 12.0,
+      "eye": [
+        5.5,
+        4.2,
+        6.0
+      ],
+      "target": [
+        2.0,
+        0.7,
+        0.5
+      ],
+      "up": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "fov_degrees": 38.0,
+      "note": "locked end"
+    }
+  ]
+}

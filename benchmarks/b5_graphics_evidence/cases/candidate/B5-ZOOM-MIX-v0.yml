@@ -1,7 +1,7 @@
 schema_version: "1.0.0"
 case_id: B5-ZOOM-MIX-v0
 suite: B5
-title: Zoomable mixing chamber shared-renderer evidence
+title: Zoomable mixing chamber conversion and camera-decoupling evidence
 status: candidate
 physics:
   dimension: 3
@@ -18,17 +18,52 @@ physics:
       diameter: 0.01
       mass: 1.0
   packing_fraction: 0.02
+  render_config: configs/render/scenes/zoomable-mixing.yml
+  primary_claims: [C5, C6, C9]
 initial_condition:
-  kind: frozen_b4_artifact_reference
+  kind: frozen_b4_artifact_family
+  required_artifacts:
+    - particle-bundle
+    - kinetic-bundle
+    - partition-mask
+    - conversion-report
+    - geometry-bundle
+    - metrics-report
   temperature: 1.0
   mean_velocity: [0.0, 0.0, 0.0]
-methods: [shared_renderer]
+methods:
+  - full_exact_reference
+  - full_kinetic
+  - naive_conversion
+  - state_only_dynamic_lod
+  - practical_history_probe_lod
+  - shared_renderer
 sampling:
   end_time: 10.0
   interval: 0.0333333333
-  seeds: [0]
-outputs: [render_manifest, image_sequence, metrics_report]
+  seeds: [0, 1, 2]
+outputs:
+  - render_manifest
+  - image_sequence
+  - visual_metrics
+  - metrics_report
+  - failure_reel_inputs
 acceptance:
   - metric: physics_artifact_hash_locked
+    operator: equal
+    value: 1
+  - metric: comparison_lock_match
+    operator: equal
+    value: 1
+  - metric: camera_physics_decoupled
+    operator: equal
+    value: 1
+  - metric: artifact_hash_coverage
+    operator: equal
+    value: 1.0
+  - metric: conversion_primary_conservation_pass
+    operator: equal
+    value: 1
+  - metric: temporal_pop_not_extreme_outlier
     operator: equal
     value: 1

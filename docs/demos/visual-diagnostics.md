@@ -36,3 +36,8 @@ reference, with a fixed scale.
 
 A scene is not ready for hero rendering until the diagnostic view makes the
 method's success and failure understandable.
+
+
+## Production linkage
+
+Diagnostic layers are defined in `configs/render/diagnostic.yml`. They transition into the locked scientific renderer only through V1; dense overlays do not automatically enter Hero mode. See [Art Direction](art-direction.md) and [Visual Acceptance Criteria](visual-acceptance-criteria.md).

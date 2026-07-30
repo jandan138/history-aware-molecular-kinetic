@@ -9,7 +9,13 @@
 | Demotion audit | B3-D | M/P/E, stress, heat flux, downstream error | conservative compression | trivial equilibrium case |
 | Promotion audit | B3-P | overlap, transients, g(r), image pop | valid reconstruction | renderer smoothing |
 | Dynamic Pareto | B4 | error/time/memory/exact fraction | adaptive benefit | unfair resolution/cost |
-| Hero scene diagnostics | B5 | physical + visual metrics | graphics value | display particle density |
+| Hero scene diagnostics | B5 all | physical + visual metrics | graphics value | display particle density |
+| Mixing conversion shot | B5-ZOOM-MIX | conservation, distribution, pop, camera coupling | C5/C6/C9 | renderer smoothing or camera-driven physics |
+| Labyrinth matched-state shot | B5-CORRELATION-LABYRINTH | matched-state distance, history increment, future error | C3/C4/C8 | hidden geometry, Enskog, leakage |
+| Expansion flagship visual | B5-EXPANSION-VACUUM | two observable errors, exact fraction, runtime/memory | C4/C7/C8/C9 | unfair display budget or missing exact reference |
 
 Every final figure recipe names frozen cases, exact run IDs, metric versions, and
 renderer hashes.
+
+
+B5 panel recipes additionally record shot ID, render-config hash, camera hash, display-policy hash, and the expected pixel change for the declared physical observable.

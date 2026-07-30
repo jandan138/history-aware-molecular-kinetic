@@ -1,0 +1,134 @@
+schema_version: 1.0.0
+config_id: render-scene-correlation-labyrinth-v0
+mode: shared_comparison
+scene_id: B5-CORRELATION-LABYRINTH-v0
+output:
+  width: 1920
+  height: 1080
+  fps: 30.0
+  frame_format: exr
+  color_space: acescg
+  alpha: false
+timeline:
+  start_time: 0.0
+  end_time: 12.0
+  sample_interval: 0.0333333333
+  shutter_fraction: 0.0
+camera:
+  projection: perspective
+  fov_degrees: 38.0
+  near: 0.005
+  far: 50.0
+  paths:
+  - shot_id: CL-01
+    start_time: 0.0
+    end_time: 2.0
+    kind: artifact_locked
+    path_ref: cameras/correlation-labyrinth/CL-01.json
+    sha256: 6506790a9c420a6ca7aecaca6e0cbb09a11aa1663e9672b37d530369c0577bda
+  - shot_id: CL-02
+    start_time: 2.0
+    end_time: 4.0
+    kind: artifact_locked
+    path_ref: cameras/correlation-labyrinth/CL-02.json
+    sha256: 965a5ce14fa04fea36beb442fe1e4d576329d459f6b535ab75264968ac049c73
+  - shot_id: CL-03
+    start_time: 4.0
+    end_time: 6.0
+    kind: artifact_locked
+    path_ref: cameras/correlation-labyrinth/CL-03.json
+    sha256: e6eb34cce64ef6047fad4c2300c448e7f629157fa07c807a5bb90126bca6a83f
+  - shot_id: CL-04
+    start_time: 6.0
+    end_time: 8.0
+    kind: artifact_locked
+    path_ref: cameras/correlation-labyrinth/CL-04.json
+    sha256: 10a7c76d8262fc7371191da4707b09e82507acaf926153d2052d7559155bafed
+  - shot_id: CL-05
+    start_time: 8.0
+    end_time: 10.0
+    kind: artifact_locked
+    path_ref: cameras/correlation-labyrinth/CL-05.json
+    sha256: 23d13006e65a8a091d5d4c2c25b8339fa8d35bb8fba223eea41769795f2c7781
+  - shot_id: CL-06
+    start_time: 10.0
+    end_time: 12.0
+    kind: artifact_locked
+    path_ref: cameras/correlation-labyrinth/CL-06.json
+    sha256: 7e359009d671702b640380888f97b78488689798d7a91caa061092860a86e38b
+layers:
+- id: particles
+  kind: exact_particles
+  source_kind: particle-bundle
+  enabled: true
+- id: density-volume
+  kind: density_volume
+  source_kind: kinetic-bundle
+  enabled: true
+- id: labyrinth
+  kind: geometry
+  source_kind: geometry-bundle
+  enabled: true
+- id: matched-blocks
+  kind: metrics_inset
+  source_kind: discrepancy-sample
+  enabled: true
+- id: history-graph
+  kind: collision_graph
+  source_kind: history-feature
+  enabled: true
+- id: policy-mask
+  kind: partition_mask
+  source_kind: partition-mask
+  enabled: true
+- id: future-error
+  kind: reference_error
+  source_kind: metrics-report
+  enabled: true
+display_policy:
+  physics_camera_decoupled: true
+  exact_particle_radius_scale: 1.25
+  statistical_particles:
+    enabled: true
+    max_samples: 450000
+    seed: 202
+    temporal_identity: persistent
+    weight_compensation: true
+    non_physical_label: true
+  volume:
+    enabled: true
+    field: species
+    transfer_function: labyrinth-tracer-v0
+    sampling_step: 0.004
+  partition_mask:
+    enabled: true
+    opacity: 0.25
+  collision_graph:
+    enabled: true
+    max_edges: 2000
+    window: 0.25
+comparison_lock:
+  enabled: true
+  group_id: B5-CORRELATION-LABYRINTH-v0-primary
+  lock_fields:
+  - output
+  - timeline
+  - camera
+  - layers
+  - display_policy
+  - postprocess
+  method_specific_overrides_forbidden: true
+postprocess:
+  temporal_filter: none
+  motion_blur: false
+  tone_mapping: aces
+  future_frame_access: false
+evidence:
+  require_run_ids: true
+  require_artifact_hashes: true
+  require_renderer_hash: true
+  require_metric_links: true
+  forbidden_postprocess:
+  - oracle_feature_in_practical_mask
+  - method_specific_transfer_function
+  - proposed_only_temporal_filter

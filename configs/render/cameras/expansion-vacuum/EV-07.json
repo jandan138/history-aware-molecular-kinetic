@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0.0",
+  "camera_path_id": "EV-07",
+  "coordinate_system": "right-handed-y-up",
+  "interpolation": "hold",
+  "keyframes": [
+    {
+      "time": 12.5,
+      "eye": [
+        6.0,
+        2.8,
+        5.0
+      ],
+      "target": [
+        3.5,
+        1.2,
+        1.5
+      ],
+      "up": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "fov_degrees": 35.0,
+      "note": "failure indicator"
+    },
+    {
+      "time": 14.0,
+      "eye": [
+        6.0,
+        2.8,
+        5.0
+      ],
+      "target": [
+        3.5,
+        1.2,
+        1.5
+      ],
+      "up": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "fov_degrees": 35.0,
+      "note": "locked end"
+    }
+  ]
+}

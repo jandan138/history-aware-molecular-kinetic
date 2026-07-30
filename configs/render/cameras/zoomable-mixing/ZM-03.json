@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0.0",
+  "camera_path_id": "ZM-03",
+  "coordinate_system": "right-handed-y-up",
+  "interpolation": "catmull_rom",
+  "keyframes": [
+    {
+      "time": 4.0,
+      "eye": [
+        2.4,
+        1.2,
+        2.0
+      ],
+      "target": [
+        1.0,
+        0.5,
+        0.5
+      ],
+      "up": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "fov_degrees": 37.0,
+      "note": "enter selected exact block"
+    },
+    {
+      "time": 5.2,
+      "eye": [
+        1.6,
+        0.85,
+        1.2
+      ],
+      "target": [
+        1.0,
+        0.5,
+        0.5
+      ],
+      "up": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "fov_degrees": 32.0,
+      "note": "exact identities"
+    },
+    {
+      "time": 6.5,
+      "eye": [
+        1.25,
+        0.7,
+        0.9
+      ],
+      "target": [
+        1.0,
+        0.5,
+        0.5
+      ],
+      "up": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "fov_degrees": 28.0,
+      "note": "collision trails"
+    }
+  ]
+}

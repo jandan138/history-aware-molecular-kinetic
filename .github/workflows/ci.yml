@@ -22,6 +22,9 @@ jobs:
       - run: ruff check src scripts tests
       - run: mypy src
       - run: pytest
+      - run: python scripts/validate_render_configs.py
+      - run: python scripts/create_render_manifest.py --config configs/render/shared-comparison.yml --artifacts schemas/examples/render-artifacts.json --output build/render-manifest-smoke
+      - run: make render-audit-smoke
       - run: python scripts/check_repo.py
 
   native:

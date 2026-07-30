@@ -10,3 +10,4 @@ license boundaries.
 - [0005 Renderer-agnostic physics](0005-renderer-agnostic-physics.md)
 - [0006 Versioned artifact contracts](0006-versioned-artifact-contracts.md)
 - [0007 Two-dimensional feasibility first](0007-two-dimensional-feasibility-first.md)
+- [0008 Versioned render evidence](0008-versioned-render-evidence.md)

@@ -1,4 +1,4 @@
-# Initial implementation backlog
+# Initial Implementation Backlog
 
 ## INFRA
 
@@ -74,11 +74,46 @@
 - **CONV-005** History maturity and warm-up.
 - **CONV-006** Static interface flux.
 
-## B4/B5 deferred
+## B4
 
-- dynamic policy, budgets, and interface motion;
-- GPU kernels;
-- shared renderer and hero scenes;
-- complex 3D geometry.
+- **LOD-001** Block representation state machine.
+- **LOD-002** Promotion/demotion hysteresis and cooldown.
+- **LOD-003** Exact-region budget and priority scheduler.
+- **LOD-004** Shadow-probe scheduler and uncertainty.
+- **LOD-005** Moving interface/buffer treatment.
+- **LOD-006** State-only, practical, oracle-upper-bound policies.
+- **LOD-007** Failure indicator and safe fallback.
+- **LOD-008** Cost-quality/exact-fraction sweep.
 
-These remain blocked by G3 and G4.
+## B5 and visual production
+
+The detailed issue-ready track is in
+[Demo Production Backlog](demo-production-backlog.md). Major groups:
+
+- **RENDER-001–007** render contracts, manifests, hashes, comparison audit;
+- **VIEW-001–009** artifact replay and diagnostic viewer;
+- **SHARED-001–008** shared scientific renderer;
+- **ZOOM-001–007** conversion/zoom temporal continuity;
+- **SCENE-ZM-*** Zoomable Mixing;
+- **SCENE-CL-*** Correlation Labyrinth;
+- **SCENE-EV-*** Expansion into Vacuum;
+- **VIDEO-001–009** teaser, full video, failure reel, provenance.
+
+### Gate dependencies
+
+- V0/VIEW can start with M1 artifacts.
+- Shared comparison requires artifact joins from M3.
+- Zoom/conversion production requires G4.
+- Correlation Labyrinth hero polish requires G3.
+- Expansion flagship polish requires G5 and neutral visible physics.
+- Final teaser and art polish require G6.
+
+## Explicitly deferred beyond the first paper
+
+- production path tracer;
+- complex 3D CAD asset pipeline;
+- combustion/chemistry;
+- general rigid-body coupling;
+- interactive artist editor;
+- VR/game integration;
+- artist-authored plume turbulence.

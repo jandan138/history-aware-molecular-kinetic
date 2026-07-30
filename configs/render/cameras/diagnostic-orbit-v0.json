@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0.0",
+  "camera_path_id": "diagnostic-orbit-v0",
+  "coordinate_system": "right-handed-y-up",
+  "interpolation": "catmull_rom",
+  "keyframes": [
+    {
+      "time": 0,
+      "eye": [
+        4,
+        2.5,
+        4
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov_degrees": 45,
+      "note": "diagnostic start"
+    },
+    {
+      "time": 5,
+      "eye": [
+        -4,
+        2.5,
+        4
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov_degrees": 45,
+      "note": "half orbit"
+    },
+    {
+      "time": 10,
+      "eye": [
+        4,
+        2.5,
+        4
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov_degrees": 45,
+      "note": "return"
+    }
+  ]
+}

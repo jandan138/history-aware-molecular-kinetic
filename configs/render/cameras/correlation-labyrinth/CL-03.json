@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0.0",
+  "camera_path_id": "CL-03",
+  "coordinate_system": "right-handed-y-up",
+  "interpolation": "hold",
+  "keyframes": [
+    {
+      "time": 4.0,
+      "eye": [
+        4.2,
+        2.8,
+        4.0
+      ],
+      "target": [
+        2.0,
+        0.7,
+        0.5
+      ],
+      "up": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "fov_degrees": 31.0,
+      "note": "history graph inset"
+    },
+    {
+      "time": 6.0,
+      "eye": [
+        4.2,
+        2.8,
+        4.0
+      ],
+      "target": [
+        2.0,
+        0.7,
+        0.5
+      ],
+      "up": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "fov_degrees": 31.0,
+      "note": "locked end"
+    }
+  ]
+}

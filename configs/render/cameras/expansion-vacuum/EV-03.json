@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0.0",
+  "camera_path_id": "EV-03",
+  "coordinate_system": "right-handed-y-up",
+  "interpolation": "linear",
+  "keyframes": [
+    {
+      "time": 4.0,
+      "eye": [
+        7.0,
+        3.0,
+        6.0
+      ],
+      "target": [
+        3.0,
+        1.2,
+        1.5
+      ],
+      "up": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "fov_degrees": 36.0,
+      "note": "moving refinement front start"
+    },
+    {
+      "time": 6.0,
+      "eye": [
+        5.5,
+        2.5,
+        4.5
+      ],
+      "target": [
+        3.5,
+        1.2,
+        1.5
+      ],
+      "up": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "fov_degrees": 34.0,
+      "note": "follow plume"
+    }
+  ]
+}

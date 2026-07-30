@@ -1,0 +1,49 @@
+name: Visual evidence / Hero shot
+description: Register a B5 render, comparison group, or final video shot.
+title: "[VIS] "
+labels: ["graphics-evidence"]
+body:
+  - type: input
+    id: case
+    attributes:
+      label: B5 case and shot ID
+      placeholder: B5-EXPANSION-VACUUM-v0 / EV-04
+    validations:
+      required: true
+  - type: textarea
+    id: claim
+    attributes:
+      label: Claim, physical observable, and expected pixel change
+    validations:
+      required: true
+  - type: textarea
+    id: provenance
+    attributes:
+      label: Run IDs, artifact hashes, render config, and comparison-lock group
+    validations:
+      required: true
+  - type: textarea
+    id: fairness
+    attributes:
+      label: Fairness and camera–physics audit
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Visual metrics, pass/fail thresholds, and alternative explanations
+    validations:
+      required: true
+  - type: checkboxes
+    id: gates
+    attributes:
+      label: Gate checklist
+      options:
+        - label: The relevant scientific gate has passed.
+          required: true
+        - label: Neutral shared rendering shows the effect before Hero polish.
+          required: true
+        - label: No method-specific display override is hidden.
+          required: true
+        - label: The displayed run matches the reported metric/Pareto point.
+          required: true

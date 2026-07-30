@@ -18,6 +18,7 @@ def test_json_examples_validate() -> None:
     pairs = [
         ("schemas/collision-event.schema.json", "schemas/examples/collision-event.json"),
         ("schemas/history-feature.schema.json", "schemas/examples/history-feature.json"),
+        ("schemas/render-manifest.schema.json", "schemas/examples/render-manifest.json"),
     ]
     for schema_path, example_path in pairs:
         jsonschema.Draft202012Validator(load_json(schema_path)).validate(load_json(example_path))

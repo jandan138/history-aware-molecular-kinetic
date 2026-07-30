@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0.0",
+  "camera_path_id": "scene-frozen-primary-v0",
+  "coordinate_system": "right-handed-y-up",
+  "interpolation": "hold",
+  "keyframes": [
+    {
+      "time": 0,
+      "eye": [
+        5,
+        3,
+        5
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov_degrees": 42,
+      "note": "locked primary view"
+    },
+    {
+      "time": 10,
+      "eye": [
+        5,
+        3,
+        5
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov_degrees": 42,
+      "note": "locked end"
+    }
+  ]
+}

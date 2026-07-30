@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0.0",
+  "camera_path_id": "ZM-05",
+  "coordinate_system": "right-handed-y-up",
+  "interpolation": "catmull_rom",
+  "keyframes": [
+    {
+      "time": 8.0,
+      "eye": [
+        1.25,
+        0.7,
+        0.9
+      ],
+      "target": [
+        1.0,
+        0.5,
+        0.5
+      ],
+      "up": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "fov_degrees": 28.0,
+      "note": "micro start"
+    },
+    {
+      "time": 9.0,
+      "eye": [
+        3.3,
+        1.8,
+        3.0
+      ],
+      "target": [
+        1.0,
+        0.5,
+        0.5
+      ],
+      "up": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "fov_degrees": 40.0,
+      "note": "zoom out"
+    },
+    {
+      "time": 10.0,
+      "eye": [
+        1.25,
+        0.7,
+        0.9
+      ],
+      "target": [
+        1.0,
+        0.5,
+        0.5
+      ],
+      "up": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "fov_degrees": 28.0,
+      "note": "zoom return audit"
+    }
+  ]
+}

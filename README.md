@@ -141,6 +141,21 @@ history-aware model:
 
 Only a robust out-of-distribution gain unlocks full dynamic LOD development.
 
+## Visual production track
+
+The repository carries a gate-controlled path from canonical artifacts to final SIG/TOG evidence:
+
+```text
+V0 artifact replay viewer
+→ V1 shared scientific renderer
+→ V2 zoom/conversion prototype
+→ V3 Expansion-into-Vacuum flagship prototype
+→ V4 final three-scene production
+→ V5 evidence packaging and release
+```
+
+The flagship scene is developed first; Correlation Labyrinth provides the scientific core, and Zoomable Mixing explains conversion and camera/physics independence. Render configs and manifests are versioned so every shot maps back to frozen cases, run IDs, metrics, claims, and input hashes. See [`docs/demos/visual-production-roadmap.md`](docs/demos/visual-production-roadmap.md).
+
 ## Quick start
 
 ```bash
@@ -159,6 +174,7 @@ adapters after reading [`references/sources.yaml`](references/sources.yaml) and
 
 ## Read first
 
+- [从 GAMES103 与流体入门到 History-Aware Molecular–Kinetic Simulation](docs/learning/from-games103-to-history-aware-molecular-kinetic.md)
 - [硬球项目研究总览（中文）](docs/research/zh-research-overview.md)
 - [Research thesis](docs/vision/research-thesis.md)
 - [Deng–Hani–Ma connection and claim boundary](docs/research/deng-hard-sphere-connection.md)
@@ -169,6 +185,9 @@ adapters after reading [`references/sources.yaml`](references/sources.yaml) and
 - [Eight-week feasibility spike](docs/roadmap/eight-week-feasibility-spike.md)
 - [Go/No-Go gates](docs/roadmap/go-no-go-gates.md)
 - [Demo strategy](docs/demos/demo-strategy.md)
+- [SIG visual production roadmap](docs/demos/visual-production-roadmap.md)
+- [Visual acceptance criteria](docs/demos/visual-acceptance-criteria.md)
+- [Hero scene specifications](docs/demos/scene-specs/README.md)
 - [Claim ledger](paper/claim-ledger.md)
 
 ## License

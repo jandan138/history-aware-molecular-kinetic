@@ -10,10 +10,19 @@
 | C5 | Exact→kinetic demotion preserves primary invariants and bounded statistics | B3 | conversion reports, downstream transient, baselines | planned |
 | C6 | Kinetic→exact promotion avoids invalid overlap and unacceptable transients | B3 | placement/warm-up studies, temporal diagnostics | planned |
 | C7 | Dynamic policy improves a cost-quality Pareto frontier | B4 | full sweeps vs uniform/state-only/upper-bound methods | blocked by C3–C6 |
-| C8 | The method restores at least two visible physical effects | B5 | shared renderer, exact reference, matched display density | blocked by C7 |
-| C9 | The system supports zoomable molecular/macroscopic visualization without physics-camera coupling | B5 | renderer/physics policy audit and continuity metrics | planned |
+| C8 | The method restores at least two visible physical effects | B5 | neutral shared renderer, exact/reference comparison, matched display density, scene-specific observables, pixel audit | blocked by C7 |
+| C9 | The system supports zoomable molecular/macroscopic visualization without physics-camera coupling | B5 | camera–physics hash audit, conversion continuity, persistent display policy, ZM/EV shots | planned |
 
 ## Claim review rule
 
 No abstract or introduction sentence may be stronger than the corresponding row.
 A failed or weakened claim remains in this ledger with the reason.
+
+
+## B5 scene ownership
+
+- C3/C4: `B5-CORRELATION-LABYRINTH-v0`
+- C5/C6/C9: `B5-ZOOM-MIX-v0`
+- C7/C8/C9: `B5-EXPANSION-VACUUM-v0`
+
+Every B5 claim follows `docs/demos/claim-to-visual-evidence.md` and requires a render manifest plus comparison-lock audit.

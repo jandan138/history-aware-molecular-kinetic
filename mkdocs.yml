@@ -29,6 +29,8 @@ extra_javascript:
 
 nav:
   - Home: index.md
+  - Learning:
+      - From GAMES103 to Molecular–Kinetic Simulation: learning/from-games103-to-history-aware-molecular-kinetic.md
   - Vision:
       - Research thesis: vision/research-thesis.md
       - Scope and non-goals: vision/scope-and-non-goals.md
@@ -66,7 +68,17 @@ nav:
       - Dataset policy: benchmarks/dataset-policy.md
   - Demo:
       - Strategy: demos/demo-strategy.md
+      - Visual production roadmap: demos/visual-production-roadmap.md
+      - Art direction: demos/art-direction.md
+      - Storyboard: demos/storyboard.md
+      - Visual acceptance criteria: demos/visual-acceptance-criteria.md
+      - Claim-to-visual evidence: demos/claim-to-visual-evidence.md
       - Hero scenes: demos/hero-scenes.md
+      - Scene specifications:
+          - Index: demos/scene-specs/README.md
+          - Zoomable Mixing: demos/scene-specs/zoomable-mixing.md
+          - Correlation Labyrinth: demos/scene-specs/correlation-labyrinth.md
+          - Expansion into Vacuum: demos/scene-specs/expansion-into-vacuum.md
       - Renderer contract: demos/renderer-contract.md
       - Visual diagnostics: demos/visual-diagnostics.md
   - Roadmap:
@@ -75,6 +87,7 @@ nav:
       - Go/No-Go gates: roadmap/go-no-go-gates.md
       - Risk register: roadmap/risk-register.md
       - Implementation backlog: roadmap/implementation-backlog.md
+      - Demo production backlog: roadmap/demo-production-backlog.md
   - Reproducibility:
       - Contract: reproducibility/reproducibility-contract.md
       - Artifact policy: reproducibility/artifact-policy.md

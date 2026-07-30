@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0.0",
+  "camera_path_id": "EV-04",
+  "coordinate_system": "right-handed-y-up",
+  "interpolation": "catmull_rom",
+  "keyframes": [
+    {
+      "time": 6.0,
+      "eye": [
+        7.0,
+        3.0,
+        6.0
+      ],
+      "target": [
+        3.0,
+        1.2,
+        1.5
+      ],
+      "up": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "fov_degrees": 36.0,
+      "note": "macro start"
+    },
+    {
+      "time": 7.2,
+      "eye": [
+        4.8,
+        2.1,
+        3.7
+      ],
+      "target": [
+        3.4,
+        1.2,
+        1.5
+      ],
+      "up": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "fov_degrees": 31.0,
+      "note": "statistical particles"
+    },
+    {
+      "time": 8.5,
+      "eye": [
+        3.8,
+        1.7,
+        2.8
+      ],
+      "target": [
+        3.4,
+        1.2,
+        1.5
+      ],
+      "up": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "fov_degrees": 26.0,
+      "note": "exact identities"
+    }
+  ]
+}
