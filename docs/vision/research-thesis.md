@@ -1,150 +1,210 @@
-# Research thesis
+# Research Thesis
 
-## 1. Core problem
+## 1. Active thesis
 
-An exact hard-sphere system stores the identity, position, velocity, and collision
-history of every particle. A Boltzmann or DSMC representation stores a much
-cheaper approximation to the one-particle phase-space distribution:
+The active project is no longer an online EDMD–kinetic LOD predictor. The Phase-I
+pilot did not support the tested scalar-history predictor at an operationally useful
+level, so the dependent conversion and dynamic-LOD route is deferred.
 
-\[
-f(x,v,t).
-\]
+The new thesis is:
 
-The exact system can reproduce re-encounters, collision chains, excluded-volume
-structure, and other correlations. The kinetic model intentionally discards much
-of that information to gain scale.
+> **Collision history is not only a statistic to predict model error. It can be a
+> first-class animation representation that explains, replays, reverses, and edits
+> hidden multi-particle correlations.**
 
-The central question is not simply “which solver is more accurate?” It is:
-
-> Can we identify, online and locally, where the information discarded by the
-> kinetic representation materially changes observables that matter to a
-> scientific or graphics application?
-
-## 2. Proposed state decomposition
-
-The runtime domain is decomposed into blocks. Each block owns one physical
-representation at a time:
-
-### Exact hard-sphere state
+The scientific and graphics questions are:
 
 \[
-\mathcal X_B(t)=\{x_i(t),v_i(t),r_i,m_i,\mathrm{id}_i\}_{i\in B}
+\boxed{
+\text{What information does a resolved one-particle state forget?}
+}
 \]
 
-plus a finite collision-history window. It is used where particle identity,
-geometry-exact collisions, or correlation memory is required.
-
-### Boltzmann/DSMC state
-
-A weighted set of stochastic superparticles approximates:
+and
 
 \[
-f_B(x,v,t).
+\boxed{
+\text{How can that information become a reversible, branchable animation tool?}
+}
 \]
 
-Collisions are sampled statistically within cells. A superparticle is not the
-persistent identity of one real molecule.
+## 2. Scientific foundation
 
-### Finite-density kinetic state
-
-When packing and pair structure matter, a Boltzmann DSMC backend may be the wrong
-coarse model. The architecture therefore admits Enskog-like or other non-ideal
-particle schemes.
-
-### Shadow probe state
-
-A sparse, short-lived exact micro-simulation can be spawned from a coarse block
-to estimate local model error or correlation growth without refining the entire
-region.
-
-## 3. Primary scientific hypothesis
-
-Let \(e_B\) be a local discrepancy between exact hard-sphere and kinetic
-predictions, measured over a finite future horizon and a fixed observable set.
-Let \(s_B\) contain state-only features:
+An exact hard-sphere state is:
 
 \[
-s_B=(\rho,\phi,T,u,\mathrm{Kn}_{GLL},R_M,\|\Pi\|,\|q\|,\text{geometry}).
+X(t)=\{x_i(t),v_i(t),r_i,m_i,\mathrm{id}_i\}_{i=1}^{N}.
 \]
 
-Let \(h_B\) contain collision-history features:
+A kinetic description keeps a one-particle distribution:
 
 \[
-h_B=(r_{\mathrm{repeat}},\beta_1(G),d_{\mathrm{lineage}},
-|C_2|_{\mathrm{proxy}},\ldots).
+f_1(x,v,t),
 \]
 
-The project tests whether:
+while higher-order distributions and cumulants carry particle-pair and
+multi-particle correlations.
+
+Deng, Hani, and Ma's long-time hard-sphere derivation of Boltzmann propagates
+cumulants with complete collision histories and organizes correlated structures as
+collision-history molecules before controlling them. This motivates our focus on
+collision history as the hidden information separating exact molecular dynamics
+from a factorized kinetic closure.
+
+The theorem does not provide our finite-system algorithm, and our method is not an
+implementation of its cutting proof.
+
+## 3. Same resolved present, different futures
+
+We declare a finite resolution `h` and measure:
 
 \[
-\mathbb E[\ell(e_B,\hat e(s_B,h_B))]
-<
-\mathbb E[\ell(e_B,\hat e(s_B))]
+f_{1,h}(x,v,c),
 \]
 
-on held-out geometries, densities, and transients—not merely on randomly split
-samples from the same run.
+including passive color `c` when used for visualization.
 
-This is a prediction question before it becomes an adaptive simulation method.
+At a pivot time `t_*`, we construct:
 
-## 4. Why this could be a graphics contribution
+- a forward exact branch;
+- an exact velocity-reversed branch;
+- a resolved-state-preserving chaotized branch;
+- a DSMC branch from the reversed resolved state;
+- optional history-budgeted branches.
 
-A successful system would provide:
+The operational claim is:
 
-1. **physics-driven molecular LOD** rather than camera-driven particle spawning;
-2. **zoomable visualization** from macroscopic fields to exact collisions;
-3. **localized exactness** around complex collision history, moving geometry, or
-   ballistic transitions;
-4. **a shared artifact and renderer pipeline** that makes the refinement reason
-   visible rather than hiding it behind smoke;
-5. **a cost-quality curve** unavailable to full EDMD or uniform DSMC alone.
+\[
+f_{1,h}^{\rm reverse}(t_*)
+\approx
+f_{1,h}^{\rm chaotized}(t_*),
+\]
 
-## 5. Proposed method contributions
+while selected future observables separate:
 
-### C1. Strong discrepancy benchmark
+\[
+A_{\rm reverse}(t_*+\tau)
+\neq
+A_{\rm chaotized}(t_*+\tau).
+\]
 
-A paired EDMD–kinetic dataset that controls for state, geometry, resolution, and
-sampling uncertainty.
+This is a claim about a preregistered resolved present. It is not a claim that the
+exact microscopic states or the continuous `f1` are identical.
 
-### C2. Observable-aware history indicator
+## 4. Graphics representation
 
-A compact streaming sketch that predicts chosen model discrepancies and labels
-each feature as runtime-observable, shadow-probe, or oracle-only.
+### 4.1 Collision causal multigraph
 
-### C3. Conservative representation conversion
+Each collision is a timestamped event node linked through the particles that carry
+its consequences forward. Repeated collisions remain distinct events.
 
-Demotion and promotion operators that preserve mass, momentum, and energy while
-controlling stress, heat flux, velocity-distribution, pair-structure, and
-warm-up errors.
+The graph stores:
 
-### C4. Stable dynamic partitioning
+- event predecessors and descendants;
+- shared collision ancestors;
+- collision-history molecules;
+- branch provenance;
+- causal cones;
+- history-budget annotations.
 
-Hysteresis, cooldown, interface buffers, probe scheduling, and an explicit
-failure indicator.
+### 4.2 Checkpoints and deterministic replay
 
-### C5. Graphics evidence without physics contamination
+Checkpoints plus event segments support random access, replay, and reversal audits.
+A replay mismatch is evidence, not something the renderer or solver may silently
+repair.
 
-A renderer that can show particles, macroscopic fields, partitions, and
-collision graphs but cannot silently change the physical representation.
+### 4.3 Persistent counterfactual branches
 
-## 6. Crucial negative thesis
+A user edits a past particle, collision, aperture, or obstacle. The system forks an
+immutable branch, reuses common history, and recomputes the expanding future causal
+cone. It falls back to full replay if locality cannot be guaranteed.
 
-This project should be rejected or redirected if any of the following is true:
+### 4.4 Correlation surgery
 
-- state-only features explain the discrepancy as well as history;
-- useful history features require a full exact simulation everywhere;
-- correlations become visible only where Boltzmann DSMC is already the wrong
-  coarse equation and an Enskog backend removes the discrepancy;
-- conversion transients dominate the error saved by adaptive refinement;
-- exact regions occupy almost the entire useful scene;
-- the only visible benefit is a diagnostic mask rather than a physical effect.
+A surgery operator changes particle–velocity assignment and collision ancestry while
+preserving a declared resolved current state and primary invariants. This creates a
+new animation primitive:
 
-## 7. Publication routes
+> **edit a hidden future while preserving the visible present.**
 
-The project is deliberately decomposed so failure is informative:
+## 5. Proposed SIG contributions
 
-- B2 succeeds and B4/B5 succeed: SIGGRAPH/TOG candidate;
-- B2 succeeds but graphics evidence is weak: JCP/CMAME/SISC-style numerical route;
-- B2 fails but Enskog explains the gap: adaptive EDMD–Enskog route;
-- online refinement fails but collision DAGs are useful: editing/replay route;
-- exact regions dominate: parallel collision-history EDMD route.
+### C1. History representation
+
+A versioned collision causal multigraph and branch store for hard-sphere animation,
+with deterministic replay and queryable collision molecules.
+
+### C2. Causal rewind and branch recomputation
+
+An exact expanding-cone algorithm for counterfactual edits, with correctness against
+full resimulation, conservative fallback, and copy-on-write history reuse.
+
+### C3. Resolved-state-preserving future authoring
+
+A constrained correlation-surgery framework that produces alternate futures from
+the same declared one-particle present.
+
+### C4. Scientific history microscope
+
+A controlled exact/chaotized/DSMC/history-budget experiment, including
+collision-count-matched and topology-shuffled null controls, that links visible
+future separation to missing incoming-pair correlation.
+
+### C5. Interaction and visual evidence
+
+A user-facing molecular time machine with three high-quality scenes, versioned
+render evidence, and a direct connection between every visible branch and a frozen
+simulation run.
+
+## 6. Primary hypotheses
+
+- **H1 — Numerical reversibility:** exact EDMD can forward/reverse and replay the
+  registered cases within declared tolerances.
+- **H2 — Resolved-state separation:** exact-reverse and chaotized branches pass a
+  multi-resolution `f1_h` audit while exhibiting robust future separation.
+- **H3 — Structured-history mechanism:** a `(Lambda, Gamma)` molecule budget explains
+  recovery better than count/time-matched random collision suppression.
+- **H4 — Branch correctness:** local causal-cone recomputation matches complete
+  resimulation or explicitly falls back.
+- **H5 — Useful locality:** at least two edit families retain sufficiently local
+  cones to provide a meaningful latency or storage benefit.
+- **H6 — Graphics value:** history surgery and branching create animations that are
+  difficult to author by ordinary playback, keyframing, or a backward video.
+
+## 7. Negative thesis and stop conditions
+
+The paper route must stop or narrow if:
+
+- exact reversal is numerically unreliable;
+- future separation disappears under finer `f1_h` audits;
+- history-budget curves are explained only by collision count;
+- incoming-pair diagnostics do not align with the branch response;
+- causal cones become global immediately in all useful scenes;
+- local branch results do not match full resimulation;
+- the only compelling footage is a video played backward;
+- the event graph is merely a debug overlay with no algorithmic or authoring value.
+
+## 8. Deferred route
+
+The previous adaptive exact–kinetic route remains recorded:
+
+```text
+history predictor
+→ exact/kinetic conversion
+→ online partition
+→ dynamic LOD
+```
+
+It is not deleted, but it is not an active paper spine after the Phase-I negative
+result. R0/B0 external and primitive validation remain useful infrastructure.
+
+## 9. Venue identity
+
+The first target is SIGGRAPH / SIGGRAPH Asia because the intended contribution is a
+new simulation, animation, and interaction system.
+
+IEEE VIS is a fallback only if the principal contribution becomes linked visual
+analysis of collision molecules, causal cones, branch provenance, and uncertainty.
+That route requires a separate task analysis and evaluation.
+
+See [Venue Strategy](venue-strategy.md).
