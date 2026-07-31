@@ -17,7 +17,7 @@ The old dynamic-LOD milestones are archived in Git history and deferred by
 
 ## M0 — Pivot, preregistration, and evidence contracts
 
-**Status:** active.
+**Status:** E1 protocol is frozen; E2 contracts remain active.
 
 Deliverables:
 
@@ -38,6 +38,9 @@ Exit:
 ---
 
 ## M1 — E0 strict exact dynamics and replay
+
+**Status:** the E1 declared reversal cases pass; full E0 replay, external comparison,
+and adversarial edge cases remain.
 
 Deliverables:
 
@@ -66,6 +69,9 @@ scientific interpretation or graphics polish.
 
 ## M2 — E1 same resolved present, opposite futures
 
+**Status:** passed on 2026-07-31 for the preregistered 4×2 resolved-state claim.
+The 8×4 mismatch is an explicit limitation, and E2 is the next paper gate.
+
 Deliverables:
 
 - registered non-equilibrium pivot protocol;
@@ -74,7 +80,7 @@ Deliverables:
 - spatial/velocity multi-resolution `f1_h` audit;
 - anisotropy, color, and branch-divergence metrics;
 - seed uncertainty;
-- a neutral 30–45 second internal echo clip.
+- a neutral internal echo clip with a frozen comparison lock.
 
 Exit:
 

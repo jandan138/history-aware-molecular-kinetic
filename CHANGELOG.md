@@ -23,6 +23,13 @@ public software releases. Benchmark and artifact schemas are versioned independe
 
 ### Added
 
+- Preregistered and executed `MOLECULAR-ECHOES-E1-v0` across `N=128,256` and six
+  seeds each, producing a positive scoped `go` decision, reversal and
+  multi-resolution pivot audits, five forward-simulated branches, bootstrap
+  uncertainty, a main figure, and a neutral comparison video.
+- Committed the E1 result boundary and artifact hashes: the 4×2 resolved state
+  matches exactly, every exact-minus-chaotized echo gap is positive, and the finer
+  8×4 mismatch is disclosed rather than promoted to a continuous-`f1` claim.
 - ADR 0009 documenting the research and venue pivot.
 - Active E0–E6 benchmark ladder for exact reversal, same-resolved-present audits,
   collision-molecule mechanisms, causal graphs, counterfactual branches,

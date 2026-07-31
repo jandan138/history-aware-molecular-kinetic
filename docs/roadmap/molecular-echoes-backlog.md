@@ -7,6 +7,9 @@ No 3D art task is allowed to outrun the scientific and branch-correctness gates.
 
 ### ECHO-S-001 — Preregister E1/E2 protocol
 
+**Status:** E1 frozen at `molecular-echoes-e1-preregistered-v0`; the E2 protocol
+must be frozen separately before E2 primary runs.
+
 Freeze before primary runs:
 
 - periodic geometry and units;
@@ -24,6 +27,9 @@ Freeze before primary runs:
 
 ### ECHO-S-002 — Strict reversible EDMD audit
 
+**Status:** E1 declared cases pass; the broader E0 replay and adversarial edge-case
+package remains.
+
 Implement forward/reverse tests with deterministic event ordering, checksums,
 grazing cases, and near-simultaneous event cases.
 
@@ -31,12 +37,17 @@ grazing cases, and near-simultaneous event cases.
 
 ### ECHO-S-003 — Pivot and branch constructor
 
+**Status:** complete for E1-v0.
+
 Create forward, exact-reverse, chaotized-reverse, DSMC, and ghost branches from one
 registered pivot.
 
 **Depends on:** ECHO-S-002.
 
 ### ECHO-S-004 — Multi-resolution resolved-state audit
+
+**Status:** complete for E1-v0. The 4×2 construction equality passes and the 8×4
+limitation is disclosed in the committed result page.
 
 Report discrete distribution and moment mismatch across all preregistered spatial
 and velocity resolutions.
@@ -144,6 +155,9 @@ Render particles, collision events, branch lineage, causal cone, and pivot audit
 **Depends on:** ECHO-G-002.
 
 ### ECHO-V-002 — Molecular Logo Echo prototype
+
+**Status:** the neutral E1 exact/chaotized/DSMC prototype is complete; the
+history-budget branch waits for ECHO-S-007.
 
 Create a bounded 2D/3D passive-color pattern, mix it, then compare exact,
 chaotized, DSMC, and history-budget branches.

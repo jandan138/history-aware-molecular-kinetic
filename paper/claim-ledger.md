@@ -25,9 +25,9 @@ implicitly revived in the Molecular Echoes paper.
 
 | ID | Candidate claim | Benchmark | Required evidence | Status |
 |---|---|---|---|---|
-| C10 | Exact EDMD reversal and deterministic replay are trustworthy in the declared cases | E0 | return error, event/checksum agreement, invariants, grazing/tie cases | active; not yet frozen |
-| C11 | Exact-reverse and chaotized branches can match a preregistered resolved `f1_h` while producing distinct futures | E1 | multi-resolution pivot audit, seed uncertainty, branch trajectories | proposed; must not claim continuous-`f1` or exact-state equality |
-| C12 | DSMC/chaotization lose an observable response carried by hidden multi-particle collision correlation | E1/E2 | exact/chaotized/DSMC/ghost comparison, incoming-pair diagnostic | proposed |
+| C10 | Exact EDMD reversal and deterministic replay are trustworthy in the declared cases | E0 | return error, event/checksum agreement, invariants, grazing/tie cases | E1 declared cases pass: event-pair agreement 1.0, max position RMS 2.77e-6, max velocity RMS 4.92e-5; broader E0 replay/edge-case gate remains |
+| C11 | Exact-reverse and chaotized branches can match a preregistered resolved `f1_h` while producing distinct futures | E1 | multi-resolution pivot audit, seed uncertainty, branch trajectories | **passes for E1-v0's 4×2 resolved state** across 12 cases; mean gap 0.449784, 95% interval [0.436573, 0.460660]; 8×4 mismatch disclosed, so no continuous-`f1` or exact-state claim |
+| C12 | DSMC/chaotization lose an observable response carried by hidden multi-particle collision correlation | E1/E2 | exact/chaotized/DSMC/ghost comparison, incoming-pair diagnostic | E1 phenomenon passes: chaotized and DSMC lose the color echo in every case; collision-molecule attribution remains proposed until E2 null controls pass |
 | C13 | A structured `(Lambda,Gamma)` collision-molecule budget explains response beyond collision count | E2 | budget paths, count/time-matched random suppression, topology-shuffled control | proposed; extended dynamics is not exact EDMD |
 | C14 | The incoming-pair closure-defect proxy tracks the missing correlated response | E2 | preregistered bins/observables, branch derivatives, uncertainty | proposed |
 | C15 | A small fixed-`N epsilon` sequence has an interpretable finite-system budget trend | E2 | scale sequence and fixed observable tolerance | optional; not a kinetic-limit theorem |

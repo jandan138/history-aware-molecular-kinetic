@@ -37,6 +37,13 @@ Graphics Time-Machine Track
 The formal decision is recorded in
 [`ADR 0009`](docs/decisions/0009-pivot-to-molecular-echoes-sig.md).
 
+The first experiment on this route is now complete. The preregistered E1 study
+returned `go`: across `N=128,256` and six seeds each, the mean terminal
+exact-minus-chaotized color-echo gap is `0.449784`, with a seed-bootstrap 95%
+interval of `[0.436573, 0.460660]`. The result is explicitly limited to the frozen
+4×2 resolved present; the finer-grid mismatch is disclosed in the
+[`E1 Result`](docs/benchmarks/molecular-echoes-e1-result.md).
+
 ## Core idea
 
 An exact hard-sphere microstate stores:
@@ -211,14 +218,17 @@ See [`Venue Strategy`](docs/vision/venue-strategy.md).
 
 ## Immediate first-stage gate
 
-Before 3D production, the project must complete a short preregistered stage:
+E1 is complete at `N=128,256`: strict reversal, the resolved-present audit, all
+five branches, seed uncertainty, the main figure, and a neutral video pass the
+frozen gate. The first stage now advances along the paper dependency chain:
 
-1. strict periodic-box reversal at `N=128,256,512`;
-2. multi-resolution `f1_h` audit;
-3. exact / chaotized / DSMC / ghost branch comparison;
-4. structured `(Lambda, Gamma)` budgets;
-5. collision-count/time-matched and topology-shuffled controls;
-6. one-event causal-branch prototype validated against full resimulation.
+1. E2 structured `(Lambda, Gamma)` budgets and their count/time-matched and
+   topology-shuffled null controls;
+2. E3 collision graph, checkpoint, and deterministic branch replay;
+3. E4 one-event causal branch validated against complete resimulation.
+
+Additional E1 variants and `N=512` are deferred until the E2 mechanism is positive;
+they are not a substitute for that story gate.
 
 See [`Molecular-Echo First Stage`](docs/roadmap/molecular-echo-first-stage.md) and
 [`Molecular Echoes Backlog`](docs/roadmap/molecular-echoes-backlog.md).
@@ -237,6 +247,9 @@ PYTHONPATH=src python scripts/run_echo_e1.py \
 The primary command writes the reversal audit, multi-resolution pivot audit,
 branch metrics, compact decision, main figure, compressed trajectories, and
 neutral MP4 from one immutable protocol.
+
+The frozen result, claim boundary, numerical table, and artifact hashes are recorded
+in the [`E1 Result`](docs/benchmarks/molecular-echoes-e1-result.md).
 
 ```bash
 python -m pip install -e ".[dev,analysis]"
@@ -269,11 +282,12 @@ It must not be presented as the active SIG method.
 4. [Paper positioning](docs/vision/paper-positioning.md)
 5. [Venue strategy](docs/vision/venue-strategy.md)
 6. [Active benchmark suite](docs/benchmarks/echo-branching-suite.md)
-7. [Architecture: graph and branching](docs/architecture/collision-history-graph-and-branching.md)
-8. [Milestones](docs/roadmap/milestones.md)
-9. [Go/No-Go gates](docs/roadmap/go-no-go-gates.md)
-10. [Hero Scenes](docs/demos/hero-scenes.md)
-11. [Claim ledger](paper/claim-ledger.md)
+7. [E1 result](docs/benchmarks/molecular-echoes-e1-result.md)
+8. [Architecture: graph and branching](docs/architecture/collision-history-graph-and-branching.md)
+9. [Milestones](docs/roadmap/milestones.md)
+10. [Go/No-Go gates](docs/roadmap/go-no-go-gates.md)
+11. [Hero Scenes](docs/demos/hero-scenes.md)
+12. [Claim ledger](paper/claim-ledger.md)
 
 ## License
 

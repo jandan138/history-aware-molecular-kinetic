@@ -1,5 +1,10 @@
 # Evidence Matrix — Molecular Echoes
 
+E1-v0 returned `go` for the preregistered 4×2 resolved-state claim. The numerical
+table, fine-grid limitation, render audit, and frozen artifact hashes are recorded
+in the [E1 result](../docs/benchmarks/molecular-echoes-e1-result.md). This closes the
+phenomenon gate, not the E2 collision-molecule mechanism gate.
+
 | Figure/table concept | Run families | Metrics | Primary interpretation | Alternative explanation to exclude |
 |---|---|---|---|---|
 | Exact reversal and replay audit | E0 forward/reverse/checkpoint | return error, event/checksum agreement, invariants | exact branch is numerically trustworthy | backward video, state snapping, event-order drift |

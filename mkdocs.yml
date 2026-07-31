@@ -58,6 +58,7 @@ nav:
   - Active Benchmarks:
       - Suite index: benchmarks/suite.md
       - E0–E6 Echo and Branching: benchmarks/echo-branching-suite.md
+      - E1 result: benchmarks/molecular-echoes-e1-result.md
       - Metrics: benchmarks/metrics.md
       - Dataset policy: benchmarks/dataset-policy.md
       - Canonical cases: benchmarks/canonical-cases.md

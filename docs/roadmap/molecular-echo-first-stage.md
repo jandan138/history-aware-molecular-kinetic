@@ -1,6 +1,6 @@
 # Molecular Echoes First Stage
 
-**Status:** active, preregistration required before primary results.
+**Status:** active; E1 passed its frozen scoped gate on 2026-07-31, and E2 is next.
 
 **Duration:** 2–3 focused weeks.
 
@@ -9,6 +9,27 @@ and a real graphics algorithm before investing in 3D production.
 
 The stage must produce one decision package, not a growing collection of unrelated
 experiments.
+
+## Current E1 outcome
+
+The registered `MOLECULAR-ECHOES-E1-v0` protocol was committed and tagged before
+the primary run. Twelve cases (`N=128,256`, six seeds each) produced a mean
+exact-minus-chaotized terminal color gap of `0.449784`, with a seed-bootstrap 95%
+interval of `[0.436573, 0.460660]`; every case was positive. Exact reversal,
+construction-state equality, invariants, branch separation, DSMC support, figure,
+and neutral-video checks all passed.
+
+The result is deliberately scoped. The 2×1 and construction 4×2 audits match
+exactly, while the unused 8×4 audit reveals finer position–velocity mismatch. The
+claim is therefore “same preregistered 4×2 resolved present,” not the same exact
+state or continuous `f1`. See the complete
+[E1 result](../benchmarks/molecular-echoes-e1-result.md).
+
+The earlier unfrozen roadmap mentioned `N=512` and a longer internal clip. Neither
+was part of the frozen E1 protocol, so neither is added after seeing the result.
+`N=512` is deferred to the scale study only if E2 passes; the neutral evidence clip
+is 11.5 seconds and shows the complete registered trajectory without video
+reversal or interpolation.
 
 ---
 
@@ -63,6 +84,8 @@ The result commit must refer back to this tag.
 ---
 
 ## 3. Week 1 — Strict echo and same-present audit
+
+**Result:** complete for `MOLECULAR-ECHOES-E1-v0`; decision `go`.
 
 ### Deliverables
 
