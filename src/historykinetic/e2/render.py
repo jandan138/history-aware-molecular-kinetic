@@ -109,7 +109,7 @@ def _render_figure(result: E2StudyResult, svg_path: Path, pdf_path: Path) -> Non
         )
     curve_axis.set_xlabel("time after mixed pivot")
     curve_axis.set_ylabel("passive-color recovery")
-    curve_axis.set_title("Reverse direction: molecule budget restores the echo")
+    curve_axis.set_title("Reverse-direction response along the molecule-budget ladder")
     curve_axis.grid(alpha=0.22)
     curve_axis.legend(frameon=False, fontsize=8, ncols=2)
 
@@ -139,11 +139,11 @@ def _render_figure(result: E2StudyResult, svg_path: Path, pdf_path: Path) -> Non
         )
     dose_axis.set_xlabel("accepted-collision dose / full dose")
     dose_axis.set_ylabel("terminal color recovery")
-    dose_axis.set_title("Same dose is insufficient when collision wiring changes")
+    dose_axis.set_title("Registered wiring comparisons at the selected budget")
     dose_axis.grid(alpha=0.22)
     dose_axis.legend(frameon=False, fontsize=8, ncols=2)
     figure.suptitle(
-        "Same present, same collision dose, different collision wiring, different future",
+        "Collision-molecule budget intervention from the same reversed pivot",
         fontsize=17,
         fontweight="bold",
     )
@@ -192,7 +192,7 @@ def _render_video(result: E2StudyResult, video_path: Path) -> None:
                     title=f"{label}  recovery={score:.3f}",
                 )
             figure.suptitle(
-                "Identical reversed pivot; only collision wiring changes",
+                "Identical reversed pivot; four registered collision policies",
                 fontsize=17,
                 fontweight="bold",
             )
