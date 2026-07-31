@@ -1,72 +1,59 @@
-# Claim-to-Visual Evidence Matrix
+# Claim-to-Visual Evidence Matrix — Molecular Echoes
 
-这张矩阵回答：**每条论文 claim 最终怎样变成一个可观察的物理量、一个像素差异和一个具体 shot。**
+This matrix defines how every active claim becomes a physical observable, a visible
+change, a shot, and a quantitative companion.
 
-| Claim | Scientific observable | Visual manifestation | Primary shot | Quantitative companion | Failure interpretation |
+| Claim | Scientific/system observable | Visual manifestation | Primary shot | Quantitative companion | Failure interpretation |
 |---|---|---|---|---|---|
-| C3 History adds value beyond state/geometry | matched-state future EDMD–kinetic discrepancy | state 相近的两个 chamber 未来 plume/residence/escape 不同 | CL-02/03/04 | state distance、history distance、future error、held-out delta | 只看到 graph 不同但未来 observable 不同不明显，则 graphics claim 不成立 |
-| C4 Practical history/probe policy retains value | recall/calibration under probe budget | practical mask 接近 oracle upper bound，少于 full exact | CL-05/06, EV-03/05 | operational recall、probe cost、exact fraction | 只有 oracle history 有效，则在线 LOD claim 失败 |
-| C5 Exact→kinetic demotion is conservative | M/P/E、stress、heat flux、downstream transient | volume/species 不跳，流动继续平滑 | ZM-04 | conversion report、field continuity、pop score | 画面平滑但指标跳变，说明 renderer 隐藏了物理错误 |
-| C6 Kinetic→exact promotion is valid | overlap、g(r)、velocity distribution、warm-up transient | 新 exact particles 不爆开、不突然成团 | ZM-03/04 | overlap count、pair statistics、transient error | 靠淡入隐藏 invalid particles，不算通过 |
-| C7 Dynamic policy improves Pareto frontier | physical error vs time/memory/exact fraction | plume/observable 接近 reference，exact region 只占局部 | EV-02/03/06 | Pareto curve、exact fraction、wall-clock、memory | 画面更好但成本接近 full EDMD，则 LOD 价值不足 |
-| C8 At least two physical effects are visibly restored | two predeclared observables | plume angle/species ridge、labyrinth residence/escape 等 | EV-02 + CL-04/05 | metric error reductions | 只在 diagnostics 中可见，不足以支撑 SIG graphics value |
-| C9 Zoomable macro/molecular view without camera coupling | partition invariant under camera change | volume → display particles → exact identities 无 popping | ZM-01/02/03/05, EV-04 | camera–physics hash audit、display continuity | 相机触发 refinement 或只靠重采样伪装 identity，则失败 |
+| C10 Exact reversal/replay is trustworthy | return/state/event error | exact branch reconstructs without replay divergence | ME-04 + diagnostic replay shot | position/velocity error, checksum/event agreement, invariant drift | backward video or state snapping is not evidence |
+| C11 Same resolved present, distinct futures | multi-resolution `f1_h` match + future separation | branches appear matched at pivot, then diverge | ME-02/03/04 | TV/bin mismatch, moment mismatch, anisotropy/color response | obvious pivot mismatch explains the future |
+| C12 Hidden correlation carries response | exact vs chaotized vs DSMC | only history-retaining branch recovers pattern/observable | ME-04 | branch response and incoming-pair diagnostic | difference disappears across seeds/resolutions |
+| C13 Structured molecule budget matters | full/budget/null-control response | recovery changes with molecule structure, not just collision count | ME-05 | budget error, collision count/time, null-control delta | count-matched random suppression explains result |
+| C14 Closure-defect proxy tracks response | directional incoming-pair proxy | linked inset changes consistently before/with echo response | ME-05 | proxy confidence interval and derivative correlation | post-hoc diagnostic with inconsistent direction |
+| C16 Collision causal graph is correct | ancestry/descendant query agreement | selected event reveals valid predecessor/descendant structure | TW-01/03 | graph reconstruction/query tests | graph is decorative or omits repeated events |
+| C17 Replay/branch representation works | checkpoint/event replay and shared history | branch tree forks from exact past state | TW-02 | replay hash, latency, full-copy vs copy-on-write storage | hidden full-frame duplication or silent divergence |
+| C18 Local causal branch matches full resimulation | state/event difference | local and full edited futures visually coincide | TW-05, EP-05 | terminal error, event agreement, fallback status | local branch misses dependencies |
+| C19 Branch reuse has value | affected fraction, runtime, storage | causal cone remains bounded while future changes | TW-03/06, EP-04/06 | cone fraction, speedup, shared storage, edit age/density | cone immediately global or no benefit over full replay |
+| C20 Correlation surgery authors alternate futures | resolved-state preservation + controllable branch outcome | current frame stays matched, user-selected future changes | EP-07 or ME-03/04 | audit error, invariant error, control repeatability, random-surgery baseline | current-frame mismatch or uncontrolled randomness |
+| C21 New graphics workflow | task completion and novel result | user rewinds, edits, branches, and compares futures | TW sequence + EP sequence | interaction latency, task log, prior-art comparison | footage reducible to backward playback/keyframing |
+| C22 Reproducible visual evidence | manifest completeness | neutral and hero versions tell same story | all | branch/run/edit/camera/renderer hashes | manual or method-specific compositing creates result |
 
----
+## Scene ownership
 
-## 1. Scene responsibility rule
+### Molecular Logo Echo
 
-- **Expansion into Vacuum** 不负责证明 C3 的全部因果性；它主要证明 C7/C8/C9 和视觉上限。
-- **Correlation Labyrinth** 不负责做最漂亮 teaser；它主要证明 C3/C4。
-- **Zoomable Mixing Chamber** 不负责证明 history-aware refinement 必要；它主要证明 C5/C6/C9。
+Owns C10–C14 and the first-page scientific hook.
 
-场景职责分离可以防止每个 Hero Scene 都变成塞满所有 overlay 的大杂烩。
+### One Collision, Two Worlds
 
----
+Owns C16–C19 and the core branch algorithm.
 
-## 2. Pixel audit
+### Edit the Past
 
-每个 primary panel 在冻结前填写：
+Owns C18–C21 and the system/interaction/performance story.
+
+## Pixel-difference rule
+
+A physical claim must remain visible with graph overlays and diagnostics disabled.
+The overlays may explain where the difference came from, but they cannot be the only
+difference.
+
+## Evidence synchronization
+
+For each primary comparison, the following must refer to the same branch family and
+frame time:
 
 ```text
-claim_id:
-run_id:
-artifact_hashes:
-physical_observable:
-expected_pixel_change:
-camera_hash:
-comparison_lock_hash:
-renderer_hash:
-metric_version:
-alternative_explanation:
+rendered frame
+branch/edit manifest
+metric report
+causal-cone report
+full-resimulation reference
+camera/renderer config
 ```
 
-若无法写出 `expected_pixel_change`，说明该 claim 还没有真正映射到图形证据。
+## Deferred old-route mapping
 
----
-
-## 3. Alternative explanations to exclude
-
-### Display density
-
-粒子更密会让 plume 或 mixing 看起来更“丰富”。必须锁定或报告有效显示密度。
-
-### Transfer function
-
-不同 opacity curve 会改变 apparent plume width。必须锁定。
-
-### Temporal filtering
-
-强滤波会让 proposed 看起来更稳定。必须共享。
-
-### Seed selection
-
-随机气体视觉差异可能来自 seed。Hero frame 的选择规则必须预注册，主结论使用 ensemble metric。
-
-### Reference scaling
-
-降尺度 full EDMD 不是自动 ground truth。必须声明分辨率和 convergence status。
-
-### Geometry occlusion
-
-不同相机或 cutaway 可能暴露/隐藏差异。Primary comparison 锁定相机。
+The previous C3–C9 mappings to Correlation Labyrinth, Zoomable Mixing, and Expansion
+into Vacuum are historical/deferred. They must not appear in the active paper or
+teaser unless a future ADR reopens the LOD route.
