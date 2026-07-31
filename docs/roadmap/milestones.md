@@ -1,216 +1,243 @@
 # Milestones
 
-The scientific and visual-production tracks advance together, but visual polish is
-strictly gated by scientific evidence.
+The active route is Molecular Echoes. Scientific validity and graphics-system value
+advance together, while polished rendering remains gated.
 
 ```text
-Scientific: M0 → M1 → M2 → M3 → M4 → M5 → M6 → M7
-Visual:         V0 ───────→ V1 ─────→ V2 → V3 → V4 → V5
+Scientific: M0 → M1 → M2 → M3
+Graphics:        M1 → M4 → M5 → M6
+Production:                     V0 → V1 → V2 → V3
+Paper:                                      M7
 ```
 
-See [Visual Production Roadmap](../demos/visual-production-roadmap.md).
+The old dynamic-LOD milestones are archived in Git history and deferred by
+[ADR 0009](../decisions/0009-pivot-to-molecular-echoes-sig.md).
 
 ---
 
-## M0 — Repository and evidence architecture
+## M0 — Pivot, preregistration, and evidence contracts
 
-**Status:** initialized.
+**Status:** active.
 
 Deliverables:
 
-- research thesis and claim boundaries;
-- source/license ledger;
-- R0–B5 benchmark specifications;
-- artifact schemas;
-- Python/native semantic contracts;
-- CI, docs, and reproducibility rules;
-- render-config/render-manifest contracts;
-- initial visual-production plan and scene responsibilities.
+- preserve Phase-I predictor negative result;
+- freeze the active Molecular Echoes thesis and claim boundaries;
+- preregister E1/E2 geometry, state, bins, observables, controls, and stop criteria;
+- define branch, checkpoint, edit, replay, and graph artifact contracts;
+- add prior-art boundaries for reversal and generic rollback;
+- select SIG as primary target and VIS as a real fallback.
 
 Exit:
 
-- repository checks and tests pass;
-- no third-party source is vendored;
-- every major claim has a benchmark path;
-- every B5 claim has a declared scene and visual observable.
+- ADR 0009 accepted;
+- no old LOD claim remains marked active;
+- primary E1/E2 config is committed/tagged before results;
+- claim ledger and benchmark suite agree.
 
 ---
 
-## M1 — R0 external reference reproduction
+## M1 — E0 strict exact dynamics and replay
 
 Deliverables:
 
-- DynamO adapter and equilibrium/dilute cases;
-- SPARTA free/collisional/simple-surface cases;
-- uniGasFoam pure/hybrid case;
-- raw-to-canonical converters;
-- revision and license audit;
-- first shared diagnostic renders;
-- **V0:** canonical artifact replay for particles, fields, geometry, and masks.
+- periodic 2D EDMD at `N=128,256,512`;
+- deterministic event-order policy;
+- grazing and near-simultaneous collision tests;
+- forward/reverse return audit;
+- collision event checksums;
+- checkpoints and random-access replay;
+- DynamO comparison where definitions align;
+- **V0:** event/replay diagnostic viewer.
 
 Exit:
 
-- one documented result reproduced per source;
-- unit/normalization audit complete;
-- stochastic variation measured;
-- raw output immutable and hashed;
-- V0 can replay at least one case from each external source without solver access.
-
----
-
-## M2 — B0 exact and kinetic primitives
-
-Deliverables:
-
-- minimal 2D exact hard-disk EDMD;
-- minimal 2D Boltzmann DSMC;
-- analytic collision and transport tests;
-- invariants and resolution studies;
-- rolling collision-history correctness reference;
-- initial Enskog reference plan;
-- particle/field/collision diagnostic layers in V0.
-
-Exit:
-
-- EDMD event integrity passes;
-- DSMC convergence envelope established;
-- both match selected external references;
-- no hidden renderer dependency;
-- diagnostic views expose numerical failures rather than smoothing them away.
-
----
-
-## M3 — B1 discrepancy atlas
-
-Deliverables:
-
-- paired ensemble generator;
-- canonical scene families;
-- state and history extraction;
-- exact/kinetic observable joins;
-- grouped split manifest;
-- Boltzmann versus Enskog attribution cases;
-- discrepancy dashboard;
-- **V1:** shared scientific renderer, reference-difference view, comparison lock.
-
-Exit:
-
-- nontrivial target variation;
-- stable uncertainty;
-- matched definitions and convergence;
-- no random-row leakage;
-- at least one case discriminates explanations;
-- full exact/kinetic comparison can be reproduced from manifest and hashes.
-
----
-
-## M4 — B2 indicator study
-
-Deliverables:
-
-- strong state-only baselines;
-- exact-history oracle model;
-- sparse probe prototype;
-- grouped/OOD evaluation;
-- incremental-value and ablation report;
-- online observability audit;
-- Correlation Labyrinth matched-state diagnostic prototype.
-
-Exit:
-
-- practical feature set improves an operational metric enough to change a
-  partition policy;
-- gain survives geometry/regime holdouts;
-- Enskog/packing explanations controlled;
-- no oracle-only feature leakage;
-- CL-02/03/04 can visually link matched state, history difference, and future
-  physical discrepancy.
+- return error and invariant drift meet preregistered tolerances;
+- replay reproduces event/state checksums;
+- failure cases are visible, not snapped away;
+- checkpoint interval/latency trade-off is measured.
 
 Decision:
 
-- pass: continue to conversion and dynamic LOD;
-- fail due finite density: pivot to EDMD–Enskog;
-- fail due observability: study probes/error estimation;
-- fail completely: stop the LOD claim and do not hero-polish the Labyrinth.
+If numerical reversal is not trustworthy, stop the echo paper before adding
+scientific interpretation or graphics polish.
 
 ---
 
-## M5 — B3 static conversion
+## M2 — E1 same resolved present, opposite futures
 
 Deliverables:
 
-- exact-to-kinetic demotion;
-- conservative correction;
-- secondary-statistics audit;
-- promotion with exclusion placement;
-- warm-up/history maturity;
-- static interface flux test;
-- conversion renderer diagnostics;
-- **V2:** zoom/conversion prototype with persistent display sampling and
-  camera–physics audit.
+- registered non-equilibrium pivot protocol;
+- forward, exact-reverse, chaotized-reverse, DSMC, and ghost branches;
+- passive-color pattern;
+- spatial/velocity multi-resolution `f1_h` audit;
+- anisotropy, color, and branch-divergence metrics;
+- seed uncertainty;
+- a neutral 30–45 second internal echo clip.
 
 Exit:
 
-- primary conservation passes;
-- secondary errors are subordinate;
-- overlap-free promotion succeeds in target range;
-- interface bias converges;
-- conversion failures are recoverable;
-- `B5-ZOOM-MIX-v0` passes neutral visual continuity criteria before hero styling.
+- reverse and chaotized branches pass the declared pivot audit;
+- future separation survives finer audit resolutions;
+- result is stable over seeds and at least two `N` values;
+- video difference is caused by simulated dynamics, not backward playback.
+
+Decision:
+
+If separation vanishes under finer `f1_h`, narrow or stop the same-present claim.
 
 ---
 
-## M6 — B4 dynamic LOD
+## M3 — E2 collision-molecule mechanism
 
 Deliverables:
 
-- block state machine;
-- hysteresis and cooldown;
-- probe scheduler;
-- exact-region budget;
-- moving partitions and interfaces;
-- state-only, oracle upper-bound, and practical policies;
-- cost-quality sweeps;
-- **V3:** Expansion-into-Vacuum neutral flagship prototype and synchronized
-  Pareto visualization.
+- timestamped event multigraph with repeated events;
+- molecule root, size, and recollision/reconnection complexity;
+- full and `(Lambda,Gamma)` extended dynamics;
+- count/time-matched random suppression;
+- topology-shuffled control;
+- incoming-pair closure-defect proxy;
+- forward/reverse budget curves;
+- first small fixed-`N epsilon` study only after finite-system mechanism passes.
 
 Exit:
 
-- practical policy improves a Pareto frontier;
-- exact fraction occupies a useful intermediate regime;
-- no uncontrolled chatter;
-- failure indicators work;
-- at least two physical effects restored;
-- proposed/reference difference is visible in neutral shared rendering without
-  relying on the partition mask.
+- structured molecule budget differs from count-matched controls;
+- forward and reverse branches respond differently in a preregistered way;
+- closure readout has the expected direction and uncertainty;
+- extended dynamics are clearly labeled, tested, and not confused with EDMD.
+
+Decision:
+
+If collision count explains the result, remove the molecule-topology claim. The
+project may retain a visual echo demo but cannot use Deng-inspired mechanism as the
+paper spine.
 
 ---
 
-## M7 — B5 paper evidence and hero scenes
+## M4 — E3 collision causal graph and persistent replay
 
 Deliverables:
 
-- strongest baselines and ablations;
-- full resolution/sampling studies;
-- **V4:** three shared-renderer hero scenes;
-- **V5:** evidence registry, frame recipes, release package, and reproduction audit;
-- 30–45 second teaser and 3–5 minute result video;
-- evidence freeze;
-- figures, tables, and supplementary failures;
-- per-shot provenance and frame recipes;
+- predecessor/successor indices;
+- shared-ancestor and descendant queries;
+- checkpoint store;
+- immutable parent branches;
+- copy-on-write event/checkpoint sharing;
+- edit and branch manifests;
+- event graph visualization;
+- storage and query benchmarks.
+
+Exit:
+
+- graph reconstruction matches raw event logs;
+- repeated-pair events are preserved;
+- deterministic replay and branch lineage pass checksum audits;
+- full-copy and copy-on-write baselines are compared.
+
+---
+
+## M5 — E4 causal rewind and counterfactual branching
+
+Deliverables:
+
+- one-particle edit;
+- one-collision edit under declared semantics;
+- simple obstacle/aperture edits;
+- expanding causal-cone invalidation/recomputation;
+- conservative fallback to full replay;
+- local-vs-full correctness study;
+- affected fraction, latency, storage, edit-age, and density sweeps;
+- **V1:** One Collision, Two Worlds prototype.
+
+Exit:
+
+- exact local branches match complete resimulation within tolerance;
+- approximate variants are labeled separately;
+- at least two edit families retain useful locality for a nontrivial time window;
+- fallback behavior is correct and reported;
+- the interaction is more than a replayed movie.
+
+Decision:
+
+If all cones immediately become global, remove the local-speed claim and assess
+whether branch provenance and correlation surgery still form a sufficient graphics
+contribution.
+
+---
+
+## M6 — E5 correlation surgery and authoring
+
+Deliverables:
+
+- block+color velocity surgery;
+- constrained moment-matching refinement;
+- multi-resolution resolved-state audit;
+- primary invariant and no-overlap audit;
+- partial history/molecule retention controls;
+- repeatable alternate-future authoring;
+- **V2:** Molecular Logo Echo prototype;
+- **V3:** Edit the Past prototype.
+
+Exit:
+
+- current resolved state stays within registered tolerance;
+- future branches are controllably different;
+- the effect survives matched rendering;
+- interaction and visual language are understandable without exposing every debug
+  statistic;
+- random surgery of equal magnitude is a weaker control.
+
+---
+
+## M7 — E6 SIG paper evidence and production
+
+Deliverables:
+
+- strongest prior-art baselines and ablations;
+- numerical/scaling studies;
+- full-resimulation correctness;
+- runtime/storage/interactivity results;
+- three 3D Hero Scenes;
+- 30–45 second teaser;
+- 3–5 minute technical video;
+- failure/limitation reel;
+- evidence registry and per-shot manifests;
 - artifact packaging;
-- venue decision.
+- SIG Journal/Conference-level package decision;
+- VIS pivot decision only if triggered.
 
 Exit:
 
-- claim ledger fully linked;
-- all primary results reproducible;
-- no unresolved model/license boundary;
-- graphics and scientific claims agree;
-- comparison locks, artifact hashes, camera hashes, and renderer hashes are
-  complete;
-- failure reel is included;
-- no new physics is introduced for the first time in B5.
+- every active claim maps to frozen evidence;
+- no old LOD claim is silently revived;
+- neutral and hero rendering agree;
+- no primary visual relies on backward video as a simulation result;
+- local branch claims are validated against full resimulation;
+- the Deng connection is accurate and bounded;
+- SIG graphics contribution is legible without the scientific appendix.
+
+---
+
+## Visual production gates
+
+### V0 — Scientific event viewer
+
+Particles, event ledger, checkpoints, pivot audit, branch timeline.
+
+### V1 — Branch comparison renderer
+
+Original/counterfactual/full-reference views with shared camera and time.
+
+### V2 — Molecular Logo Echo
+
+Exact/chaotized/DSMC/history-budget branches; neutral first, hero polish later.
+
+### V3 — Final three-scene production
+
+Molecular Logo Echo, One Collision Two Worlds, Edit the Past, plus evidence release.
 
 ---
 
@@ -218,16 +245,18 @@ Exit:
 
 Can proceed early:
 
-- V0 artifact replay;
-- render schemas and manifests;
-- neutral diagnostic layers;
-- primitive scene geometry;
-- camera/physics separation tests.
+- primitive particle/event viewer;
+- graph layout experiments;
+- checkpoint serialization;
+- passive-color pattern design;
+- simple analytic geometry assets;
+- render/evidence schemas.
 
 Blocked until gates:
 
-- conversion zoom shot: G4;
-- flagship dynamic scene: G5;
-- Correlation Labyrinth hero polish: G3;
-- final art direction and teaser: G6;
-- complex optional assets: after evidence freeze only.
+- polished echo teaser: M2;
+- molecule-budget narrative: M3;
+- local-edit performance claim: M5;
+- history-surgery authoring claim: M6;
+- full 3D production: M5/M6 neutral evidence;
+- IEEE VIS interface/user study: only after formal venue pivot.
