@@ -32,6 +32,10 @@ public software releases. Benchmark and artifact schemas are versioned independe
   checkpoints, conservative pair-relative-velocity edits, exact baseline-event
   reuse, affected-set expansion, full-resimulation comparison, hashed branch
   artifacts, and a locked 15.75-second two-world render.
+- Executed the canonical post-tag E3 run and recorded `go`: `106/106` collision
+  pairs agree with full resimulation, `79/105` baseline events are reused, the
+  affected set peaks at `33/128`, and the one-degree edit creates a `0.188218`
+  terminal color gap. Committed the result boundary and artifact hashes.
 - Added ADR 0010, the story-first Chinese route explanation, strongest-prior-art
   boundaries for Many-Worlds Browsing and Physics Storyboards, and the frozen E3
   gate. Canonical E3 result evidence is intentionally generated only after the

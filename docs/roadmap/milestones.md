@@ -129,54 +129,60 @@ paper spine.
 
 ---
 
-## M4 — E3 collision causal graph and persistent replay
+## M4 — E3 addressable collision and exact causal branch
+
+**Status:** complete with `go` on 2026-08-01. The one-collision Hero combines graph,
+checkpoint, edit, reuse, and local/full correctness in one gate.
 
 Deliverables:
 
 - predecessor/successor indices;
 - shared-ancestor and descendant queries;
 - checkpoint store;
-- immutable parent branches;
-- copy-on-write event/checkpoint sharing;
+- immutable parent timeline and fork checkpoint;
+- baseline-event reuse with an expanding affected set;
 - edit and branch manifests;
 - event graph visualization;
-- storage and query benchmarks.
+- locked One Collision, Two Worlds figure/video.
 
 Exit:
 
 - graph reconstruction matches raw event logs;
 - repeated-pair events are preserved;
-- deterministic replay and branch lineage pass checksum audits;
-- full-copy and copy-on-write baselines are compared.
+- branch lineage and edit invariants pass;
+- local branch matches complete resimulation;
+- visible split, event reuse, and causal reach pass the frozen Hero thresholds.
+
+Result: `106/106` event-pair agreement, `79/105` baseline events reused, peak
+affected set `33/128`, terminal color gap `0.188218`. See the
+[E3 result](../benchmarks/molecular-time-machine-e3-result.md).
 
 ---
 
-## M5 — E4 causal rewind and counterfactual branching
+## M5 — E4 breadth and interactive performance
 
 Deliverables:
 
-- one-particle edit;
-- one-collision edit under declared semantics;
-- simple obstacle/aperture edits;
-- expanding causal-cone invalidation/recomputation;
+- one second physical edit family;
+- targeted edit-age/density locality cases;
+- optional simple obstacle/aperture edit;
+- native or parallel causal-branch implementation;
 - conservative fallback to full replay;
-- local-vs-full correctness study;
-- affected fraction, latency, storage, edit-age, and density sweeps;
-- **V1:** One Collision, Two Worlds prototype.
+- affected fraction, latency, and storage evidence that supports the chosen claim;
+- **V1:** creator-facing One Collision, Two Worlds interaction.
 
 Exit:
 
-- exact local branches match complete resimulation within tolerance;
-- approximate variants are labeled separately;
-- at least two edit families retain useful locality for a nontrivial time window;
+- the E3 exact semantics remain unchanged;
+- at least one second edit family or a meaningful edit-age range retains useful
+  locality;
 - fallback behavior is correct and reported;
 - the interaction is more than a replayed movie.
 
 Decision:
 
-If all cones immediately become global, remove the local-speed claim and assess
-whether branch provenance and correlation surgery still form a sufficient graphics
-contribution.
+If breadth cones become global, keep the proven E3 Hero scoped and remove the broad
+local-speed claim rather than diluting it with extra controls.
 
 ---
 

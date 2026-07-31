@@ -36,12 +36,12 @@ implicitly revived in the Molecular Echoes paper.
 
 | ID | Candidate claim | Benchmark | Required evidence | Status |
 |---|---|---|---|---|
-| C16 | An addressable collision timeline supports event ancestry, descendant queries, checkpoints, and state hashes | E3 | raw-event reconstruction, stable IDs, graph queries, checkpoint hashes | implemented and tested; canonical frozen run pending |
-| C17 | The timeline can fork one conservative physical edit with complete branch provenance | E3 | edit/checkpoint/parent manifests, momentum and energy audit | implemented and tested; canonical frozen run pending |
-| C18 | Exact expanding-causal-cone recomputation matches complete resimulation while reusing independent baseline events | E3 | local-vs-full pair/time/state error, reused events, affected fraction | implemented and end-to-end tested; canonical frozen run pending |
+| C16 | An addressable collision timeline supports event ancestry, descendant queries, checkpoints, and state hashes | E3 | raw-event reconstruction, stable IDs, graph queries, checkpoint hashes | **passes E3-v0 Hero**; 107 baseline events, periodic/forced checkpoints, hashed artifacts |
+| C17 | The timeline can fork one conservative physical edit with complete branch provenance | E3 | edit/checkpoint/parent manifests, momentum and energy audit | **passes E3-v0 Hero**; `+1°` edit, momentum error `1.11e-15`, energy error `0` |
+| C18 | Exact expanding-causal-cone recomputation matches complete resimulation while reusing independent baseline events | E3 | local-vs-full pair/time/state error, reused events, affected fraction | **passes E3-v0 Hero**; pair agreement `1.0`, `79/105` events reused, peak affected `33/128` |
 | C19 | Causal reuse remains useful across broader edit ages, densities, and at least one second edit family | E4 | targeted locality/performance map and native timing | future; not required for the first Hero claim |
 | C20 | Resolved-state-preserving correlation surgery enables repeatable alternate-future authoring | E5 | multi-resolution `f1_h` audit, invariants, random-surgery baseline, controllability | proposed |
-| C21 | Editing an addressable past collision provides an animation workflow beyond reverse playback, outcome browsing, and generic rollback | E3/E6 | One Collision Hero, exact branch evidence, Many-Worlds/Storyboard/Time-Warp comparison | E3 recipe frozen; production interaction remains future |
+| C21 | Editing an addressable past collision provides an animation workflow beyond reverse playback, outcome browsing, and generic rollback | E3/E6 | One Collision Hero, exact branch evidence, Many-Worlds/Storyboard/Time-Warp comparison | E3 exact operation and neutral visual pass; production interaction remains future |
 | C22 | The final visual evidence is physically recomputed, fair, and reproducible | E6 | branch/run/metric/render manifests, comparison lock, failure reel | proposed |
 
 ## D. Claim dependency graph

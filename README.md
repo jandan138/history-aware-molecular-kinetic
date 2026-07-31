@@ -56,6 +56,13 @@ E2 is the turn: a collision-dose slider is not a causal history. E3 combines the
 collision timeline and exact causal branch into the payoff: make one past collision
 addressable, edit it, and show two physically recomputed worlds.
 
+E3 is now complete and returned `go`. Rotating collision #2's pair-relative
+velocity by one degree changes `33/128` terminal particle positions and lowers the
+terminal `E` score from `1.000000` to `0.811782`. The exact causal branch agrees
+with all `106` collision pairs in the full resimulation while reusing `79/105`
+baseline events; its peak affected set is `33/128` particles. See the
+[`E3 Result`](docs/benchmarks/molecular-time-machine-e3-result.md).
+
 ## Core idea
 
 An exact hard-sphere microstate stores:
@@ -227,17 +234,18 @@ and a separate evaluation; it is not a renamed SIG draft.
 
 See [`Venue Strategy`](docs/vision/venue-strategy.md).
 
-## Immediate first-stage gate
+## First-stage outcome
 
 E1 is complete at `N=128,256`: strict reversal, the resolved-present audit, all
 five branches, seed uncertainty, the main figure, and a neutral video pass the
 frozen gate. E2 is also complete and closes the molecule-wiring mechanism negative.
-The first stage now has one remaining narrative gate:
+The final narrative gate passed:
 
-1. select frozen collision #2 in the E1 Hero;
-2. rotate its pair-relative velocity by one degree;
-3. validate exact causal recomputation against complete resimulation;
-4. show the world split, reused history, and causal reach in one locked visual.
+1. frozen collision #2 was selected in the E1 Hero;
+2. its pair-relative velocity was rotated by one degree;
+3. exact causal recomputation matched complete resimulation;
+4. the world split, `75.238%` history reuse, and `25.781%` causal reach are visible
+   in one locked figure and 15.75-second video.
 
 Additional E1/E2 variants and `N=512` are cancelled for this route; they are not a
 substitute for the failed mechanism gate.
@@ -313,11 +321,12 @@ It must not be presented as the active SIG method.
 6. [Venue strategy](docs/vision/venue-strategy.md)
 7. [Active benchmark suite](docs/benchmarks/echo-branching-suite.md)
 8. [E1 result](docs/benchmarks/molecular-echoes-e1-result.md)
-9. [Architecture: graph and branching](docs/architecture/collision-history-graph-and-branching.md)
-10. [Milestones](docs/roadmap/milestones.md)
-11. [Go/No-Go gates](docs/roadmap/go-no-go-gates.md)
-12. [Hero Scenes](docs/demos/hero-scenes.md)
-13. [Claim ledger](paper/claim-ledger.md)
+9. [E3 result](docs/benchmarks/molecular-time-machine-e3-result.md)
+10. [Architecture: graph and branching](docs/architecture/collision-history-graph-and-branching.md)
+11. [Milestones](docs/roadmap/milestones.md)
+12. [Go/No-Go gates](docs/roadmap/go-no-go-gates.md)
+13. [Hero Scenes](docs/demos/hero-scenes.md)
+14. [Claim ledger](paper/claim-ledger.md)
 
 ## License
 

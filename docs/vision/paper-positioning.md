@@ -166,3 +166,5 @@ interrupting the main narrative.
 
 See [ADR 0010](../decisions/0010-molecular-time-machine-paper-spine.md) and the
 [E3 frozen recipe](../benchmarks/molecular-time-machine-e3-preregistration.md).
+The canonical gate returned `go`; numerical evidence and hashes are in the
+[E3 result](../benchmarks/molecular-time-machine-e3-result.md).

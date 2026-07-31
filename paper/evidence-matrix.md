@@ -12,6 +12,13 @@ complete boundary are recorded in the
 [E2 result](../docs/benchmarks/molecular-echoes-e2-result.md). Molecule wiring beyond
 collision dose is no longer an active paper claim.
 
+E3-v0 returned `go`: collision #2's one-degree physical edit produces a `0.188218`
+terminal color gap and `33/128` visibly changed particles. The causal branch agrees
+with all `106` full-resimulation collision pairs, reuses `79/105` baseline events,
+and peaks at `33/128` affected particles. The frozen boundary and artifact hashes
+are recorded in the
+[E3 result](../docs/benchmarks/molecular-time-machine-e3-result.md).
+
 | Figure/table concept | Run families | Metrics | Primary interpretation | Alternative explanation to exclude |
 |---|---|---|---|---|
 | Exact reversal and replay audit | E0 forward/reverse/checkpoint | return error, event/checksum agreement, invariants | exact branch is numerically trustworthy | backward video, state snapping, event-order drift |

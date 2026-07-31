@@ -1,7 +1,7 @@
 # Molecular Time Machine — first-stage decision
 
-**Status:** E1 passed, E2 closed its planned mechanism, and the combined E3
-timeline/causal-branch recipe is frozen for canonical evidence.
+**Status:** complete with `go`. E1 passed, E2 closed its planned mechanism, and the
+combined E3 timeline/causal-branch Hero passed every frozen check.
 
 **Purpose:** finish one coherent paper arc before investing in breadth, performance,
 3D production, or user evaluation.
@@ -37,9 +37,14 @@ one transition: more collision dose can restore more echo, but a dose slider doe
 not tell an animator which cause to edit. See the
 [E2 result](../benchmarks/molecular-echoes-e2-result.md).
 
-## Act 3 active — One Collision, Two Worlds E3
+## Act 3 complete — One Collision, Two Worlds E3
 
 E3 combines the graph and branch gates. A graph passes only if it performs the edit.
+
+The frozen run returned `go`: terminal color gap `0.188218`, `33/128` visibly
+changed particles, `106/106` local/full collision-pair agreement, `79/105` reused
+baseline events, and `33/128` peak affected particles. See the
+[E3 result](../benchmarks/molecular-time-machine-e3-result.md).
 
 ### Frozen Hero
 
@@ -90,7 +95,7 @@ The exact thresholds and artifact contract are frozen in the
 
 Those may become E4–E6 work only if the one-collision story earns them.
 
-## Stage handoff if E3 passes
+## Stage handoff after E3 passed
 
 The next phase should deepen the contribution in this order:
 

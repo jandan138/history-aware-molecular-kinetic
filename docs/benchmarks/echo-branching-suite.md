@@ -117,6 +117,11 @@ explains the same response.
 
 ## E3 — One addressable collision, two exact worlds
 
+**Result:** complete with `go`. The frozen Hero achieves a `0.188218` terminal
+color gap, `106/106` collision-pair agreement, `79/105` baseline-event reuse, and
+`33/128` peak affected particles. See the
+[E3 result](molecular-time-machine-e3-result.md).
+
 ### Question
 
 Can the event multigraph serve as a correct provenance index **and** drive an exact

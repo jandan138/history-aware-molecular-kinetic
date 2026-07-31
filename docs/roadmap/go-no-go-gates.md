@@ -60,15 +60,21 @@ route.
 If G2 fails but G0/G1 pass, retain the echo as a demonstration and remove the
 Deng-inspired mechanism claim from the paper spine.
 
-## Gate G3 — Collision graph and deterministic branch representation
+## Gate G3 — Addressable collision and exact Hero branch
+
+**Observed E3-v0 decision:** **Go.** All `106` post-fork collision pairs agree with
+full resimulation, `79/105` baseline events are reused, peak affected fraction is
+`33/128`, and the terminal color gap is `0.188218`.
 
 **Go:**
 
 - event predecessors/successors match the raw ledger;
 - repeated-pair events are preserved;
 - shared-ancestor and descendant queries are correct;
-- copy-on-write branches reproduce full-copy branches;
+- the graph drives baseline-event reuse and invalidation;
 - branch/checkpoint provenance is complete.
+- the local branch matches full resimulation within the frozen tolerances;
+- the registered one-event edit creates the visible split.
 
 **No-Go:**
 
@@ -76,21 +82,20 @@ Deng-inspired mechanism claim from the paper spine.
 - event log and branch state can diverge silently;
 - random access requires storing full frames without an honest baseline.
 
-## Gate G4 — Counterfactual branch correctness
+## Gate G4 — Breadth and performance after the Hero
 
 **Go:**
 
-- local causal-cone recomputation matches complete resimulation within tolerance;
-- uncertain dependencies expand the cone or trigger full fallback;
-- approximate policies are labeled separately;
-- at least two edit classes are validated.
+- E3 exact semantics remain unchanged in a native/optimized path;
+- a second edit family or targeted edit-age range has useful locality;
+- runtime/storage evidence supports only the breadth claim actually made;
+- global-cone cases narrow the claim instead of triggering more E3 experiments.
 
 **No-Go:**
 
-- a bounded cone silently misses dependencies;
-- the edited branch is only a visual overlay;
-- local and full resimulation disagree materially;
-- branch edits modify the parent evidence.
+- optimized execution changes the frozen physical result;
+- every added edit immediately becomes global and offers no authoring value;
+- a wall-clock headline is based only on the Python Hero observation.
 
 ## Gate G5 — Useful locality and system value
 
@@ -133,9 +138,9 @@ surgery and branch authoring remain strong; otherwise prepare a VIS analysis piv
 **Go:**
 
 - the paper contains a simulation/animation algorithm, not only a phenomenon;
-- Molecular Logo Echo, One Collision Two Worlds, and Edit the Past are all
-  physically recomputed;
-- at least two scenes are legible without debug overlays;
+- Molecular Logo Echo establishes the hook and One Collision, Two Worlds carries
+  the central physically recomputed method;
+- the central Hero is legible without debug overlays;
 - branch correctness and performance are synchronized with the displayed run;
 - the result cannot be reduced to backward playback or keyframing;
 - every primary shot has a complete evidence manifest.
@@ -169,7 +174,6 @@ surgery and branch authoring remain strong; otherwise prepare a VIS analysis piv
 ### Stop both when
 
 - G0 or G1 fails;
-- structured history is indistinguishable from count-matched controls;
 - neither a graphics algorithm nor a visual-analytics workflow emerges;
 - only a beautiful but scientifically ordinary reversal remains.
 
