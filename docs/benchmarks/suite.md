@@ -1,88 +1,150 @@
-# Benchmark suite
+# Benchmark Suite
 
-## 1. Why a ladder
+## 1. Active and deferred ladders
 
-The final dynamic LOD combines several independently fragile components:
+The repository now contains two ladders with different status.
+
+### Active first-paper ladder
+
+```text
+E0 exact reversal and replay
+→ E1 same resolved present / opposite futures
+→ E2 collision-molecule mechanism
+→ E3 history graph and deterministic replay
+→ E4 counterfactual branching
+→ E5 correlation surgery
+→ E6 SIG graphics evidence
+```
+
+See [Active E0–E6 Echo and Branching Suite](echo-branching-suite.md).
+
+### Deferred adaptive-LOD ladder
+
+```text
+R0 external references
+→ B0 exact/kinetic primitives
+→ B1 discrepancy atlas
+→ B2 history predictor
+→ B3 conversion
+→ B4 dynamic LOD
+→ B5 old LOD graphics evidence
+```
+
+The Phase-I B2 predictor result is preserved as an exploratory negative. B3–B5 are
+not active paper dependencies.
+
+## 2. Why the active ladder is necessary
+
+The final Molecular Echoes system combines independently fragile components:
 
 - exact event-driven dynamics;
-- stochastic kinetic dynamics;
-- paired ensemble comparison;
-- collision-history statistics;
-- conversion;
-- online control;
-- visualization.
+- numerical reversibility;
+- resolved-state matching;
+- multi-particle correlation interventions;
+- collision causal graphs;
+- checkpoint/replay;
+- persistent branches;
+- local causal-cone recomputation;
+- interactive animation and rendering.
 
-A single final scene cannot diagnose which component failed. R0–B5 isolate them.
+One polished reverse movie cannot diagnose which component is valid.
 
-## 2. Suite map
+## 3. Active suite map
 
 ```mermaid
 flowchart LR
-    R0[R0 External references] --> B0[B0 Single-regime primitives]
-    B0 --> B1[B1 Discrepancy atlas]
-    B1 --> B2[B2 History indicator]
-    B2 --> B3[B3 Conversion]
-    B3 --> B4[B4 Dynamic LOD]
-    B4 --> B5[B5 Graphics evidence]
+    E0[E0 Exact dynamics] --> E1[E1 Same resolved present]
+    E1 --> E2[E2 Molecule budget]
+    E0 --> E3[E3 Graph + replay]
+    E3 --> E4[E4 Counterfactual branch]
+    E1 --> E5[E5 Correlation surgery]
+    E2 --> E5
+    E4 --> E6[E6 SIG evidence]
+    E5 --> E6
 ```
 
-## 3. R0 — External references
+## 4. Summary of active suites
 
-Reproduce documented DynamO, SPARTA, and uniGasFoam cases. The result is a
-versioned oracle adapter, not merely a screenshot.
+### E0 — Exact dynamics, reversal, replay
 
-## 4. B0 — Single-regime primitives
+Validates forward/reverse return, deterministic event ordering, checkpoints, and
+replay divergence.
 
-Validate internal exact and kinetic backends independently against analytic,
-statistical, or external reference behavior.
+### E1 — Same resolved present
 
-## 5. B1 — Discrepancy atlas
+Audits exact-reverse and chaotized branches over multiple spatial/velocity
+resolutions and measures future separation.
 
-Run paired ensembles under matched physical definitions and map disagreement
-across density, Knudsen regime, geometry, anisotropy, walls, resolution, and
-future horizon.
+### E2 — Collision-molecule mechanism
 
-## 6. B2 — History indicator
+Compares structured `(Lambda,Gamma)` budgets with count/time-matched random
+suppression, topology-shuffled controls, ghost dynamics, and full EDMD.
 
-Test whether history features improve prediction beyond state-only and
-finite-density baselines on grouped held-out cases.
+### E3 — Causal graph and deterministic replay
 
-## 7. B3 — Representation conversion
+Validates event predecessors, repeated events, shared ancestors, graph queries,
+checkpoint restore, and copy-on-write history segments.
 
-Test demotion, promotion, conservation, secondary statistics, interface flux,
-and transient relaxation without dynamic policy confounds.
+### E4 — Counterfactual branching
 
-## 8. B4 — Dynamic LOD
+Compares causal-cone branch recomputation with complete resimulation after particle,
+collision, aperture, and obstacle edits.
 
-Activate the online state machine, probes, hysteresis, budgets, and moving
-partitions. Compare against uniform and state-only adaptive baselines.
+### E5 — Correlation surgery
 
-## 9. B5 — Graphics evidence
+Tests whether hidden correlation can be changed while preserving the registered
+resolved present and primary invariants.
 
-Render the same frozen B2–B4 artifact families with a shared pipeline and freeze three Hero Scenes: Zoomable Mixing, Correlation Labyrinth, and Expansion into Vacuum. No new physics may debut in B5. Every comparison uses a render manifest and comparison-lock hash; at least two predeclared physical observables must remain visible under matched display density. See [B5 Graphics Evidence](b5-graphics-evidence.md) and the [Visual Production Roadmap](../demos/visual-production-roadmap.md).
+### E6 — SIG graphics evidence
 
-## 10. Case lifecycle
+Freezes Molecular Logo Echo, One Collision Two Worlds, and Edit the Past with shared
+rendering and per-shot evidence.
+
+## 5. What remains useful from R0–B5
+
+- R0 external adapters support solver trust and related-work comparisons.
+- B0 analytic/invariant tests remain required infrastructure.
+- B1 tools may quantify EDMD/DSMC differences for the scientific baseline.
+- B2 records the negative predictor result.
+- B3–B5 schemas/render infrastructure may be reused, but their old claims and scene
+  ownership are deferred.
+
+## 6. Case lifecycle
 
 ```text
-candidate -> smoke -> converged -> reviewed -> frozen -> evidence
-                                  \-> retired with reason
+candidate
+→ preregistered
+→ smoke
+→ converged
+→ reviewed
+→ frozen
+→ evidence
+\→ retired with reason
 ```
 
-## 11. Cross-suite invariants
+For E1/E2 primary evidence, the preregistration commit and tag must predate result
+generation.
 
-All suites use:
+## 7. Cross-suite invariants
 
-- stable case and run IDs;
-- declared units;
-- immutable raw oracle output;
+All active suites use:
+
+- stable case, run, branch, edit, checkpoint, and event IDs;
+- declared units and numerical tolerances;
+- immutable parent branches;
 - seed families and uncertainty;
-- explicit model-applicability labels;
-- global and conversion-specific conservation budgets;
+- event and artifact hashes;
+- exact/extended-dynamics labels;
+- full-resimulation baselines;
 - renderer independence;
-- no hidden manual cleanup.
+- no hidden manual trajectory cleanup.
 
-## 12. Promotion rule
+## 8. Promotion rule
 
-A later suite may begin engineering exploration before the previous suite is
-fully complete, but it cannot become primary paper evidence until the preceding
-exit gate passes.
+Engineering exploration may begin early, but a later suite cannot become primary
+paper evidence until the preceding gate passes. In particular:
+
+- no Hero echo before E0/E1;
+- no history-mechanism claim before E2 null controls;
+- no local-edit performance claim before E4 correctness;
+- no SIG teaser before E6 neutral comparison.
