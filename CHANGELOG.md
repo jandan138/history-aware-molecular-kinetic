@@ -2,23 +2,46 @@
 
 All notable project changes are documented here.
 
-The format follows Keep a Changelog and the project uses semantic
-versioning for public software releases. Benchmark and artifact schemas
-are versioned independently.
+The format follows Keep a Changelog and the project uses semantic versioning for
+public software releases. Benchmark and artifact schemas are versioned independently.
 
 ## [Unreleased]
 
+### Changed
+
+- Pivoted the active first-paper route from predictive exact/kinetic dynamic LOD to
+  **Molecular Echoes: Reversible and Counterfactual Hard-Sphere Animation with
+  Collision-History Graphs** after the Phase-I scalar-history predictor did not meet
+  its operational evidence gate.
+- Preserved the Phase-I result as an exploratory negative and explicitly deferred
+  history-error prediction, promotion/demotion, online partitioning, and the old LOD
+  Hero Scene paper spine.
+- Repositioned DSMC as a controlled history-forgetting scientific baseline rather
+  than the active runtime coarse backend.
+- Set SIGGRAPH / SIGGRAPH Asia as the primary target and IEEE VIS as a genuine linked
+  visual-analytics fallback, not a renamed submission.
+
 ### Added
 
-- Gate-controlled V0–V5 visual-production track from artifact replay through evidence packaging and release.
-- Art-direction guide, storyboard, visual acceptance criteria, claim-to-visual evidence matrix, and bounded specifications for all three Hero Scenes.
-- Versioned render-config, camera-path, and render-manifest schemas with
-  content-hashed camera paths, explicit display-policy digests, complete
-  case/run/claim evidence links, and a deterministic manifest-only reference
-  renderer.
-- Independent primary-comparison manifest audit for camera, renderer, timeline, output, comparison-lock, and complete case/run/claim/metric linkage.
-- Diagnostic, shared-comparison, Hero, and per-scene render presets with frozen shot IDs and camera files.
-- Candidate B5 cases for Zoomable Mixing, Correlation Labyrinth, and Expansion into Vacuum.
-- Dependency-ordered visual-production backlog, visual-evidence issue template, comparison-lock tests, and release reproducibility requirements.
-- Project-aligned Chinese learning roadmap from GAMES103 and introductory fluid mechanics to EDMD, DSMC, collision correlation, representation conversion, and dynamic molecular LOD.
-- Benchmark-first repository architecture, R0–B5 specifications, source ledger, Python/native contracts, artifact schemas, and reproducibility policy.
+- ADR 0009 documenting the research and venue pivot.
+- Active E0–E6 benchmark ladder for exact reversal, same-resolved-present audits,
+  collision-molecule mechanisms, causal graphs, counterfactual branches,
+  correlation surgery, and SIG graphics evidence.
+- Collision-history graph, checkpoint, replay, persistent branch, edit-manifest,
+  causal-cone, and surgery architecture.
+- Dependency-ordered Molecular Echoes implementation backlog.
+- New Go/No-Go gates for numerical reversal, multi-resolution `f1_h`, mechanism null
+  controls, branch correctness, causal locality, authoring value, and venue choice.
+- Molecular Logo Echo, One Collision Two Worlds, and Edit the Past Hero Scenes with
+  a new storyboard, art direction, acceptance criteria, and claim-to-pixel mapping.
+- Prior-art/source entries for reversible elastic-collision simulation, Time-Warp
+  rollback, SIGGRAPH scope, and IEEE VIS area scope.
+
+### Retained from earlier repository work
+
+- Gate-controlled visual-evidence infrastructure, render manifests, cameras,
+  comparison locks, and reproducibility policies.
+- Project-aligned learning roadmap from GAMES103 and introductory fluid mechanics to
+  EDMD, DSMC, collision correlation, and molecular simulation.
+- Benchmark-first repository architecture, external-oracle adapters, Python/native
+  contracts, schemas, tests, and source/license ledger.
