@@ -5,7 +5,21 @@
 [![CI](https://github.com/jandan138/history-aware-molecular-kinetic/actions/workflows/ci.yml/badge.svg)](https://github.com/jandan138/history-aware-molecular-kinetic/actions/workflows/ci.yml)
 [![Docs](https://github.com/jandan138/history-aware-molecular-kinetic/actions/workflows/docs.yml/badge.svg)](https://github.com/jandan138/history-aware-molecular-kinetic/actions/workflows/docs.yml)
 
-**Status:** M0 repository bootstrap · research hypotheses not yet validated · initialized 2026-07-29
+**Status:** Phase-I internal 2D reference prototype · exploratory history result
+does not support the primary claim · external-oracle validation still pending
+
+## Exploratory Phase-I result
+
+The executable `PHASE1-HISTORY-STORY-v0` study now prepares matched ensembles in
+an open channel, a single-baffle channel, and a Correlation Labyrinth, removes
+the preparation geometry, and compares EDMD with Boltzmann DSMC in one shared
+observation domain across three state families.
+
+The current internal-reference result is negative: exact-history features do not
+improve grouped/OOD prediction by the predeclared operational margin. The result
+must not be presented as frozen paper evidence until external-oracle validation,
+but it blocks dynamic-LOD engineering on the present feature/physics design. See
+[`docs/roadmap/phase-1-paper-spine.md`](docs/roadmap/phase-1-paper-spine.md).
 
 ## Research question
 
@@ -159,13 +173,29 @@ The flagship scene is developed first; Correlation Labyrinth provides the scient
 ## Quick start
 
 ```bash
-python -m pip install -e ".[dev]"
+python -m pip install -e ".[dev,analysis]"
 pytest
 python scripts/check_repo.py
 
 cmake -S native -B build/native -DCMAKE_BUILD_TYPE=Release
 cmake --build build/native --parallel
 ctest --test-dir build/native --output-on-failure
+```
+
+Run the Phase-I paired study and decision:
+
+```bash
+PYTHONPATH=src python scripts/run_phase1_story.py \
+  --output results/phase1-history-story-v0
+
+PYTHONPATH=src python scripts/evaluate_phase1_story.py \
+  results/phase1-history-story-v0/discrepancy-dataset.jsonl \
+  --output results/phase1-history-story-v0/evaluation.json
+
+PYTHONPATH=src python scripts/decide_phase1_story.py \
+  --manifest results/phase1-history-story-v0/study-manifest.json \
+  --evaluation results/phase1-history-story-v0/evaluation.json \
+  --output results/phase1-history-story-v0/decision.json
 ```
 
 Third-party solvers are not downloaded automatically. Reproduce them through the

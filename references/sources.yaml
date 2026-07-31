@@ -15,6 +15,43 @@ sources:
       - an online collision-history indicator
       - a GPU cutting or partition algorithm
       - dense-gas or arbitrary-geometry guarantees
+      - novelty of velocity reversal or a finite T-dynamics implementation
+
+  - id: aoki_pulvirenti_simonella_velazquez_2014
+    kind: paper
+    title: Backward Clusters, Hierarchy and Wild Sums for a Hard Sphere System in a Low-Density Regime
+    authors: [K. Aoki, M. Pulvirenti, S. Simonella, T. Tsuji]
+    year: 2014
+    url: https://arxiv.org/abs/1408.6571
+    role: backward_collision_cluster_context
+    supports:
+      - backward collision-cluster analysis in hard-sphere kinetic theory
+    does_not_support:
+      - finite-system causal claims for this project
+
+  - id: pulvirenti_simonella_2014
+    kind: paper
+    title: "The Boltzmann-Grad Limit of a Hard Sphere System: Analysis of the Correlation Error"
+    authors: [Mario Pulvirenti, Sergio Simonella]
+    year: 2014
+    url: https://arxiv.org/abs/1405.4676
+    role: correlation_error_context
+    supports:
+      - correlation-error context for hard-sphere kinetic limits
+    does_not_support:
+      - an implementation guarantee for a finite collision multigraph
+
+  - id: orban_bellemans_1967
+    kind: paper
+    title: Velocity inversion in a hard-disk system
+    authors: [J. Orban, A. Bellemans]
+    year: 1967
+    url: https://www.sciencedirect.com/science/article/pii/0375960167906512
+    role: velocity_reversal_prior_art
+    supports:
+      - velocity-inversion/echo phenomena are established prior art
+    does_not_support:
+      - novelty of a plain hard-disk reversal movie
 
   - id: deng_hani_ma_hydrodynamic_2025
     kind: paper

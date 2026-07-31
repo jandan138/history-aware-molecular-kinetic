@@ -3,86 +3,100 @@
 ## 1. The mathematical result
 
 Deng, Hani, and Ma derive the Boltzmann equation from a rarefied Newtonian
-hard-sphere system for any fixed time interval over which the corresponding
-Boltzmann solution exists. This extends the classical short-time derivation.
-A companion work connects the result to hydrodynamic limits for compressible
-Euler and incompressible Navier–Stokes–Fourier equations in the stated setting.
+hard-sphere system for long times under stated assumptions. The proof uses a
+long-time cumulant ansatz that retains full collision histories; the associated
+diagrams are organized as collision-history molecules and controlled with both
+T-dynamics and a cutting argument. A companion work connects this program to
+hydrodynamic limits in its stated setting.
 
-The proof uses a long-time cumulant ansatz that retains memory of full collision
-histories. Associated diagrams are organized as collision-history molecules and
-controlled through a cutting algorithm.
+Primary sources and explicit non-claims are pinned in the repository file
+references/sources.yaml.
 
-Primary sources are pinned in [`references/sources.yaml`](../../references/sources.yaml).
-
-## 2. The transferable idea
+## 2. Transferable idea: a finite-system correlation microscope
 
 The transferable idea is a question of information:
 
-```text
-exact particle identities + collision history
-                 ↓ coarse-graining
-one-particle kinetic distribution
-```
+\[
+\text{particle identities and correlated collision history}
+\quad\longrightarrow\quad
+\text{one-particle kinetic distribution}.
+\]
 
-What correlations are discarded, when are they small, and how can their effect
-be quantified?
+What correlations are discarded by that closure, and can a controlled
+intervention make their effect visible?
 
-This motivates our benchmark variables:
+The active answer is **Collision-History Echoes**:
 
-- repeated-pair events;
-- graph circuit rank;
-- component growth and re-merging;
-- lineage depth and recent shared ancestors;
-- low-dimensional pair-correlation or cumulant proxies.
+1. prepare a non-equilibrium hard-disk gas and reverse velocities at a pivot;
+2. compare exact reversal with a velocity permutation that preserves a
+   preregistered discrete one-particle marginal \(f_{1,h}\);
+3. restrict collision connections by a finite \((\Lambda,\Gamma)\) budget;
+4. measure an incoming-pair closure-defect proxy and its effect on a
+   preregistered observable.
+
+The simulator keeps a timestamped collision-event **multigraph**, with each
+repeated pair event retained. This is a finite computational object for auditing
+the intervention. It is not identified with the full analytic molecule of the
+proof. The route is specified in
+[Collision-History Echoes](collision-history-echo-route.md).
 
 ## 3. What is not transferable without new research
 
-### Not an online indicator
+### Not a finite-system theorem
 
-The proof's cumulants and diagrams are analytic objects in a limiting argument.
-Computing a finite rolling collision graph does not inherit the theorem.
+Computing a collision multigraph, seeing a Loschmidt echo, or measuring a
+finite-\(N\) cumulant proxy does not inherit the theorem, verify its
+assumptions, or produce a convergence rate.
 
-### Not a partition algorithm
+### T-dynamics is distinct from the cutting argument
 
-The cutting algorithm establishes estimates. It does not choose GPU blocks,
-convert representations, or guarantee a local error bound.
+The cutting argument is a proof technique for estimates. It is not a partition,
+GPU, or representation-conversion algorithm. T-dynamics is a separate modified
+dynamics. A finite analogue may suppress a collision when a
+\((\Lambda,\Gamma)\) budget is exhausted, but it must then explicitly adopt
+ghost/crossing semantics and may permit overlaps. It is no longer an ordinary
+hard-sphere EDMD trajectory.
 
-### Not evidence that history refinement is useful
+### Not evidence for an engineering history controller
 
-In the Boltzmann–Grad limit, the theorem says the factorized description becomes
-valid. The closer a numerical scene is to that regime, the less need there may be
-for an exact patch.
+The prior proposal that compact history features predict EDMD–DSMC discrepancy
+was an exploratory negative result. The new route studies a causal mechanism; it
+does not establish that an online history-based LOD policy is useful.
 
-### Not a dense-gas theorem
+### Not a Boltzmann counterexample or dense-gas theorem
 
-When finite-size pair structure is large, an Enskog model may be the correct
-coarse comparison. Attributing all EDMD–DSMC discrepancy to collision history
-would be scientifically wrong.
+The reversed state deliberately carries oriented many-particle correlations and
+is not a new factorized initial condition for the kinetic-limit theorem.
+Accordingly, an echo result is not a counterexample to Boltzmann closure. At
+finite density, an Enskog-like correction may still be the relevant coarse
+comparison; the route does not attribute every EDMD–DSMC discrepancy to history.
 
-## 4. How the paper should describe the connection
+## 4. Allowed wording
 
-Acceptable wording:
+Acceptable:
 
-> Inspired by the distinction between factorized kinetic descriptions and the
+> Inspired by the distinction between factorized kinetic descriptions and
 > collision-history correlations controlled in recent hard-sphere kinetic-limit
-> theory, we investigate whether compact history features predict finite-system
-> model discrepancy.
+> theory, we construct matched resolved one-particle states with different
+> correlated futures and measure the collision-molecule budget needed to
+> preserve their response.
 
-Unacceptable wording:
+Unacceptable:
 
 > We turn the Deng–Hani–Ma cutting algorithm into an adaptive simulator.
 
-or:
+> The theorem guarantees our molecular-echo budget, makes velocity reversal
+> novel, or proves that history-based LOD is useful.
 
-> The theorem guarantees our history-based LOD.
+## 5. Implementation audit boundary
 
-## 5. Benchmark consequence
+- **Exact EDMD** is used for the reference/reversal branch.
+- **Chaotization** may claim equality only for registered discrete
+  \(f_{1,h}\), never for continuous pointwise \(f_1(x,v)\).
+- **Finite T-dynamics** is labelled an extended causal intervention, never an
+  exact-dynamics baseline.
+- **Incoming-pair proxies** and response observables are registered before the
+  curves are plotted.
 
-Every history feature has a visibility label:
-
-- `runtime_observable`: available in the actual current representation;
-- `shadow_probe`: available only after a bounded exact micro-probe;
-- `oracle_only`: available only from full EDMD and forbidden to the online policy.
-
-This prevents a common research error: using exact ground-truth history to decide
-where exact ground truth was needed, then reporting the result as an online method.
+These boundaries keep the theoretical inspiration useful without turning it into
+an unjustified algorithmic guarantee.

@@ -24,6 +24,10 @@ docs = [
   "mkdocs-material>=9.5",
   "pymdown-extensions>=10.12",
 ]
+analysis = [
+  "numpy>=1.26",
+  "scikit-learn>=1.5",
+]
 
 [project.scripts]
 hamk = "historykinetic.cli:main"

@@ -1,4 +1,4 @@
-"""Semantic contracts for history-aware molecular–kinetic research."""
+"""Semantic contracts for history-aware molecular-kinetic research."""
 
 from .contracts import (
     ArtifactRef,

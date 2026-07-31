@@ -38,6 +38,7 @@ nav:
   - Research:
       - 中文研究总览: research/zh-research-overview.md
       - Hard-sphere to kinetic primer: research/hard-sphere-kinetic-primer.md
+      - Collision-History Echoes: research/collision-history-echo-route.md
       - Deng–Hani–Ma connection: research/deng-hard-sphere-connection.md
       - Hypotheses: research/hypotheses.md
       - Related work: research/related-work.md
@@ -88,6 +89,8 @@ nav:
       - Risk register: roadmap/risk-register.md
       - Implementation backlog: roadmap/implementation-backlog.md
       - Demo production backlog: roadmap/demo-production-backlog.md
+      - Phase-I history study (closed): roadmap/phase-1-paper-spine.md
+      - Molecular-echo first stage: roadmap/molecular-echo-first-stage.md
   - Reproducibility:
       - Contract: reproducibility/reproducibility-contract.md
       - Artifact policy: reproducibility/artifact-policy.md

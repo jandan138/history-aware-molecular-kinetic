@@ -9,20 +9,20 @@ from __future__ import annotations
 import json
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
-from enum import Enum
+from enum import StrEnum
 from pathlib import Path, PurePosixPath
 
 from historykinetic.contracts import ArtifactRef
 from historykinetic.ids import canonical_json, content_id
 
 
-class RenderPurpose(str, Enum):
+class RenderPurpose(StrEnum):
     DIAGNOSTIC = "diagnostic"
     SHARED_COMPARISON = "shared_comparison"
     HERO = "hero"
 
 
-class RenderChannel(str, Enum):
+class RenderChannel(StrEnum):
     EXACT_PARTICLES = "exact_particles"
     STATISTICAL_DISPLAY_PARTICLES = "statistical_display_particles"
     GEOMETRY = "geometry"
@@ -61,7 +61,7 @@ class FrameSchedule:
     @property
     def frame_count(self) -> int:
         span = self.end_time - self.start_time
-        return int(round(span / self.sample_interval)) + 1
+        return round(span / self.sample_interval) + 1
 
 
 @dataclass(frozen=True, slots=True)
@@ -211,10 +211,15 @@ class RenderPlan:
         if postprocess.get("future_frame_access") is not False:
             raise ValueError("future-frame post-processing is forbidden")
 
+        lock_fields_raw = comparison["lock_fields"]
+        if not isinstance(lock_fields_raw, Sequence) or isinstance(
+            lock_fields_raw, (str, bytes)
+        ):
+            raise ValueError("comparison_lock.lock_fields must be a sequence")
         lock = ComparisonLock(
             enabled=bool(comparison["enabled"]),
             group_id=str(comparison["group_id"]),
-            locked_fields=tuple(str(item) for item in comparison["lock_fields"]),
+            locked_fields=tuple(str(item) for item in lock_fields_raw),
             method_specific_overrides_forbidden=bool(
                 comparison["method_specific_overrides_forbidden"]
             ),
@@ -236,9 +241,11 @@ class RenderPlan:
             scene_id=str(payload["scene_id"]),
             output=output,
             schedule=FrameSchedule(
-                start_time=float(timeline["start_time"]),
-                end_time=float(timeline["end_time"]),
-                sample_interval=float(timeline["sample_interval"]),
+                start_time=_number(timeline["start_time"], "timeline.start_time"),
+                end_time=_number(timeline["end_time"], "timeline.end_time"),
+                sample_interval=_number(
+                    timeline["sample_interval"], "timeline.sample_interval"
+                ),
             ),
             camera=camera,
             layers=layers,
@@ -250,7 +257,10 @@ class RenderPlan:
         )
         if plan.schedule.frame_count < 1:
             raise ValueError("render plan must contain at least one frame")
-        if int(output["width"]) <= 0 or int(output["height"]) <= 0:
+        if (
+            _integer(output["width"], "output.width") <= 0
+            or _integer(output["height"], "output.height") <= 0
+        ):
             raise ValueError("output dimensions must be positive")
         return plan
 
@@ -318,6 +328,18 @@ class RenderPlan:
 def _mapping(value: object, name: str) -> Mapping[str, object]:
     if not isinstance(value, Mapping):
         raise ValueError(f"{name} must be a mapping")
+    return value
+
+
+def _number(value: object, name: str) -> float:
+    if not isinstance(value, (int, float)):
+        raise ValueError(f"{name} must be numeric")
+    return float(value)
+
+
+def _integer(value: object, name: str) -> int:
+    if not isinstance(value, int) or isinstance(value, bool):
+        raise ValueError(f"{name} must be an integer")
     return value
 
 

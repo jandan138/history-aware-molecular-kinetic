@@ -10,7 +10,7 @@ from typing import Any
 
 def _normalize(value: Any) -> Any:
     if is_dataclass(value):
-        return _normalize(asdict(value))
+        return _normalize(asdict(value))  # type: ignore[arg-type]
     if isinstance(value, Enum):
         return value.value
     if isinstance(value, PurePath):

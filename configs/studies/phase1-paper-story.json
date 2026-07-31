@@ -1,0 +1,142 @@
+{
+  "study_id": "PHASE1-HISTORY-STORY-v0",
+  "particle": {
+    "radius": 0.04,
+    "mass": 1.0
+  },
+  "geometries": [
+    {
+      "geometry_id": "open-channel",
+      "lower": [0.0, 0.0],
+      "upper": [4.0, 2.0],
+      "boundary": "reflective",
+      "obstacles": []
+    },
+    {
+      "geometry_id": "single-baffle",
+      "lower": [0.0, 0.0],
+      "upper": [4.0, 2.0],
+      "boundary": "reflective",
+      "obstacles": [
+        {
+          "obstacle_id": "center",
+          "center": [2.0, 1.0],
+          "radius": 0.42
+        }
+      ]
+    },
+    {
+      "geometry_id": "correlation-labyrinth",
+      "lower": [0.0, 0.0],
+      "upper": [4.0, 2.0],
+      "boundary": "reflective",
+      "obstacles": [
+        {
+          "obstacle_id": "left-lower",
+          "center": [1.35, 0.58],
+          "radius": 0.3
+        },
+        {
+          "obstacle_id": "middle-upper",
+          "center": [2.0, 1.42],
+          "radius": 0.3
+        },
+        {
+          "obstacle_id": "right-lower",
+          "center": [2.65, 0.58],
+          "radius": 0.3
+        }
+      ]
+    }
+  ],
+  "states": [
+    {
+      "state_id": "driven-thermal",
+      "packing_fraction": 0.04,
+      "temperature": 0.5,
+      "mean_velocity": [0.7, 0.0],
+      "initial_kind": "maxwellian"
+    },
+    {
+      "state_id": "hot-slow",
+      "packing_fraction": 0.04,
+      "temperature": 0.9,
+      "mean_velocity": [0.25, 0.0],
+      "initial_kind": "maxwellian"
+    },
+    {
+      "state_id": "two-stream",
+      "packing_fraction": 0.04,
+      "temperature": 0.65,
+      "mean_velocity": [0.35, 0.0],
+      "initial_kind": "two_stream",
+      "stream_speed": 0.8
+    }
+  ],
+  "cases": [
+    {
+      "case_id": "STORY-OPEN-DRIVEN-v0",
+      "geometry_id": "open-channel",
+      "state_id": "driven-thermal"
+    },
+    {
+      "case_id": "STORY-BAFFLE-DRIVEN-v0",
+      "geometry_id": "single-baffle",
+      "state_id": "driven-thermal"
+    },
+    {
+      "case_id": "STORY-LABYRINTH-DRIVEN-v0",
+      "geometry_id": "correlation-labyrinth",
+      "state_id": "driven-thermal"
+    },
+    {
+      "case_id": "STORY-OPEN-HOT-v0",
+      "geometry_id": "open-channel",
+      "state_id": "hot-slow"
+    },
+    {
+      "case_id": "STORY-LABYRINTH-HOT-v0",
+      "geometry_id": "correlation-labyrinth",
+      "state_id": "hot-slow"
+    },
+    {
+      "case_id": "STORY-BAFFLE-HOT-v0",
+      "geometry_id": "single-baffle",
+      "state_id": "hot-slow"
+    },
+    {
+      "case_id": "STORY-OPEN-STREAM-v0",
+      "geometry_id": "open-channel",
+      "state_id": "two-stream"
+    },
+    {
+      "case_id": "STORY-BAFFLE-STREAM-v0",
+      "geometry_id": "single-baffle",
+      "state_id": "two-stream"
+    },
+    {
+      "case_id": "STORY-LABYRINTH-STREAM-v0",
+      "geometry_id": "correlation-labyrinth",
+      "state_id": "two-stream"
+    }
+  ],
+  "seeds": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+  "sampling": {
+    "preparation_time": 1.2,
+    "end_time": 1.2,
+    "sample_interval": 0.1,
+    "future_horizon": 0.3,
+    "history_window": 0.8,
+    "minimum_block_samples": 2,
+    "ensemble_group_size": 4
+  },
+  "partition": {
+    "blocks_x": 4,
+    "blocks_y": 2
+  },
+  "dsmc": {
+    "cells_x": 8,
+    "cells_y": 4,
+    "time_step": 0.01
+  }
+}

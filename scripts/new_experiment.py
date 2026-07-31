@@ -12,7 +12,7 @@ def main() -> int:
     parser.add_argument("--root", type=Path, default=Path.cwd())
     args = parser.parse_args()
 
-    date = dt.datetime.now(dt.timezone.utc).strftime("%Y%m%d")
+    date = dt.datetime.now(dt.UTC).strftime("%Y%m%d")
     target = args.root / "experiments" / "registry" / f"{date}-{args.slug}"
     if target.exists():
         raise SystemExit(f"experiment already exists: {target}")

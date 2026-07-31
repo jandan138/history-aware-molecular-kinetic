@@ -6,14 +6,14 @@ Large particle and grid arrays live in versioned external artifacts.
 
 from __future__ import annotations
 
+from collections.abc import Mapping
 from dataclasses import dataclass
-from enum import Enum
+from enum import StrEnum
 from math import sqrt
 from pathlib import PurePosixPath
-from collections.abc import Mapping
 
 
-class BenchmarkSuite(str, Enum):
+class BenchmarkSuite(StrEnum):
     R0 = "R0"
     B0 = "B0"
     B1 = "B1"
@@ -23,7 +23,7 @@ class BenchmarkSuite(str, Enum):
     B5 = "B5"
 
 
-class RepresentationKind(str, Enum):
+class RepresentationKind(StrEnum):
     EXACT_HARD_SPHERE = "exact_hard_sphere"
     BOLTZMANN_DSMC = "boltzmann_dsmc"
     ENSKOG_PARTICLE = "enskog_particle"
@@ -31,7 +31,7 @@ class RepresentationKind(str, Enum):
     UNRESOLVED = "unresolved"
 
 
-class RunStatus(str, Enum):
+class RunStatus(StrEnum):
     RUNNING = "running"
     PASSED = "passed"
     FAILED_METRIC = "failed_metric"
