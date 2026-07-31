@@ -1,319 +1,322 @@
 # 硬球项目研究总览（中文）
 
-> 项目暂名：**History-Aware Molecular–Kinetic**。目标不是“把 EDMD 和 DSMC 接起来”，而是检验一个更窄、更可能失败、但一旦成立就有论文价值的问题：**碰撞历史中携带的相关性，能否在强 state-only baseline 之外，额外预测粗粒化动理学模型的局部误差，并据此只在必要区域保留精确硬球身份？**
+> 当前正式主线：**Molecular Echoes——基于碰撞历史图的可逆与反事实硬球动画**。
 
-## 1. 我们究竟想省掉什么
+## 1. 项目经历了什么变化
 
-精确硬球系统保存每个球的：
-
-\[
-(x_i,v_i,r_i,m_i,\mathrm{id}_i)
-\]
-
-以及谁在什么时间撞过谁。这样能够表示：
-
-- 几何上真实发生的接触；
-- 同一对粒子的重碰撞；
-- A 撞 B、B 撞 C、C 又影响 A 的碰撞链；
-- 狭窄腔体、移动壁面和回流几何制造的共同历史；
-- 有限尺寸带来的排斥体积与 pair structure。
-
-代价是粒子和事件都必须显式维护。
-
-Boltzmann/DSMC 则主要近似单粒子分布：
-
-\[
-f(x,v,t).
-\]
-
-一个 DSMC superparticle 代表许多真实分子。碰撞对象通常从空间 cell 中随机抽样，不要求两个 simulation particles 在几何上真的接触。这样能够把巨大气体系统压缩到可计算规模，但会主动丢掉部分精确身份和多粒子相关性。
-
-我们希望构造：
-
-\[
-\boxed{
-\text{Exact hard spheres}
-\rightleftarrows
-\text{stochastic kinetic representation}
-}
-\]
-
-并让 exact region 只出现在“丢掉这些信息会造成可观测误差”的地方。
-
-## 2. 与邓煜硬球成果的真实关系
-
-邓煜、Zaher Hani 和 Xiao Ma 的工作从低密度牛顿硬球动力学严格推出 Boltzmann 方程，并把经典的短时间结果扩展到相应 Boltzmann 解存在的任意预先给定有限时间区间。证明中使用了 cumulant、完整碰撞历史、collision-history molecules 与 cutting argument。
-
-对本项目最有启发性的不是某一个可直接移植的公式，而是下面的信息边界：
+最初路线是：
 
 ```text
-完整粒子身份 + 多粒子碰撞历史
-                 ↓ 粗粒化
-       单粒子 kinetic distribution
+碰撞历史特征
+→ 预测 EDMD–DSMC 未来误差
+→ 选择 exact region
+→ exact/kinetic 动态 LOD
 ```
 
-我们研究的是：有限规模、有限分辨率、复杂几何中的数值系统，何时会因为这次信息压缩而出现可测误差。
+学生完成了内部二维 Phase-I pilot。结果没有支持“当前这组 scalar history features 能在强 state-only baseline 之外带来实用预测提升”这一主张。
 
-必须同时守住四条 claim 边界：
+这不是证明“碰撞历史永远没用”，但足以说明：现在继续开发 promotion/demotion、partition controller、GPU LOD 和旧 Hero Demo 不合理。
 
-1. 证明中的 cumulant 不是现成的在线 feature；
-2. cutting algorithm 不是 GPU 分区算法；
-3. 理论越接近 Boltzmann–Grad 稀薄极限，相关性本来就越应该小，exact patch 反而可能没有必要；
-4. 较高密度下 EDMD 与 DSMC 的差异可能主要来自 Enskog finite-density correction，而不是“碰撞历史”本身。
+因此项目诚实保留负结果，并把问题改得更直接：
 
-所以论文只能写成 **inspired by recent hard-sphere kinetic-limit theory**，不能写成“定理保证了我们的 LOD”。
+> **Boltzmann 一粒子闭合遗忘的碰撞关联，能否成为一种可看见、可反演、可分叉、可编辑的动画表示？**
 
-## 3. 为什么普通的 EDMD–DSMC 拼接不够新
+正式决策见 [ADR 0009](../decisions/0009-pivot-to-molecular-echoes-sig.md)。
 
-已有工作已经覆盖了很多相邻问题：
+---
 
-- DynamO：成熟的 event-driven molecular dynamics，可作为精确硬球 oracle；
-- SPARTA：成熟的大规模并行 DSMC，可作为 Boltzmann/DSMC oracle；
-- uniGasFoam：能够在 DSMC 与 SP/USP 粒子模型之间自动切换，是必须对比的 state-based adaptive baseline；
-- Donev、Garcia、Alder 早在 2007 年就做过 EDMD–DSMC hybrid，因此不能宣称“首次耦合 EDMD 与 DSMC”；
-- CFD/kinetic 社区已有 Knudsen-based、moment-based、wave-particle 与 continuum breakdown 方法；
-- 图形学已有 continuous-scale kinetic fluid 与 HOME-LBM 等 kinetic graphics 工作。
+## 2. 邓煜的硬球数学成果没有被丢掉
 
-因此下面这些 claim 都不成立：
-
-- “我们第一次用 DSMC 做图形仿真”；
-- “我们第一次做 adaptive rarefied-gas simulation”；
-- “我们第一次耦合 EDMD 与 DSMC”；
-- “GPU 上模拟大量硬球就是贡献”。
-
-真正可能的新意必须集中在：
+精确硬球系统保存：
 
 \[
-\boxed{
-\text{collision-history information 的增量预测价值}
-+
-\text{可运行时观测的 practical policy}
-+
-\text{守恒且稳定的 representation conversion}
-}
+X(t)=\{x_i(t),v_i(t),\mathrm{id}_i\}_{i=1}^{N}.
 \]
 
-## 4. 最核心、也是最容易被自己骗到的实验
-
-令 \(e_B\) 表示 block \(B\) 中，full EDMD 与目标 kinetic backend 在一个固定未来时间窗内的 discrepancy。
-
-state-only feature 可包含：
+Boltzmann/DSMC 主要保存一粒子分布：
 
 \[
-s_B=(\rho,\phi,T,u,\mathrm{Kn}_{GLL},R_M,\Pi,q,
-\text{geometry},\text{resolution}).
+f_1(x,v,t).
 \]
 
-history feature 可包含：
+从完整微观状态压缩到 `f1` 时，被丢掉的是粒子之间的二阶、多阶相关性以及它们的共同碰撞历史。
 
-\[
-h_B=(r_{\mathrm{repeat}},\beta_1(G),
-\text{component re-merging},
-\text{lineage depth},
-\widehat C_2,\ldots).
-\]
+邓煜、Zaher Hani 和 Xiao Ma 在从硬球长期推导 Boltzmann 方程时，传播 cumulants，保留完整 collision history，把相关结构组织成 collision-history molecules，再用 cutting argument 控制它们。
 
-项目首先检验：
-
-\[
-\mathbb E[\ell(e_B,\hat e(s_B,h_B))]
-<
-\mathbb E[\ell(e_B,\hat e(s_B))]
-\]
-
-而且必须在 **held-out geometry、held-out transient 和 held-out physical regime** 上成立，不能把同一条 trajectory 的相邻 block 随机拆到训练集和测试集。
-
-更严格地说，需要比较下面的 baseline ladder：
-
-1. density / packing fraction；
-2. Knudsen breakdown criterion；
-3. 完整 state moments：stress、heat flux、Maxwellian residual；
-4. state + geometry；
-5. state + geometry + DSMC resolution metadata；
-6. state + geometry + Enskog/finite-density attribution；
-7. 上述全部 + oracle exact history；
-8. 上述全部 + 实际可运行的 shadow-probe/history feature。
-
-第 6 到第 7 的提升回答“history 在科学上有没有额外信息”；第 7 到第 8 的差距回答“这些信息能不能变成真正在线算法”。
-
-## 5. Feature observability firewall
-
-一个 kinetic block 中没有真实分子的精确身份。DSMC superparticle 被随机重复配对，并不等于真实分子发生了重碰撞。
-
-所以所有 feature 必须带上可见性标签：
-
-### `runtime_observable`
-
-当前实际 representation 中无需额外 oracle 就能得到，例如 density、stress、heat flux、wall distance、coarse temporal derivative。
-
-### `shadow_probe`
-
-需要从 coarse state 采样一个短时、小区域 exact micro-simulation 才能估计。必须记录 probe horizon、seed、初始化方式、成本和不确定性。
-
-### `oracle_only`
-
-只有全域 full EDMD ground truth 才知道，例如 kinetic region 原本会发生的真实碰撞图。它只能用于建立理论上限和训练标签，严禁喂给在线 policy。
-
-如果在线结果使用了 oracle-only history 来决定哪里需要 exact EDMD，那么整个 adaptive claim 都是数据泄漏。
-
-## 6. 为什么 coarse backend 必须可替换
-
-第一版最自然的 coarse model 是 Boltzmann DSMC，但架构不能写死为：
+本项目从中提取的不是一个可以复制的求解器，而是一个信息边界：
 
 ```text
-EDMD ↔ DSMC
+完整 collision history / cumulants
+             ↓ 被粗粒化
+        one-particle state f1
 ```
 
-因为 EDMD–DSMC mismatch 可能来自：
+我们的有限系统实验要展示：
 
-- finite-density pair correlation；
-- cell size 或 time step 不合适；
-- simulation particle weight 太大；
-- wall treatment；
-- sampling noise；
-- initial ensemble 未匹配；
-- 真实 collision-history memory。
+- 哪些普通前向状态可以被 `f1` 压缩；
+- 哪些人为构造的高度相关反演态不能只靠当前 `f1_h` 区分；
+- 需要多少 collision-molecule history 才能恢复某些未来；
+- 怎样把这种隐藏信息变成图形动画工具。
 
-在 packing fraction 增大时，更合理的 coarse baseline 可能是 Enskog-like particle method。因此核心接口应是：
+必须守住 claim 边界：
 
-```text
-Exact backend
-├── internal EDMD
-└── external DynamO oracle
+- 不说实现了证明中的 cutting algorithm；
+- 不说定理保证有限 branch/surgery；
+- 不说反演态反驳 Boltzmann；
+- 不说普通速度反号是新贡献。
 
-Kinetic backend
-├── Boltzmann DSMC
-├── Enskog / finite-density particle model
-└── future reduced or learned conservative model
-```
+---
 
-只有在控制 Enskog correction 后 history 仍有增量价值，论文主线才站得住。
+## 3. 新主线的科学核心
 
-## 7. Benchmark ladder
+在周期硬圆盘/硬球系统中准备一个非平衡状态，到 pivot `t_*` 后构造：
 
-### R0 — External oracles
+| Branch | 含义 |
+|---|---|
+| forward | 正常 exact EDMD 继续 |
+| exact reverse | 所有速度反号后 exact EDMD，保留完整微观关联 |
+| chaotized reverse | 保持登记分辨率 `f1_h`，置换粒子—速度配对，破坏隐藏关联 |
+| DSMC reverse | 从 resolved state 运行随机碰撞，主动忘记真实 pair history |
+| history-budget | 只允许一定规模/复杂度的 collision molecules |
+| ghost | 无粒子碰撞下界 |
 
-固定 revision，复现 DynamO、SPARTA 和 uniGasFoam 的官方或已发表 case，建立 raw output 到 canonical artifact 的转换与 normalization audit。
-
-### B0 — Single-regime primitives
-
-分别验证内部 EDMD、DSMC 和未来 Enskog backend：两体碰撞解析解、周期/反射边界、自由输运、均匀 relaxation、质量/动量/能量与采样统计。
-
-### B1 — Discrepancy atlas
-
-系统扫描：density、packing fraction、mean free path、confinement、moving wall、initial anisotropy、cell/time resolution 与 geometry family，建立 exact-versus-kinetic discrepancy map。
-
-### B2 — History indicator
-
-用 grouped held-out evaluation 检验 history feature 的增量预测价值，并严格区分 oracle upper bound 与 practical shadow-probe policy。
-
-### B3 — Representation conversion
-
-先做静态 exact→kinetic demotion，再做 kinetic→exact promotion。转换不仅检查：
+要严格审计：
 
 \[
-M,\quad P,\quad E,
+f_{1,h}^{\rm exact\ reverse}(t_*)
+\approx
+f_{1,h}^{\rm chaotized}(t_*),
 \]
 
-还检查 velocity distribution、stress、heat flux、pair structure 和转换后的 downstream transient。
+同时观察：
 
-### B4 — Dynamic LOD
+\[
+A_{\rm exact}(t_*+\tau)
+\neq
+A_{\rm chaotized}(t_*+\tau).
+\]
 
-加入 hysteresis、cooldown、interface buffer、probe scheduling、exact-region budget 与 failure indicator，画出完整 cost–quality Pareto frontier。
+这里 `A` 可以是：
 
-### B5 — Graphics evidence
+- 各向异性恢复；
+- passive-color 图案恢复；
+- 颜色输运；
+- residence/escape；
+- incoming-pair closure defect 对应的低维读出。
 
-所有方法使用同一个 renderer、同一显示密度和同一相机。只有 B2–B4 通过后才投入最终视频。
+只能说 same **resolved one-particle present**，不能说 exact microstate 相同。
 
-## 8. Demo 为什么比海浪方向更容易控制
+---
 
-早期统一 renderer 只需要四类图层：
+## 4. 为什么简单回声还不够 SIG
 
-1. instanced spheres；
-2. density / temperature / species volume；
-3. exact–kinetic representation mask；
-4. collision graph、velocity histogram、conservation timeline 等诊断图层。
+硬球动力学在理想条件下可逆；速度反号、Loschmidt echo、event log 和 generic rollback 都有大量 prior art。
 
-第一篇不做：
+因此论文不能只是：
 
-- 火焰和化学反应；
-- 电影级烟雾艺术控制；
-- 复杂火箭或飞船资产；
-- granular friction、堆积和 force chains；
-- 高质量路径追踪；
-- 一开始就做三维动态复杂网格。
+```text
+粒子散开
+→ 速度反号
+→ 图案回来
+```
 
-### Hero 1：Zoomable Mixing Chamber
+SIG 贡献必须来自一套新的 animation system：
 
-证明 representation conversion、宏观/微观连续性和 physics LOD 与 display LOD 分离。这个场景本身不用于证明 history 有价值。
+1. collision-history causal multigraph；
+2. checkpoints 与 deterministic replay；
+3. persistent counterfactual branches；
+4. 修改过去后的 expanding causal cone；
+5. local branch 与 full resimulation 正确性对照；
+6. 共享未修改历史的 runtime/storage 优势；
+7. 保持当前 resolved state、只编辑隐藏 correlation 的 authoring primitive；
+8. 三套 3D Hero Demo。
 
-### Hero 2：Correlation Labyrinth
+---
 
-设计 state moments 相近但 collision/re-encounter topology 不同的区域。它是最重要的科学场景，用于展示 state-only baseline 与 proposed history score 的差异。
+## 5. Collision Causal Graph 是什么
 
-### Hero 3：Expansion into Vacuum
+每次碰撞是事件节点：
 
-展示 ballistic、collisional 和 transitional 区域同时存在，refinement region 随时间移动，并与 uniGasFoam/state-only policy 对比。
+\[
+e_m=(t_m,i_m,j_m,n_m,v_i^-,v_j^-).
+\]
 
-## 9. 八周 feasibility spike
+如果粒子 `i` 先参加事件 `e_a`，后来参加 `e_b`，建立：
 
-### 第 1 周：DynamO oracle
+\[
+e_a\rightarrow e_b.
+\]
 
-跑通官方硬球 case，导出 temperature、pressure、collision count、radial distribution 与基础视频。
+于是得到时间有向因果多重图。它保留：
 
-### 第 2 周：SPARTA / uniGasFoam oracle
+- repeated pair events；
+- shared ancestors；
+- collision molecules；
+- branch lineage；
+- future descendants；
+- causal cone；
+- history budget。
 
-跑通 free/collisional DSMC case，记录 particle/grid statistics；固定 uniGasFoam 环境与至少一个 hybrid case。
+它不是一张装饰性 graph，而是 replay、branch、edit 和 provenance 的核心数据结构。
 
-### 第 3 周：最小二维 EDMD
+---
 
-只支持等半径弹性硬圆盘、周期/反射边界、事件队列、collision log 和 checkpoint。
+## 6. “修改过去，只重算未来因果锥”是什么意思
 
-### 第 4 周：最小二维 DSMC
+用户回到过去：
 
-与 EDMD 使用匹配的一粒子初始分布、物理参数、统计时刻和 observable definitions。
+- 改一颗粒子的速度；
+- 修改一次碰撞；
+- 移动挡板；
+- 打开一个 aperture；
+- 插入/删除简单障碍物。
 
-### 第 5 周：paired discrepancy dataset
+系统从编辑前 checkpoint 恢复，先把直接受影响的粒子加入 affected set。每当 affected trajectory 与旧的 unaffected trajectory 相遇，后者也被吸收，旧未来事件失效，继续递归重算。
 
-以 geometry/regime/trajectory 为组生成 paired samples，并估计 ensemble 与 sampling uncertainty。
+如果依赖范围不断扩大：
 
-### 第 6 周：state-only vs history-aware
+- 能证明局部时，复用未受影响历史；
+- 不确定时，扩大 cone；
+- cone 全局化时，退化到 full replay。
 
-先用可解释模型比较 held-out performance，不急着上神经网络。
+必须与完整重算比较：
 
-### 第 7 周：oracle partition 与 shadow probe
+\[
+X_{\rm local\ branch}(T)
+\approx
+X_{\rm full\ resimulation}(T).
+\]
 
-先测 full-history 上限，再测短时 exact probe 能保留多少价值，并把 probe cost 加入预算。
+不能为了“看起来局部”而偷偷截断物理依赖。
 
-### 第 8 周：静态 demotion
+---
 
-实现 exact→kinetic conversion，严格核对守恒量、secondary statistics 和下游 relaxation transient。
+## 7. 保持当前画面、编辑未来
 
-## 10. Go / No-Go
+若完整微观状态 `X(t_*)` 完全一样，确定性未来也一样。只修改日志不会改变未来。
 
-只有满足下面条件才进入完整动态 LOD：
+真正的 correlation surgery 是改变当前微观粒子—速度配对和隐藏 ancestry，同时保持登记的 coarse state：
 
-- 控制 state、geometry、resolution 与 finite-density baseline 后，history 仍有稳定的 held-out 增益；
-- practical probe/observable policy 保留了足够多的 oracle-history 增益；
-- exact region 不是长期 0% 或 100%；
-- conversion error 小于被 refinement 修复的 model error；
-- 在固定误差下形成显著性能收益；
-- 至少两个场景能肉眼解释“不 refine 错在哪里，refine 恢复了什么”。
+\[
+f_{1,h}[X]
+\approx
+f_{1,h}[\widetilde X],
+\]
 
-出现下面情况就应转向：
+以及 mass、momentum、energy、color count 和 no-overlap 等约束。
 
-- Enskog correction 吸收了几乎全部 discrepancy：转 EDMD–Enskog；
-- 只有全域 EDMD 才知道哪里需要 EDMD：转 shadow-probe/error-estimation 或 collision-history editing；
-- exact region 占据大部分场景：转 parallel collision-history EDMD；
-- 数值收益明确但视觉差异弱：转 JCP/CMAME/SISC 等 numerical route；
-- 只有漂亮 mask，没有被恢复的物理 observable：停止 SIG 包装。
+于是用户可以：
 
-## 11. 当前最诚实的可行性判断
+> **让当前可见画面基本不变，但选择它未来走向哪一条 branch。**
 
-- **复现 DynamO/SPARTA/uniGasFoam、建立 paired benchmark：把握高。**
-- **做出守恒的静态 particle↔kinetic conversion：技术上可行，但 pair statistics 和 warm-up 是研究点。**
-- **证明 history 比强 state-only baseline 更有增量价值：最大未知数。**
-- **完成可运行的 dynamic LOD：取决于 practical observability，而不只是 oracle-history 结果。**
-- **达到 SIGGRAPH/TOG：必须同时具备科学增量、性能 Pareto、稳定转换和可见物理效果。**
+这是新路线最有 SIG 味道的 authoring primitive。
 
-因此这条路线值得立项，但正确的启动方式不是先开发大型 GPU demo，而是先完成 B1/B2 的判死刑实验。这样，即使核心假设失败，损失也是一个可复用的硬球/kinetic benchmark 平台，而不是半年后的 demo 归零。
+---
+
+## 8. History Budget 必须有 null controls
+
+定义：
+
+\[
+(\Lambda,\Gamma),
+\]
+
+- `Lambda`：collision molecule 最大粒子数；
+- `Gamma`：允许的重碰撞/重新连接复杂度。
+
+但“预算越大越接近 full EDMD”可能只是因为允许的碰撞更多。
+
+所以必须比较：
+
+- full EDMD；
+- structured molecule budget；
+- collision-count/time-matched random suppression；
+- topology-shuffled control；
+- ghost dynamics。
+
+只有 structured history 超过这些控制，才允许说 molecule topology 携带机制信息。
+
+---
+
+## 9. 三个最终 Hero Demo
+
+### Molecular Logo Echo
+
+彩色图案先散开。pivot 时 exact、chaotized、DSMC 在 resolved audit 上匹配；继续向前模拟后，只有保留正确 history 的 branch 重构图案。
+
+### One Collision, Two Worlds
+
+用户点击并编辑过去一次碰撞。差异从两个粒子开始沿 causal graph 扩散；original、local counterfactual 和 full-resimulation reference 并排比较。
+
+### Edit the Past
+
+透明 molecular maze 中，用户回到过去移动挡板或打开出口。系统共享 unaffected history，只重算 future cone，并显示 runtime/storage 与最终正确性。
+
+---
+
+## 10. Active E0–E6 ladder
+
+```text
+E0 exact reversal and replay
+E1 same resolved present / opposite futures
+E2 molecule budget and null controls
+E3 collision graph and deterministic replay
+E4 counterfactual branching
+E5 correlation surgery
+E6 SIG visual and interaction evidence
+```
+
+详见 [Active Echo and Branching Benchmark Suite](../benchmarks/echo-branching-suite.md)。
+
+---
+
+## 11. 第一目标 SIG，什么情况下才转 IEEE VIS
+
+### 保持 SIG 路线
+
+当最强贡献是：
+
+- simulation/animation algorithm；
+- causal rewind；
+- physically recomputed branching；
+- shared history；
+- authoring different futures；
+- runtime/storage/interactivity；
+- 3D results。
+
+### 转 IEEE VIS
+
+只有当：
+
+- causal cone 常常全局化，simulation speed claim 很弱；
+- 但 event graph、branch tree、molecule budget 和 uncertainty 数据非常丰富；
+- 能定义科学家的真实分析任务；
+- 能做 linked views 和 expert evaluation。
+
+VIS 稿必须重构成 visual analytics，不是 SIG 被拒后改标题。
+
+详见 [Venue Strategy](../vision/venue-strategy.md)。
+
+---
+
+## 12. 现在最重要的 2–3 周
+
+1. preregister E1/E2；
+2. periodic `N=128,256,512` strict reverse；
+3. multi-resolution `f1_h` audit；
+4. exact/chaotized/DSMC/ghost；
+5. `(Lambda,Gamma)` 与 null controls；
+6. incoming-pair diagnostic；
+7. one-event branch 与 full replay；
+8. 60–90 秒 neutral internal video；
+9. Go / Narrow / Stop 决策。
+
+这一步通过后才投入 3D、交互 UI 和 SIG Hero polish。
+
+入口：
+
+- [Molecular Echoes route](collision-history-echo-route.md)
+- [First stage](../roadmap/molecular-echo-first-stage.md)
+- [Backlog](../roadmap/molecular-echoes-backlog.md)
+- [Graph/branch architecture](../architecture/collision-history-graph-and-branching.md)
+- [Hero scenes](../demos/hero-scenes.md)
