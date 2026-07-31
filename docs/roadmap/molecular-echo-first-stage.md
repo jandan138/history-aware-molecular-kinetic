@@ -1,67 +1,260 @@
-# Molecular-echo first stage
+# Molecular Echoes First Stage
 
-**状态：** 拟定的主研究阶段。
+**Status:** active, preregistration required before primary results.
 
-**阶段目标：** 用一个周期性二维硬圆盘实验决定论文能否成立：
+**Duration:** 2–3 focused weeks.
 
-> 在相同可分辨单粒子状态下，反向支路与经过分子混沌手术的支路走向不同未来；有限的
-> \((\Lambda,\Gamma)\) 碰撞分子预算以不同方式影响正向热化与反向回声。
+**Purpose:** decide whether the new SIG route has both a defensible scientific core
+and a real graphics algorithm before investing in 3D production.
 
-完整的科学叙事、定义和主张边界见
-[Collision-History Echoes](../research/collision-history-echo-route.md)。
+The stage must produce one decision package, not a growing collection of unrelated
+experiments.
 
-## 交付物
+---
 
-| 交付物 | 内容 | 通过标准 |
-|---|---|---|
-| E1：事件账本 | 每个碰撞的时间、法向、入射相对速度、时间层、组件根、多重边和递碰撞秩 | 可由种子、初态和日志重建统计量；重复 pair 事件不丢失 |
-| E2：回声协议 | 周期边界、非平衡准备、枢轴反演、block+color shuffle、\(f_{1,h}\) 审计 | 反向与 shuffle 分支在登记分辨率上匹配 |
-| E3：最小 T-dynamics | full、\((8,0)\)、\((16,1)\)（必要时 \((4,0)\)） | 抑制规则、ghost 语义和事件排序可回放、可测试 |
-| E4：闭合读出 | 各向异性/颜色观测量及 incoming-pair cumulant proxy | 读出定义独立于事后挑选的视觉效果 |
-| E5：故事决定图 | 正向、exact reverse、chaotized reverse 在多个 \(N\) 下的轨迹与预算曲线 | 一张图可看出“same present, opposite futures, different budget” |
+## 1. Questions to answer
 
-## 实现顺序
+### Scientific question
 
-1. **锁定状态与审计。** 先定义周期盒、\(T_x/T_y\)、颜色、枢轴时刻、空间块和速度 bin；
-   将 \(f_{1,h}\) 的 total-variation/计数差及一阶、二阶矩写入 manifest。这里的匹配标准
-   先于图像和结果存在。
-2. **扩展碰撞账本。** 事件图必须是带时间戳的多重图；不能只保留第一次接触或
-   unique_pair_count。记录支持构造每个候选碰撞进入的分子、根及秩。
-3. **完成 exact echo 与 chaos intervention。** 使用完全相同的初态、种子和观测时间；
-   shuffle 只在登记的 \((\text{block},\text{color})\) 单元内置换速度，且保留全部
-   \(f_{1,h}\) 审计。
-4. **加入最小 T-dynamics。** 对超出预算的碰撞明确应用 ghost/穿越语义。该动力学允许
-   后续几何重叠，因此不能复用“EDMD 永不重叠”的隐含不变量；要实现适用于扩展动力学的
-   后续事件处理与单独的有效性测试。
-5. **读取 \(d_\psi\) 并扩展 \(N\)。** 在 \(N=128,256\) 先稳定后，固定
-   \(N\varepsilon=\alpha\) 做小型 Boltzmann–Grad 序列；不因结果好看而中途改观测窗或
-   容限。
+Can exact-reverse and resolved-state-preserving chaotized branches pass a
+multi-resolution one-particle audit at the pivot yet evolve into robustly different
+futures, and does a structured collision-molecule budget explain the difference
+beyond collision count?
 
-## 决策门
+### Graphics question
 
-阶段结束时只回答三个问题：
+Can one past edit create a physically recomputed counterfactual branch whose
+expanding causal cone matches a complete resimulation and remains local long enough
+to support a useful animation interaction?
 
-| 问题 | 继续条件 | 失败时的动作 |
-|---|---|---|
-| same-present 是否成立？ | reverse 与 chaotized reverse 的 \(f_{1,h}\) 审计通过，并有稳定未来分离 | 修订状态分辨率或 shuffle；不添加更多指标掩盖不匹配 |
-| 分子预算是否是机制？ | 预算曲线对 reverse 与 forward 呈可解释的差异，且与 incoming-pair 缺陷同向 | 停止 T-dynamics 主张，保留回声为演示而不写机制论文 |
-| 是否有极限故事？ | 小型 BG 序列未破坏上述差异，并给出可报告的预算趋势 | 将工作收敛为有限系统 correlation/echo 实验，不声称 kinetic-limit 信息边界 |
+Both questions must be addressed. A beautiful echo without a branch algorithm is
+not yet a SIG paper; a branch engine without the hidden-correlation story loses the
+Deng-inspired scientific core.
 
-## 非目标
+---
 
-本阶段不交付动态 LOD、EDMD↔DSMC 双向转换、误差预测网络、广泛几何泛化、
-Enskog 归因、GPU 性能或完整视觉产品。它们属于已降级的工程路线，不能占用验证
-“回声—手术—预算”因果链的时间。
+## 2. Week 0 — Preregister before running primary evidence
 
-## 最小测试矩阵
+Create a dedicated commit and tag containing only protocol and analysis definitions.
+Freeze:
 
-| 维度 | 固定选择 |
-|---|---|
-| 边界 | 单一二维周期盒 |
-| 初始态 | 单一偶对称强各向异性速度分布，带被动颜色 |
-| 支路 | forward、exact reverse、chaotized reverse |
-| 动力学 | full、\((8,0)\)、\((16,1)\)，按需 \((4,0)\) |
-| 尺度 | 先 \(N=128,256\)，后一个固定 \(N\varepsilon\) 序列 |
-| 主读出 | \(\langle v_x^2-v_y^2\rangle\)、颜色模式、incoming-pair defect proxy |
+- periodic box and units;
+- particle diameter/mass and `N=128,256,512` plan;
+- initial anisotropy and passive-color pattern;
+- preparation time, pivot, and observation window;
+- exact, chaotized, DSMC, ghost, and budget branches;
+- spatial block and velocity-bin audit grid;
+- primary observables;
+- event-order and numerical tolerances;
+- `(Lambda,Gamma)` paths;
+- count/time-matched and topology-shuffled controls;
+- branch edits;
+- success/stop criteria;
+- bootstrap/uncertainty method.
 
-这不是“缺少实验”，而是把实验数限制在论文叙事真正需要的反事实比较上。
+Suggested tag:
+
+```text
+molecular-echoes-e1-e2-preregistered-v0
+```
+
+The result commit must refer back to this tag.
+
+---
+
+## 3. Week 1 — Strict echo and same-present audit
+
+### Deliverables
+
+1. periodic exact EDMD forward/reverse runs;
+2. deterministic event ordering and event checksums;
+3. checkpoint restore/replay;
+4. exact-reverse branch;
+5. block+color chaotized-reverse branch;
+6. DSMC and no-collision ghost baselines;
+7. multi-resolution `f1_h` matching report;
+8. anisotropy and passive-color recovery curves.
+
+### Required audit grid
+
+At minimum vary:
+
+- spatial block resolution;
+- velocity-bin resolution;
+- with/without passive color partition;
+- `N=128` and `N=256`, then confirm at `N=512` if feasible.
+
+Report both:
+
+- the resolution used to construct the surgery;
+- finer resolutions not used by the surgery.
+
+### Pass
+
+- exact reverse reconstructs within numerical tolerance;
+- exact and chaotized pivot states pass the declared audit;
+- future separation is stable over seeds and does not vanish under finer audit;
+- the result is generated by forward simulation after the pivot, not video reversal.
+
+### Stop/narrow
+
+- exact reverse is numerically unreliable;
+- the same-present claim survives only at one coarse binning;
+- future separation is dominated by visible pivot mismatch;
+- the effect exists only for one seed.
+
+---
+
+## 4. Week 2 — Collision-molecule mechanism and null controls
+
+### Deliverables
+
+1. collision event multigraph with repeated events;
+2. molecule root/size and recollision/reconnection complexity;
+3. full, `(8,0)`, `(16,1)`, and optionally `(4,0)` paths;
+4. collision-count/time-matched random suppression;
+5. topology-shuffled partner control;
+6. incoming-pair closure-defect proxy;
+7. forward/reverse response curves;
+8. uncertainty and event-statistics report.
+
+### Pass
+
+- structured molecule budget differs from count-matched suppression;
+- the difference is not explained by total collisions or mean free time alone;
+- forward and reverse branches respond differently in a preregistered way;
+- the incoming-pair proxy has a consistent direction;
+- extended dynamics are reproducible and explicitly labeled.
+
+### Stop/narrow
+
+- random suppression explains the same curve;
+- molecule topology adds no information;
+- event annotations are unstable or post-hoc;
+- only the exact reverse movie remains compelling.
+
+If this gate fails, remove the Deng-inspired mechanism claim. Do not compensate by
+adding more unregistered features.
+
+---
+
+## 5. Week 3 — One-event counterfactual branch
+
+This week may overlap Week 2 engineering but cannot skip its correctness audit.
+
+### Deliverables
+
+1. collision causal graph predecessor/descendant queries;
+2. one checkpoint before a selected event;
+3. immutable parent branch;
+4. a one-particle or one-collision edit;
+5. expanding affected set;
+6. local branch recomputation;
+7. complete resimulation baseline;
+8. terminal state/event comparison;
+9. affected-particle fraction and runtime;
+10. a neutral split-screen prototype.
+
+### Pass
+
+- local and full resimulation agree within declared tolerance;
+- uncertain dependencies expand the cone or trigger fallback;
+- the edited branch is physically resimulated;
+- at least one case retains useful locality for the demonstrated horizon;
+- branch provenance is complete.
+
+### Stop/narrow
+
+- local branch silently diverges from the full reference;
+- every edit instantly becomes global;
+- the event graph cannot drive recomputation;
+- the visual is only a colored graph overlay.
+
+---
+
+## 6. Decision deliverable
+
+The stage ends with a single report containing:
+
+```text
+protocol commit/tag
+solver and numerical audit
+resolved-state matching table
+future branch curves
+molecule-budget + null-control curves
+incoming-pair diagnostic
+one-event branch correctness
+causal-cone/runtime result
+60–90 second neutral internal video
+Go / Narrow / Stop decision
+```
+
+### Go to full SIG development
+
+Require:
+
+- exact reversal/replay passes;
+- multi-resolution same-present separation passes;
+- structured history has value beyond count controls;
+- one-event branch matches full resimulation;
+- at least one edit case retains nontrivial locality;
+- the neutral video already communicates more than a backward movie.
+
+### Narrow SIG route
+
+Possible narrower packages:
+
+- branch/rewind system without molecule-budget claim;
+- history surgery and alternate-future authoring without local-speed claim;
+- conference-level rather than TOG-level evidence package.
+
+### Prepare VIS pivot
+
+Only when:
+
+- scientific event/branch data are strong;
+- local speed/authoring value is weak;
+- linked visual analysis of causal cones and collision molecules is compelling;
+- domain-expert tasks can be defined.
+
+### Stop
+
+If exact reversal, state matching, mechanism, and branch correctness all fail to
+produce a defensible core.
+
+---
+
+## 7. Strict non-goals for this stage
+
+Do not spend this stage on:
+
+- dynamic exact↔kinetic LOD;
+- promotion/demotion;
+- large geometry zoos;
+- GPU optimization;
+- complex CAD assets;
+- path-traced materials;
+- user studies;
+- full IEEE VIS interface;
+- a polished teaser before neutral gates pass.
+
+Simple instanced particles, passive colors, analytic obstacles, causal highlights,
+and split-screen comparison are sufficient.
+
+---
+
+## 8. Immediate tasks
+
+Use the dependency-ordered issue list in
+[Molecular Echoes Backlog](molecular-echoes-backlog.md), beginning with:
+
+```text
+ECHO-S-001 preregistration
+ECHO-S-002 strict reversible EDMD
+ECHO-S-003 pivot branches
+ECHO-S-004 multi-resolution audit
+ECHO-S-005/006/007 molecule budgets and controls
+ECHO-G-001/002 causal graph and replay
+ECHO-G-004/005 one-event branch
+ECHO-V-001 diagnostic viewer
+```
