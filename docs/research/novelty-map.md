@@ -1,70 +1,112 @@
-# Novelty map
+# Novelty Map
 
-## Active route: collision-history echoes
-
-| Candidate contribution | Existing territory | Required distinction |
-|---|---|---|
-| Velocity reversal / Loschmidt echo | Classical reversible hard-particle dynamics | Not novel by itself; it is only the controlled entrance to the problem |
-| Collision clusters and correlation errors | BBGKY, Lanford-style and backward-cluster literature | A finite, observable-oriented intervention rather than a new kinetic-limit theorem |
-| Collision multigraph | Common MD bookkeeping | Timestamped multigraph retains repeated events and supports a registered \((\Lambda,\Gamma)\) intervention |
-| T-dynamics-inspired surgery | Deng–Hani–Ma proof framework | Explicitly distinguish finite ghost/crossing dynamics from their cutting argument and from exact EDMD |
-| Pair correlation diagnostic | Kinetic theory and cumulant methods | Time-oriented incoming-pair closure defect linked to a visible reverse/forward response |
-| Boltzmann–Grad sweep | Standard rarefied-gas methodology | A budget-to-observable information boundary across matched forward/reverse branches |
-
-## The active novelty test
-
-The paper is not novel if it merely shows a reversible trajectory, a collision
-network, or an attractive animation. It needs the following causal chain:
-
-1. a predeclared discrete \(f_{1,h}\) match at the pivot;
-2. a robust future separation after marginal-preserving chaotization;
-3. a \((\Lambda,\Gamma)\) budget curve that distinguishes the two futures;
-4. an incoming-pair closure readout with the same direction of change;
-5. a small fixed-\(N\varepsilon\) sequence that keeps the interpretation honest.
-
-The contribution is a *counterfactual cumulant microscope* for a finite
-hard-sphere system, not a new Boltzmann derivation, a new Loschmidt echo, or a
-production kinetic solver.
-
-## Deferred route: adaptive molecular–kinetic hybrid
+## Active route: Molecular Echoes for SIG
 
 | Candidate contribution | Existing territory | Required distinction |
 |---|---|---|
-| EDMD solver | Mature event-driven MD packages | Not a claim; correctness infrastructure only |
-| DSMC solver | Mature SPARTA and many codes | Not a claim; coarse backend only |
-| EDMD–DSMC hybrid | SEDMD and related particle hybrids | Same-gas dynamic representation and discrepancy-driven partition |
-| Adaptive rarefied flow | DSMC–CFD, USP–DSMC, UGKWP | History value beyond strong state-only breakdown criteria |
-| Collision graph | Common simulation data structure | Validated predictor, streaming cost, observability labels |
-| Exact→kinetic resampling | Particle coarsening literature | Conservation plus controlled non-equilibrium and pair statistics |
-| Kinetic→exact sampling | Particle generation literature | Exclusion-aware, moment-corrected, low-transient promotion |
-| Zoomable particles | Visual LOD literature | Physics partition independent of camera, same evidence state |
-| GPU implementation | Many particle and kinetic GPU codes | Dynamic cross-representation system, not raw throughput |
+| Velocity reversal / Loschmidt echo | Classical reversible hard-particle dynamics and prior velocity-inversion studies | Entry demonstration only; not a claim |
+| Reversible elastic-collision simulation | Prior algorithms can recover pre-collision states with little history storage | Our claim must concern collision-history branching, causal edits, resolved-state surgery, and animation workflow—not reversibility alone |
+| Event logs and checkpoints | Standard simulation provenance and replay | Versioned hard-sphere event multigraph plus physical edit semantics, branch sharing, and exact local-vs-full validation |
+| Time-Warp / rollback | General discrete-event simulation rollback and causal recovery | Hard-sphere-specific causal cone, immutable counterfactual branches, physical edits, and authoring/visual evidence |
+| Collision graph | Common MD bookkeeping | Timestamped multigraph retains repeated events, branch lineage, collision molecules, and descendant queries |
+| Particle/spacetime control | Keyframe, trajectory, adjoint, and optimization-based animation control | No target optimizer is required; we edit collision ancestry and physically resimulate alternate futures |
+| Coarse-state-preserving surgery | Ensemble generation and moment matching | A preregistered multi-resolution `f1_h` audit plus interactive alternate-future authoring |
+| Pair correlation / cumulants | Kinetic theory, BBGKY, correlation-error literature | Incoming-pair directionality tied to visible forward/reverse branch response |
+| Collision-history molecules | Deng–Hani–Ma proof structure | Finite-system intervention and graphics representation; never claimed as an implementation of the proof cutting argument |
+| History budget `(Lambda,Gamma)` | Truncated-cluster and extended-dynamics ideas | Structured topology effect must beat collision-count/time-matched and topology-shuffled null controls |
+| Causal local resimulation | Dependency tracking and rollback literature | Exact agreement with full hard-sphere resimulation, conservative cone expansion, persistent branch reuse, and graphics interaction |
+| Branch visualization | Provenance trees and graph visualization | Integrated particle/event/branch animation whose visual differences come from recomputed physics, not the overlay |
 
-## The central novelty test for the deferred route
+## The active novelty chain
 
-A history feature is not novel merely because it has not appeared in a graphics
-paper. It becomes scientifically relevant only if it predicts a pre-declared
-model error on held-out cases beyond:
+The paper is not novel if it stops at a reversible movie or an attractive collision
+network. It needs the entire chain:
 
-- density and packing fraction;
-- local and gradient-length Knudsen numbers;
-- Maxwellian residual;
-- stress and heat flux;
-- wall distance and geometry descriptors;
-- local collision rate;
-- numerical resolution and particle weight;
-- finite-density kinetic alternatives.
+1. exact numerical reversal and replay are trustworthy;
+2. exact-reverse and chaotized branches match a preregistered resolved present;
+3. their futures robustly separate;
+4. structured history budgets outperform count-matched null controls;
+5. the collision causal multigraph supports correct counterfactual branching;
+6. local branch results match full resimulation or explicitly fall back;
+7. resolved-state-preserving surgery becomes a usable animation control;
+8. high-quality scenes demonstrate an interaction impossible to explain as video
+   reversal or keyframing.
 
-## Minimum SIG/TOG package for the deferred route
+## Scientific novelty versus graphics novelty
 
-A plausible full paper needs all of:
+### Scientific component
 
-1. statistically defensible B2 gain;
-2. a practical observability strategy;
-3. conservative conversion;
-4. a meaningful cost-quality curve;
-5. two visually interpretable restored phenomena;
-6. a shared renderer and strong baselines;
-7. explicit failure regions.
+A finite-system counterfactual microscope for information discarded by one-particle
+closure:
 
-Without items 4–6, the work is more naturally a computational physics paper.
+```text
+same declared f1_h
++ different hidden collision correlation
+→ different future observable
+```
+
+### Graphics component
+
+A molecular animation representation and system:
+
+```text
+collision history graph
++ checkpoints
++ persistent branches
++ causal cone
++ correlation surgery
+→ rewind / edit / branch / compare futures
+```
+
+The scientific component alone is more naturally a statistical-mechanics or
+computational-physics paper. The graphics component alone risks becoming generic
+rollback. The SIG case requires their combination.
+
+## Required null and prior-art controls
+
+- exact reverse versus simple backward video;
+- full resimulation versus causal-cone branch;
+- full state duplication versus copy-on-write branch store;
+- random collision suppression matched by count/time;
+- topology-shuffled event control;
+- random surgery matched by state perturbation magnitude;
+- coarse-only pivot audit versus multi-resolution audit;
+- history graph visualization with and without physical branch recomputation.
+
+## Deferred route: adaptive molecular–kinetic LOD
+
+The old route remains documented but is not active:
+
+| Candidate contribution | Current status |
+|---|---|
+| scalar history predictor | Phase-I exploratory negative |
+| practical shadow probe | deferred |
+| exact↔kinetic conversion | deferred |
+| online partition controller | deferred |
+| dynamic molecular LOD Hero Scenes | deferred |
+
+The repository may revisit this route only after new evidence, not by rebranding the
+negative result.
+
+## Minimum SIG package
+
+A plausible full paper requires all of:
+
+1. strict reversal and multi-resolution same-present evidence;
+2. a mechanism result with strong null controls;
+3. collision causal graph and deterministic replay;
+4. at least two counterfactual edit classes;
+5. correctness against full resimulation;
+6. runtime/storage or authoring benefit;
+7. three-dimensional Hero Scenes and interaction;
+8. explicit global-cone and numerical-reversibility failure cases;
+9. reproducible branch/render evidence.
+
+Without items 3–7, the work is not yet a SIG animation paper.
+
+## VIS fallback boundary
+
+A VIS route becomes plausible only if the strongest contribution is an interactive
+analysis workflow for collision molecules, branch provenance, causal-cone growth,
+and uncertainty. It would require linked views and domain evaluation; a collision
+graph figure alone is insufficient.
