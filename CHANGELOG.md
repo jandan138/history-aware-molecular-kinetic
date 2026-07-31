@@ -9,6 +9,10 @@ public software releases. Benchmark and artifact schemas are versioned independe
 
 ### Changed
 
+- Allowed `1e-9` low-order collision-time drift when locating the already frozen
+  E3 event across supported Python 3.11/3.12 runtimes. The ordinal, pair, physical
+  edit, canonical Python 3.12 evidence, and `1e-9` local/full correctness gate are
+  unchanged.
 - Sharpened the post-E2 paper spine to **One Collision, Two Worlds: Causal Rewind
   for Molecular Animation**. E1 is the hook, E2 is a one-act plot turn, and the
   first graphics payoff is one addressable past collision with exact causal

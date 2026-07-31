@@ -17,6 +17,8 @@ from historykinetic.timeline import (
 from .models import E3Metrics, MolecularTimeMachineE3Result
 from .protocol import MolecularTimeMachineE3Protocol
 
+_PORTABLE_EVENT_LOCATOR_TOLERANCE = 1.0e-9
+
 
 def run_molecular_time_machine_e3(
     protocol: MolecularTimeMachineE3Protocol,
@@ -45,10 +47,15 @@ def run_molecular_time_machine_e3(
         raise RuntimeError(
             f"frozen target pair drifted: expected {protocol.hero.expected_pair}, got {target.pair}"
         )
-    if abs(target.time - protocol.hero.expected_time) > protocol.hero.recipe_tolerance:
+    locator_tolerance = max(
+        protocol.hero.recipe_tolerance,
+        _PORTABLE_EVENT_LOCATOR_TOLERANCE,
+    )
+    if abs(target.time - protocol.hero.expected_time) > locator_tolerance:
         raise RuntimeError(
             "frozen target time drifted: "
-            f"expected {protocol.hero.expected_time}, got {target.time}"
+            f"expected {protocol.hero.expected_time}, got {target.time}, "
+            f"tolerance {locator_tolerance}"
         )
     checkpoint = checkpoint_at_time(
         timeline,

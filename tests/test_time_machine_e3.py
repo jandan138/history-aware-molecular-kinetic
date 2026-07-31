@@ -32,7 +32,9 @@ def test_one_collision_two_worlds_recipe_passes_its_story_gate(
 
     assert target.ordinal == 2
     assert target.pair == (101, 118)
-    assert target.time == pytest.approx(0.03429093183046455, abs=1.0e-12)
+    # Python 3.11 and 3.12 differ in the low-order Gaussian/libm path used by
+    # the inherited E1 initializer, while locating the same event and outcome.
+    assert target.time == pytest.approx(0.03429093183046455, abs=1.0e-9)
     assert len(graph.descendant_particles(target.event_id)) == 20
     assert summary["decision"] == "go"
     assert all(summary["checks"].values())

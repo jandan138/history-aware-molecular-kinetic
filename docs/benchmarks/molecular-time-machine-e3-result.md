@@ -73,6 +73,13 @@ elastic impulse, periodic wrapping, and deterministic ordering kernel. That shar
 kernel makes the comparison a test of causal scheduling rather than a comparison of
 two subtly different physics implementations.
 
+The canonical evidence was generated with CPython `3.12.12`. Supported CPython
+`3.11` locates the same ordinal/pair and returns the same registered story metrics,
+but the inherited E1 Gaussian/libm path shifts the absolute target time by about
+`8.64e-10`. Runtime recipe validation therefore permits `1e-9` portability drift
+for locating the already fixed event; this does not change the canonical artifact,
+edit, or local/full correctness thresholds.
+
 The run records `0.081733` seconds for the Python causal reference and `0.227533`
 seconds for the Python full resimulation. This is a single reference observation,
 not a performance headline or general speed claim. The scoped E3 claim is exact
@@ -157,4 +164,3 @@ from Git by policy. The compact hashes are committed here.
 
 The E3 protocol SHA-256 is
 `ce9943e9bb367810bb8baa62a00635180f3006dceedf36bb79c055aa44868f1d`.
-
