@@ -1,116 +1,180 @@
-# Go/No-Go Gates
+# Go / No-Go Gates
 
-## Gate G0 — Reference trust
+These gates govern the active Molecular Echoes route. The old dynamic-LOD gates are
+retired with the Phase-I predictor result.
 
-**Go:** external cases reproduce documented behavior and converters are audited.
+## Gate G0 — Numerical reversal and replay trust
 
-**No-Go:** normalization or licensing remains ambiguous.
+**Go:**
 
-## Gate G1 — Primitive correctness
+- forward/reverse return error is below preregistered tolerance;
+- event ordering is deterministic under the declared policy;
+- checkpoint replay reproduces event/state checksums;
+- grazing and near-simultaneous failures are characterized;
+- invariant drift is bounded.
 
-**Go:** EDMD and kinetic backends pass independent invariant, convergence, and
-sampling tests.
+**No-Go:**
 
-**No-Go:** model discrepancy is measured before numerical error is bounded.
+- the exact branch does not reliably reconstruct its own past;
+- the result depends on manually repaired trajectories;
+- a backward video is used instead of simulated reversal.
 
-## Gate G2 — Discrepancy exists and is attributable
+## Gate G1 — Same resolved present
 
-**Go:** target observables show stable, nontrivial exact/kinetic differences in
-well-resolved cases.
+**Go:**
 
-**No-Go:** differences vanish under convergence or are dominated by noise.
+- exact-reverse and chaotized branches pass the preregistered `f1_h` audit;
+- matching is reported across multiple spatial and velocity resolutions;
+- mass, momentum, energy, color counts, and overlap validity pass;
+- future separation survives finer audit resolutions and seed variation.
 
-## Gate G3 — History adds value
+**No-Go / narrow:**
 
-**Go:** history features improve grouped held-out prediction beyond state,
-geometry, and finite-density controls by a pre-registered operational margin.
+- future separation disappears when the audit is refined;
+- only one arbitrary binning supports the story;
+- “same present” is stated more strongly than the measured resolved state.
 
-**No-Go:** gain is absent, unstable, or only appears under random row splits.
+## Gate G2 — Collision-history mechanism
 
-### Pivot G3-E
+**Go:**
 
-If Enskog closes the gap, pivot to adaptive exact–Enskog rather than claiming
-history causality.
+- `(Lambda,Gamma)` history budgets produce a systematic response;
+- forward and reverse branches respond differently as preregistered;
+- count/time-matched random suppression cannot explain the result;
+- topology-shuffled controls are weaker;
+- incoming-pair closure readout changes in the expected direction.
 
-### Pivot G3-P
+**No-Go / narrow:**
 
-If exact history helps but is not observable, investigate bounded shadow probes.
+- the result is explained by collision count or mean free path alone;
+- molecule labels are post-hoc and not reproducible;
+- extended dynamics are presented as exact EDMD;
+- only a visually attractive echo remains.
 
-### Visual consequence
+If G2 fails but G0/G1 pass, retain the echo as a demonstration and remove the
+Deng-inspired mechanism claim from the paper spine.
 
-Correlation Labyrinth may remain a diagnostic analysis, but it cannot become a
-core Hero Scene unless the future physical observable—not only the graph/score—is
-restored on held-out cases.
+## Gate G3 — Collision graph and deterministic branch representation
 
-## Gate G4 — Conversion is subordinate
+**Go:**
 
-**Go:** conversion preserves primary invariants and secondary/statistical error is
-below the benefit from local exactness.
+- event predecessors/successors match the raw ledger;
+- repeated-pair events are preserved;
+- shared-ancestor and descendant queries are correct;
+- copy-on-write branches reproduce full-copy branches;
+- branch/checkpoint provenance is complete.
 
-**No-Go:** promotion/demotion transients dominate.
+**No-Go:**
 
-### Visual consequence
+- the graph is only a visualization and cannot drive replay/branching;
+- event log and branch state can diverge silently;
+- random access requires storing full frames without an honest baseline.
 
-Zoomable Mixing must pass neutral conversion continuity before any hero temporal
-filter or art polish is allowed.
+## Gate G4 — Counterfactual branch correctness
 
-## Gate G5 — Dynamic benefit
+**Go:**
 
-**Go:** practical policy improves a cost-quality Pareto frontier, with stable
-intermediate exact fraction and controlled chatter.
+- local causal-cone recomputation matches complete resimulation within tolerance;
+- uncertain dependencies expand the cone or trigger full fallback;
+- approximate policies are labeled separately;
+- at least two edit classes are validated.
 
-**No-Go:** exact fraction is almost always 0 or 1, or full exact cost remains.
+**No-Go:**
 
-### Flagship consequence
+- a bounded cone silently misses dependencies;
+- the edited branch is only a visual overlay;
+- local and full resimulation disagree materially;
+- branch edits modify the parent evidence.
 
-Expansion into Vacuum may enter V3 only if the proposed/reference physical
-observable difference is visible in a shared neutral render and synchronized with
-the same Pareto run.
+## Gate G5 — Useful locality and system value
 
-## Gate G6 — Graphics value
+**Go:**
 
-**Go:** at least two independent physical effects are visibly restored under
-matched rendering, clips map to quantitative evidence, and the visual pipeline is
-fully reproducible.
+- at least two scenes retain a non-global causal cone for a useful time window;
+- branch reuse provides a clear latency and/or storage benefit;
+- fallback frequency is acceptable and reported;
+- interaction remains responsive enough for the claimed workflow.
 
-Required sub-gates:
+**No-Go / pivot:**
 
-### G6-A Evidence integrity
+- every meaningful edit immediately affects the full system;
+- branch storage is equivalent to duplicating all trajectories;
+- full resimulation is simpler and equally fast;
+- the only benefit is graph visualization.
 
-- artifact-hash coverage is 1.0;
-- render/config/camera/comparison-lock hashes exist;
-- displayed metrics link to the same run family;
-- no hand-entered values or unexplained compositing.
+If G5 fails, remove the local-speed claim. Continue toward SIG only if correlation
+surgery and branch authoring remain strong; otherwise prepare a VIS analysis pivot.
 
-### G6-B Fair comparison
+## Gate G6 — Correlation surgery as authoring
 
-- comparison-lock hashes match;
-- display particle density/radius policy matches;
-- transfer functions and frame times match;
-- no proposed-only temporal filter.
+**Go:**
 
-### G6-C Temporal quality
+- the declared current resolved state remains within tolerance;
+- surgery produces repeatable and controllable future differences;
+- random surgery of equal magnitude is a weaker baseline;
+- users can understand what is preserved and what is edited;
+- the method does more than select a random alternate seed.
 
-- conversion is not an extreme frame-discontinuity outlier;
-- exact identity tracks are continuous;
-- statistical display sampling does not boil;
-- camera changes do not change partition artifacts.
+**No-Go:**
 
-### G6-D Visible physics
+- current-frame differences are already visible before playback;
+- the future is uncontrollable noise;
+- the operation violates declared invariants or creates overlaps;
+- the claim depends on a single cherry-picked pattern.
 
-- at least two predeclared observables are visible without the partition mask;
-- the effect survives matched display density;
-- neutral and hero renders agree;
-- diagnostics explain, rather than create, the difference.
+## Gate G7 — SIG graphics value
 
-**No-Go:** only the partition mask looks different, the effect disappears when
-display density is matched, or hero styling reverses the neutral conclusion.
+**Go:**
 
-Detailed criteria are in
-[Visual Acceptance Criteria](../demos/visual-acceptance-criteria.md).
+- the paper contains a simulation/animation algorithm, not only a phenomenon;
+- Molecular Logo Echo, One Collision Two Worlds, and Edit the Past are all
+  physically recomputed;
+- at least two scenes are legible without debug overlays;
+- branch correctness and performance are synchronized with the displayed run;
+- the result cannot be reduced to backward playback or keyframing;
+- every primary shot has a complete evidence manifest.
 
-## Suggested internal target, not a law
+**No-Go:**
 
-A useful scene might maintain an average exact volume/particle fraction around
-5–30%, but this range is only an engineering target. It must not be presented as
-a physical criterion.
+- the teaser is mostly a reverse movie;
+- the graph is decorative;
+- there is no meaningful edit/branch workflow;
+- hero styling creates a difference absent from neutral rendering;
+- limitations are hidden.
+
+## Gate G8 — Venue decision
+
+### Submit to SIGGRAPH / SIGGRAPH Asia when
+
+- G0–G7 pass at the claim level used in the paper;
+- animation, interaction, branch reuse, and visual results are the strongest
+  contribution;
+- the related-work boundary against reversible collision algorithms and generic
+  rollback is convincing.
+
+### Pivot to IEEE VIS when
+
+- G0–G3 pass and the scientific event/branch data are rich;
+- G5 local-speed value is weak or inconsistent;
+- linked analysis of collision molecules, branches, causal cones, and uncertainty is
+  more compelling than animation authoring;
+- a real task analysis, expert evaluation, and linked-view design can be performed.
+
+### Stop both when
+
+- G0 or G1 fails;
+- structured history is indistinguishable from count-matched controls;
+- neither a graphics algorithm nor a visual-analytics workflow emerges;
+- only a beautiful but scientifically ordinary reversal remains.
+
+## Suggested engineering targets, not universal laws
+
+For internal planning only:
+
+- two edit scenes with median affected-particle fraction below roughly 30% over the
+  demonstrated edit horizon;
+- local branch speedup of roughly 3x or a comparably clear branch-storage benefit;
+- interactive branch response within a few seconds for the flagship scale.
+
+These are project management targets, not physical criteria or guaranteed paper
+thresholds.
