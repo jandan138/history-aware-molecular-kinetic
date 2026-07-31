@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0.0",
+  "study_id": "MOLECULAR-TIME-MACHINE-E3-v0",
+  "e1_protocol": "molecular-echoes-e1-v0.json",
+  "hero": {
+    "particle_count": 128,
+    "seed": 0,
+    "target_collision_ordinal": 2,
+    "expected_pair": [101, 118],
+    "expected_time": 0.03429093183046455,
+    "recipe_tolerance": 1.0e-12
+  },
+  "fork": {
+    "lead_time": 1.0e-6,
+    "checkpoint_interval_events": 16
+  },
+  "edit": {
+    "kind": "pair-relative-velocity-rotation",
+    "angle_degrees": 1.0,
+    "orientation": "counterclockwise",
+    "frame": "pair-center-of-mass",
+    "positions_unchanged": true
+  },
+  "measurement": {
+    "end_time": 1.0,
+    "sample_interval": 0.02,
+    "visible_position_threshold": 1.0e-6
+  },
+  "acceptance": {
+    "minimum_baseline_terminal_color_score": 0.99,
+    "minimum_terminal_color_gap": 0.15,
+    "minimum_visibly_changed_fraction": 0.15,
+    "maximum_visibly_changed_fraction": 0.40,
+    "minimum_collision_pair_agreement": 1.0,
+    "maximum_collision_time_error": 1.0e-9,
+    "maximum_terminal_position_rms": 1.0e-9,
+    "maximum_terminal_velocity_rms": 1.0e-9,
+    "maximum_edit_momentum_error": 1.0e-12,
+    "maximum_edit_energy_error": 1.0e-12,
+    "minimum_baseline_event_reuse_fraction": 0.50,
+    "maximum_peak_affected_fraction": 0.50
+  },
+  "render": {
+    "fps": 24,
+    "frame_repeat": 6,
+    "final_hold_frames": 72,
+    "foreground_color": "#36d6ff",
+    "background_color": "#2c3340",
+    "edited_highlight_color": "#ff4f87",
+    "causal_cone_color": "#ffb000"
+  }
+}

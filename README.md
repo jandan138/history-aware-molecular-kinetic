@@ -1,8 +1,7 @@
-# Molecular Echoes / History-Aware Molecular–Kinetic
+# Molecular Time Machine / History-Aware Molecular–Kinetic
 
-> **Reversible and counterfactual hard-sphere animation with collision-history
-> graphs, scientifically grounded in the correlations that kinetic closure
-> discards.**
+> **Rewind to one past molecular collision, edit it, reuse the untouched history,
+> and generate a second exact physical future.**
 
 [![CI](https://github.com/jandan138/history-aware-molecular-kinetic/actions/workflows/ci.yml/badge.svg)](https://github.com/jandan138/history-aware-molecular-kinetic/actions/workflows/ci.yml)
 [![Docs](https://github.com/jandan138/history-aware-molecular-kinetic/actions/workflows/docs.yml/badge.svg)](https://github.com/jandan138/history-aware-molecular-kinetic/actions/workflows/docs.yml)
@@ -21,8 +20,7 @@ Scenes.
 
 The active first-paper route is now:
 
-> **Molecular Echoes: Reversible and Counterfactual Hard-Sphere Animation with
-> Collision-History Graphs**
+> **One Collision, Two Worlds: Causal Rewind for Molecular Animation**
 
 The project keeps two inseparable tracks:
 
@@ -34,8 +32,10 @@ Graphics Time-Machine Track
   how can that history support rewind, branch, edit, and alternate futures?
 ```
 
-The formal decision is recorded in
-[`ADR 0009`](docs/decisions/0009-pivot-to-molecular-echoes-sig.md).
+The initial pivot is recorded in
+[`ADR 0009`](docs/decisions/0009-pivot-to-molecular-echoes-sig.md). After E2, the
+story-first paper spine is fixed in
+[`ADR 0010`](docs/decisions/0010-molecular-time-machine-paper-spine.md).
 
 The first experiment on this route is now complete. The preregistered E1 study
 returned `go`: across `N=128,256` and six seeds each, the mean terminal
@@ -51,10 +51,10 @@ or topology-shuffled controls. The collision-molecule-wiring claim is therefore
 closed rather than rescued with more budgets or seeds. See the
 [`E2 Result`](docs/benchmarks/molecular-echoes-e2-result.md).
 
-The active route is consequently narrower: E1 remains the scientific phenomenon,
-while E3/E4 must earn a graphics contribution through correct replay,
-counterfactual branching, and causal recomputation without citing E2 as evidence
-that molecule topology carries the echo.
+The active route is consequently sharper. E1 is the hook: a frame is not a future.
+E2 is the turn: a collision-dose slider is not a causal history. E3 combines the
+collision timeline and exact causal branch into the payoff: make one past collision
+addressable, edit it, and show two physically recomputed worlds.
 
 ## Core idea
 
@@ -92,8 +92,7 @@ The graphics system turns that hidden structure into an animation representation
 - causal rewind after particle, collision, or geometry edits;
 - persistent counterfactual branches;
 - conservative expansion of the affected future cone;
-- resolved-state-preserving correlation surgery;
-- a history-budget slider based on collision molecules.
+- edit manifests and reproducible branch lineage.
 
 ## Why the Deng–Hani–Ma result matters
 
@@ -130,17 +129,17 @@ lineage, and causal descendants.
 
 ### C2 — Causal rewind and counterfactual branching
 
-A user can edit a past particle, collision, aperture, or obstacle. The system
-invalidates and recomputes the expanding future causal cone, reusing unaffected
-history and falling back to full replay when locality is lost.
+A user can edit a selected past collision. The system invalidates and recomputes
+the expanding future causal cone while reusing events whose two participants remain
+unaffected. Geometry edits are a later extension, not part of the first gate.
 
-### C3 — Resolved-state-preserving correlation surgery
+### Future extension — resolved-state-preserving correlation surgery
 
 The user can preserve a declared current density/temperature/velocity distribution
 while modifying hidden particle–velocity pairing and collision ancestry, producing
 alternate futures from the same visible present.
 
-### Tested boundary — collision-molecule history budget
+### Plot twist / tested boundary — collision-molecule history budget
 
 The `(Lambda, Gamma)` intervention shows graded reverse recovery, but E2-v0's
 registered null controls reject the stronger wiring-beyond-dose mechanism. It is a
@@ -153,8 +152,8 @@ documented limitation and diagnostic visualization, not an active contribution.
 | **E0** | Are exact EDMD reversal and deterministic replay numerically trustworthy? |
 | **E1** | Do exact-reverse and chaotized branches match the declared resolved present yet separate in the future? |
 | **E2** | **Closed negative:** budget grades recovery, but structured wiring does not beat dose/topology controls |
-| **E3** | Is the causal graph/replay representation correct and queryable? |
-| **E4** | Does local causal-cone branching match complete resimulation and provide useful reuse? |
+| **E3** | Can one addressable past collision fork an exact causal branch that visibly splits and reuses history? |
+| **E4** | After the Hero passes, how broadly do locality, performance, and other edit families hold? |
 | **E5** | Can correlation surgery preserve the declared present while authoring distinct futures? |
 | **E6** | Are the method, interaction, performance, and physical result legible in SIG-quality scenes? |
 
@@ -163,22 +162,22 @@ See [`Active Echo and Branching Benchmark Suite`](docs/benchmarks/echo-branching
 The older R0–B5 LOD suite remains in the repository as deferred infrastructure and
 an auditable negative-result path. It is not the current paper dependency chain.
 
-## Three Hero Scenes
+## Primary Hero Scene
 
-### Molecular Logo Echo
+### Act 1 — Molecular Logo Echo
 
 A passive-color pattern disperses. At the pivot, exact-reverse,
 resolved-state-preserving chaotized, and DSMC branches share the declared resolved
 present. Exact reversal reconstructs the pattern; E2's budget ladder may be shown
 only as a disclosed intervention whose stronger topology claim failed.
 
-### One Collision, Two Worlds
+### Act 3 — One Collision, Two Worlds
 
 The user selects and edits one past collision. Two futures begin almost identically,
 then the difference spreads through the collision causal graph. The system shows the
 causal cone and verifies the local branch against full resimulation.
 
-### Edit the Past
+### Future extension — Edit the Past
 
 Inside a transparent molecular maze, the user moves a past obstacle or opens an
 aperture. Unaffected history is reused; the expanding future cone is recomputed and
@@ -233,11 +232,12 @@ See [`Venue Strategy`](docs/vision/venue-strategy.md).
 E1 is complete at `N=128,256`: strict reversal, the resolved-present audit, all
 five branches, seed uncertainty, the main figure, and a neutral video pass the
 frozen gate. E2 is also complete and closes the molecule-wiring mechanism negative.
-The first stage continues only on the narrower graphics dependency chain:
+The first stage now has one remaining narrative gate:
 
-1. E3 collision graph, checkpoint, and deterministic branch replay;
-2. E4 one-event causal branch validated against complete resimulation;
-3. a route decision based on branch correctness, locality, and authoring value.
+1. select frozen collision #2 in the E1 Hero;
+2. rotate its pair-relative velocity by one degree;
+3. validate exact causal recomputation against complete resimulation;
+4. show the world split, reused history, and causal reach in one locked visual.
 
 Additional E1/E2 variants and `N=512` are cancelled for this route; they are not a
 substitute for the failed mechanism gate.
@@ -265,9 +265,17 @@ PYTHONPATH=src python scripts/run_echo_e2.py \
   --output results/molecular-echoes-e2-v0
 ```
 
-The primary command writes the reversal audit, multi-resolution pivot audit,
-branch metrics, compact decision, main figure, compressed trajectories, and
-neutral MP4 from one immutable protocol.
+Run the frozen Molecular Time Machine E3 recipe:
+
+```bash
+PYTHONPATH=src python scripts/run_time_machine_e3.py \
+  --config configs/studies/molecular-time-machine-e3-v0.json \
+  --output results/molecular-time-machine-e3-v0
+```
+
+The E3 command writes the collision timeline, edit manifest, causal-cone report,
+local/full comparison, compact decision, two-world figure, compressed trajectories,
+and neutral MP4 from one immutable protocol.
 
 The frozen result, claim boundary, numerical table, and artifact hashes are recorded
 in the [`E1 Result`](docs/benchmarks/molecular-echoes-e1-result.md).
@@ -298,17 +306,18 @@ It must not be presented as the active SIG method.
 ## Read first
 
 1. [Research thesis](docs/vision/research-thesis.md)
-2. [Collision-History Echoes route](docs/research/collision-history-echo-route.md)
-3. [Deng–Hani–Ma connection](docs/research/deng-hard-sphere-connection.md)
-4. [Paper positioning](docs/vision/paper-positioning.md)
-5. [Venue strategy](docs/vision/venue-strategy.md)
-6. [Active benchmark suite](docs/benchmarks/echo-branching-suite.md)
-7. [E1 result](docs/benchmarks/molecular-echoes-e1-result.md)
-8. [Architecture: graph and branching](docs/architecture/collision-history-graph-and-branching.md)
-9. [Milestones](docs/roadmap/milestones.md)
-10. [Go/No-Go gates](docs/roadmap/go-no-go-gates.md)
-11. [Hero Scenes](docs/demos/hero-scenes.md)
-12. [Claim ledger](paper/claim-ledger.md)
+2. [Molecular Time Machine route](docs/research/molecular-time-machine-route.md)
+3. [E3 frozen recipe](docs/benchmarks/molecular-time-machine-e3-preregistration.md)
+4. [Deng–Hani–Ma connection](docs/research/deng-hard-sphere-connection.md)
+5. [Paper positioning](docs/vision/paper-positioning.md)
+6. [Venue strategy](docs/vision/venue-strategy.md)
+7. [Active benchmark suite](docs/benchmarks/echo-branching-suite.md)
+8. [E1 result](docs/benchmarks/molecular-echoes-e1-result.md)
+9. [Architecture: graph and branching](docs/architecture/collision-history-graph-and-branching.md)
+10. [Milestones](docs/roadmap/milestones.md)
+11. [Go/No-Go gates](docs/roadmap/go-no-go-gates.md)
+12. [Hero Scenes](docs/demos/hero-scenes.md)
+13. [Claim ledger](paper/claim-ledger.md)
 
 ## License
 

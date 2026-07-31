@@ -93,7 +93,22 @@ are not the active graphics system.
 The same-present echo experiment must avoid attributing a density-model mismatch to
 collision history. Density/packing and numerical parameters remain controlled.
 
-## 9. Particle and spacetime animation control
+## 9. Strongest graphics neighbors: many worlds and storyboards
+
+[Many-Worlds Browsing](https://graphics.cs.cmu.edu/projects/mwb/) already computes
+many multibody simulations and lets a user browse and modify candidate outcomes.
+[Physics Storyboards](https://research.adobe.com/publication/physics-storyboards/)
+already uses important space-time outcomes to summarize and tune procedural
+animations. These are closer conceptual neighbors than a generic simulation viewer.
+
+Consequently, “we show multiple physical futures,” “the user can modify a scene,”
+and “we present a timeline of important events” are not sufficient distinctions.
+Molecular Time Machine instead makes an individual past hard-sphere collision the
+editable semantic object. Shared-particle ancestry drives exact event reuse and
+invalidation, and the resulting branch is compared event-by-event with a complete
+resimulation.
+
+## 10. Particle and spacetime animation control
 
 Graphics contains extensive work on particle control, keyframe matching, adjoint or
 optimization-based simulation control, spacetime constraints, retiming, and target
@@ -111,7 +126,7 @@ Molecular Echoes is not intended as a general target optimizer. Its distinction 
 Related-work review must include the strongest relevant particle/fluid editing
 papers before submission.
 
-## 10. Causal graphs and provenance visualization
+## 11. Causal graphs and provenance visualization
 
 Event graphs, provenance graphs, branch trees, and causal visualizations are common
 across debugging, distributed systems, workflow analysis, and visual analytics.
@@ -121,22 +136,22 @@ checkpoint replay, descendant invalidation, counterfactual recomputation, and
 interaction. For a possible IEEE VIS route, linked views and expert analysis tasks
 would be required beyond the simulation system.
 
-## 11. Kinetic and particle simulation in graphics
+## 12. Kinetic and particle simulation in graphics
 
 Continuous-scale kinetic fluids and HOME-LBM demonstrate high-quality kinetic
 simulation and GPU systems in graphics. They set a systems and visual standard but
 do not provide exact hard-sphere collision identity or the active causal branching
 workflow.
 
-## 12. Positioning summary
+## 13. Positioning summary
 
 The active paper occupies the intersection:
 
 ```text
 hard-sphere correlation / kinetic closure
-+ exact event-driven simulation
-+ causal rollback and persistent branching
-+ animation authoring and high-quality graphics
++ addressable collision events
++ exact ancestry-driven history reuse and recomputation
++ animation authoring through physical edits to the past
 ```
 
 It is not sufficiently novel if any one of the following is the entire story:

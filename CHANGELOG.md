@@ -9,6 +9,10 @@ public software releases. Benchmark and artifact schemas are versioned independe
 
 ### Changed
 
+- Sharpened the post-E2 paper spine to **One Collision, Two Worlds: Causal Rewind
+  for Molecular Animation**. E1 is the hook, E2 is a one-act plot turn, and the
+  first graphics payoff is one addressable past collision with exact causal
+  recomputation.
 - Pivoted the active first-paper route from predictive exact/kinetic dynamic LOD to
   **Molecular Echoes: Reversible and Counterfactual Hard-Sphere Animation with
   Collision-History Graphs** after the Phase-I scalar-history predictor did not meet
@@ -23,6 +27,15 @@ public software releases. Benchmark and artifact schemas are versioned independe
 
 ### Added
 
+- Implemented the `MOLECULAR-TIME-MACHINE-E3-v0` recipe: traceable EDMD collision
+  IDs and state hashes, causal predecessor/descendant queries, periodic and forced
+  checkpoints, conservative pair-relative-velocity edits, exact baseline-event
+  reuse, affected-set expansion, full-resimulation comparison, hashed branch
+  artifacts, and a locked 15.75-second two-world render.
+- Added ADR 0010, the story-first Chinese route explanation, strongest-prior-art
+  boundaries for Many-Worlds Browsing and Physics Storyboards, and the frozen E3
+  gate. Canonical E3 result evidence is intentionally generated only after the
+  recipe commit/tag.
 - Preregistered and executed `MOLECULAR-ECHOES-E2-v0` across both forward/reverse
   directions, `N=128,256`, and six primary seeds, with an excluded dose-only
   calibration, finite `(Lambda,Gamma)` ladder, count/time-matched random control,

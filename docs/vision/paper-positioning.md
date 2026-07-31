@@ -2,150 +2,167 @@
 
 ## Working title
 
-> **Molecular Echoes: Reversible and Counterfactual Hard-Sphere Animation with
-> Collision-History Graphs**
+> **One Collision, Two Worlds: Causal Rewind for Molecular Animation**
 
-Alternative title emphasizing interaction:
+System name:
 
-> **Molecular Time Machine: Causal Rewind and Hidden-State Editing for Hard-Sphere
-> Animation**
+> **Molecular Time Machine**
 
-## One-paragraph story
+## The story before the method
 
-We introduce a history representation and animation system for exact hard-sphere
-dynamics. A timestamped collision causal multigraph, deterministic checkpoints, and
-copy-on-write branch storage support random access and physically recomputed
-counterfactual futures after particle, collision, or geometry edits. An expanding
-causal-cone algorithm reuses unaffected history and is verified against full
-resimulation. A constrained correlation-surgery operator preserves a declared
-resolved one-particle present while altering hidden particle pairing, enabling two
-visually identical current states to evolve into different futures. Scientifically,
-we compare exact, chaotized, DSMC, and collision-molecule-budget branches to expose
-the multi-particle information discarded by kinetic closure. The system is
-illustrated through molecular echo, one-collision branching, and edit-the-past Hero
-Scenes.
+The paper begins with a question a creator can understand: if one molecular frame
+does not contain enough information to determine its visible future, can we expose
+and edit the missing history?
+
+E1 supplies the hook. Two branches share the registered resolved present but do not
+share the same future. E2 supplies the plot twist. A collision-budget slider grades
+the echo, yet registered wiring controls show that the slider has not located a
+special cause. The paper therefore stops treating “how much history?” as the main
+interaction and makes one past collision addressable.
+
+The climax is one physical gesture: rewind to collision #2, rotate the pair's
+relative velocity by one degree, and watch one world become two. A timestamped
+collision timeline, checkpoints, and an exact expanding-causal-cone algorithm reuse
+the old events that remain independent and recompute the events that inherit the
+edit. The branch is validated against complete resimulation under the same hard-disk
+kernel and shown under a locked renderer.
+
+## One-paragraph contribution statement
+
+We introduce an exact counterfactual branching representation for event-driven
+hard-sphere animation. Every collision receives stable identity, state hashes, and
+links to the preceding collisions of its two particles. A conservative edit in a
+pair center-of-mass frame forks this timeline. Our branch executor replays baseline
+events between unaffected particles and recomputes only pairs touching a monotonically
+growing affected set; any uncertain dependency expands that set. In the frozen Hero,
+a one-degree edit to one early collision produces a visible alternate future while
+the local event sequence and terminal state match a complete resimulation within
+registered tolerances. The result turns hidden collision correlation—motivated by
+the collision-history structures in Deng–Hani–Ma—from a scientific observation into
+an animation operation.
+
+## Contributions in paper order
+
+### 1. Collision-addressable molecular timeline
+
+Each accepted pair collision stores event ID, deterministic order key, time, pair,
+contact normal, incoming relative normal speed, causal predecessors, and pre/post
+state hashes. Periodic checkpoints support exact forks. Repeated collisions remain
+distinct events.
+
+### 2. Exact conservative causal branch
+
+An edit starts a growing affected-particle set. Old events between unaffected
+particles are reused. An old event touching the set is invalidated and its other
+participant is promoted. New affected–unaffected contacts also promote particles.
+The exact method never truncates an uncertain cone. The same prediction, advection,
+impulse, and ordering kernel is shared with full EDMD.
+
+### 3. One-collision authoring interaction and evidence
+
+The user chooses an event rather than an opaque budget. The edit manifest records
+the checkpoint, target pair, physical transformation, conservation audit, branch
+lineage, and hashes. A main figure and 15–20 second neutral video show the selected
+event, the one-degree edit, two terminal worlds, and the causal reach under an
+identical camera and timeline.
 
 ## Why this belongs at SIGGRAPH
 
-The intended contribution is not merely a statistical-mechanics phenomenon. It is a
-new simulation and animation workflow:
+The contribution is a simulation/animation workflow, not merely a statistical-
+mechanics plot:
 
-- rewind to a past physical state;
-- inspect the collision history causing the present;
-- edit a past event or obstacle;
-- generate a new physically simulated future;
-- reuse unaffected history;
-- compare persistent alternate branches;
-- author a different future while preserving the current visible state.
+```text
+rewind to a meaningful physical event
+→ edit that event conservatively
+→ reuse the independent past/future segments
+→ exactly recompute inherited consequences
+→ inspect two reproducible physical worlds
+```
 
-The paper must therefore report:
+The first evidence claims event reuse rather than optimized wall-clock speed. A
+native implementation and interactive latency study become worthwhile only after
+the semantic operation and story pass.
 
-- algorithmic correctness against full resimulation;
-- runtime, storage, and causal-cone scaling;
-- interaction latency;
-- branch provenance and reproducibility;
-- high-quality three-dimensional results;
-- limitations when the cone becomes global or reversibility is numerically fragile.
+## Scientific role of Deng–Hani–Ma
 
-## Scientific bridge to Deng–Hani–Ma
+Deng, Hani, and Ma propagate cumulants carrying complete collision histories and
+organize correlated structures as collision-history molecules in their derivation
+of Boltzmann from hard spheres. This motivates the information boundary: a cheap
+one-particle present omits structured multi-particle history that may determine a
+carefully correlated future.
 
-Deng, Hani, and Ma control cumulants and collision-history molecules in their
-long-time derivation of Boltzmann from hard spheres. Our finite-system work uses
-that structure as motivation for asking what one-particle closure forgets and for
-building a collision-molecule intervention.
-
-The paper should say:
-
-> inspired by the cumulant and collision-history molecule structure used in the
-> hard-sphere-to-Boltzmann derivation.
-
-It must not say:
-
-- we implement the proof's cutting algorithm;
-- the theorem proves our finite simulation method;
-- the finite history budget is a new kinetic-limit theorem;
-- a reverse-correlated state contradicts Boltzmann.
-
-## Claims allowed only after evidence
-
-1. Exact numerical reversal and deterministic replay pass registered tolerances.
-2. Exact-reverse and chaotized branches match the declared resolved `f1_h` over a
-   resolution sweep yet exhibit robust future separation.
-3. Structured molecule budgets explain the response beyond count-matched random
-   suppression and topology-shuffled controls.
-4. Local causal-cone branching matches complete resimulation or explicitly falls
-   back.
-5. At least two edit families provide useful reuse in runtime or storage.
-6. Correlation surgery preserves the declared present and enables repeatable
-   alternate-future authoring.
-7. The Hero Scenes remain understandable without debug overlays or backward video.
-
-## Claims we must not make
-
-- velocity reversal is novel;
-- collision logs or rollback are novel by themselves;
-- the branch engine is always local;
-- matching coarse bins means exact state equality;
-- changing only a historical record changes a deterministic future;
-- replaying recorded frames backward is a physically recomputed reverse branch;
-- DSMC particle IDs carry true molecular histories;
-- the original LOD predictor succeeded.
+The paper says “inspired by the collision-history and cumulant structure.” It does
+not say that we implement their cutting argument, that their theorem proves our
+finite branch method, or that E2 identified their molecule topology in the Hero.
 
 ## Strongest prior-art boundaries
 
-### Reversible collision simulation
+### Many-Worlds Browsing
 
-Prior work already studies reversible elastic-collision algorithms. Our novelty
-cannot be “hard spheres can be reversed.” The distinction must be the
-collision-history representation, correlation surgery, causal future branching,
-and animation authoring workflow.
+Twigg and James already compute and browse many multibody futures. Multiple
+simulations and interactive outcome selection are not the novelty. Our distinct
+semantic unit is an addressable past collision whose particle ancestry drives exact
+reuse and recomputation.
 
-### Discrete-event rollback
+### Physics Storyboards and animation control
 
-Time-Warp and related discrete-event systems already use checkpoints, causal
-dependencies, and rollback. Our distinction must be hard-sphere-specific event
-causality, exact branch validation, physical edit semantics, hidden-correlation
-surgery, and visual authoring—not generic rollback terminology.
+Physics Storyboards and broader spacetime/particle control already summarize,
+retime, tune, or optimize physical animation. We do not claim generic animation
+control. Our operation edits a realized collision history and follows the altered
+initial-value problem without optimizing toward a target frame.
+
+### Time Warp and reversible collision simulation
+
+Checkpoint rollback, causal recovery, and reversible elastic collision algorithms
+are established. We do not claim them individually. The contribution is the
+hard-sphere collision-event representation tied to a creator-facing physical edit,
+exact ancestry-driven branch reuse, and visual evidence.
 
 ### Loschmidt echoes
 
-A simple reverse movie or exact echo is the entrance demonstration, not the
-contribution. The paper must progress to controlled chaotization, molecule budgets,
-and counterfactual edits.
+Velocity reversal is the entrance demonstration. E1 makes the missing-history
+question visible; it is not the algorithmic claim.
 
-### Particle/spacetime control
+## What the first gate may say
 
-Existing animation work controls particles or fluids toward keyframes. Our system
-is not a generic optimizer; it edits collision ancestry and shares exact simulated
-history across branches. Comparisons should distinguish direct physical branching
-from optimization toward a target.
+- one registered past-collision edit produces the registered visible world split;
+- the edit preserves momentum and kinetic energy within tolerance;
+- causal recomputation matches full resimulation event-by-event and at the terminal
+  state within tolerance;
+- the frozen Hero reuses the registered fraction of baseline events and retains the
+  registered causal locality;
+- every visual output is tied to branch/edit/checkpoint hashes.
 
-## Reviewer questions the paper must answer
+## What it may not yet say
 
-- Is the “same present” claim stable under finer spatial and velocity bins?
-- Is the history-budget effect just fewer collisions?
-- How is local causal recomputation proven correct?
-- When and how quickly does the causal cone become global?
-- What is stored per event and per branch?
-- Why is this better than full resimulation or storing full trajectories?
-- Can the user predict/control the future, or only observe chaos?
-- Is the result a graphics method or a physics visualization?
-- What remains of the connection to the hard-sphere-to-Boltzmann mathematics?
+- causal cones are always local;
+- the Python implementation is faster than full resimulation;
+- all collision, geometry, and rigid-body edit families are supported;
+- a user study establishes authoring benefit;
+- the method is the first multiple-futures or rollback system;
+- the E2 molecule wiring mechanism succeeded;
+- a discretized resolved present is an identical exact state.
 
-## Required paper figures
+## Main-paper figure spine
 
-1. **Same resolved present, opposite futures** with a multi-resolution pivot audit.
-2. **Collision-molecule budget** versus null controls.
-3. **Collision causal graph and branch representation**.
-4. **One-event edit** with spreading causal cone and full-reference correctness.
-5. **Geometry edit** with runtime/storage comparison.
-6. **Correlation surgery** showing present-state preservation and future control.
-7. **Three Hero Scenes**, limitations, and failure cases.
+1. **A frame is not a future.** One compact E1 image establishes the hidden-history
+   hook.
+2. **A slider is not a history.** One small E2 transition plot states the graded
+   dose result and the failed wiring contrast.
+3. **Make every collision addressable.** Timeline data model and selected event.
+4. **One Collision, Two Worlds.** The one-degree edit, causal cone, original world,
+   and edited world.
+5. **Exact reuse.** A compact event-reuse/correctness diagram and numerical table.
+
+The complete E2 negative, fine-grid E1 limitation, engineering diagnostics, and
+future edit families belong in the supplement. They support honesty without
+interrupting the main narrative.
 
 ## Venue route
 
 - **Primary:** SIGGRAPH / SIGGRAPH Asia.
-- **Fallback:** IEEE VIS only after a true pivot to linked visual analytics of event
-  graphs, branch provenance, molecule budgets, and uncertainty.
+- **Fallback:** IEEE VIS only after a real pivot to linked analysis of event graphs,
+  branch provenance, and causal cones; it is not a renamed version of this paper.
 
-See [Venue Strategy](venue-strategy.md).
+See [ADR 0010](../decisions/0010-molecular-time-machine-paper-spine.md) and the
+[E3 frozen recipe](../benchmarks/molecular-time-machine-e3-preregistration.md).

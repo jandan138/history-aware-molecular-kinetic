@@ -39,6 +39,7 @@ nav:
   - Active Research:
       - 中文研究总览: research/zh-research-overview.md
       - Molecular Echoes route: research/collision-history-echo-route.md
+      - Molecular Time Machine route: research/molecular-time-machine-route.md
       - Deng–Hani–Ma connection: research/deng-hard-sphere-connection.md
       - Novelty map: research/novelty-map.md
       - Hard-sphere to kinetic primer: research/hard-sphere-kinetic-primer.md
@@ -61,6 +62,7 @@ nav:
       - E1 result: benchmarks/molecular-echoes-e1-result.md
       - E2 preregistration: benchmarks/molecular-echoes-e2-preregistration.md
       - E2 result: benchmarks/molecular-echoes-e2-result.md
+      - E3 frozen recipe: benchmarks/molecular-time-machine-e3-preregistration.md
       - Metrics: benchmarks/metrics.md
       - Dataset policy: benchmarks/dataset-policy.md
       - Canonical cases: benchmarks/canonical-cases.md
@@ -102,3 +104,4 @@ nav:
   - Decisions:
       - Index: decisions/README.md
       - Pivot to Molecular Echoes: decisions/0009-pivot-to-molecular-echoes-sig.md
+      - One Collision paper spine: decisions/0010-molecular-time-machine-paper-spine.md

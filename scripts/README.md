@@ -23,4 +23,10 @@ Molecular Echoes E2 workflow:
 - `run_echo_e2.py` runs the frozen molecule-budget ladder, the two selected-budget
   mechanism controls, and the neutral evidence render.
 
+Molecular Time Machine E3 workflow:
+
+- `run_time_machine_e3.py` runs the frozen one-collision edit, exact causal branch,
+  full-resimulation comparison, hashed causal artifacts, main figure, and neutral
+  15–20 second video.
+
 Smoke mode checks pipeline integrity only and is never primary evidence.

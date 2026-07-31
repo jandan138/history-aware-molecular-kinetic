@@ -8,6 +8,7 @@ from historykinetic.solvers.modified_edmd import ModifiedHardDiskEDMD
 from historykinetic.solvers.observables import BlockGrid, BlockObservation, observe_blocks
 from historykinetic.solvers.result import (
     GeometryCollisionEvent,
+    PairCollisionObservation,
     SimulationResult,
     SolverDiagnostics,
 )
@@ -31,6 +32,7 @@ __all__ = [
     "HardDiskDSMC",
     "HardDiskEDMD",
     "ModifiedHardDiskEDMD",
+    "PairCollisionObservation",
     "SimulationResult",
     "Snapshot",
     "SolverDiagnostics",

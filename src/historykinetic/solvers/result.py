@@ -5,7 +5,18 @@ from math import sqrt
 from typing import Literal
 
 from historykinetic.contracts import CollisionEvent
-from historykinetic.solvers.state import Snapshot
+from historykinetic.solvers.state import DiskState, Snapshot
+
+
+@dataclass(frozen=True, slots=True)
+class PairCollisionObservation:
+    """Optional trace payload emitted for each accepted pair collision."""
+
+    ordinal: int
+    queue_sequence: int
+    event: CollisionEvent
+    state_before: DiskState
+    state_after: DiskState
 
 
 @dataclass(frozen=True, slots=True)

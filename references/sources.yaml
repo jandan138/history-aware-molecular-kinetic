@@ -1,5 +1,5 @@
 schema_version: "1.0.0"
-accessed_utc: "2026-07-31T00:00:00Z"
+accessed_utc: "2026-08-01T00:00:00Z"
 sources:
   - id: deng_hani_ma_hard_spheres_2024
     kind: paper
@@ -83,6 +83,35 @@ sources:
     does_not_support:
       - novelty or correctness of the hard-sphere-specific causal-cone branch algorithm
       - correlation surgery or graphics authoring claims
+
+  - id: twigg_james_many_worlds_2007
+    kind: paper
+    title: Many-Worlds Browsing for Control of Multibody Dynamics
+    authors: [Christopher D. Twigg, Doug L. James]
+    year: 2007
+    doi: 10.1145/1276377.1276395
+    url: https://graphics.cs.cmu.edu/projects/mwb/
+    role: interactive_multiphysics_future_prior_art
+    supports:
+      - sampling, browsing, and interactively modifying many physical outcomes are established graphics ideas
+      - multiple physical futures alone are not a novelty claim
+    does_not_support:
+      - editing an addressable past hard-sphere collision
+      - exact collision-ancestry-driven event reuse
+
+  - id: ha_physics_storyboards_2013
+    kind: paper
+    title: Physics Storyboards
+    authors: [Sehoon Ha, Jim McCann, C. Karen Liu, Jovan Popović]
+    year: 2013
+    doi: 10.1111/cgf.12033
+    url: https://research.adobe.com/publication/physics-storyboards/
+    role: procedural_animation_authoring_prior_art
+    supports:
+      - space-time outcome summaries and parameter tuning are established animation-authoring ideas
+    does_not_support:
+      - event-level edits to hard-sphere collision ancestry
+      - causal-cone reuse validated against complete resimulation
 
   - id: deng_hani_ma_hydrodynamic_2025
     kind: paper

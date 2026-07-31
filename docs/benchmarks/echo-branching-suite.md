@@ -8,8 +8,8 @@ history.
 flowchart LR
     E0[E0 Exact dynamics + reversal] --> E1[E1 Same resolved present]
     E1 --> E2[E2 Molecule-budget mechanism]
-    E0 --> E3[E3 Graph + deterministic replay]
-    E3 --> E4[E4 Counterfactual branching]
+    E0 --> E3[E3 Addressable collision + exact causal branch]
+    E3 --> E4[E4 Breadth + performance]
     E1 --> E5[E5 Correlation surgery]
     E2 --> E5
     E4 --> E6[E6 SIG graphics evidence]
@@ -115,41 +115,49 @@ effect of allowing more collisions?
 A molecule-budget claim fails if random suppression or a collision-count-only model
 explains the same response.
 
-## E3 — Collision causal graph and deterministic replay
+## E3 — One addressable collision, two exact worlds
 
 ### Question
 
-Can the event multigraph serve as a correct random-access and provenance index?
+Can the event multigraph serve as a correct provenance index **and** drive an exact
+counterfactual branch after one past-collision edit?
 
 ### Cases
 
-- particle predecessor/successor queries;
-- repeated-pair events;
-- shared-ancestor queries;
-- checkpoint restore and replay;
-- branch lineage and copy-on-write history segments.
+- frozen E1 `N=128`, seed `0` exact-reverse Hero;
+- collision ordinal `2`, pair `(101,118)`;
+- forced checkpoint `1e-6` before contact;
+- `+1°` pair-relative-velocity rotation in the center-of-mass frame;
+- exact expanding affected set and complete-resimulation reference.
 
 ### Evidence
 
-- graph reconstruction against the raw event log;
-- query correctness;
-- replay checksum agreement;
-- storage and query costs;
-- behavior under event-order ambiguity.
+- stable event IDs, causal predecessors, state hashes, and checkpoints;
+- local/full collision pair and time agreement;
+- terminal position and velocity agreement;
+- conserved edit momentum and energy;
+- terminal visual split, reused baseline events, and peak affected fraction;
+- one locked figure/video manifest.
 
-## E4 — Counterfactual branching and causal-cone recomputation
+### Gate
+
+The graph passes only if it performs the branch. The frozen thresholds and artifact
+list are in the [E3 recipe](molecular-time-machine-e3-preregistration.md).
+
+## E4 — Breadth, performance, and additional edit families
 
 ### Question
 
-Can a past edit be recomputed through an expanding causal cone and match a complete
-resimulation?
+After the single-collision Hero passes, over what edit ages, densities, and edit
+families does causal reuse remain useful, and when does a native implementation
+deliver interactive latency?
 
 ### Edits
 
-1. perturb one particle before a collision;
-2. modify/suppress one registered collision under declared semantics;
-3. insert, remove, or move a simple obstacle;
-4. open/close a simple aperture.
+1. later or larger pair edits;
+2. a second physical edit family;
+3. optional simple obstacle/aperture edits;
+4. native/parallel implementation after semantics are frozen.
 
 ### Baselines
 

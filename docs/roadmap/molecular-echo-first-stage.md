@@ -1,302 +1,104 @@
-# Molecular Echoes First Stage
+# Molecular Time Machine — first-stage decision
 
-**Status:** active but narrowed; E1 passed its frozen scoped gate on 2026-07-31,
-and E2 returned `stop_e2` on 2026-08-01.
+**Status:** E1 passed, E2 closed its planned mechanism, and the combined E3
+timeline/causal-branch recipe is frozen for canonical evidence.
 
-**Duration:** 2–3 focused weeks.
+**Purpose:** finish one coherent paper arc before investing in breadth, performance,
+3D production, or user evaluation.
 
-**Purpose:** decide whether the new SIG route has both a defensible scientific core
-and a real graphics algorithm before investing in 3D production.
+## The stage in one line
 
-The stage must produce one decision package, not a growing collection of unrelated
-experiments.
+```text
+E1: a frame is not a future
+→ E2: a slider is not a history
+→ E3: make one collision editable
+```
 
-## Current E1 outcome
+## Act 1 complete — Molecular Echoes E1
 
-The registered `MOLECULAR-ECHOES-E1-v0` protocol was committed and tagged before
-the primary run. Twelve cases (`N=128,256`, six seeds each) produced a mean
-exact-minus-chaotized terminal color gap of `0.449784`, with a seed-bootstrap 95%
-interval of `[0.436573, 0.460660]`; every case was positive. Exact reversal,
-construction-state equality, invariants, branch separation, DSMC support, figure,
-and neutral-video checks all passed.
+`MOLECULAR-ECHOES-E1-v0` returned `go`. Across `N=128,256` and six seeds, the
+mean exact-minus-chaotized terminal color gap is `0.449784`, with seed-bootstrap
+95% interval `[0.436573,0.460660]`. The exact branch reconstructs the pattern while
+the branch with the same frozen 4×2 resolved present does not.
 
-The result is deliberately scoped. The 2×1 and construction 4×2 audits match
-exactly, while the unused 8×4 audit reveals finer position–velocity mismatch. The
-claim is therefore “same preregistered 4×2 resolved present,” not the same exact
-state or continuous `f1`. See the complete
+This result is the scientific hook and is limited to the registered resolved
+present. The finer 8×4 mismatch remains disclosed. See the
 [E1 result](../benchmarks/molecular-echoes-e1-result.md).
 
-## Current E2 outcome
+## Act 2 complete — Molecular Echoes E2
 
-E2's registered reverse budget ladder is systematic (mean Spearman `0.930574`) and
-full/ghost separation passes. The stronger mechanism does not: `(4,0)` minus the
-count/time-matched random control is `-0.007636` with a 95% interval spanning zero,
-and the topology-shuffled contrast is also negative with an interval spanning zero.
-The frozen rule returns `stop_e2`.
+E2's collision-budget ladder is strong (`0.930574` mean reverse Spearman), but its
+selected structured molecule does not beat count/time-matched random or
+topology-shuffled controls. The registered decision is `stop_e2`.
 
-The Deng-inspired molecule-topology mechanism is removed from the paper spine. No
-extra E2 seeds, budgets, `N=512`, or fixed-`Nε` sequence will be added. E3/E4 may
-continue only as the explicitly narrower branch/rewind system route described in
-the stage decision. See the complete
+The project will not add E2 budgets, seeds, `N=512`, new proxies, or asymptotic
+sequences. The full negative stays in the supplement. In the main story it provides
+one transition: more collision dose can restore more echo, but a dose slider does
+not tell an animator which cause to edit. See the
 [E2 result](../benchmarks/molecular-echoes-e2-result.md).
 
-The earlier unfrozen roadmap mentioned `N=512` and a longer internal clip. Neither
-was part of the frozen E1 protocol, so neither is added after seeing the result.
-`N=512` is deferred to the scale study only if E2 passes; the neutral evidence clip
-is 11.5 seconds and shows the complete registered trajectory without video
-reversal or interpolation.
+## Act 3 active — One Collision, Two Worlds E3
 
----
+E3 combines the graph and branch gates. A graph passes only if it performs the edit.
 
-## 1. Questions to answer
-
-### Scientific question
-
-Can exact-reverse and resolved-state-preserving chaotized branches pass a
-multi-resolution one-particle audit at the pivot yet evolve into robustly different
-futures, and does a structured collision-molecule budget explain the difference
-beyond collision count?
-
-### Graphics question
-
-Can one past edit create a physically recomputed counterfactual branch whose
-expanding causal cone matches a complete resimulation and remains local long enough
-to support a useful animation interaction?
-
-Both questions must be addressed. A beautiful echo without a branch algorithm is
-not yet a SIG paper; a branch engine without the hidden-correlation story loses the
-Deng-inspired scientific core.
-
----
-
-## 2. Week 0 — Preregister before running primary evidence
-
-Create a dedicated commit and tag containing only protocol and analysis definitions.
-Freeze:
-
-- periodic box and units;
-- particle diameter/mass and `N=128,256,512` plan;
-- initial anisotropy and passive-color pattern;
-- preparation time, pivot, and observation window;
-- exact, chaotized, DSMC, ghost, and budget branches;
-- spatial block and velocity-bin audit grid;
-- primary observables;
-- event-order and numerical tolerances;
-- `(Lambda,Gamma)` paths;
-- count/time-matched and topology-shuffled controls;
-- branch edits;
-- success/stop criteria;
-- bootstrap/uncertainty method.
-
-Suggested tag:
+### Frozen Hero
 
 ```text
-molecular-echoes-e1-e2-preregistered-v0
+source = E1 exact-reverse, N=128, seed=0
+target = collision #2, pair (101,118)
+fork = 1e-6 before the target
+edit = +1 degree pair-relative-velocity rotation in the COM frame
+horizon = 1.0
 ```
 
-The result commit must refer back to this tag.
+### Required implementation
 
----
+1. stable collision IDs, ordering keys, predecessor links, and state hashes;
+2. initial, periodic, fork, and terminal checkpoints;
+3. a momentum/energy-preserving physical edit;
+4. a monotone affected set that reuses only provably independent baseline events;
+5. the same numerical collision kernel for local and full runs;
+6. one complete resimulation for event/state correctness;
+7. collision timeline, edit, causal-cone, comparison, and render manifests;
+8. one main figure and one 15–20 second neutral two-world video.
 
-## 3. Week 1 — Strict echo and same-present audit
+The exact rule never truncates uncertain dependencies. It promotes the involved
+particle and continues. The first reference implementation claims event/history
+reuse, not optimized wall-clock speed.
 
-**Result:** complete for `MOLECULAR-ECHOES-E1-v0`; decision `go`.
+### Decision
 
-### Deliverables
+- **Go:** local/full correctness, visible world split, at least 50% baseline-event
+  reuse, and less than 50% peak affected particles all pass.
+- **Narrow:** correctness and world split pass, but reuse/locality does not. Keep
+  the history-provenance authoring story and drop the locality claim.
+- **Stop:** the local branch disagrees with full resimulation or the registered edit
+  does not visibly split the worlds.
 
-1. periodic exact EDMD forward/reverse runs;
-2. deterministic event ordering and event checksums;
-3. checkpoint restore/replay;
-4. exact-reverse branch;
-5. block+color chaotized-reverse branch;
-6. DSMC and no-collision ghost baselines;
-7. multi-resolution `f1_h` matching report;
-8. anisotropy and passive-color recovery curves.
+The exact thresholds and artifact contract are frozen in the
+[E3 preregistration](../benchmarks/molecular-time-machine-e3-preregistration.md).
 
-### Required audit grid
+## What does not belong before this decision
 
-At minimum vary:
+- additional E1/E2 defensive experiments;
+- density, seed, or parameter sweeps;
+- geometry edits and obstacle zoos;
+- approximate fixed-radius cones;
+- `N=512`, 3D hard spheres, GPU/native optimization;
+- a full editor UI or user study;
+- path-traced production assets.
 
-- spatial block resolution;
-- velocity-bin resolution;
-- with/without passive color partition;
-- `N=128` and `N=256`, then confirm at `N=512` if feasible.
+Those may become E4–E6 work only if the one-collision story earns them.
 
-Report both:
+## Stage handoff if E3 passes
 
-- the resolution used to construct the surgery;
-- finer resolutions not used by the surgery.
+The next phase should deepen the contribution in this order:
 
-### Pass
+1. native/parallel branch execution and interactive latency;
+2. one genuinely different physical edit family;
+3. a small locality/performance map chosen to support the algorithm claim;
+4. 3D art direction and creator-facing interaction;
+5. only then, a focused user evaluation if the paper needs it.
 
-- exact reverse reconstructs within numerical tolerance;
-- exact and chaotized pivot states pass the declared audit;
-- future separation is stable over seeds and does not vanish under finer audit;
-- the result is generated by forward simulation after the pivot, not video reversal.
-
-### Stop/narrow
-
-- exact reverse is numerically unreliable;
-- the same-present claim survives only at one coarse binning;
-- future separation is dominated by visible pivot mismatch;
-- the effect exists only for one seed.
-
----
-
-## 4. Week 2 — Collision-molecule mechanism and null controls
-
-**Result:** complete for `MOLECULAR-ECHOES-E2-v0`; decision `stop_e2`. The graded
-budget response passes, but structured wiring does not beat either registered
-control.
-
-### Deliverables
-
-1. collision event multigraph with repeated events;
-2. molecule root/size and recollision/reconnection complexity;
-3. full, `(8,0)`, `(16,1)`, and optionally `(4,0)` paths;
-4. collision-count/time-matched random suppression;
-5. topology-shuffled partner control;
-6. incoming-pair closure-defect proxy;
-7. forward/reverse response curves;
-8. uncertainty and event-statistics report.
-
-### Pass
-
-- structured molecule budget differs from count-matched suppression;
-- the difference is not explained by total collisions or mean free time alone;
-- forward and reverse branches respond differently in a preregistered way;
-- the incoming-pair proxy has a consistent direction;
-- extended dynamics are reproducible and explicitly labeled.
-
-### Stop/narrow
-
-- random suppression explains the same curve;
-- molecule topology adds no information;
-- event annotations are unstable or post-hoc;
-- only the exact reverse movie remains compelling.
-
-If this gate fails, remove the Deng-inspired mechanism claim. Do not compensate by
-adding more unregistered features.
-
----
-
-## 5. Week 3 — One-event counterfactual branch
-
-This week may overlap Week 2 engineering but cannot skip its correctness audit.
-
-### Deliverables
-
-1. collision causal graph predecessor/descendant queries;
-2. one checkpoint before a selected event;
-3. immutable parent branch;
-4. a one-particle or one-collision edit;
-5. expanding affected set;
-6. local branch recomputation;
-7. complete resimulation baseline;
-8. terminal state/event comparison;
-9. affected-particle fraction and runtime;
-10. a neutral split-screen prototype.
-
-### Pass
-
-- local and full resimulation agree within declared tolerance;
-- uncertain dependencies expand the cone or trigger fallback;
-- the edited branch is physically resimulated;
-- at least one case retains useful locality for the demonstrated horizon;
-- branch provenance is complete.
-
-### Stop/narrow
-
-- local branch silently diverges from the full reference;
-- every edit instantly becomes global;
-- the event graph cannot drive recomputation;
-- the visual is only a colored graph overlay.
-
----
-
-## 6. Decision deliverable
-
-The stage ends with a single report containing:
-
-```text
-protocol commit/tag
-solver and numerical audit
-resolved-state matching table
-future branch curves
-molecule-budget + null-control curves
-incoming-pair diagnostic
-one-event branch correctness
-causal-cone/runtime result
-60–90 second neutral internal video
-Go / Narrow / Stop decision
-```
-
-### Go to full SIG development
-
-Require:
-
-- exact reversal/replay passes;
-- multi-resolution same-present separation passes;
-- structured history has value beyond count controls;
-- one-event branch matches full resimulation;
-- at least one edit case retains nontrivial locality;
-- the neutral video already communicates more than a backward movie.
-
-### Narrow SIG route
-
-Possible narrower packages:
-
-- branch/rewind system without molecule-budget claim;
-- history surgery and alternate-future authoring without local-speed claim;
-- conference-level rather than TOG-level evidence package.
-
-### Prepare VIS pivot
-
-Only when:
-
-- scientific event/branch data are strong;
-- local speed/authoring value is weak;
-- linked visual analysis of causal cones and collision molecules is compelling;
-- domain-expert tasks can be defined.
-
-### Stop
-
-If exact reversal, state matching, mechanism, and branch correctness all fail to
-produce a defensible core.
-
----
-
-## 7. Strict non-goals for this stage
-
-Do not spend this stage on:
-
-- dynamic exact↔kinetic LOD;
-- promotion/demotion;
-- large geometry zoos;
-- GPU optimization;
-- complex CAD assets;
-- path-traced materials;
-- user studies;
-- full IEEE VIS interface;
-- a polished teaser before neutral gates pass.
-
-Simple instanced particles, passive colors, analytic obstacles, causal highlights,
-and split-screen comparison are sufficient.
-
----
-
-## 8. Immediate tasks
-
-Use the dependency-ordered issue list in
-[Molecular Echoes Backlog](molecular-echoes-backlog.md), beginning with:
-
-```text
-ECHO-S-001 preregistration
-ECHO-S-002 strict reversible EDMD
-ECHO-S-003 pivot branches
-ECHO-S-004 multi-resolution audit
-ECHO-S-005/006/007 molecule budgets and controls
-ECHO-G-001/002 causal graph and replay
-ECHO-G-004/005 one-event branch
-ECHO-V-001 diagnostic viewer
-```
+The first stage ends with a single result report and frozen evidence package—not a
+collection of unrelated safety studies.

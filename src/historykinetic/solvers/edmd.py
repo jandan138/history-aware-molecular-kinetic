@@ -5,11 +5,18 @@ from __future__ import annotations
 import heapq
 from collections.abc import Callable
 from dataclasses import dataclass
-from math import ceil, floor, hypot, sqrt
+from math import floor, hypot, sqrt
 
 from historykinetic.contracts import CollisionEvent
+from historykinetic.solvers.hard_disk_physics import (
+    TIME_EPS,
+    advance_state,
+    predict_pair_collision,
+    resolve_pair_collision,
+)
 from historykinetic.solvers.result import (
     GeometryCollisionEvent,
+    PairCollisionObservation,
     SimulationResult,
     SolverDiagnostics,
 )
@@ -20,9 +27,6 @@ from historykinetic.solvers.state import (
     Snapshot,
     validate_state_geometry,
 )
-
-_TIME_EPS = 1.0e-12
-_CONTACT_EPS = 1.0e-10
 
 
 @dataclass(frozen=True, slots=True)
@@ -71,6 +75,7 @@ class HardDiskEDMD:
         *,
         end_time: float,
         sample_interval: float,
+        pair_observer: Callable[[PairCollisionObservation], None] | None = None,
     ) -> SimulationResult:
         if end_time <= 0 or sample_interval <= 0:
             raise ValueError("end_time and sample_interval must be positive")
@@ -99,7 +104,7 @@ class HardDiskEDMD:
             next_sample = sample_times[sample_index]
             scheduled, popped_stale = self._peek_valid_event()
             stale_events += popped_stale
-            if scheduled is None or scheduled.time > next_sample + _TIME_EPS:
+            if scheduled is None or scheduled.time > next_sample + TIME_EPS:
                 self._advance(state, next_sample - current_time)
                 current_time = next_sample
                 snapshots.append(Snapshot(current_time, state.copy()))
@@ -107,12 +112,25 @@ class HardDiskEDMD:
                 continue
 
             heapq.heappop(self._heap)
-            if scheduled.time < current_time - _TIME_EPS:
+            if scheduled.time < current_time - TIME_EPS:
                 raise RuntimeError("event queue produced time reversal")
             self._advance(state, max(0.0, scheduled.time - current_time))
             current_time = scheduled.time
             if scheduled.kind == "pair":
-                collision_log.append(self._resolve_pair(state, scheduled, current_time))
+                state_before = state.copy() if pair_observer is not None else None
+                collision = self._resolve_pair(state, scheduled, current_time)
+                collision_log.append(collision)
+                if pair_observer is not None:
+                    assert state_before is not None
+                    pair_observer(
+                        PairCollisionObservation(
+                            ordinal=particle_collisions,
+                            queue_sequence=scheduled.sequence,
+                            event=collision,
+                            state_before=state_before,
+                            state_after=state.copy(),
+                        )
+                    )
                 particle_collisions += 1
                 affected: tuple[int, ...] = (
                     scheduled.particle_a,
@@ -203,71 +221,23 @@ class HardDiskEDMD:
         right: int,
         horizon: float,
     ) -> tuple[float, tuple[float, float]] | None:
-        pa = state.positions[left]
-        pb = state.positions[right]
-        va = state.velocities[left]
-        vb = state.velocities[right]
-        dv = (vb[0] - va[0], vb[1] - va[1])
-        speed2 = dv[0] * dv[0] + dv[1] * dv[1]
-        if speed2 <= _TIME_EPS:
-            return None
-        contact = state.radii[left] + state.radii[right]
-
-        shifts_x: tuple[int, ...] = (0,)
-        shifts_y: tuple[int, ...] = (0,)
-        if self.domain.boundary is BoundaryKind.PERIODIC:
-            shifts_x = _periodic_shift_range(
-                pb[0] - pa[0], dv[0], self.domain.width, horizon
-            )
-            shifts_y = _periodic_shift_range(
-                pb[1] - pa[1], dv[1], self.domain.height, horizon
-            )
-
-        best: tuple[float, tuple[float, float]] | None = None
-        for shift_x in shifts_x:
-            for shift_y in shifts_y:
-                rx = pb[0] - pa[0] + shift_x * self.domain.width
-                ry = pb[1] - pa[1] + shift_y * self.domain.height
-                b = rx * dv[0] + ry * dv[1]
-                c = rx * rx + ry * ry - contact * contact
-                if c < -_CONTACT_EPS:
-                    raise RuntimeError(
-                        f"overlap detected while scheduling particles "
-                        f"{state.particle_ids[left]} and {state.particle_ids[right]}"
-                    )
-                if b >= -_TIME_EPS:
-                    continue
-                discriminant = b * b - speed2 * c
-                if discriminant <= 0:
-                    continue
-                dt = (-b - sqrt(discriminant)) / speed2
-                if dt <= _TIME_EPS or dt > horizon + _TIME_EPS:
-                    continue
-                cx = rx + dv[0] * dt
-                cy = ry + dv[1] * dt
-                distance = hypot(cx, cy)
-                if distance <= 0:
-                    continue
-                candidate = (dt, (cx / distance, cy / distance))
-                if best is None or candidate[0] < best[0]:
-                    best = candidate
-        return best
+        return predict_pair_collision(state, self.domain, left, right, horizon)
 
     def _schedule_boundaries(self, state: DiskState, particle: int, now: float) -> None:
         if self.domain.boundary is BoundaryKind.REFLECTIVE:
             x, y = state.positions[particle]
             vx, vy = state.velocities[particle]
             radius = state.radii[particle]
-            if vx > _TIME_EPS:
+            if vx > TIME_EPS:
                 dt = (self.domain.upper[0] - radius - x) / vx
                 self._push_wall(now, dt, "wall_x", particle, (-1.0, 0.0))
-            elif vx < -_TIME_EPS:
+            elif vx < -TIME_EPS:
                 dt = (self.domain.lower[0] + radius - x) / vx
                 self._push_wall(now, dt, "wall_x", particle, (1.0, 0.0))
-            if vy > _TIME_EPS:
+            if vy > TIME_EPS:
                 dt = (self.domain.upper[1] - radius - y) / vy
                 self._push_wall(now, dt, "wall_y", particle, (0.0, -1.0))
-            elif vy < -_TIME_EPS:
+            elif vy < -TIME_EPS:
                 dt = (self.domain.lower[1] + radius - y) / vy
                 self._push_wall(now, dt, "wall_y", particle, (0.0, 1.0))
 
@@ -278,13 +248,13 @@ class HardDiskEDMD:
                 speed2 = vx * vx + vy * vy
                 contact = obstacle.radius + radius
                 c = rx * rx + ry * ry - contact * contact
-                if b >= -_TIME_EPS or speed2 <= _TIME_EPS:
+                if b >= -TIME_EPS or speed2 <= TIME_EPS:
                     continue
                 discriminant = b * b - speed2 * c
                 if discriminant <= 0:
                     continue
                 dt = (-b - sqrt(discriminant)) / speed2
-                if dt <= _TIME_EPS or now + dt > self._end_time + _TIME_EPS:
+                if dt <= TIME_EPS or now + dt > self._end_time + TIME_EPS:
                     continue
                 cx = rx + vx * dt
                 cy = ry + vy * dt
@@ -307,7 +277,7 @@ class HardDiskEDMD:
         particle: int,
         normal: tuple[float, float],
     ) -> None:
-        if dt <= _TIME_EPS or now + dt > self._end_time + _TIME_EPS:
+        if dt <= TIME_EPS or now + dt > self._end_time + TIME_EPS:
             return
         self._push(
             time=now + dt,
@@ -360,18 +330,7 @@ class HardDiskEDMD:
         return None, stale
 
     def _advance(self, state: DiskState, dt: float) -> None:
-        if dt < -_TIME_EPS:
-            raise RuntimeError("cannot advance state backward")
-        if dt <= 0:
-            return
-        positions: list[tuple[float, float]] = []
-        for position, velocity in zip(state.positions, state.velocities, strict=True):
-            positions.append(
-                self.domain.wrap(
-                    (position[0] + velocity[0] * dt, position[1] + velocity[1] * dt)
-                )
-            )
-        state.positions = positions
+        advance_state(state, self.domain, dt)
 
     def _resolve_pair(
         self,
@@ -379,50 +338,14 @@ class HardDiskEDMD:
         event: _ScheduledEvent,
         time: float,
     ) -> CollisionEvent:
-        left = event.particle_a
-        right = event.particle_b
-        normal = (event.normal_x, event.normal_y)
-        va = state.velocities[left]
-        vb = state.velocities[right]
-        pre_a = (va[0], va[1], 0.0)
-        pre_b = (vb[0], vb[1], 0.0)
-        relative_normal_speed = (va[0] - vb[0]) * normal[0] + (
-            va[1] - vb[1]
-        ) * normal[1]
-        if relative_normal_speed < -1.0e-9:
-            raise RuntimeError("valid collision event is separating")
-        inverse_mass = 1.0 / state.masses[left] + 1.0 / state.masses[right]
-        impulse = 2.0 * relative_normal_speed / inverse_mass
-        state.velocities[left] = (
-            va[0] - impulse * normal[0] / state.masses[left],
-            va[1] - impulse * normal[1] / state.masses[left],
-        )
-        state.velocities[right] = (
-            vb[0] + impulse * normal[0] / state.masses[right],
-            vb[1] + impulse * normal[1] / state.masses[right],
-        )
-        post_a = (*state.velocities[left], 0.0)
-        post_b = (*state.velocities[right], 0.0)
-        contact_point = self.domain.wrap(
-            (
-                state.positions[left][0] + normal[0] * state.radii[left],
-                state.positions[left][1] + normal[1] * state.radii[left],
-            )
-        )
-        block_id = (
-            self.block_locator(contact_point) if self.block_locator is not None else "domain"
-        )
-        return CollisionEvent(
+        return resolve_pair_collision(
+            state,
+            self.domain,
+            left=event.particle_a,
+            right=event.particle_b,
+            normal=(event.normal_x, event.normal_y),
             time=time,
-            particle_a=state.particle_ids[left],
-            particle_b=state.particle_ids[right],
-            block_id=block_id,
-            pre_velocity_a=pre_a,
-            pre_velocity_b=pre_b,
-            post_velocity_a=post_a,
-            post_velocity_b=post_b,
-            contact_normal=normal,
-            incoming_relative_normal_velocity=relative_normal_speed,
+            block_locator=self.block_locator,
         )
 
     def _resolve_boundary(
@@ -462,25 +385,10 @@ class HardDiskEDMD:
 
 
 def _sample_times(end_time: float, interval: float) -> list[float]:
-    count = floor(end_time / interval + _TIME_EPS)
+    count = floor(end_time / interval + TIME_EPS)
     times = [index * interval for index in range(count + 1)]
-    if not times or end_time - times[-1] > _TIME_EPS:
+    if not times or end_time - times[-1] > TIME_EPS:
         times.append(end_time)
     else:
         times[-1] = end_time
     return times
-
-
-def _periodic_shift_range(
-    displacement: float,
-    relative_velocity: float,
-    period: float,
-    horizon: float,
-) -> tuple[int, ...]:
-    start = displacement
-    finish = displacement + relative_velocity * max(0.0, horizon)
-    low = min(start, finish)
-    high = max(start, finish)
-    minimum = floor(-high / period) - 1
-    maximum = ceil(-low / period) + 1
-    return tuple(range(minimum, maximum + 1))

@@ -4,6 +4,12 @@ This document defines the active SIG-route architecture. It turns exact hard-sph
 collision history into a versioned simulation representation rather than a debug
 log.
 
+The E3-v0 implementation realizes the first exact slice of this architecture:
+periodic pair-collision timelines, checkpoints every 16 accepted events plus a
+forced fork checkpoint, pair-relative-velocity rotation, conservative affected-set
+expansion, baseline-event reuse, and a full-resimulation comparison. Geometry edits,
+copy-on-write storage optimization, and approximate cones remain later extensions.
+
 ## 1. Design objective
 
 The system must support four operations without confusing them:
@@ -185,6 +191,16 @@ resimulation from the same checkpoint:
 For exact deterministic evidence, event/state equivalence is required within the
 registered numerical tolerance. Approximate cone policies must be labeled and
 reported separately.
+
+### 7.1 Implemented exact reuse rule
+
+E3-v0 merges two event streams: recorded baseline events between currently
+unaffected particles, and newly predicted events involving at least one affected
+particle. A baseline collision is reusable only while both participants remain
+unaffected. If either participant is affected, the old event is skipped and the
+other participant is promoted. A newly predicted affected–unaffected collision also
+promotes the latter. This monotone rule is conservative and uses the same hard-disk
+numerical kernel as full EDMD.
 
 ## 8. Correlation surgery
 
