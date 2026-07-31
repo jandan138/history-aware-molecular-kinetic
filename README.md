@@ -1,174 +1,227 @@
-# History-Aware Molecular–Kinetic
+# Molecular Echoes / History-Aware Molecular–Kinetic
 
-> A benchmark-first research platform for **collision-history-aware adaptive hard-sphere and kinetic simulation**.
+> **Reversible and counterfactual hard-sphere animation with collision-history
+> graphs, scientifically grounded in the correlations that kinetic closure
+> discards.**
 
 [![CI](https://github.com/jandan138/history-aware-molecular-kinetic/actions/workflows/ci.yml/badge.svg)](https://github.com/jandan138/history-aware-molecular-kinetic/actions/workflows/ci.yml)
 [![Docs](https://github.com/jandan138/history-aware-molecular-kinetic/actions/workflows/docs.yml/badge.svg)](https://github.com/jandan138/history-aware-molecular-kinetic/actions/workflows/docs.yml)
 
-**Status:** Phase-I internal 2D reference prototype · exploratory history result
-does not support the primary claim · external-oracle validation still pending
+## Current decision
 
-## Exploratory Phase-I result
+The original paper route tested whether a compact set of collision-history features
+could predict where an EDMD–kinetic dynamic LOD should retain exact molecular
+identity. The internal `PHASE1-HISTORY-STORY-v0` pilot did **not** support that
+operational claim: the tested history features did not improve grouped/OOD
+prediction by the preregistered useful margin.
 
-The executable `PHASE1-HISTORY-STORY-v0` study now prepares matched ensembles in
-an open channel, a single-baffle channel, and a Correlation Labyrinth, removes
-the preparation geometry, and compares EDMD with Boltzmann DSMC in one shared
-observation domain across three state families.
+That negative result is preserved. We do not continue directly into
+promotion/demotion, online partition control, GPU LOD, or polished old-route Hero
+Scenes.
 
-The current internal-reference result is negative: exact-history features do not
-improve grouped/OOD prediction by the predeclared operational margin. The result
-must not be presented as frozen paper evidence until external-oracle validation,
-but it blocks dynamic-LOD engineering on the present feature/physics design. See
-[`docs/roadmap/phase-1-paper-spine.md`](docs/roadmap/phase-1-paper-spine.md).
+The active first-paper route is now:
 
-## Research question
+> **Molecular Echoes: Reversible and Counterfactual Hard-Sphere Animation with
+> Collision-History Graphs**
 
-Can a simulator retain exact hard-sphere identities and collision histories only
-where correlations materially affect observable error, while representing the
-rest of the domain with a cheaper stochastic kinetic model?
+The project keeps two inseparable tracks:
 
-The target runtime decomposition is:
+```text
+Scientific Echo Track
+  what multi-particle collision information is absent from a resolved f1?
+
+Graphics Time-Machine Track
+  how can that history support rewind, branch, edit, and alternate futures?
+```
+
+The formal decision is recorded in
+[`ADR 0009`](docs/decisions/0009-pivot-to-molecular-echoes-sig.md).
+
+## Core idea
+
+An exact hard-sphere microstate stores:
 
 \[
-\boxed{
-\text{exact hard-sphere dynamics}
-\;\rightleftarrows\;
-\text{Boltzmann/DSMC or finite-density kinetic representation}
-}
+X(t)=\{x_i(t),v_i(t),\mathrm{id}_i\}_{i=1}^{N}.
 \]
 
-The novelty is **not** “EDMD plus DSMC.” Event-driven MD–DSMC hybrids, adaptive
-DSMC/continuum methods, and unified particle methods already exist. The research
-hypothesis is narrower and falsifiable:
+A Boltzmann/DSMC description retains a much cheaper one-particle distribution:
 
-> Collision-history features—after controlling for density, packing fraction,
-> Knudsen indicators, non-Maxwellian moments, stress, heat flux, and geometry—may
-> provide additional information about where a factorized kinetic description
-> loses observable accuracy.
+\[
+f_1(x,v,t),
+\]
 
-If that hypothesis fails, the project must pivot rather than hide the result.
+and intentionally discards detailed multi-particle pairing and collision history.
 
-## Why the hard-sphere result matters—and what it does not imply
+We construct branches that match a preregistered finite-resolution present:
 
-Deng, Hani, and Ma rigorously derive the Boltzmann equation from rarefied
-Newtonian hard-sphere dynamics over the lifespan of the Boltzmann solution. Their
-analysis propagates cumulants that remember full collision histories and controls
-associated collision-history molecules with a cutting argument.
+\[
+f_{1,h}^{A}(t_*)\approx f_{1,h}^{B}(t_*),
+\]
 
-This project is inspired by the conceptual boundary between:
+while carrying different hidden collision correlations. Their futures may then
+diverge:
 
-- a factorized one-particle kinetic description; and
-- multi-particle correlations carried by collision history.
+\[
+A(t_*+\tau)\neq B(t_*+\tau).
+\]
 
-The proof does **not** provide an online refinement indicator, and its cutting
-algorithm is not a GPU partitioning algorithm. In the true Boltzmann–Grad regime,
-correlations should become small; a history-aware exact region may therefore be
-unnecessary. These limitations are first-class benchmark questions, not footnotes.
+The graphics system turns that hidden structure into an animation representation:
 
-## Benchmark ladder
+- a timestamped collision causal multigraph;
+- deterministic replay and random access;
+- causal rewind after particle, collision, or geometry edits;
+- persistent counterfactual branches;
+- conservative expansion of the affected future cone;
+- resolved-state-preserving correlation surgery;
+- a history-budget slider based on collision molecules.
 
-| Suite | Purpose | Primary decision |
-|---|---|---|
-| **R0** | Reproduce DynamO, SPARTA, and uniGasFoam as external references | Are the oracle adapters trustworthy? |
-| **B0** | Validate exact EDMD and stochastic kinetic primitives independently | Do our basic solvers preserve their stated invariants? |
-| **B1** | Build an EDMD–kinetic discrepancy atlas across regimes and geometry | Where, and in which observables, do models disagree? |
-| **B2** | Test incremental predictive value of collision-history features | Does history beat strong state-only baselines on held-out cases? |
-| **B3** | Validate exact↔kinetic representation conversion | Can conversion preserve conservation and controlled statistics? |
-| **B4** | Evaluate online partitioning, probes, hysteresis, and cost/quality | Is dynamic LOD useful without oracle-only information? |
-| **B5** | Produce shared-renderer graphics evidence and hero scenes | Is the contribution visually legible without a demo sinkhole? |
+## Why the Deng–Hani–Ma result matters
 
-Skipping B2 and going directly to a polished dynamic LOD demo is explicitly
-forbidden by the roadmap.
+Deng, Hani, and Ma rigorously derive the Boltzmann equation from rarefied Newtonian
+hard-sphere dynamics over the lifespan of the Boltzmann solution. Their proof
+propagates cumulants that retain complete collision histories and organizes
+correlated structures into collision-history molecules before controlling them
+with a cutting argument.
+
+This project uses that work as the scientific reason to focus on the information
+boundary between:
+
+```text
+factorized one-particle kinetic state
+vs.
+multi-particle correlations carried by collision history
+```
+
+The project does **not** claim that:
+
+- the proof's cutting algorithm is an animation algorithm;
+- the theorem guarantees our finite-system branch or surgery method;
+- a plain Loschmidt echo or velocity reversal is novel;
+- matching a discretized `f1_h` means matching the exact microscopic state;
+- an event log alone is a new graphics contribution.
+
+## Active SIG contributions
+
+### C1 — Collision-history causal graph
+
+Every collision is a versioned event node linked through particle participation.
+The graph preserves repeated events, shared ancestors, collision molecules, branch
+lineage, and causal descendants.
+
+### C2 — Causal rewind and counterfactual branching
+
+A user can edit a past particle, collision, aperture, or obstacle. The system
+invalidates and recomputes the expanding future causal cone, reusing unaffected
+history and falling back to full replay when locality is lost.
+
+### C3 — Resolved-state-preserving correlation surgery
+
+The user can preserve a declared current density/temperature/velocity distribution
+while modifying hidden particle–velocity pairing and collision ancestry, producing
+alternate futures from the same visible present.
+
+### C4 — Collision-molecule history budget
+
+A structured `(Lambda, Gamma)` intervention tests how much collision-history
+connectivity is needed for forward relaxation and reverse echo, with
+collision-count-matched and topology-shuffled null controls.
+
+## Active E0–E6 evidence ladder
+
+| Suite | Question |
+|---|---|
+| **E0** | Are exact EDMD reversal and deterministic replay numerically trustworthy? |
+| **E1** | Do exact-reverse and chaotized branches match the declared resolved present yet separate in the future? |
+| **E2** | Does a structured collision-molecule budget explain the response beyond collision count? |
+| **E3** | Is the causal graph/replay representation correct and queryable? |
+| **E4** | Does local causal-cone branching match complete resimulation and provide useful reuse? |
+| **E5** | Can correlation surgery preserve the declared present while authoring distinct futures? |
+| **E6** | Are the method, interaction, performance, and physical result legible in SIG-quality scenes? |
+
+See [`Active Echo and Branching Benchmark Suite`](docs/benchmarks/echo-branching-suite.md).
+
+The older R0–B5 LOD suite remains in the repository as deferred infrastructure and
+an auditable negative-result path. It is not the current paper dependency chain.
+
+## Three Hero Scenes
+
+### Molecular Logo Echo
+
+A passive-color pattern disperses. At the pivot, exact-reverse,
+resolved-state-preserving chaotized, DSMC, and history-budget branches look the same
+under the declared present audit. Only the history-retaining branch reconstructs
+the past pattern.
+
+### One Collision, Two Worlds
+
+The user selects and edits one past collision. Two futures begin almost identically,
+then the difference spreads through the collision causal graph. The system shows the
+causal cone and verifies the local branch against full resimulation.
+
+### Edit the Past
+
+Inside a transparent molecular maze, the user moves a past obstacle or opens an
+aperture. Unaffected history is reused; the expanding future cone is recomputed and
+compared with a full global replay.
+
+See [`Hero Scenes`](docs/demos/hero-scenes.md) and the
+[`Visual Production Roadmap`](docs/demos/visual-production-roadmap.md).
 
 ## Architecture
 
 ```mermaid
 flowchart LR
-    C[Case + Experiment Manifest] --> P[Python Control Plane]
-    P --> E[Exact EDMD Backend]
-    P --> K[Kinetic Backends\nDSMC / Enskog]
-    P --> H[History + Error Indicators]
-    P --> X[Conversion + Partition Controller]
-    O[External Oracles\nDynamO / SPARTA / uniGasFoam] --> A[Canonical Artifacts]
-    E --> A
-    K --> A
-    H --> A
-    X --> A
-    A --> M[Metrics + Statistical Evaluation]
-    A --> R[Shared Renderer]
-    M --> Q[Claim Ledger]
-    R --> Q
+    C[Case + Preregistered Experiment] --> P[Control / Evidence Plane]
+    P --> E[Exact EDMD]
+    E --> L[Collision Event Ledger]
+    L --> G[Causal Multigraph + Molecules]
+    G --> R[Checkpoint + Replay]
+    R --> B[Persistent Branch Store]
+    B --> Q[Causal-Cone Resimulation]
+    P --> S[Correlation Surgery + History Budgets]
+    S --> E
+    E --> A[Canonical Artifacts]
+    G --> A
+    Q --> A
+    A --> M[Metrics + Scientific Audits]
+    A --> V[Shared Renderer / Interaction]
+    M --> K[Claim Ledger]
+    V --> K
 ```
 
-The repository separates:
+Detailed architecture:
 
-1. a Python control/evidence plane;
-2. a native C++20 and future CUDA/HIP compute plane;
-3. process-isolated external oracles;
-4. versioned artifact schemas;
-5. a renderer that consumes artifacts but never owns physics state.
+- [`Architecture overview`](docs/architecture/overview.md)
+- [`Collision-history graph and branching`](docs/architecture/collision-history-graph-and-branching.md)
 
-The coarse backend is intentionally pluggable. Boltzmann DSMC is the first
-reference, not a permanent assumption. Finite-density regimes may require Enskog
-or another kinetic model.
+## First target and fallback
 
-## Repository map
+The first target is **SIGGRAPH / SIGGRAPH Asia**. The paper must be a graphics and
+interactive-techniques contribution: physically recomputed branches, a causal
+rewind algorithm, correctness, performance, authoring interaction, and polished 3D
+demos—not only a physics phenomenon.
 
-```text
-adapters/       Process/container adapters for external reference solvers
-benchmarks/     R0–B5 candidate/frozen benchmark lifecycle
-configs/        Reusable presets and schema-valid examples
-docs/           Vision, research, architecture, benchmarks, roadmap, ADRs
-experiments/    Registered experiment manifests
-native/         C++20 semantic boundary and future high-performance kernels
-paper/          Claim ledger, evidence matrix, figure/table provenance
-references/     Pinned papers, repositories, licenses, and citations
-results/        Generated data; ignored by default
-schemas/        Versioned scientific artifact contracts
-scripts/        Thin repository and experiment utilities
-src/            Python control plane and correctness references
-tests/          Contracts, graphs, schemas, and repository checks
-third_party/    Instructions only; external source checkouts are ignored
-```
+**IEEE VIS** is a deliberate fallback only if the strongest result becomes visual
+analytics of collision molecules, branch provenance, causal cones, and hidden
+correlations. That route would require linked views, explicit expert analysis tasks,
+and a separate evaluation; it is not a renamed SIG draft.
 
-## First research milestone
+See [`Venue Strategy`](docs/vision/venue-strategy.md).
 
-The first eight-week spike does **not** attempt a production hybrid solver.
-It asks one question:
+## Immediate first-stage gate
 
-\[
-\boxed{
-I(\text{history};\,\text{EDMD--kinetic error}\mid\text{state, geometry}) > 0\;?
-}
-\]
+Before 3D production, the project must complete a short preregistered stage:
 
-Operationally, this means comparing held-out predictive performance of:
+1. strict periodic-box reversal at `N=128,256,512`;
+2. multi-resolution `f1_h` audit;
+3. exact / chaotized / DSMC / ghost branch comparison;
+4. structured `(Lambda, Gamma)` budgets;
+5. collision-count/time-matched and topology-shuffled controls;
+6. one-event causal-branch prototype validated against full resimulation.
 
-```text
-state-only model:
-  density + packing fraction + Kn_GLL + Maxwellian residual
-  + stress + heat flux + geometry
-
-history-aware model:
-  state-only + repeat/cycle/lineage/C2-proxy features
-```
-
-Only a robust out-of-distribution gain unlocks full dynamic LOD development.
-
-## Visual production track
-
-The repository carries a gate-controlled path from canonical artifacts to final SIG/TOG evidence:
-
-```text
-V0 artifact replay viewer
-→ V1 shared scientific renderer
-→ V2 zoom/conversion prototype
-→ V3 Expansion-into-Vacuum flagship prototype
-→ V4 final three-scene production
-→ V5 evidence packaging and release
-```
-
-The flagship scene is developed first; Correlation Labyrinth provides the scientific core, and Zoomable Mixing explains conversion and camera/physics independence. Render configs and manifests are versioned so every shot maps back to frozen cases, run IDs, metrics, claims, and input hashes. See [`docs/demos/visual-production-roadmap.md`](docs/demos/visual-production-roadmap.md).
+See [`Molecular-Echo First Stage`](docs/roadmap/molecular-echo-first-stage.md) and
+[`Molecular Echoes Backlog`](docs/roadmap/molecular-echoes-backlog.md).
 
 ## Quick start
 
@@ -182,7 +235,7 @@ cmake --build build/native --parallel
 ctest --test-dir build/native --output-on-failure
 ```
 
-Run the Phase-I paired study and decision:
+The archived Phase-I predictor study remains reproducible:
 
 ```bash
 PYTHONPATH=src python scripts/run_phase1_story.py \
@@ -191,37 +244,25 @@ PYTHONPATH=src python scripts/run_phase1_story.py \
 PYTHONPATH=src python scripts/evaluate_phase1_story.py \
   results/phase1-history-story-v0/discrepancy-dataset.jsonl \
   --output results/phase1-history-story-v0/evaluation.json
-
-PYTHONPATH=src python scripts/decide_phase1_story.py \
-  --manifest results/phase1-history-story-v0/study-manifest.json \
-  --evaluation results/phase1-history-story-v0/evaluation.json \
-  --output results/phase1-history-story-v0/decision.json
 ```
 
-Third-party solvers are not downloaded automatically. Reproduce them through the
-adapters after reading [`references/sources.yaml`](references/sources.yaml) and
-[`docs/architecture/dependency-and-license-boundaries.md`](docs/architecture/dependency-and-license-boundaries.md).
+It must not be presented as the active SIG method.
 
 ## Read first
 
-- [从 GAMES103 与流体入门到 History-Aware Molecular–Kinetic Simulation](docs/learning/from-games103-to-history-aware-molecular-kinetic.md)
-- [硬球项目研究总览（中文）](docs/research/zh-research-overview.md)
-- [Research thesis](docs/vision/research-thesis.md)
-- [Deng–Hani–Ma connection and claim boundary](docs/research/deng-hard-sphere-connection.md)
-- [Related work](docs/research/related-work.md)
-- [Novelty map](docs/research/novelty-map.md)
-- [Architecture overview](docs/architecture/overview.md)
-- [Benchmark suite](docs/benchmarks/suite.md)
-- [Eight-week feasibility spike](docs/roadmap/eight-week-feasibility-spike.md)
-- [Go/No-Go gates](docs/roadmap/go-no-go-gates.md)
-- [Demo strategy](docs/demos/demo-strategy.md)
-- [SIG visual production roadmap](docs/demos/visual-production-roadmap.md)
-- [Visual acceptance criteria](docs/demos/visual-acceptance-criteria.md)
-- [Hero scene specifications](docs/demos/scene-specs/README.md)
-- [Claim ledger](paper/claim-ledger.md)
+1. [Research thesis](docs/vision/research-thesis.md)
+2. [Collision-History Echoes route](docs/research/collision-history-echo-route.md)
+3. [Deng–Hani–Ma connection](docs/research/deng-hard-sphere-connection.md)
+4. [Paper positioning](docs/vision/paper-positioning.md)
+5. [Venue strategy](docs/vision/venue-strategy.md)
+6. [Active benchmark suite](docs/benchmarks/echo-branching-suite.md)
+7. [Architecture: graph and branching](docs/architecture/collision-history-graph-and-branching.md)
+8. [Milestones](docs/roadmap/milestones.md)
+9. [Go/No-Go gates](docs/roadmap/go-no-go-gates.md)
+10. [Hero Scenes](docs/demos/hero-scenes.md)
+11. [Claim ledger](paper/claim-ledger.md)
 
 ## License
 
-Original repository code and documentation are Apache-2.0. DynamO, SPARTA,
-uniGasFoam, OpenFOAM, and other external tools retain their own licenses and are
-not vendored into this repository.
+Original repository code and documentation are Apache-2.0. External tools retain
+their own licenses and are not vendored into this repository.
