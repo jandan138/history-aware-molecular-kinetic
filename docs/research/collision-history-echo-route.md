@@ -1,204 +1,372 @@
-# Collision-History Echoes：玻尔兹曼方程遗忘的碰撞记忆
+# Molecular Echoes：从邓煜的碰撞历史到分子时光机
 
-**状态：** 拟定为下一阶段的主研究路线（2026-07-31）。
+**状态：** 当前正式主研究路线（2026-07-31）。
 
-**一句话：** 构造具有相同可分辨单粒子状态 \(f_1\)、却因多粒子碰撞关联而走向相反宏观未来的硬球系综；以保持边缘分布的“分子混沌手术”和 \((\Lambda,\Gamma)\) 碰撞分子预算，直接测量被 Boltzmann 闭合遗忘的历史信息。
+**第一目标：** SIGGRAPH / SIGGRAPH Asia。
 
-本文档替代 Phase-I 中“用有限碰撞图特征预测 EDMD–DSMC 误差”的主张。后者在
-PHASE1-HISTORY-STORY-v0 的 grouped/OOD 检验中没有显示稳定的增益，已经保留为负向探索记录，而不再作为论文主线。历史决策记录见
-[Phase-I paper spine（closed）](../roadmap/phase-1-paper-spine.md)。
+**备选：** 只有当最强成果变成碰撞因果图与多分支历史的可视分析，而不是动画算法时，才重构为 IEEE VIS。
 
-## 这篇论文讲什么
+---
 
-暂定题目：
+## 1. 为什么要转向
 
-> **Same Present, Opposite Futures: A Counterfactual Cumulant Microscope for Hard-Sphere Kinetics**
->
-> **同一个现在，两种相反的未来：玻尔兹曼方程遗忘的碰撞记忆**
+原路线希望证明：少量 collision-history scalar features 可以在强 state-only baseline 之外，预测 EDMD–DSMC 的未来误差，从而驱动动态 molecular LOD。
 
-论文不试图证明“历史特征能更好地预测一个已有误差”。它提出一个更直接的问题：
+`PHASE1-HISTORY-STORY-v0` 内部二维 pilot 没有支持这个 operational claim。当前结果只说明“这套具体 predictor/feature/physics 配置没有实用增益”，并不证明碰撞历史永远无用；但它足以阻止我们继续盲目投入 conversion、partition controller、GPU LOD 和旧 Hero Demo。
 
-> 若两个硬球系综在选定分辨率下拥有相同的 \(f_1\)，为什么一个继续热化、另一个却回声式地恢复过去的各向异性？究竟需要保留多少碰撞分子历史，才能区分这两种未来？
+因此项目不删除负结果，而是把问题改得更直接：
 
-这是一个关于 **闭合（closure）遗漏了什么信息** 的正向故事，而不是一个控制器或 LOD 系统的防御性评测。
+> 不再问“几个历史特征能否预测误差”，而是问“Boltzmann 一粒子闭合究竟遗忘了什么；这些隐藏的碰撞历史能否成为一种可反演、可分叉、可编辑的动画表示？”
 
-## 三幕式论文结构
+正式决策见 [ADR 0009](../decisions/0009-pivot-to-molecular-echoes-sig.md)。
 
-### 第一幕：同一个现在，相反的未来
+---
 
-在二维周期性硬圆盘气体中准备一个明显的非平衡、偶对称速度分布，例如
-\(T_x/T_y=4\)，并使用被动颜色标记帮助可视化混合而不参与动力学。到枢轴时刻
-\(t_*\) 后，从同一个微观状态构造三条支路：
+## 2. 邓煜的硬球成果在这里扮演什么角色
 
-| 支路 | 构造 | 预期宏观行为 |
+邓煜、Zaher Hani、Xiao Ma 从稀薄硬球牛顿动力学长期推导 Boltzmann 方程时，并没有假装碰撞从不制造相关性。他们传播 cumulant ansatz，保留完整 collision history，把相关结构组织成 collision-history molecules，再用 cutting argument 控制它们。
+
+这给我们一个非常明确的科学主轴：
+
+```text
+完整硬球微观状态
+    ↓ 压缩
+一粒子分布 f1
+    ↓ 被省略
+二粒子/多粒子 cumulants 与碰撞历史
+```
+
+在通常的 Boltzmann–Grad、分子混沌前向情形中，这些相关性在目标极限下可以被控制，因此 `f1` 足以描述低阶统计。
+
+但如果我们有意构造高度相关的反演态，当前的 `f1` 或有限分辨率 `f1_h` 看起来可以很普通，而粒子之间却藏着“未来应当按什么顺序重新相撞”的精细信息。
+
+本项目不是反驳 Boltzmann，也不是实现证明算法，而是在有限系统里把这个信息边界变成：
+
+1. 可测量的 counterfactual experiment；
+2. 可计算的 history graph；
+3. 可交互的 animation primitive。
+
+---
+
+## 3. 正式论文题目与一句话故事
+
+推荐题目：
+
+> **Molecular Echoes: Reversible and Counterfactual Hard-Sphere Animation with Collision-History Graphs**
+
+中文：
+
+> **分子回声：基于碰撞历史图的可逆与反事实硬球动画**
+
+一句话：
+
+> 我们把硬球碰撞历史组织成一张可查询的因果多重图，使用户能够回到过去、修改一次碰撞或一处几何、只重算受影响的未来，并在保持当前可分辨一粒子状态近似不变的情况下编辑隐藏关联，从同一个现在生成不同未来。
+
+---
+
+## 4. 两条必须同时成立的轨道
+
+## Track S — Scientific Echo
+
+负责回答：
+
+- “same resolved present” 是否真的通过严格审计；
+- exact reverse 和 chaotized reverse 是否稳健分离；
+- incoming-pair correlation 是否与未来响应方向一致；
+- `(Lambda, Gamma)` 碰撞分子预算是否捕捉到机制，而不只是允许了更多碰撞；
+- 小型 Boltzmann–Grad 序列是否给出诚实、可解释的趋势。
+
+## Track G — Graphics Time Machine
+
+负责回答：
+
+- 如何从 event log 构造 collision causal multigraph；
+- 如何 checkpoint、随机访问和 deterministic replay；
+- 修改过去后，如何找出并重算未来 causal cone；
+- 如何让多条 branch 共享未修改历史，而不是复制全部轨迹；
+- 如何保持当前可见 coarse state，只编辑隐藏 correlation；
+- 如何把这些能力变成用户能理解的 SIG 动画与交互系统。
+
+Track S 解释“为什么历史重要”；Track G 证明“历史怎样成为图形学工具”。缺一不可。
+
+---
+
+## 5. 第一幕：Same Resolved Present, Opposite Futures
+
+在二维周期硬圆盘系统中准备一个明显的非平衡状态，例如：
+
+\[
+T_x/T_y = 4,
+\]
+
+并使用不参与动力学的 passive color 形成可见图案。
+
+在枢轴时刻 `t_*` 构造：
+
+| Branch | 构造 | 预期未来 |
 |---|---|---|
-| forward | 正常 EDMD 继续演化 | 各向异性继续向平衡衰减 |
-| exact reverse | 全体速度反号后做精确 EDMD | 碰撞序列被时间反演，回到已准备的状态 |
-| chaotized reverse | 在固定空间块与被动颜色内置换速度，再做 EDMD/DSMC | 保留选定分辨率的 \(f_1\)，但破坏跨粒子配对关联；不再产生精确回声 |
+| forward | 正常 EDMD 继续 | 继续热化 |
+| exact reverse | 所有速度反号后 exact EDMD | 恢复过去的各向异性/颜色结构 |
+| chaotized reverse | 在登记的 block+color 内置换速度 | 保持 `f1_h`，破坏粒子配对关联，不精确回声 |
+| DSMC reverse | 从 reversed resolved state 运行 DSMC | 忘掉真实 pair history |
+| ghost | 无粒子碰撞 | 机制下界 |
 
-当初始速度律满足相应的偶对称性时，正向系综和反向系综在**系综意义**上具有相同的
-单粒子边缘分布，未来却相反。有限样本的可操作版本是：在预先登记的
-\((\text{space block},\text{color},\text{velocity bin})\) 分辨率上，块内置换严格保持离散
-\(f_{1,h}\)。它**不**声称保持连续的点态 \(f_1(x,v)\)，也不把一次微观轨迹误说成一个完整系综。
-
-第一张主图应让读者先看到反直觉现象，再看到三支路在枢轴时刻的匹配表：
+主审计不是“图片看起来一样”，而是：
 
 \[
-f_{1,h}^{\rm reverse}(t_*) =
-f_{1,h}^{\rm chaotized}(t_*),\qquad
-A_{\rm exact\ reverse}(t_*+\tau) \ne
-A_{\rm chaotized}(t_*+\tau),
+f_{1,h}^{\rm reverse}(t_*)
+\approx
+f_{1,h}^{\rm chaotized}(t_*),
 \]
 
-其中 \(A\) 可取归一化各向异性
-\(\langle v_x^2-v_y^2\rangle\)，颜色输运或另一个预先固定的低维观测量。
+并且这个结论要在多组 spatial blocks 与 velocity bins 上报告。
 
-### 第二幕：对碰撞分子做手术
+论文只能说 same **resolved one-particle present**，不能说 exact microscopic state 相同。
 
-单纯的 Loschmidt/速度反演回声不是新现象，也不是本文的贡献。核心实验是一个反事实
-干预：以可审计的碰撞历史预算限制未来哪些碰撞可以“连回”已有分子，从而把回声随
-\((\Lambda,\Gamma)\) 的恢复画成一条曲线。
+未来读出包括：
 
-采用 Deng–Hani–Ma 的 **T-dynamics** 作为有限计算中的灵感，而不是把他们的证明算法
-误当成模拟算法。维护按时间排序的碰撞事件多重图；重复粒子对仍是独立事件边，因而
-不能用仅含 unique pairs 的普通图替代它。对候选碰撞，令 \(M\) 为其所连通的碰撞分子，
-\(|M|\) 为分子粒子数，\(r(M)\) 为递碰撞秩/预算：
+- normalized anisotropy；
+- passive-color mode/图案恢复；
+- residence/escape 类低维量；
+- incoming-pair closure-defect proxy。
 
-| 候选碰撞 | \((\Lambda,\Gamma)\) 允许规则（实现目标） |
-|---|---|
-| 连接两个不同分子 | 仅当合并后 \(|M|\le\Lambda\)，且两分子递碰撞秩之和不超过 \(\Gamma\) 时允许 |
-| 发生在同一分子内 | 仅当当前递碰撞秩小于 \(\Gamma\) 时允许 |
-| 超出预算 | 抑制这次碰撞，让粒子以穿越/ghost 语义继续；它是受控的扩展动力学，不是硬球精确轨道 |
+---
 
-\(\Lambda\) 和 \(\Gamma\) 必须共同扫描：只统计图环会遗漏树形分子携带的共同历史；
-只限制分子大小又无法区分允许的重碰撞复杂度。最小、故事驱动的嵌套路径是
+## 6. 第二幕：Collision-Molecule Surgery
+
+单纯速度反演不是贡献。核心实验是历史结构干预。
+
+对每个候选碰撞维护：
+
+- timestamp；
+- particle pair；
+- contact normal；
+- incoming normal relative velocity；
+- event predecessors；
+- molecule root/size；
+- recollision/reconnection complexity；
+- repeated-event multiplicity。
+
+定义历史预算：
 
 \[
-(4,0)\;\longrightarrow\;(8,0)\;\longrightarrow\;(16,1)\;\longrightarrow\;\text{full EDMD}.
+(\Lambda,\Gamma),
 \]
 
-这里的“手术”给出真正的因果问题：什么层级的碰撞连接是时间反演回声所必需的，什么层级对普通正向热化几乎无关？
+其中：
 
-### 第三幕：在 Boltzmann–Grad 极限中量化信息边界
+- `Lambda` 限制 collision molecule 的粒子数；
+- `Gamma` 限制重碰撞/重新连接复杂度。
 
-在二维采用固定 \(N\varepsilon=\alpha\) 的序列（\(\varepsilon\) 为圆盘直径）。于是
-packing fraction 的量级为 \(N\varepsilon^2=O(\varepsilon)\)，随 \(N\) 增大而趋于零。
-对每个 \(N\)，报告在固定时间窗和观测误差容限 \(\delta\) 下所需的最小分子预算：
+典型路径：
 
 \[
-B_\delta^{\rm branch}(N)
-=\min\{(\Lambda,\Gamma):\;
-\|A_{\Lambda,\Gamma}-A_{\rm full}\|\le\delta\}.
+(4,0)\rightarrow(8,0)\rightarrow(16,1)\rightarrow\text{full EDMD}.
 \]
 
-论文要展示的不是“反演态推翻 Boltzmann 方程”。正确解释是：
+超预算事件使用显式的 extended-dynamics 语义，例如 ghost-through。该支路不是 exact EDMD，必须独立标记。
 
-- 从无关联、前向准备的初态开始，Boltzmann–Grad 极限支持单粒子描述；
-- 精确反演后的状态含有高度定向的多粒子关联，它不是定理常用的分子混沌初始条件；
-- 因而“普通前向支路可被 \(f_1\) 压缩，而专门构造的反向支路需要更高的历史预算”是
-  可检验的有限系统信息边界，不是对 kinetic-limit 定理的反例。
+为了证明机制不是“碰撞越多越接近 full EDMD”，必须加入：
 
-## 测量：不要只画图，要测被遗忘的闭合项
+1. collision-count/time-matched random suppression；
+2. topology-shuffled partner control；
+3. no-collision ghost；
+4. full EDMD。
 
-对入射对 \((v_1,v_2,n)\)，记 \(g=v_1-v_2\)，定义时间定向的二粒子闭合缺陷
+只有 structured molecule budget 在控制 collision count 后仍表现出差异，才允许 claim collision-history topology。
+
+---
+
+## 7. 第三幕：Collision Causal Graph
+
+每次碰撞是事件节点：
 
 \[
-\mathcal E_2^{\rm in}
-=\mathbf 1_{g\cdot n<0}
-\bigl(f_2-f_1f_1\bigr).
+e_m=(t_m,i_m,j_m,n_m,v_i^-,v_j^-).
 \]
 
-再将它投影到预先登记的观测量 \(\psi\) 上：
+若粒子先参加 `e_a`、后参加 `e_b`，建立：
 
 \[
-d_\psi(t)
-=\left\langle \psi,\;\mathcal C_{12}\mathcal E_2^{\rm in}\right\rangle .
+e_a\rightarrow e_b.
 \]
 
-实践中不需要重建高维 \(f_2\)。应以事件日志和小维 binning 估计一个可重复的
-incoming-pair cumulant proxy，并报告它与 \(A(t)\) 的导数、以及 full/T-dynamics 支路差
-的关系。最先使用：
+得到时间有向因果多重图。它支持：
 
-- \(\psi_A=v_x^2-v_y^2\)：各向异性热化/回声；
-- \(\psi_C\)：被动颜色输运的低维模式。
+- shared ancestors；
+- collision molecules；
+- repeated pair events；
+- descendant causal cones；
+- branch provenance；
+- history budget；
+- 可视化一次微小改动如何传播。
 
-这将“有历史”转化为一个具有物理方向性的量：即将发生碰撞的对是否仍可由独立
-\(f_1f_1\) 描述。
+它不是普通 unique-pair graph，也不是纯 debug view。
 
-## 最小可发表的第一阶段
+---
 
-第一阶段只服务于一张决定整篇论文的图：
+## 8. 第四幕：Causal Rewind and Counterfactual Branching
 
-> **相同可分辨 \(f_1\) → 相反未来 → 分子预算对两条未来的影响不同。**
+用户可以在过去：
 
-需要完成的工作限制为五项：
+- 改变一颗粒子的速度；
+- 修改/抑制一次声明语义下的碰撞；
+- 插入、移动或删除简单障碍物；
+- 打开或关闭 aperture；
+- 应用 correlation surgery。
 
-1. 扩展 EDMD 事件日志：碰撞法向、入射法向相对速度、时间层、分子根、事件多重图和递碰撞秩；
-2. 固化可复现的周期边界回声协议，登记 \(t_*\)、\(f_{1,h}\) 分辨率、随机种子和观测窗；
-3. 实现最小 T-dynamics：full、\((8,0)\)、\((16,1)\)，必要时再加入 \((4,0)\)；
-4. 实现 \(d_{\psi_A}\) 与 \(d_{\psi_C}\) 的低维估计；
-5. 先做 \(N=128,256\) 的正向/反向对照，再扩展到一个小的 Boltzmann–Grad 序列。
+系统从编辑前 checkpoint 恢复，只重算 expanding causal cone：
 
-明确不做：误差预测器、几何场景动物园、Enskog 归因矩阵、表示切换、在线 LOD/GPU 优化，
-以及为防御所有潜在反对意见而扩张的大规模消融。它们不推动这条故事的主因果链。
+1. 直接受影响粒子进入 affected set；
+2. affected particle 与 unaffected particle 相遇时，后者被吸收；
+3. 其旧未来事件失效；
+4. 递归推进到目标时间；
+5. 无法证明不受影响时扩大 cone；
+6. cone 全局化时退化到 full replay。
 
-## 预演证据：只用于决定是否投入，不作为论文结论
+主要正确性基线：
 
-一次 12-seed 内部烟雾测试使用反射盒、\(N=64\)、\(T=0.7\)、半径 \(0.04\)、
-\(t_*=2\)，以归一化记忆恢复量 \(M\) 为读出。得到：
+\[
+X_{\rm local\ branch}(T)
+\approx
+X_{\rm full\ resimulation}(T).
+\]
 
-| 支路 | \(M\)（均值 ± seed 标准差） |
-|---|---:|
-| pivot（未反演基线） | \(0.800\pm0.052\) |
-| exact reversed EDMD | \(1.000\pm0.000\) |
-| block+color velocity-shuffled EDMD | \(0.737\pm0.066\) |
-| DSMC from reversed state | \(0.747\pm0.044\) |
-| 无粒子碰撞的 ghost 基线 | \(0.681\pm0.040\) |
+不能为了“局部”而截断不确定依赖；近似版本必须单独标记。
 
-这些数字说明一个最小展示有望存在，但它们不是冻结结果：几何仍非周期、样本很小、
-没有 \((\Lambda,\Gamma)\) 干预、且离散 \(f_{1,h}\) 的匹配粒度尚未锁定。第一阶段的
-任务正是把这个现象提升为可复现的机制实验。
+---
 
-## 成功、停止与措辞边界
+## 9. 第五幕：保持当前画面，编辑隐藏未来
 
-### 成功条件
+若完整 exact microstate 完全相同，确定性未来也相同。因此“只改日志不改状态”没有物理意义。
 
-- reverse 和 chaotized 支路在预注册的 \(f_{1,h}\) 匹配审计中通过，但在固定观测窗内的
-  \(A\) 或颜色模式上显著分离；
-- 增加 \((\Lambda,\Gamma)\) 预算可系统恢复 exact-reverse 的关键观测量，同时对 forward
-  支路的影响明显不同；
-- incoming-pair 缺陷的方向和大小能够解释该分离，而不只是事后展示一个漂亮回声；
-- 至少一个小型 Boltzmann–Grad 序列显示可解释的预算趋势。
+真正的 history surgery 是：
 
-### 停止/转向条件
+\[
+X(t_*)\mapsto\widetilde X(t_*),
+\]
 
-- 若 block+color chaotization 在严格 \(f_{1,h}\) 审计下仍保留回声，则当前干预没有真正
-  切断相关性，先修正干预而非堆叠指标；
-- 若 T-dynamics 预算对正、反两支路没有差别，则“分子手术”不是合适的机制镜头，应止损；
-- 若只在某个任意 binning 或单一 seed 下有效，不把它写成论文主张。
+同时满足登记约束：
 
-### 不可越过的表述
+\[
+f_{1,h}[X]\approx f_{1,h}[\widetilde X],
+\]
 
-- 不称普通碰撞多重图为 Deng–Hani–Ma 理论中的“完整分子”；
-- 不称 T-dynamics 为对原硬球轨道的保真近似；超预算碰撞被抑制后允许穿越/重叠；
-- 不称速度反演回声为新发现；
-- 不称结果为 Boltzmann 方程的反例，或为上述定理提供数值验证；
-- 不从这条机制论文推导“历史 LOD 有用”的工程结论。
+以及 mass、momentum、energy、color count、no-overlap 等审计。
 
-## 与已有工作及 Deng–Hani–Ma 的关系
+但改变：
 
-- Deng、Hani、Ma 的长期 hard-sphere → Boltzmann 推导以长期 cumulant ansatz、
-  collision-history molecules 与 T-dynamics/cutting 控制关联。本文借用其“关联有组织的
-  历史结构”这一语言来设计一个有限计算机制实验；并不实现其 cutting argument，也不从
-  定理继承算法保证。[论文](https://arxiv.org/abs/2408.07818)
-- 速度反演和 Loschmidt echo 有悠久的硬球先例；因此第一幕只是进入问题的钩子，
-  贡献必须落在匹配 \(f_{1,h}\) 的混沌手术、时间定向 cumulant 读出与
-  \((\Lambda,\Gamma)\) 预算曲线上。
-- Backward collision clusters 和 correlation errors 已有扎实的动力学/BBGKY 文献；
-  本工作的定位是把相关性变为一个可视、可干预、可量化的有限系统实验，而不是重新声称
-  一般性的 kinetic-limit 理论。[Aoki et al.](https://arxiv.org/abs/1408.6571)
-  [Pulvirenti–Simonella](https://arxiv.org/abs/1405.4676)
+- 哪个速度属于哪个粒子；
+- shared collision ancestors；
+- incoming pair correlation；
+- retained molecule structure。
 
-更详细的理论映射和禁止性措辞见
-[Deng–Hani–Ma connection](deng-hard-sphere-connection.md)，可验证主张状态见
-仓库文件 paper/claim-ledger.md。
+这形成新的 authoring primitive：
+
+> **保持当前可见状态，编辑它将走向的未来。**
+
+---
+
+## 10. 三个 SIG Hero Demo
+
+## Hero 1 — Molecular Logo Echo
+
+一个 passive-color 图案先被气体运动打散。在同一 resolved pivot 上并排播放 exact reverse、chaotized、DSMC 与不同 history budget。只有保留正确历史的支路重构图案。
+
+主句：
+
+> **Same resolved frame. Different collision histories. Opposite futures.**
+
+## Hero 2 — One Collision, Two Worlds
+
+用户点击并修改过去一次碰撞。差异从两个粒子开始，沿 collision causal graph 像闪电一样扩散。并排显示 original future、counterfactual future、affected fraction 与 full-resimulation validation。
+
+## Hero 3 — Edit the Past
+
+透明 molecular maze 中，用户回到过去移动挡板或打开出口。系统复用 unaffected history，只重算未来 cone，并与 full global resimulation 比较。
+
+这些场景分别承担：科学直觉、算法核心、交互与性能，不能平均堆满所有 diagnostics。
+
+---
+
+## 11. 正式贡献候选
+
+### C1 — Collision-history representation
+
+可版本化 event multigraph、checkpoints、branch lineage 与 collision molecules。
+
+### C2 — Exact causal branch recomputation
+
+局部 expanding-cone 算法、full-resimulation correctness、conservative fallback。
+
+### C3 — Coarse-state-preserving future authoring
+
+在 `f1_h` 与主要守恒量受控时编辑隐藏 correlation。
+
+### C4 — Counterfactual cumulant microscope
+
+exact/chaotized/DSMC/budget/null-control 机制实验。
+
+### C5 — Interactive molecular time machine
+
+可回退、可分叉、可比较、可复现实验与 3D Hero Demo。
+
+---
+
+## 12. 不能 claim 什么
+
+- “我们首次发现硬球可以时间反演”；
+- “记录历史以后牛顿方程才可逆”；
+- “普通 event log/rollback 是新算法”；
+- “我们实现了邓煜的 cutting algorithm”；
+- “邓煜定理保证了 finite history surgery”；
+- “same `f1_h` 等于 same exact state”；
+- “反演态是 Boltzmann 方程的反例”；
+- “causal cone 永远局部”；
+- “Phase-I predictor 成功”。
+
+---
+
+## 13. 当前 smoke evidence 的地位
+
+已有 `N=64` 反射盒 smoke test 显示 exact reversed、chaotized、DSMC 和 ghost 支路可能产生清晰差异。这只用于决定值得进行正式 feasibility stage：
+
+- 边界尚非正式周期设置；
+- 样本小；
+- 没有 multi-resolution `f1_h` audit；
+- 没有 molecule budget/null controls；
+- 没有 branch algorithm。
+
+它不能进入摘要，也不能当 frozen evidence。
+
+---
+
+## 14. 第一阶段与判死刑条件
+
+先用 2–3 周完成：
+
+1. preregistration commit/tag；
+2. `N=128,256,512` 周期 EDMD 严格反演；
+3. multi-resolution `f1_h` audit；
+4. exact/chaotized/DSMC/ghost；
+5. `(Lambda,Gamma)` 与两类 null control；
+6. incoming-pair proxy；
+7. one-event counterfactual branch 与 full replay 对照；
+8. 一个中性 60–90 秒 internal demo。
+
+立即停止/收窄，如果：
+
+- numerical reverse 本身不可靠；
+- branch separation 在细化 `f1_h` 后消失；
+- molecule budget 与 count-matched random suppression 无差别；
+- one-event local branch 无法匹配 full replay；
+- 所有 causal cone 都立刻全局化；
+- 唯一好看的结果只是把录像倒放。
+
+详细路线见：
+
+- [Active E0–E6 suite](../benchmarks/echo-branching-suite.md)
+- [First stage](../roadmap/molecular-echo-first-stage.md)
+- [Implementation backlog](../roadmap/molecular-echoes-backlog.md)
+- [Graph and branching architecture](../architecture/collision-history-graph-and-branching.md)
+- [Venue strategy](../vision/venue-strategy.md)
