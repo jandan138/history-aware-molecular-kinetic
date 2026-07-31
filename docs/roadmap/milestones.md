@@ -17,7 +17,8 @@ The old dynamic-LOD milestones are archived in Git history and deferred by
 
 ## M0 — Pivot, preregistration, and evidence contracts
 
-**Status:** E1 protocol is frozen; E2 contracts remain active.
+**Status:** E1 and E2 protocols are frozen and executed; E2's mechanism claim is
+closed negative.
 
 Deliverables:
 
@@ -70,7 +71,8 @@ scientific interpretation or graphics polish.
 ## M2 — E1 same resolved present, opposite futures
 
 **Status:** passed on 2026-07-31 for the preregistered 4×2 resolved-state claim.
-The 8×4 mismatch is an explicit limitation, and E2 is the next paper gate.
+The 8×4 mismatch is an explicit limitation. E2 subsequently failed its stronger
+mechanism controls without invalidating this scoped phenomenon.
 
 Deliverables:
 
@@ -96,6 +98,10 @@ If separation vanishes under finer `f1_h`, narrow or stop the same-present claim
 ---
 
 ## M3 — E2 collision-molecule mechanism
+
+**Status:** complete with `stop_e2` on 2026-08-01. The reverse budget ladder passes,
+but `(4,0)` does not beat count/time-matched random or topology-shuffled controls.
+The molecule-topology claim and optional scale study are closed.
 
 Deliverables:
 

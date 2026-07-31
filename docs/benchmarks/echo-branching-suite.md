@@ -83,6 +83,11 @@ exact microstates or continuous `f1`.
 
 ## E2 — Collision-molecule budget and mechanism controls
 
+**Result:** complete with `stop_e2`. The registered budget ladder is systematic,
+but `(4,0)` does not outperform count/time-matched random or topology-shuffled
+controls. The topology-beyond-dose interpretation is closed; see the
+[E2 result](molecular-echoes-e2-result.md).
+
 ### Question
 
 Does a structured collision-history budget explain echo recovery beyond the trivial

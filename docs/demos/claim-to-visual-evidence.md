@@ -8,8 +8,8 @@ change, a shot, and a quantitative companion.
 | C10 Exact reversal/replay is trustworthy | return/state/event error | exact branch reconstructs without replay divergence | ME-04 + diagnostic replay shot | position/velocity error, checksum/event agreement, invariant drift | backward video or state snapping is not evidence |
 | C11 Same resolved present, distinct futures | multi-resolution `f1_h` match + future separation | branches appear matched at pivot, then diverge | ME-02/03/04 | TV/bin mismatch, moment mismatch, anisotropy/color response | obvious pivot mismatch explains the future |
 | C12 Hidden correlation carries response | exact vs chaotized vs DSMC | only history-retaining branch recovers pattern/observable | ME-04 | branch response and incoming-pair diagnostic | difference disappears across seeds/resolutions |
-| C13 Structured molecule budget matters | full/budget/null-control response | recovery changes with molecule structure, not just collision count | ME-05 | budget error, collision count/time, null-control delta | count-matched random suppression explains result |
-| C14 Closure-defect proxy tracks response | directional incoming-pair proxy | linked inset changes consistently before/with echo response | ME-05 | proxy confidence interval and derivative correlation | post-hoc diagnostic with inconsistent direction |
+| C13 Structured molecule budget matters | full/budget/null-control response | **closed negative in E2-v0; not an active primary shot claim** | ME-05 limitation panel only | budget error, collision count/time, null-control delta | registered controls explain the same response at this scope |
+| C14 Closure-defect proxy tracks response | directional incoming-pair proxy | **not supported in E2-v0; diagnostic only** | ME-05 limitation panel only | proxy values by branch | registered proxy is non-discriminating |
 | C16 Collision causal graph is correct | ancestry/descendant query agreement | selected event reveals valid predecessor/descendant structure | TW-01/03 | graph reconstruction/query tests | graph is decorative or omits repeated events |
 | C17 Replay/branch representation works | checkpoint/event replay and shared history | branch tree forks from exact past state | TW-02 | replay hash, latency, full-copy vs copy-on-write storage | hidden full-frame duplication or silent divergence |
 | C18 Local causal branch matches full resimulation | state/event difference | local and full edited futures visually coincide | TW-05, EP-05 | terminal error, event agreement, fallback status | local branch misses dependencies |
@@ -22,7 +22,8 @@ change, a shot, and a quantitative companion.
 
 ### Molecular Logo Echo
 
-Owns C10–C14 and the first-page scientific hook.
+Owns C10–C12 and the first-page scientific hook. C13–C14 may appear only as the
+E2 limitation, not as active visual claims.
 
 ### One Collision, Two Worlds
 

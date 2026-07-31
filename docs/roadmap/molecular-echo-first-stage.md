@@ -1,6 +1,7 @@
 # Molecular Echoes First Stage
 
-**Status:** active; E1 passed its frozen scoped gate on 2026-07-31, and E2 is next.
+**Status:** active but narrowed; E1 passed its frozen scoped gate on 2026-07-31,
+and E2 returned `stop_e2` on 2026-08-01.
 
 **Duration:** 2–3 focused weeks.
 
@@ -24,6 +25,20 @@ exactly, while the unused 8×4 audit reveals finer position–velocity mismatch.
 claim is therefore “same preregistered 4×2 resolved present,” not the same exact
 state or continuous `f1`. See the complete
 [E1 result](../benchmarks/molecular-echoes-e1-result.md).
+
+## Current E2 outcome
+
+E2's registered reverse budget ladder is systematic (mean Spearman `0.930574`) and
+full/ghost separation passes. The stronger mechanism does not: `(4,0)` minus the
+count/time-matched random control is `-0.007636` with a 95% interval spanning zero,
+and the topology-shuffled contrast is also negative with an interval spanning zero.
+The frozen rule returns `stop_e2`.
+
+The Deng-inspired molecule-topology mechanism is removed from the paper spine. No
+extra E2 seeds, budgets, `N=512`, or fixed-`Nε` sequence will be added. E3/E4 may
+continue only as the explicitly narrower branch/rewind system route described in
+the stage decision. See the complete
+[E2 result](../benchmarks/molecular-echoes-e2-result.md).
 
 The earlier unfrozen roadmap mentioned `N=512` and a longer internal clip. Neither
 was part of the frozen E1 protocol, so neither is added after seeing the result.
@@ -129,6 +144,10 @@ Report both:
 ---
 
 ## 4. Week 2 — Collision-molecule mechanism and null controls
+
+**Result:** complete for `MOLECULAR-ECHOES-E2-v0`; decision `stop_e2`. The graded
+budget response passes, but structured wiring does not beat either registered
+control.
 
 ### Deliverables
 

@@ -44,6 +44,18 @@ interval of `[0.436573, 0.460660]`. The result is explicitly limited to the froz
 4×2 resolved present; the finer-grid mismatch is disclosed in the
 [`E1 Result`](docs/benchmarks/molecular-echoes-e1-result.md).
 
+The preregistered E2 mechanism gate is also complete and returned `stop_e2`. Its
+collision-budget ladder is systematic (mean reverse ladder Spearman `0.930574`),
+but the dose-selected `(4,0)` molecule does not outperform count/time-matched random
+or topology-shuffled controls. The collision-molecule-wiring claim is therefore
+closed rather than rescued with more budgets or seeds. See the
+[`E2 Result`](docs/benchmarks/molecular-echoes-e2-result.md).
+
+The active route is consequently narrower: E1 remains the scientific phenomenon,
+while E3/E4 must earn a graphics contribution through correct replay,
+counterfactual branching, and causal recomputation without citing E2 as evidence
+that molecule topology carries the echo.
+
 ## Core idea
 
 An exact hard-sphere microstate stores:
@@ -128,11 +140,11 @@ The user can preserve a declared current density/temperature/velocity distributi
 while modifying hidden particle–velocity pairing and collision ancestry, producing
 alternate futures from the same visible present.
 
-### C4 — Collision-molecule history budget
+### Tested boundary — collision-molecule history budget
 
-A structured `(Lambda, Gamma)` intervention tests how much collision-history
-connectivity is needed for forward relaxation and reverse echo, with
-collision-count-matched and topology-shuffled null controls.
+The `(Lambda, Gamma)` intervention shows graded reverse recovery, but E2-v0's
+registered null controls reject the stronger wiring-beyond-dose mechanism. It is a
+documented limitation and diagnostic visualization, not an active contribution.
 
 ## Active E0–E6 evidence ladder
 
@@ -140,7 +152,7 @@ collision-count-matched and topology-shuffled null controls.
 |---|---|
 | **E0** | Are exact EDMD reversal and deterministic replay numerically trustworthy? |
 | **E1** | Do exact-reverse and chaotized branches match the declared resolved present yet separate in the future? |
-| **E2** | Does a structured collision-molecule budget explain the response beyond collision count? |
+| **E2** | **Closed negative:** budget grades recovery, but structured wiring does not beat dose/topology controls |
 | **E3** | Is the causal graph/replay representation correct and queryable? |
 | **E4** | Does local causal-cone branching match complete resimulation and provide useful reuse? |
 | **E5** | Can correlation surgery preserve the declared present while authoring distinct futures? |
@@ -156,9 +168,9 @@ an auditable negative-result path. It is not the current paper dependency chain.
 ### Molecular Logo Echo
 
 A passive-color pattern disperses. At the pivot, exact-reverse,
-resolved-state-preserving chaotized, DSMC, and history-budget branches look the same
-under the declared present audit. Only the history-retaining branch reconstructs
-the past pattern.
+resolved-state-preserving chaotized, and DSMC branches share the declared resolved
+present. Exact reversal reconstructs the pattern; E2's budget ladder may be shown
+only as a disclosed intervention whose stronger topology claim failed.
 
 ### One Collision, Two Worlds
 
@@ -220,15 +232,15 @@ See [`Venue Strategy`](docs/vision/venue-strategy.md).
 
 E1 is complete at `N=128,256`: strict reversal, the resolved-present audit, all
 five branches, seed uncertainty, the main figure, and a neutral video pass the
-frozen gate. The first stage now advances along the paper dependency chain:
+frozen gate. E2 is also complete and closes the molecule-wiring mechanism negative.
+The first stage continues only on the narrower graphics dependency chain:
 
-1. E2 structured `(Lambda, Gamma)` budgets and their count/time-matched and
-   topology-shuffled null controls;
-2. E3 collision graph, checkpoint, and deterministic branch replay;
-3. E4 one-event causal branch validated against complete resimulation.
+1. E3 collision graph, checkpoint, and deterministic branch replay;
+2. E4 one-event causal branch validated against complete resimulation;
+3. a route decision based on branch correctness, locality, and authoring value.
 
-Additional E1 variants and `N=512` are deferred until the E2 mechanism is positive;
-they are not a substitute for that story gate.
+Additional E1/E2 variants and `N=512` are cancelled for this route; they are not a
+substitute for the failed mechanism gate.
 
 See [`Molecular-Echo First Stage`](docs/roadmap/molecular-echo-first-stage.md) and
 [`Molecular Echoes Backlog`](docs/roadmap/molecular-echoes-backlog.md).
@@ -242,6 +254,15 @@ python -m pip install -e ".[dev,analysis]"
 PYTHONPATH=src python scripts/run_echo_e1.py \
   --config configs/studies/molecular-echoes-e1-v0.json \
   --output results/molecular-echoes-e1-v0
+```
+
+Reproduce the frozen E2 mechanism decision:
+
+```bash
+PYTHONPATH=src python scripts/run_echo_e2.py \
+  --config configs/studies/molecular-echoes-e2-v0.json \
+  --calibration results/molecular-echoes-e2-v0/calibration-dose-only.json \
+  --output results/molecular-echoes-e2-v0
 ```
 
 The primary command writes the reversal audit, multi-resolution pivot audit,

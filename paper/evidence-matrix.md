@@ -5,16 +5,20 @@ table, fine-grid limitation, render audit, and frozen artifact hashes are record
 in the [E1 result](../docs/benchmarks/molecular-echoes-e1-result.md). This closes the
 phenomenon gate, not the E2 collision-molecule mechanism gate.
 
-The E2 mechanism branches, controls, readouts, and decision rule are frozen in the
-[E2 preregistration](../docs/benchmarks/molecular-echoes-e2-preregistration.md).
+E2-v0 returned `stop_e2`: the budget ladder is systematic, but the selected finite
+molecule does not beat either registered wiring control. The frozen design and
+complete boundary are recorded in the
+[E2 preregistration](../docs/benchmarks/molecular-echoes-e2-preregistration.md) and
+[E2 result](../docs/benchmarks/molecular-echoes-e2-result.md). Molecule wiring beyond
+collision dose is no longer an active paper claim.
 
 | Figure/table concept | Run families | Metrics | Primary interpretation | Alternative explanation to exclude |
 |---|---|---|---|---|
 | Exact reversal and replay audit | E0 forward/reverse/checkpoint | return error, event/checksum agreement, invariants | exact branch is numerically trustworthy | backward video, state snapping, event-order drift |
 | Same resolved pivot | E1 exact-reverse/chaotized | multi-resolution `f1_h`, moments, visible pivot difference | declared current one-particle state is matched | coarse-bin illusion or visible state mismatch |
 | Opposite futures | E1 exact/chaotized/DSMC/ghost | anisotropy, passive-color recovery, branch divergence | hidden correlation changes future response | seed choice or different pivot state |
-| Molecule-budget mechanism | E2 full/budget/null controls | branch error, collision count/time, incoming-pair proxy | structured history topology matters | simply allowing more collisions |
-| Scale trend | E2 `N` and fixed-`N epsilon` sequence | minimum budget at fixed tolerance | finite-system information boundary trend | numerical resolution or changing observable |
+| Molecule-budget mechanism | E2 full/budget/null controls | branch error, collision count/time, incoming-pair proxy | **closed negative:** budget grades recovery but structured topology does not beat controls | simply allowing more collisions remains sufficient at this scope |
+| Scale trend | E2 `N` and fixed-`N epsilon` sequence | minimum budget at fixed tolerance | cancelled after mechanism no-go | numerical resolution or changing observable |
 | Collision causal representation | E3 event log/graph | ancestry query, repeated-event preservation, graph hash | graph is a correct simulation representation | decorative/aggregated graph losing events |
 | Checkpoint and branch storage | E3 full-copy/copy-on-write | replay latency, storage, checksum | persistent history reuse | hidden full trajectory duplication |
 | One-event counterfactual correctness | E4 particle/collision edit | local-vs-full state/event error | causal-cone branch matches full resimulation | fixed local approximation missing dependencies |

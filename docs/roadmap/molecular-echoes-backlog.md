@@ -56,7 +56,7 @@ and velocity resolutions.
 
 ### ECHO-S-005 — Collision-molecule event annotations
 
-**Status:** implemented for E2-v0; primary evidence pending.
+**Status:** implemented and executed for E2-v0; event artifacts are complete.
 
 Extend the event log with molecule root, size, recollision/reconnection rank,
 predecessors, incoming normal velocity, and event multiplicity.
@@ -65,8 +65,8 @@ predecessors, incoming normal velocity, and event multiplicity.
 
 ### ECHO-S-006 — History-budget dynamics
 
-**Status:** implemented for the periodic 2D E2-v0 scope, including explicit
-overlap entry/exit semantics; primary evidence pending.
+**Status:** implemented and executed for the periodic 2D E2-v0 scope, including
+explicit overlap entry/exit semantics.
 
 Implement full EDMD and the registered `(Lambda, Gamma)` extended-dynamics paths
 with explicit ghost semantics.
@@ -76,7 +76,7 @@ with explicit ghost semantics.
 ### ECHO-S-007 — Mechanism null controls
 
 **Status:** implemented only for the dose-selected `(4,0)` budget as
-preregistered; primary evidence pending.
+preregistered; both controls fail to support a structured-wiring advantage.
 
 Implement collision-count/time-matched random suppression and topology-shuffled
 partner controls.
@@ -85,8 +85,8 @@ partner controls.
 
 ### ECHO-S-008 — Incoming-pair closure readout
 
-**Status:** implemented and frozen as a supporting readout; primary evidence
-pending.
+**Status:** executed; non-discriminating for the registered mechanism and cannot
+rescue the failed response controls.
 
 Implement preregistered low-dimensional proxies for anisotropy and passive-color
 transport.
@@ -94,6 +94,8 @@ transport.
 **Depends on:** ECHO-S-003, ECHO-S-005.
 
 ### ECHO-S-009 — Scale and fixed-`N epsilon` study
+
+**Status:** cancelled for this route after E2's mechanism no-go.
 
 Run the frozen E2-v0 `N=128,256` gate first. `N=512` and a small fixed-`N epsilon`
 sequence are permitted only after the mechanism passes.
@@ -167,8 +169,8 @@ Render particles, collision events, branch lineage, causal cone, and pivot audit
 
 ### ECHO-V-002 — Molecular Logo Echo prototype
 
-**Status:** the neutral E1 exact/chaotized/DSMC prototype is complete; the
-history-budget branch waits for ECHO-S-007.
+**Status:** neutral E1 and E2 evidence renders are complete. The E2 budget ladder is
+a disclosed diagnostic only; it is not evidence for the failed topology claim.
 
 Create a bounded 2D/3D passive-color pattern, mix it, then compare exact,
 chaotized, DSMC, and history-budget branches.

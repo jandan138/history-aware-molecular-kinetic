@@ -64,6 +64,10 @@ This is not permission to submit a demo without an algorithm.
 
 ## 4. SIG acceptance gate
 
+**Current status:** the full gate is not met because E2 did not beat its registered
+controls. A SIG route now requires an explicitly narrower graphics-system thesis;
+the Deng-inspired molecule mechanism cannot be used to satisfy this gate.
+
 Before paper production, require all of:
 
 - E0 numerical reversal passes;

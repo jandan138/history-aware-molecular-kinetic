@@ -23,6 +23,13 @@ public software releases. Benchmark and artifact schemas are versioned independe
 
 ### Added
 
+- Preregistered and executed `MOLECULAR-ECHOES-E2-v0` across both forward/reverse
+  directions, `N=128,256`, and six primary seeds, with an excluded dose-only
+  calibration, finite `(Lambda,Gamma)` ladder, count/time-matched random control,
+  topology-shuffled control, event-level molecule audit, neutral figure, and video.
+- Preserved the E2 `stop_e2` outcome: the reverse budget ladder is systematic, but
+  neither wiring control is weaker than the selected `(4,0)` molecule. Closed the
+  mechanism-beyond-collision-dose claim and cancelled post-result scale expansion.
 - Preregistered and executed `MOLECULAR-ECHOES-E1-v0` across `N=128,256` and six
   seeds each, producing a positive scoped `go` decision, reversal and
   multi-resolution pivot audits, five forward-simulated branches, bootstrap

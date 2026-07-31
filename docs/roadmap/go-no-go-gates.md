@@ -36,6 +36,12 @@ retired with the Phase-I predictor result.
 
 ## Gate G2 — Collision-history mechanism
 
+**Observed E2-v0 decision:** **No-Go.** The budget response is systematic, but the
+structured branch does not outperform either registered control; the incoming-pair
+proxy is non-discriminating at this scope. The molecule-topology mechanism is
+removed from the paper spine. E3/E4 can proceed only as a narrower graphics-system
+route.
+
 **Go:**
 
 - `(Lambda,Gamma)` history budgets produce a systematic response;

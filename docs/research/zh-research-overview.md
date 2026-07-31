@@ -236,6 +236,12 @@ f_{1,h}[\widetilde X],
 
 只有 structured history 超过这些控制，才允许说 molecule topology 携带机制信息。
 
+**E2-v0 已于 2026-08-01 完成，结论是 `stop_e2`。** budget ladder 本身呈现很强的
+递增恢复（平均 Spearman `0.930574`），但 `(4,0)` 相比 count/time-matched random
+和 topology-shuffled 的注册差值都略为负，置信区间也都跨零。因此当前证据只能说
+“允许更多碰撞会保留更多 reverse echo”，不能说 molecule wiring 超越 collision
+dose 解释了恢复。这个机制主张已经关闭，不再追加 seed、budget 或 `N=512` 救结果。
+
 ---
 
 ## 9. 三个最终 Hero Demo
@@ -259,7 +265,7 @@ f_{1,h}[\widetilde X],
 ```text
 E0 exact reversal and replay
 E1 same resolved present / opposite futures
-E2 molecule budget and null controls
+E2 molecule budget and null controls [已完成，机制 no-go]
 E3 collision graph and deterministic replay
 E4 counterfactual branching
 E5 correlation surgery
@@ -299,17 +305,15 @@ VIS 稿必须重构成 visual analytics，不是 SIG 被拒后改标题。
 
 ---
 
-## 12. 现在最重要的 2–3 周
+## 12. 当前最重要的下一步
 
-1. preregister E1/E2；
-2. periodic `N=128,256,512` strict reverse；
-3. multi-resolution `f1_h` audit；
-4. exact/chaotized/DSMC/ghost；
-5. `(Lambda,Gamma)` 与 null controls；
-6. incoming-pair diagnostic；
-7. one-event branch 与 full replay；
-8. 60–90 秒 neutral internal video；
-9. Go / Narrow / Stop 决策。
+E1 已正向通过，E2 已按冻结规则否定 molecule-topology 机制。现在不再扩展 E2，
+而是只推进更窄的 graphics-system 验证：
+
+1. E3 collision graph、checkpoint 与 deterministic replay；
+2. E4 one-event branch 对 full resimulation 的正确性；
+3. causal cone 的 locality、runtime 与 storage 是否真有系统价值；
+4. 若这些也不成立，就停止 SIG 路线，而不是用更漂亮的 echo 视频替代算法贡献。
 
 这一步通过后才投入 3D、交互 UI 和 SIG Hero polish。
 

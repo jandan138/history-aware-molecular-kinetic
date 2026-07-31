@@ -27,10 +27,10 @@ implicitly revived in the Molecular Echoes paper.
 |---|---|---|---|---|
 | C10 | Exact EDMD reversal and deterministic replay are trustworthy in the declared cases | E0 | return error, event/checksum agreement, invariants, grazing/tie cases | E1 declared cases pass: event-pair agreement 1.0, max position RMS 2.77e-6, max velocity RMS 4.92e-5; broader E0 replay/edge-case gate remains |
 | C11 | Exact-reverse and chaotized branches can match a preregistered resolved `f1_h` while producing distinct futures | E1 | multi-resolution pivot audit, seed uncertainty, branch trajectories | **passes for E1-v0's 4×2 resolved state** across 12 cases; mean gap 0.449784, 95% interval [0.436573, 0.460660]; 8×4 mismatch disclosed, so no continuous-`f1` or exact-state claim |
-| C12 | DSMC/chaotization lose an observable response carried by hidden multi-particle collision correlation | E1/E2 | exact/chaotized/DSMC/ghost comparison, incoming-pair diagnostic | E1 phenomenon passes: chaotized and DSMC lose the color echo in every case; collision-molecule attribution remains proposed until E2 null controls pass |
-| C13 | A structured `(Lambda,Gamma)` collision-molecule budget explains response beyond collision count | E2 | budget paths, count/time-matched random suppression, topology-shuffled control | **preregistered, primary pending**; controls apply only to dose-selected `(4,0)` and extended dynamics is not exact EDMD |
-| C14 | The incoming-pair closure-defect proxy tracks the missing correlated response | E2 | preregistered bins/observables, branch derivatives, uncertainty | **preregistered supporting readout, primary pending**; cannot rescue a failed response/control gate |
-| C15 | A small fixed-`N epsilon` sequence has an interpretable finite-system budget trend | E2 | scale sequence and fixed observable tolerance | optional; not a kinetic-limit theorem |
+| C12 | DSMC/chaotization lose an observable response carried by hidden multi-particle collision correlation | E1/E2 | exact/chaotized/DSMC/ghost comparison, incoming-pair diagnostic | E1 phenomenon passes; E2 shows a graded collision-budget response but does not identify molecule wiring beyond collision dose |
+| C13 | A structured `(Lambda,Gamma)` collision-molecule budget explains response beyond collision count | E2 | budget paths, count/time-matched random suppression, topology-shuffled control | **closed negative in E2-v0**: selected-minus-random mean `-0.007636`, 95% CI `[-0.032264,0.016086]`; selected-minus-topology mean `-0.009639`, CI `[-0.049062,0.029519]` |
+| C14 | The incoming-pair closure-defect proxy tracks the missing correlated response | E2 | preregistered bins/observables, branch derivatives, uncertainty | **not supported in E2-v0**: proxy does not discriminate the structured branch from registered controls and cannot rescue C13 |
+| C15 | A small fixed-`N epsilon` sequence has an interpretable finite-system budget trend | E2 | scale sequence and fixed observable tolerance | cancelled after the E2 mechanism gate failed; not a kinetic-limit theorem |
 
 ## C. Active SIG graphics/system claims
 
@@ -47,9 +47,9 @@ implicitly revived in the Molecular Echoes paper.
 ## D. Claim dependency graph
 
 ```text
-C10 → C11 → C12/C13/C14
+C10 → C11 → C12
 C10 → C16 → C17 → C18 → C19
-C11/C13 + C17 → C20
+C11 + C17 → C20
 C18/C19/C20 → C21 → C22
 ```
 
@@ -62,7 +62,8 @@ spine.
 
 | Claim family | Primary scene |
 |---|---|
-| C10–C15 | Molecular Logo Echo |
+| C10–C12 | Molecular Logo Echo |
+| C13–C15 closed/limitations | E2 limitation panel only |
 | C16–C19 | One Collision, Two Worlds |
 | C18–C21 | Edit the Past |
 | C20 | Logo Echo or optional same-present surgery shot |

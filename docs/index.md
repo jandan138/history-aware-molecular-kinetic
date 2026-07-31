@@ -17,6 +17,13 @@ The active paper route is:
 Read the decision in
 [ADR 0009](decisions/0009-pivot-to-molecular-echoes-sig.md).
 
+E1 passed its scoped same-resolved-present phenomenon gate. E2 then returned
+`stop_e2`: collision budget grades reverse recovery, but structured molecule wiring
+does not beat the registered controls. The scientific mechanism claim is closed;
+the remaining route is a narrower test of collision-graph replay and physically
+correct counterfactual branching. See the
+[E2 result](benchmarks/molecular-echoes-e2-result.md).
+
 ## Read in this order
 
 1. [从 GAMES103 与流体入门到 Molecular–Kinetic Simulation](learning/from-games103-to-history-aware-molecular-kinetic.md)
@@ -53,7 +60,7 @@ simulator.
 ```text
 E0 exact reversal and deterministic replay
 → E1 same resolved present / opposite futures
-→ E2 collision-molecule mechanism and null controls
+→ E2 collision-molecule mechanism and null controls [closed negative]
 → E3 collision causal graph and branch representation
 → E4 counterfactual causal-cone recomputation
 → E5 correlation surgery and future authoring
