@@ -1,5 +1,5 @@
-site_name: History-Aware Molecular–Kinetic
-site_description: Benchmark-first collision-history-aware molecular–kinetic simulation research
+site_name: Molecular Echoes / History-Aware Molecular–Kinetic
+site_description: Reversible and counterfactual hard-sphere animation with collision-history graphs
 repo_url: https://github.com/jandan138/history-aware-molecular-kinetic
 
 theme:
@@ -31,69 +31,71 @@ nav:
   - Home: index.md
   - Learning:
       - From GAMES103 to Molecular–Kinetic Simulation: learning/from-games103-to-history-aware-molecular-kinetic.md
-  - Vision:
+  - Active Vision:
       - Research thesis: vision/research-thesis.md
-      - Scope and non-goals: vision/scope-and-non-goals.md
       - Paper positioning: vision/paper-positioning.md
-  - Research:
+      - Venue strategy: vision/venue-strategy.md
+      - Scope and non-goals: vision/scope-and-non-goals.md
+  - Active Research:
       - 中文研究总览: research/zh-research-overview.md
-      - Hard-sphere to kinetic primer: research/hard-sphere-kinetic-primer.md
-      - Collision-History Echoes: research/collision-history-echo-route.md
+      - Molecular Echoes route: research/collision-history-echo-route.md
       - Deng–Hani–Ma connection: research/deng-hard-sphere-connection.md
-      - Hypotheses: research/hypotheses.md
-      - Related work: research/related-work.md
       - Novelty map: research/novelty-map.md
-      - Feasibility assessment: research/feasibility-assessment.md
+      - Hard-sphere to kinetic primer: research/hard-sphere-kinetic-primer.md
+      - Related work: research/related-work.md
       - Scientific risks: research/scientific-risks.md
       - Source ledger: research/source-ledger.md
   - Architecture:
       - Overview: architecture/overview.md
+      - Collision graph, replay, and branching: architecture/collision-history-graph-and-branching.md
       - Module boundaries: architecture/module-boundaries.md
       - Runtime state model: architecture/runtime-state-model.md
-      - Representation conversion: architecture/representation-conversion.md
       - Data contracts: architecture/data-contracts.md
       - External oracles: architecture/external-oracles.md
       - Experiment lifecycle: architecture/experiment-lifecycle.md
       - Dependency and license boundaries: architecture/dependency-and-license-boundaries.md
-  - Benchmarks:
-      - Suite: benchmarks/suite.md
+      - Deferred representation conversion: architecture/representation-conversion.md
+  - Active Benchmarks:
+      - Suite index: benchmarks/suite.md
+      - E0–E6 Echo and Branching: benchmarks/echo-branching-suite.md
+      - Metrics: benchmarks/metrics.md
+      - Dataset policy: benchmarks/dataset-policy.md
+      - Canonical cases: benchmarks/canonical-cases.md
+  - SIG Demo:
+      - Visual production roadmap: demos/visual-production-roadmap.md
+      - Hero scenes: demos/hero-scenes.md
+      - Storyboard: demos/storyboard.md
+      - Art direction: demos/art-direction.md
+      - Visual acceptance criteria: demos/visual-acceptance-criteria.md
+      - Claim-to-visual evidence: demos/claim-to-visual-evidence.md
+      - Renderer contract: demos/renderer-contract.md
+      - Visual diagnostics: demos/visual-diagnostics.md
+  - Active Roadmap:
+      - Milestones: roadmap/milestones.md
+      - Molecular-echo first stage: roadmap/molecular-echo-first-stage.md
+      - Go/No-Go gates: roadmap/go-no-go-gates.md
+      - Molecular Echoes backlog: roadmap/molecular-echoes-backlog.md
+      - Risk register: roadmap/risk-register.md
+  - Deferred LOD Route:
+      - Phase-I history study (closed): roadmap/phase-1-paper-spine.md
+      - Original eight-week spike: roadmap/eight-week-feasibility-spike.md
       - R0 External oracles: benchmarks/r0-external-oracles.md
       - B0 Single-regime primitives: benchmarks/b0-single-regime-primitives.md
       - B1 Discrepancy atlas: benchmarks/b1-discrepancy-atlas.md
       - B2 History indicator: benchmarks/b2-history-indicator.md
       - B3 Representation conversion: benchmarks/b3-representation-conversion.md
       - B4 Dynamic LOD: benchmarks/b4-dynamic-lod.md
-      - B5 Graphics evidence: benchmarks/b5-graphics-evidence.md
-      - Canonical cases: benchmarks/canonical-cases.md
-      - Metrics: benchmarks/metrics.md
-      - Dataset policy: benchmarks/dataset-policy.md
-  - Demo:
-      - Strategy: demos/demo-strategy.md
-      - Visual production roadmap: demos/visual-production-roadmap.md
-      - Art direction: demos/art-direction.md
-      - Storyboard: demos/storyboard.md
-      - Visual acceptance criteria: demos/visual-acceptance-criteria.md
-      - Claim-to-visual evidence: demos/claim-to-visual-evidence.md
-      - Hero scenes: demos/hero-scenes.md
-      - Scene specifications:
+      - B5 Old graphics evidence: benchmarks/b5-graphics-evidence.md
+      - Old demo production backlog: roadmap/demo-production-backlog.md
+      - Old scene specifications:
           - Index: demos/scene-specs/README.md
           - Zoomable Mixing: demos/scene-specs/zoomable-mixing.md
           - Correlation Labyrinth: demos/scene-specs/correlation-labyrinth.md
           - Expansion into Vacuum: demos/scene-specs/expansion-into-vacuum.md
-      - Renderer contract: demos/renderer-contract.md
-      - Visual diagnostics: demos/visual-diagnostics.md
-  - Roadmap:
-      - Milestones: roadmap/milestones.md
-      - Eight-week spike: roadmap/eight-week-feasibility-spike.md
-      - Go/No-Go gates: roadmap/go-no-go-gates.md
-      - Risk register: roadmap/risk-register.md
-      - Implementation backlog: roadmap/implementation-backlog.md
-      - Demo production backlog: roadmap/demo-production-backlog.md
-      - Phase-I history study (closed): roadmap/phase-1-paper-spine.md
-      - Molecular-echo first stage: roadmap/molecular-echo-first-stage.md
   - Reproducibility:
       - Contract: reproducibility/reproducibility-contract.md
       - Artifact policy: reproducibility/artifact-policy.md
       - Benchmark freezing: reproducibility/benchmark-freezing.md
   - Decisions:
       - Index: decisions/README.md
+      - Pivot to Molecular Echoes: decisions/0009-pivot-to-molecular-echoes-sig.md
