@@ -31,6 +31,10 @@ def test_edmd_two_disk_collision_matches_analytic_time_and_response() -> None:
     assert result.collision_events[0].time == pytest.approx(0.2, abs=1.0e-12)
     assert result.collision_events[0].post_velocity_a[:2] == pytest.approx((-1.0, 0.0))
     assert result.collision_events[0].post_velocity_b[:2] == pytest.approx((1.0, 0.0))
+    assert result.collision_events[0].contact_normal == pytest.approx((1.0, 0.0))
+    assert result.collision_events[0].incoming_relative_normal_velocity == pytest.approx(
+        2.0
+    )
     assert result.diagnostics.relative_energy_error <= 1.0e-14
 
 

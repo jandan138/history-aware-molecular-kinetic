@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0.0",
+  "study_id": "MOLECULAR-ECHOES-E1-v0",
+  "domain": {
+    "lower": [0.0, 0.0],
+    "upper": [4.0, 2.0],
+    "boundary": "periodic"
+  },
+  "particle": {
+    "mass": 1.0,
+    "sizes": [
+      {"count": 128, "diameter": 0.04},
+      {"count": 256, "diameter": 0.02}
+    ]
+  },
+  "initial": {
+    "temperature": 0.7,
+    "temperature_x": 1.12,
+    "temperature_y": 0.28,
+    "mean_velocity": [0.0, 0.0]
+  },
+  "pattern": {
+    "kind": "analytic-e",
+    "foreground_vertical": [0.65, 0.95, 0.35, 1.65],
+    "foreground_horizontal_x": [0.65, 1.75],
+    "foreground_horizontal_y_bands": [
+      [0.35, 0.55],
+      [0.90, 1.10],
+      [1.45, 1.65]
+    ]
+  },
+  "timing": {
+    "preparation_time": 1.0,
+    "future_horizon": 1.0,
+    "sample_interval": 0.02
+  },
+  "seeds": [0, 1, 2, 3, 4, 5],
+  "chaotization": {
+    "blocks_x": 4,
+    "blocks_y": 2,
+    "seed_offset": 10000
+  },
+  "audit": {
+    "spatial_grids": [[2, 1], [4, 2], [8, 4]],
+    "velocity_edges_standardized": [
+      [-1.0, 0.0, 1.0],
+      [-1.5, -1.0, -0.5, 0.0, 0.5, 1.0, 1.5]
+    ]
+  },
+  "dsmc": {
+    "cells_x": 8,
+    "cells_y": 4,
+    "time_step": 0.005,
+    "seed_offset": 100000
+  },
+  "bootstrap": {
+    "resamples": 10000,
+    "seed": 20260731
+  },
+  "acceptance": {
+    "maximum_position_rms": 1.0e-5,
+    "maximum_velocity_rms": 1.0e-4,
+    "maximum_pivot_color_score": 0.70,
+    "minimum_exact_terminal_color_score": 0.98,
+    "minimum_changed_particle_fraction": 0.80,
+    "maximum_construction_tv": 1.0e-12,
+    "maximum_invariant_mismatch": 1.0e-12,
+    "minimum_mean_echo_gap": 0.30,
+    "minimum_echo_gap_ci_lower": 0.20
+  },
+  "render": {
+    "hero_particle_count": 128,
+    "hero_seed": 0,
+    "fps": 24,
+    "frame_repeat": 2,
+    "final_hold_frames": 48,
+    "foreground_color": "#36d6ff",
+    "background_color": "#2c3340"
+  }
+}

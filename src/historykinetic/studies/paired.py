@@ -397,6 +397,8 @@ def _shift_collision_events(
             pre_velocity_b=event.pre_velocity_b,
             post_velocity_a=event.post_velocity_a,
             post_velocity_b=event.post_velocity_b,
+            contact_normal=event.contact_normal,
+            incoming_relative_normal_velocity=event.incoming_relative_normal_velocity,
         )
         for event in events
     )

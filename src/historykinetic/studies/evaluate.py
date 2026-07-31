@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import importlib
 import json
 import random
 from collections import defaultdict
@@ -237,13 +238,11 @@ def write_evaluation(report: dict[str, Any], path: Path) -> Path:
 
 def _analysis_dependencies() -> tuple[Any, dict[str, Any]]:
     try:
-        import numpy as np  # type: ignore[import-not-found]
-        from sklearn.ensemble import (  # type: ignore[import-not-found]
-            HistGradientBoostingRegressor,
-        )
-        from sklearn.linear_model import Ridge  # type: ignore[import-not-found]
-        from sklearn.pipeline import make_pipeline  # type: ignore[import-not-found]
-        from sklearn.preprocessing import StandardScaler  # type: ignore[import-not-found]
+        np = importlib.import_module("numpy")
+        ensemble = importlib.import_module("sklearn.ensemble")
+        linear_model = importlib.import_module("sklearn.linear_model")
+        pipeline = importlib.import_module("sklearn.pipeline")
+        preprocessing = importlib.import_module("sklearn.preprocessing")
     except ImportError as exc:
         raise RuntimeError(
             'analysis dependencies are required; install with pip install -e ".[analysis]"'
@@ -251,10 +250,10 @@ def _analysis_dependencies() -> tuple[Any, dict[str, Any]]:
     return (
         np,
         {
-            "HistGradientBoostingRegressor": HistGradientBoostingRegressor,
-            "Ridge": Ridge,
-            "make_pipeline": make_pipeline,
-            "StandardScaler": StandardScaler,
+            "HistGradientBoostingRegressor": ensemble.HistGradientBoostingRegressor,
+            "Ridge": linear_model.Ridge,
+            "make_pipeline": pipeline.make_pipeline,
+            "StandardScaler": preprocessing.StandardScaler,
         },
     )
 

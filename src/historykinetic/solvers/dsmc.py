@@ -302,6 +302,8 @@ class HardDiskDSMC:
                         pre_velocity_b=pre_right,
                         post_velocity_a=(*state.velocities[left], 0.0),
                         post_velocity_b=(*state.velocities[right], 0.0),
+                        contact_normal=normal,
+                        incoming_relative_normal_velocity=relative_normal_speed,
                     )
                 )
         return events

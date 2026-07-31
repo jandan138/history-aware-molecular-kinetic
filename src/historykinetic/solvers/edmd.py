@@ -421,6 +421,8 @@ class HardDiskEDMD:
             pre_velocity_b=pre_b,
             post_velocity_a=post_a,
             post_velocity_b=post_b,
+            contact_normal=normal,
+            incoming_relative_normal_velocity=relative_normal_speed,
         )
 
     def _resolve_boundary(

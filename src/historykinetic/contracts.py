@@ -69,6 +69,8 @@ class CollisionEvent:
     pre_velocity_b: tuple[float, float, float]
     post_velocity_a: tuple[float, float, float]
     post_velocity_b: tuple[float, float, float]
+    contact_normal: tuple[float, float] | None = None
+    incoming_relative_normal_velocity: float | None = None
 
     def __post_init__(self) -> None:
         if self.time < 0:
@@ -79,6 +81,8 @@ class CollisionEvent:
             raise ValueError("a particle cannot collide with itself")
         if not self.block_id:
             raise ValueError("block_id must not be empty")
+        if self.contact_normal is not None and len(self.contact_normal) != 2:
+            raise ValueError("contact_normal must contain two components")
 
     @property
     def ordered_pair(self) -> tuple[int, int]:

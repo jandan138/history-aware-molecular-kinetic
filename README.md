@@ -225,6 +225,19 @@ See [`Molecular-Echo First Stage`](docs/roadmap/molecular-echo-first-stage.md) a
 
 ## Quick start
 
+Run the frozen E1 same-resolved-present experiment:
+
+```bash
+python -m pip install -e ".[dev,analysis]"
+PYTHONPATH=src python scripts/run_echo_e1.py \
+  --config configs/studies/molecular-echoes-e1-v0.json \
+  --output results/molecular-echoes-e1-v0
+```
+
+The primary command writes the reversal audit, multi-resolution pivot audit,
+branch metrics, compact decision, main figure, compressed trajectories, and
+neutral MP4 from one immutable protocol.
+
 ```bash
 python -m pip install -e ".[dev,analysis]"
 pytest

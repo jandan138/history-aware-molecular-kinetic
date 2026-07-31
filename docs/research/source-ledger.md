@@ -1,7 +1,7 @@
 # Source Ledger
 
-The machine-readable source of truth is
-[`references/sources.yaml`](../../references/sources.yaml).
+The machine-readable source of truth is the repository file
+`references/sources.yaml`.
 
 It records:
 
