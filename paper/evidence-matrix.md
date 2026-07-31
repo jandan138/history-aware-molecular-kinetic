@@ -5,6 +5,9 @@ table, fine-grid limitation, render audit, and frozen artifact hashes are record
 in the [E1 result](../docs/benchmarks/molecular-echoes-e1-result.md). This closes the
 phenomenon gate, not the E2 collision-molecule mechanism gate.
 
+The E2 mechanism branches, controls, readouts, and decision rule are frozen in the
+[E2 preregistration](../docs/benchmarks/molecular-echoes-e2-preregistration.md).
+
 | Figure/table concept | Run families | Metrics | Primary interpretation | Alternative explanation to exclude |
 |---|---|---|---|---|
 | Exact reversal and replay audit | E0 forward/reverse/checkpoint | return error, event/checksum agreement, invariants | exact branch is numerically trustworthy | backward video, state snapping, event-order drift |

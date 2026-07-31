@@ -15,3 +15,12 @@ Molecular Echoes E1 workflow:
 - `run_echo_e1.py` runs the frozen periodic same-present/opposite-futures
   experiment, writes audits and metrics, and produces the neutral figure/video
   when the `analysis` extra and `ffmpeg` are available.
+
+Molecular Echoes E2 workflow:
+
+- `calibrate_echo_e2.py` performs the excluded-seed, collision-dose-only budget
+  selection without accessing the passive-color response;
+- `run_echo_e2.py` runs the frozen molecule-budget ladder, the two selected-budget
+  mechanism controls, and the neutral evidence render.
+
+Smoke mode checks pipeline integrity only and is never primary evidence.

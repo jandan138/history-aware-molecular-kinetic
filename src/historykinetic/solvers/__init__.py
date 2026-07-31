@@ -4,6 +4,7 @@ from historykinetic.solvers.initial import (
     make_initial_state,
     particle_count_from_packing_fraction,
 )
+from historykinetic.solvers.modified_edmd import ModifiedHardDiskEDMD
 from historykinetic.solvers.observables import BlockGrid, BlockObservation, observe_blocks
 from historykinetic.solvers.result import (
     GeometryCollisionEvent,
@@ -29,6 +30,7 @@ __all__ = [
     "GeometryCollisionEvent",
     "HardDiskDSMC",
     "HardDiskEDMD",
+    "ModifiedHardDiskEDMD",
     "SimulationResult",
     "Snapshot",
     "SolverDiagnostics",

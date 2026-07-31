@@ -7,8 +7,8 @@ No 3D art task is allowed to outrun the scientific and branch-correctness gates.
 
 ### ECHO-S-001 — Preregister E1/E2 protocol
 
-**Status:** E1 frozen at `molecular-echoes-e1-preregistered-v0`; the E2 protocol
-must be frozen separately before E2 primary runs.
+**Status:** E1 frozen at `molecular-echoes-e1-preregistered-v0`; E2-v0 is frozen
+with dose-only calibration seeds 100/101 and primary seeds 0–5 separated.
 
 Freeze before primary runs:
 
@@ -56,12 +56,17 @@ and velocity resolutions.
 
 ### ECHO-S-005 — Collision-molecule event annotations
 
+**Status:** implemented for E2-v0; primary evidence pending.
+
 Extend the event log with molecule root, size, recollision/reconnection rank,
 predecessors, incoming normal velocity, and event multiplicity.
 
 **Depends on:** ECHO-S-002.
 
 ### ECHO-S-006 — History-budget dynamics
+
+**Status:** implemented for the periodic 2D E2-v0 scope, including explicit
+overlap entry/exit semantics; primary evidence pending.
 
 Implement full EDMD and the registered `(Lambda, Gamma)` extended-dynamics paths
 with explicit ghost semantics.
@@ -70,12 +75,18 @@ with explicit ghost semantics.
 
 ### ECHO-S-007 — Mechanism null controls
 
+**Status:** implemented only for the dose-selected `(4,0)` budget as
+preregistered; primary evidence pending.
+
 Implement collision-count/time-matched random suppression and topology-shuffled
 partner controls.
 
 **Depends on:** ECHO-S-006.
 
 ### ECHO-S-008 — Incoming-pair closure readout
+
+**Status:** implemented and frozen as a supporting readout; primary evidence
+pending.
 
 Implement preregistered low-dimensional proxies for anisotropy and passive-color
 transport.
@@ -84,8 +95,8 @@ transport.
 
 ### ECHO-S-009 — Scale and fixed-`N epsilon` study
 
-Run `N=128,256,512` first; only after the mechanism passes, add a small fixed-
-`N epsilon` sequence.
+Run the frozen E2-v0 `N=128,256` gate first. `N=512` and a small fixed-`N epsilon`
+sequence are permitted only after the mechanism passes.
 
 **Depends on:** ECHO-S-004, ECHO-S-007, ECHO-S-008.
 

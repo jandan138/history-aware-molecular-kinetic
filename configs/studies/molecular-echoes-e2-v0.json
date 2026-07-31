@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0.0",
+  "study_id": "MOLECULAR-ECHOES-E2-v0",
+  "e1_protocol": "molecular-echoes-e1-v0.json",
+  "layer_width": 0.1,
+  "seeds": [0, 1, 2, 3, 4, 5],
+  "molecule_ladder": {
+    "budgets": [[4, 0], [8, 0], [16, 1]],
+    "selected_control_budget": [4, 0]
+  },
+  "calibration": {
+    "particle_count": 128,
+    "excluded_seeds": [100, 101],
+    "selection_rule": "mean collision dose closest to 0.5 over both directions; lexical tie break; passive-color scores forbidden"
+  },
+  "controls": {
+    "random_seed_offset": 200000,
+    "topology_seed_offset": 300000
+  },
+  "bootstrap": {
+    "resamples": 10000,
+    "seed": 20260801
+  },
+  "acceptance": {
+    "minimum_reverse_ladder_spearman": 0.7,
+    "minimum_reverse_full_ghost_gap": 0.3,
+    "minimum_selected_random_gap": 0.03,
+    "minimum_selected_topology_gap": 0.03,
+    "minimum_control_gap_ci_lower": 0.0,
+    "maximum_control_dose_relative_error": 0.15,
+    "maximum_forward_recovery": 0.35
+  },
+  "render": {
+    "hero_particle_count": 128,
+    "hero_seed": 0,
+    "fps": 24,
+    "frame_repeat": 2,
+    "final_hold_frames": 48
+  }
+}

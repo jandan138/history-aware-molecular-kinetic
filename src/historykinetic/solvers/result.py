@@ -50,7 +50,11 @@ class SolverDiagnostics:
 @dataclass(frozen=True, slots=True)
 class SimulationResult:
     backend: str
-    event_semantics: Literal["geometric_collision", "kinetic_collision"]
+    event_semantics: Literal[
+        "geometric_collision",
+        "kinetic_collision",
+        "admissible_collision_overlap",
+    ]
     snapshots: tuple[Snapshot, ...]
     collision_events: tuple[CollisionEvent, ...]
     diagnostics: SolverDiagnostics

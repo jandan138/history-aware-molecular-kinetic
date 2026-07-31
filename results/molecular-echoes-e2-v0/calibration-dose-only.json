@@ -1,0 +1,111 @@
+{
+  "evidence_scope": "excluded calibration seeds; collision dose only",
+  "mean_collision_dose_by_branch": {
+    "budget-l16-g1": 0.7895335126009468,
+    "budget-l4-g0": 0.5714671879351156,
+    "budget-l8-g0": 0.6820534408939014
+  },
+  "passive_color_observable_accessed": false,
+  "rows": [
+    {
+      "accepted_collision_count": 69,
+      "branch": "budget-l4-g0",
+      "collision_dose": 0.518796992481203,
+      "direction": "forward",
+      "full_collision_count": 133,
+      "seed": 100
+    },
+    {
+      "accepted_collision_count": 86,
+      "branch": "budget-l8-g0",
+      "collision_dose": 0.6466165413533834,
+      "direction": "forward",
+      "full_collision_count": 133,
+      "seed": 100
+    },
+    {
+      "accepted_collision_count": 99,
+      "branch": "budget-l16-g1",
+      "collision_dose": 0.7443609022556391,
+      "direction": "forward",
+      "full_collision_count": 133,
+      "seed": 100
+    },
+    {
+      "accepted_collision_count": 65,
+      "branch": "budget-l4-g0",
+      "collision_dose": 0.5078125,
+      "direction": "reverse",
+      "full_collision_count": 128,
+      "seed": 100
+    },
+    {
+      "accepted_collision_count": 78,
+      "branch": "budget-l8-g0",
+      "collision_dose": 0.609375,
+      "direction": "reverse",
+      "full_collision_count": 128,
+      "seed": 100
+    },
+    {
+      "accepted_collision_count": 98,
+      "branch": "budget-l16-g1",
+      "collision_dose": 0.765625,
+      "direction": "reverse",
+      "full_collision_count": 128,
+      "seed": 100
+    },
+    {
+      "accepted_collision_count": 66,
+      "branch": "budget-l4-g0",
+      "collision_dose": 0.6111111111111112,
+      "direction": "forward",
+      "full_collision_count": 108,
+      "seed": 101
+    },
+    {
+      "accepted_collision_count": 81,
+      "branch": "budget-l8-g0",
+      "collision_dose": 0.75,
+      "direction": "forward",
+      "full_collision_count": 108,
+      "seed": 101
+    },
+    {
+      "accepted_collision_count": 93,
+      "branch": "budget-l16-g1",
+      "collision_dose": 0.8611111111111112,
+      "direction": "forward",
+      "full_collision_count": 108,
+      "seed": 101
+    },
+    {
+      "accepted_collision_count": 70,
+      "branch": "budget-l4-g0",
+      "collision_dose": 0.6481481481481481,
+      "direction": "reverse",
+      "full_collision_count": 108,
+      "seed": 101
+    },
+    {
+      "accepted_collision_count": 78,
+      "branch": "budget-l8-g0",
+      "collision_dose": 0.7222222222222222,
+      "direction": "reverse",
+      "full_collision_count": 108,
+      "seed": 101
+    },
+    {
+      "accepted_collision_count": 85,
+      "branch": "budget-l16-g1",
+      "collision_dose": 0.7870370370370371,
+      "direction": "reverse",
+      "full_collision_count": 108,
+      "seed": 101
+    }
+  ],
+  "schema_version": "1.0.0",
+  "selected_branch": "budget-l4-g0",
+  "selection_rule": "mean dose closest to 0.5; lexical tie break",
+  "study_id": "MOLECULAR-ECHOES-E2-v0"
+}
