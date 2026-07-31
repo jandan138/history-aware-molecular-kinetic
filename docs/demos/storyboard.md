@@ -1,229 +1,263 @@
-# Storyboard and Shot Grammar
+# Storyboard and Shot Grammar — Molecular Echoes
 
-> 本文件定义最终视频的叙事结构和 shot IDs。具体相机参数由 `configs/render/scenes/*.yml` 冻结。
+> 本文件定义 active SIG 视频的叙事结构与 shot IDs。最终相机、branch IDs、时间和 renderer config 必须由 evidence manifest 冻结。
 
 ---
 
 ## 1. 总体视频结构
 
-### Teaser：30–45 秒
+## Teaser：30–45 秒
 
-目标不是解释全部算法，而是留下一个清晰记忆点：
+核心记忆点：
 
-> 同一个大尺度稀薄气体场景中，只有局部区域保留真实硬球身份与碰撞历史；表示边界随物理误差移动，而不是随相机移动。
+> **Same resolved frame. Different collision histories. Opposite futures.**
 
 建议结构：
 
 ```text
-0–5 s   Expansion into Vacuum 全景，plume 形成
-5–12 s  沿 plume 推进，volume 过渡到 particles
-12–19 s exact/kinetic boundary 与真实 collision identities
-19–27 s state-only vs proposed vs reference 三联对比
-27–35 s Correlation Labyrinth matched-state freeze frame
-35–45 s cost–quality / exact fraction + title
+0–5 s    彩色分子图案在透明容器中开始扩散
+5–10 s   到达 pivot；exact/chaotized 当前画面与 f1_h 审计匹配
+10–17 s  exact reverse 重构图案，chaotized/DSMC 继续混合
+17–23 s  history-budget slider + molecule/null-control 对比
+23–31 s  点击一次碰撞，分叉为 Two Worlds，causal cone 扩散
+31–38 s  回到过去移动挡板，local branch 与 full reference 对齐
+38–45 s  runtime/storage + title: Molecular Echoes
 ```
 
-### Main video：3–5 分钟
+所有 fork 之后的画面都必须由 branch dynamics 向前生成。倒放视频只能作为明确标记的 baseline。
 
-1. 研究问题；
-2. exact 与 kinetic 表示；
-3. collision history indicator；
-4. conversion；
-5. dynamic LOD；
-6. 三场景结果；
-7. performance、limitations、failure cases。
+## Main video：3–5 分钟
+
+1. Deng–Hani–Ma 启发：一粒子闭合遗忘什么；
+2. Phase-I predictor 负结果与诚实转向；
+3. exact reverse / chaotized / DSMC；
+4. multi-resolution `f1_h` audit；
+5. collision-molecule budget 与 null controls；
+6. collision causal graph；
+7. checkpoint / replay / persistent branch；
+8. one-event and geometry counterfactual edits；
+9. correlation surgery authoring；
+10. performance、limitations、failure cases。
 
 ---
 
 ## 2. 通用 shot grammar
 
-每个 result 段落遵循：
+Scientific shot：
 
 ```text
-Context → Failure → Trigger → Representation → Recovered physics → Cost
+Pivot contract → controlled intervention → future response → mechanism control
 ```
 
-每个 shot 只承担一个主要问题。若一个镜头需要同时解释三个新概念，就拆开。
-
----
-
-## 3. Zoomable Mixing Chamber
-
-### ZM-01 — Macro context
-
-- 远景；
-- 两种 species 被 divider 分开；
-- 只显示 volume/species concentration；
-- divider 打开；
-- 不显示 mask。
-
-**问题：**场景是什么？
-
-### ZM-02 — Shared state
-
-- 固定相机；
-- volume 与 statistical display particles 做平滑混合；
-- 显示 display policy legend。
-
-**问题：**宏观体积和微观显示来自同一状态吗？
-
-### ZM-03 — Exact identity reveal
-
-- 相机进入一个已经由 physics policy 选中的 exact block；
-- exact particles 保持 identity；
-- 短 collision trails；
-- 屏幕边角显示“camera does not trigger promotion”。
-
-**问题：**真实粒子身份在哪里被保留？
-
-### ZM-04 — Conversion continuity
-
-- freeze camera；
-- 显示 conversion timeline；
-- 画 volume integral、species mass、M/P/E error；
-- 在同一时刻比较有/无 warm-up 或 naive baseline。
-
-**问题：**conversion 是否 popping，是否守恒？
-
-### ZM-05 — Zoom audit
-
-- 相机往返 zoom；
-- 并排显示 physics partition 与 display LOD；
-- physics mask 保持不受相机影响。
-
-**问题：**visual zoom 是否和 physical refinement 解耦？
-
----
-
-## 4. Correlation Labyrinth
-
-### CL-01 — Geometry and flow
-
-- 俯视或轻透视；
-- 显示两个设计为 local state 相近的 chamber；
-- tracer 展示不同 re-encounter topology。
-
-### CL-02 — State-only ambiguity
-
-- freeze frame；
-- 框选 matched block A/B；
-- 显示 density、temperature、stress、Knudsen 等 state features；
-- 数值接近。
-
-**问题：**传统局部状态为什么难区分？
-
-### CL-03 — History difference
-
-- 同一两个 block；
-- 显示 rolling collision graph；
-- repeated pair、cycle rank、lineage/re-merging；
-- 图形只在 inset 中显示。
-
-**问题：**历史结构有什么不同？
-
-### CL-04 — Future discrepancy
-
-- 从相同当前时刻向前播放 declared horizon；
-- full EDMD reference 与 kinetic prediction 并排；
-- 显示 future observable error。
-
-**问题：**history difference 是否对应真正的未来误差？
-
-### CL-05 — Policy comparison
-
-四列或两组切换：
+Graphics shot：
 
 ```text
-state-only | practical history/probe | oracle upper bound | reference
+Past edit → branch fork → causal cone → recomputed future → full-reference audit → reuse benefit
 ```
 
-显示 partition 与 recovered observable。
-
-### CL-06 — Held-out evidence
-
-- 不再展示训练场景；
-- 显示 held-out geometry/regime；
-- 小型 calibration/recall plot；
-- 强调 operational improvement，而不是单纯 ML score。
+每个镜头只承担一个主要问题。不要同时解释 `f1_h`、T-dynamics、branch storage 和 renderer。
 
 ---
 
-## 5. Expansion into Vacuum
+## 3. Molecular Logo Echo
 
-### EV-01 — Establishing shot
+### ME-01 — Prepared pattern
 
-- 透明 chamber + aperture + low-density exterior；
-- 气体释放；
-- plume silhouette 清楚；
-- 不显示 diagnostics。
+- 透明周期盒/容器；
+- passive colors 形成简单图案；
+- 短暂显示 initial anisotropy；
+- 不显示 graph。
 
-### EV-02 — Method-neutral comparison
+**问题：**过去是什么？
 
-- 固定相机和 transfer function；
-- full kinetic、state-only LOD、proposed、reference；
-- 优先显示 plume angle、density ridge、species front 或 declared observable。
+### ME-02 — Mixing and pivot
 
-### EV-03 — Moving refinement front
+- 图案逐渐消失；
+- 到 `t_*` freeze；
+- exact reverse 与 chaotized reverse 并排；
+- 当前视觉一致。
 
-- proposed 单画面；
-- exact boundary 用轻轮廓或粒子形态显示；
-- probe blocks 用小边框；
-- mask 作为小地图，而非覆盖 plume。
+**问题：**两个 branch 的现在看起来是否相同？
 
-### EV-04 — Macro-to-micro travel
+### ME-03 — Resolved-state audit
 
-- 相机沿 plume 推进；
-- volume → statistical display particles → exact identities；
-- camera 不改变 physics mask；
-- exact particles 显示真实 collision event。
+- 固定 pivot；
+- 显示 spatial/velocity 多分辨率匹配表；
+- density、momentum、temperature、color counts；
+- 标注“same resolved present, not same microstate”。
 
-### EV-05 — Why state-only fails
+**问题：**“same present”具体保持了什么？
 
-- 选择一个 transitional block；
-- 显示 state-only score 与 history/probe score；
-- 对应 velocity distribution 或 escape probability；
-- 未来误差对比。
+### ME-04 — Opposite futures
 
-### EV-06 — Cost–quality result
+- branch 向前播放；
+- exact reverse 重构图案；
+- chaotized/DSMC 继续混合；
+- 同步 anisotropy/color curve。
 
-- 同一镜头背景；
-- 右侧显示 Pareto curve；
-- 标出 full EDMD、full kinetic、state-only、proposed；
-- 同时显示平均 exact fraction 和 wall-clock/memory。
+**问题：**隐藏 history 是否改变未来？
 
-### EV-07 — Failure indicator
+### ME-05 — History budget
 
-- 展示一个 policy 不确定或 coarse backend 不适用的区域；
-- 方法明确标记并回退，而不是隐藏失败。
+- full、small/medium budget、random count-matched、ghost；
+- 同一时间与 camera；
+- graph inset 显示 molecule 结构；
+- collision count 单独显示。
+
+**问题：**结构化 history 是否不只是更多碰撞？
+
+### ME-06 — Limitation
+
+- 展示一个 audit 过粗或 numerical reverse 失败的案例；
+- 说明 claim boundary。
 
 ---
 
-## 6. Figures and contact sheets
+## 4. One Collision, Two Worlds
 
-每个主图对应固定 shot：
+### TW-01 — Select event
+
+- 播放原 branch；
+- 用户暂停并点击一次 collision；
+- 显示 event time、pair 和 immediate predecessors；
+- 不展开全部 graph。
+
+### TW-02 — Apply edit and fork
+
+- 修改一颗入射速度或声明的 event 语义；
+- branch tree 增加 child；
+- parent 保持不变；
+- checkpoint 被选中。
+
+### TW-03 — Causal cone begins
+
+- 差异从两颗粒子开始；
+- affected set 用克制的 outline/trail 表示；
+- 右侧小图显示 descendant graph；
+- affected fraction 曲线开始增长。
+
+### TW-04 — Two worlds diverge
+
+- original 与 counterfactual 并排；
+- passive-color transport / escape / residence 出现宏观差异；
+- 不显示 full-screen mask。
+
+### TW-05 — Correctness audit
+
+三列：
+
+```text
+local causal branch | full resimulation | absolute difference
+```
+
+显示 state/event tolerance、fallback 状态。
+
+### TW-06 — Cost and locality
+
+- causal cone fraction；
+- runtime；
+- shared event/checkpoint storage；
+- edit age/density 作为简洁 inset。
+
+### TW-07 — Global-cone failure
+
+- 选择一个老/强 edit；
+- cone 迅速全局化；
+- 系统明确 fallback 到 full replay。
+
+---
+
+## 5. Edit the Past
+
+### EP-01 — Molecular maze context
+
+- 透明简单 maze/chamber；
+- passive-color particles 与出口；
+- 原始未来播放一次。
+
+### EP-02 — Scrub to the past
+
+- 用户拖动 timeline 回到旧 checkpoint；
+- 历史事件图/branch tree 显示位置；
+- 不是视频倒带：显示 state restore 标记。
+
+### EP-03 — Geometry edit
+
+- 移动 baffle、打开 aperture 或插入 circle/sphere obstacle；
+- edit manifest 生成；
+- 新 branch fork。
+
+### EP-04 — Recompute future cone
+
+- affected region 扩张；
+- unaffected trajectories 保持稳定；
+- 新旧 event segments 用 branch inset 表示。
+
+### EP-05 — Result comparison
+
+```text
+original future | local edited branch | full edited resimulation
+```
+
+显示出口流量、颜色输运或 residence difference。
+
+### EP-06 — Performance
+
+- local/full time；
+- shared history/storage；
+- affected fraction；
+- fallback frequency。
+
+### EP-07 — Correlation surgery option
+
+- 回到 pivot；
+- 保持 registered resolved current state；
+- 用户选择 retain/chaotize hidden molecules；
+- 两条 alternate futures。
+
+只有 G6 通过时，该镜头进入主视频。
+
+---
+
+## 6. 主图与镜头绑定
 
 | Figure concept | Shot source |
 |---|---|
-| Teaser / first page | EV-01 + EV-04 composite, shared artifact time |
-| Representation overview | ZM-02/03/05 |
-| History adds value | CL-02/03/04 |
-| Policy comparison | CL-05 or EV-02/03 |
-| Conversion continuity | ZM-04 |
-| Dynamic Pareto | EV-06 |
-| Limitations | EV-07 + supplementary failure reel |
+| Teaser / first page | ME-02 + ME-04 |
+| Deng-inspired information boundary | ME-03/04/05 |
+| Collision causal representation | TW-01/02/03 |
+| Counterfactual correctness | TW-05 |
+| Locality and performance | TW-06 + EP-06 |
+| Past geometry edit | EP-03/04/05 |
+| Correlation surgery | EP-07 or ME-03/04 |
+| Limitations | ME-06 + TW-07 |
 
-Composite figure 必须在 recipe 中列出每个 panel 的 run ID、time、camera hash 和 renderer config hash。
+Composite figures must list run, branch, edit, frame time, camera hash, renderer hash, and metric artifact per panel.
 
 ---
 
-## 7. Voice-over rule
+## 7. Voice-over rules
 
 不要说：
 
-> “红色区域更复杂，所以我们切到 EDMD。”
+> “我们保存历史，所以牛顿方程可以倒放。”
 
 要说：
 
-> “这两个区域的局部密度、温度和 Knudsen 指标接近，但过去一个窗口内的碰撞重遇结构不同。右侧区域在未来 horizon 中出现更大的 kinetic discrepancy，因此 practical probe policy 只在这里保留 exact dynamics。”
+> “Exact hard-sphere dynamics is reversible in principle. Our contribution is to make collision correlation a queryable branch representation, to audit what a resolved one-particle present forgets, and to support physically recomputed edits of the past.”
 
-视频语言必须与 claim ledger 一样严格。
+不要说：
+
+> “这两个状态完全一样。”
+
+要说：
+
+> “They match the preregistered resolved one-particle state over the reported resolution sweep, while retaining different hidden multi-particle correlations.”
+
+不要说：
+
+> “我们只重算局部区域。”
+
+要说：
+
+> “We expand the causal cone conservatively and fall back to full replay when locality is lost.”
