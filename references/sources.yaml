@@ -1,5 +1,5 @@
 schema_version: "1.0.0"
-accessed_utc: "2026-07-29T00:00:00Z"
+accessed_utc: "2026-07-31T00:00:00Z"
 sources:
   - id: deng_hani_ma_hard_spheres_2024
     kind: paper
@@ -16,6 +16,7 @@ sources:
       - a GPU cutting or partition algorithm
       - dense-gas or arbitrary-geometry guarantees
       - novelty of velocity reversal or a finite T-dynamics implementation
+      - correctness of causal rewind or branch reuse
 
   - id: aoki_pulvirenti_simonella_velazquez_2014
     kind: paper
@@ -49,9 +50,39 @@ sources:
     url: https://www.sciencedirect.com/science/article/pii/0375960167906512
     role: velocity_reversal_prior_art
     supports:
-      - velocity-inversion/echo phenomena are established prior art
+      - velocity-inversion and echo phenomena are established prior art
     does_not_support:
       - novelty of a plain hard-disk reversal movie
+
+  - id: perumalla_protopopescu_2013
+    kind: paper
+    title: Reversible Simulations of Elastic Collisions
+    authors: [Kalyan S. Perumalla, Vladimir A. Protopopescu]
+    year: 2013
+    url: https://www.ornl.gov/publication/reversible-simulations-elastic-collisions
+    arxiv: https://arxiv.org/abs/1302.1126
+    role: reversible_collision_algorithm_prior_art
+    supports:
+      - prior algorithms recover pre-collision states in elastic hard-sphere systems
+      - reversibility alone is not a novel contribution
+    does_not_support:
+      - collision-history causal editing
+      - resolved-state-preserving correlation surgery
+      - persistent counterfactual animation branches
+
+  - id: jefferson_time_warp_1987
+    kind: paper
+    title: Time Warp Operating System
+    authors: [David R. Jefferson et al.]
+    year: 1987
+    doi: 10.1145/41457.37508
+    url: https://doi.org/10.1145/41457.37508
+    role: discrete_event_rollback_prior_art
+    supports:
+      - checkpoint rollback and causal recovery are established discrete-event concepts
+    does_not_support:
+      - novelty or correctness of the hard-sphere-specific causal-cone branch algorithm
+      - correlation surgery or graphics authoring claims
 
   - id: deng_hani_ma_hydrodynamic_2025
     kind: paper
@@ -63,7 +94,7 @@ sources:
     supports:
       - stated hard-sphere to Boltzmann to fluid-equation program
     does_not_support:
-      - correctness of our finite numerical hybrid
+      - correctness of our finite numerical hybrid or animation system
 
   - id: dynamo_repo
     kind: software
@@ -199,3 +230,25 @@ sources:
     year: 2009
     url: https://pubmed.ncbi.nlm.nih.gov/19518225/
     role: collision_statistics_metric_context
+
+  - id: siggraph_2026_technical_papers
+    kind: venue_documentation
+    title: SIGGRAPH 2026 Technical Papers
+    year: 2026
+    url: https://s2026.siggraph.org/program/technical-papers/
+    role: venue_scope_reference
+    supports:
+      - current SIGGRAPH technical-paper scope and 2026 track structure
+    notes:
+      - recheck the official call for the actual target year
+
+  - id: ieee_vis_2026_area_model
+    kind: venue_documentation
+    title: IEEE VIS 2026 Area Model
+    year: 2026
+    url: https://ieeevis.org/year/2026/info/call-participation/area-model/
+    role: vis_fallback_scope_reference
+    supports:
+      - Systems and Rendering, Representations and Interaction, and Analytics and Decisions scope
+    notes:
+      - a VIS pivot requires a real visual-analytics contribution and evaluation
