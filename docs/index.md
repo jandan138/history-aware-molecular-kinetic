@@ -32,6 +32,11 @@ branch matches all `106` full-resimulation collision pairs, reuses `79/105`
 baseline events, and peaks at `33/128` affected particles. See the
 [E3 result](benchmarks/molecular-time-machine-e3-result.md).
 
+E4 is now frozen as the next story act: **Choose the Cause, Direct the Future**.
+Instead of handing a creator a collision, the Hero begins with a selected terminal
+feature, traces its baseline ancestors, and exposes a small exact branch palette.
+See the [E4 recipe](benchmarks/molecular-time-machine-e4-preregistration.md).
+
 ## Read in this order
 
 1. [从 GAMES103 与流体入门到 Molecular–Kinetic Simulation](learning/from-games103-to-history-aware-molecular-kinetic.md)
@@ -40,14 +45,15 @@ baseline events, and peaks at `33/128` affected particles. See the
 4. [Molecular Time Machine route](research/molecular-time-machine-route.md)
 5. [E3 frozen recipe](benchmarks/molecular-time-machine-e3-preregistration.md)
 6. [E3 result](benchmarks/molecular-time-machine-e3-result.md)
-7. [Deng–Hani–Ma connection](research/deng-hard-sphere-connection.md)
-8. [Paper positioning](vision/paper-positioning.md)
-9. [Venue strategy](vision/venue-strategy.md)
-10. [Active E0–E6 suite](benchmarks/echo-branching-suite.md)
-11. [Graph and branching architecture](architecture/collision-history-graph-and-branching.md)
-12. [First stage](roadmap/molecular-echo-first-stage.md)
-13. [Go/No-Go gates](roadmap/go-no-go-gates.md)
-14. [Hero scenes](demos/hero-scenes.md)
+7. [E4 frozen recipe](benchmarks/molecular-time-machine-e4-preregistration.md)
+8. [Deng–Hani–Ma connection](research/deng-hard-sphere-connection.md)
+9. [Paper positioning](vision/paper-positioning.md)
+10. [Venue strategy](vision/venue-strategy.md)
+11. [Active E0–E6 suite](benchmarks/echo-branching-suite.md)
+12. [Graph and branching architecture](architecture/collision-history-graph-and-branching.md)
+13. [First stage](roadmap/molecular-echo-first-stage.md)
+14. [Go/No-Go gates](roadmap/go-no-go-gates.md)
+15. [Hero scenes](demos/hero-scenes.md)
 
 ## Scientific and graphics bridge
 

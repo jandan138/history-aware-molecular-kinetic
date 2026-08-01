@@ -20,7 +20,7 @@
 10–17 s  exact reverse 重构图案，chaotized/DSMC 继续混合
 17–23 s  history-budget slider + molecule/null-control 对比
 23–31 s  点击一次碰撞，分叉为 Two Worlds，causal cone 扩散
-31–38 s  回到过去移动挡板，local branch 与 full reference 对齐
+31–38 s  选择未来的一笔，回溯碰撞原因，导演新的 branch
 38–45 s  runtime/storage + title: Molecular Echoes
 ```
 
@@ -35,7 +35,7 @@
 5. collision-molecule budget 与 null controls；
 6. collision causal graph；
 7. checkpoint / replay / persistent branch；
-8. one-event and geometry counterfactual edits；
+8. one-event and outcome-directed counterfactual edits；
 9. correlation surgery authoring；
 10. performance、limitations、failure cases。
 
@@ -167,55 +167,38 @@ local causal branch | full resimulation | absolute difference
 
 ---
 
-## 5. Edit the Past
+## 5. Choose the Cause, Direct the Future
 
-### EP-01 — Molecular maze context
+### CS-01 — Select the future feature
 
-- 透明简单 maze/chamber；
-- passive-color particles 与出口；
-- 原始未来播放一次。
+- recovered `E` 作为终局画面；
+- 用户框选上横杠；
+- 高亮该 feature 的 persistent particle IDs；
+- 明确显示“我希望这里改变”。
 
-### EP-02 — Scrub to the past
+### CS-02 — Trace to past causes
 
-- 用户拖动 timeline 回到旧 checkpoint；
-- 历史事件图/branch tree 显示位置；
-- 不是视频倒带：显示 state restore 标记。
+- timeline 回到过去，但不是倒放视频；
+- 三个候选碰撞按 baseline descendant coverage/purity 高亮；
+- 只显示必要的小图，不展开整张 graph。
 
-### EP-03 — Geometry edit
+### CS-03 — Browse exact previews
 
-- 移动 baffle、打开 aperture 或插入 circle/sphere obstacle；
-- edit manifest 生成；
-- 新 branch fork。
+- 用户选择推荐碰撞并拨动 `-2°,-1°,+1°,+2°`；
+- 左右使用相同相机显示原未来和预览未来；
+- 标明 preview 是 exact local branch，而不是 renderer effect。
 
-### EP-04 — Recompute future cone
-
-- affected region 扩张；
-- unaffected trajectories 保持稳定；
-- 新旧 event segments 用 branch inset 表示。
-
-### EP-05 — Result comparison
+### CS-04 — Save and verify
 
 ```text
-original future | local edited branch | full edited resimulation
+selected target → ranked cause → saved branch → full reference
 ```
 
-显示出口流量、颜色输运或 residence difference。
+- 显示 target 与 collateral 的改变比例；
+- 显示 baseline-event reuse；
+- 仅保存分支显示 local/full exactness inset。
 
-### EP-06 — Performance
-
-- local/full time；
-- shared history/storage；
-- affected fraction；
-- fallback frequency。
-
-### EP-07 — Correlation surgery option
-
-- 回到 pivot；
-- 保持 registered resolved current state；
-- 用户选择 retain/chaotize hidden molecules；
-- 两条 alternate futures。
-
-只有 G6 通过时，该镜头进入主视频。
+几何编辑和 correlation surgery 只有在后续单独通过 gate 后，才会成为新的镜头。
 
 ---
 
@@ -227,9 +210,10 @@ original future | local edited branch | full edited resimulation
 | Deng-inspired information boundary | ME-03/04/05 |
 | Collision causal representation | TW-01/02/03 |
 | Counterfactual correctness | TW-05 |
-| Locality and performance | TW-06 + EP-06 |
-| Past geometry edit | EP-03/04/05 |
-| Correlation surgery | EP-07 or ME-03/04 |
+| Outcome-to-cause authoring | CS-01/02/03/04 |
+| Broader locality/performance | deferred after E4 |
+| Past geometry edit | deferred after E4 |
+| Correlation surgery | deferred after E4 or ME-03/04 |
 | Limitations | ME-06 + TW-07 |
 
 Composite figures must list run, branch, edit, frame time, camera hash, renderer hash, and metric artifact per panel.

@@ -26,14 +26,14 @@ Three scenes have distinct responsibilities:
 |---|---|
 | **Molecular Logo Echo** | scientific hook and first-page visual |
 | **One Collision, Two Worlds** | causal-graph and branch algorithm |
-| **Edit the Past** | interaction, locality, performance, and system value |
+| **Choose the Cause** | outcome-to-cause interaction and scoped system value |
 
 The old Zoomable Mixing, Correlation Labyrinth, and Expansion into Vacuum scenes are
 retained as deferred LOD assets; they are not active paper evidence.
 
 ---
 
-## 2. V0–V5 production ladder
+## 2. V0–V6 production ladder
 
 ## V0 — Event and Replay Diagnostic Viewer
 
@@ -137,7 +137,33 @@ and the interaction is understandable without reading the paper.
 
 ---
 
-## V4 — Edit the Past and Correlation Surgery
+## V4 — Choose the Cause, Direct the Future
+
+**Begins after E3 and is the active E4 visual gate.**
+
+The creator does not begin with a hand-picked collision. They select a feature in
+the terminal molecular image; the system traces that feature through the baseline
+collision DAG, ranks a small set of past causes, and lets them browse an exact
+preview palette.
+
+Required visual elements:
+
+- selected terminal feature and its persistent particle IDs;
+- baseline-only causal ranking on the past timeline;
+- physical-angle palette with a clear selected branch;
+- original and directed futures under the same display;
+- target-versus-collateral outcome readout;
+- one explicit full-reference confirmation for the saved branch.
+
+### Exit
+
+A viewer can understand “choose the consequence first, then find the cause” without
+reading a debug graph. The browser artifact may switch cached exact results but may
+not imply that rendering itself performed a physical edit.
+
+---
+
+## V5 — Deferred geometry edit and correlation surgery
 
 **Begins after G5/G6.**
 
@@ -168,7 +194,7 @@ uncontrolled chaos.
 
 ---
 
-## V5 — SIG Production and Evidence Release
+## V6 — SIG Production and Evidence Release
 
 **Begins after G7.**
 
@@ -183,7 +209,7 @@ Final deliverables:
 - frozen cameras, render configs, branch IDs, metrics, and frame hashes;
 - commands that reconstruct all primary contact sheets.
 
-No new physical branch, edit class, or metric may debut in V5.
+No new physical branch, edit class, or metric may debut in V6.
 
 ---
 
@@ -197,7 +223,7 @@ Suggested 40-second structure:
 10–17 s  exact history reconstructs the pattern; other branches do not
 17–24 s  history-budget slider and collision molecules
 24–32 s  select one collision: two futures and spreading causal cone
-32–38 s  edit a past obstacle; local branch vs full reference
+32–38 s  select a future stroke, trace it to a past collision, and direct a branch
 38–40 s  title: Molecular Echoes
 ```
 

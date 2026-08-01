@@ -5,9 +5,11 @@ from .branch import (
     BranchComparison,
     BranchTiming,
     CausalBranchDiagnostics,
+    CausalBranchPreview,
     CausalBranchResult,
     CausalBranchRun,
     fork_causal_branch,
+    preview_causal_branch,
 )
 from .edit import (
     EditAudit,
@@ -28,6 +30,7 @@ __all__ = [
     "BranchComparison",
     "BranchTiming",
     "CausalBranchDiagnostics",
+    "CausalBranchPreview",
     "CausalBranchResult",
     "CausalBranchRun",
     "CausalCheckpoint",
@@ -39,6 +42,7 @@ __all__ = [
     "apply_pair_relative_velocity_rotation",
     "checkpoint_at_time",
     "fork_causal_branch",
+    "preview_causal_branch",
     "state_sha256",
     "trace_hard_disk_timeline",
 ]

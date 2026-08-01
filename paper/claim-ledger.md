@@ -39,9 +39,9 @@ implicitly revived in the Molecular Echoes paper.
 | C16 | An addressable collision timeline supports event ancestry, descendant queries, checkpoints, and state hashes | E3 | raw-event reconstruction, stable IDs, graph queries, checkpoint hashes | **passes E3-v0 Hero**; 107 baseline events, periodic/forced checkpoints, hashed artifacts |
 | C17 | The timeline can fork one conservative physical edit with complete branch provenance | E3 | edit/checkpoint/parent manifests, momentum and energy audit | **passes E3-v0 Hero**; `+1°` edit, momentum error `1.11e-15`, energy error `0` |
 | C18 | Exact expanding-causal-cone recomputation matches complete resimulation while reusing independent baseline events | E3 | local-vs-full pair/time/state error, reused events, affected fraction | **passes E3-v0 Hero**; pair agreement `1.0`, `79/105` events reused, peak affected `33/128` |
-| C19 | Causal reuse remains useful across broader edit ages, densities, and at least one second edit family | E4 | targeted locality/performance map and native timing | future; not required for the first Hero claim |
+| C19 | A creator can select a terminal feature, trace it to a ranked editable collision, and direct a scoped exact future | E4 | target membership, baseline-only causal ranking, exact preview palette, target/collateral change, one final full reference | **recipe frozen** as `Erase One Stroke`; result pending |
 | C20 | Resolved-state-preserving correlation surgery enables repeatable alternate-future authoring | E5 | multi-resolution `f1_h` audit, invariants, random-surgery baseline, controllability | proposed |
-| C21 | Editing an addressable past collision provides an animation workflow beyond reverse playback, outcome browsing, and generic rollback | E3/E6 | One Collision Hero, exact branch evidence, Many-Worlds/Storyboard/Time-Warp comparison | E3 exact operation and neutral visual pass; production interaction remains future |
+| C21 | Editing an addressable past collision provides an animation workflow beyond reverse playback, outcome browsing, and generic rollback | E3/E4/E6 | One Collision Hero, causal-steering interaction, exact branch evidence, Many-Worlds/Storyboard/Time-Warp comparison | E3 exact operation passes; E4 recipe freezes the creator-facing causal-steering interaction |
 | C22 | The final visual evidence is physically recomputed, fair, and reproducible | E6 | branch/run/metric/render manifests, comparison lock, failure reel | proposed |
 
 ## D. Claim dependency graph
@@ -49,7 +49,7 @@ implicitly revived in the Molecular Echoes paper.
 ```text
 C10 → C11 → C12
 C10 → C16 → C17 → C18
-C18 → C19
+C18 → C19 → C21
 C11 + C17 → C20
 C18 → C21 → C22
 C19/C20 strengthen C21 but do not block the first Hero gate
@@ -66,9 +66,9 @@ spine.
 |---|---|
 | C10–C12 | Molecular Logo Echo |
 | C13–C15 closed/limitations | E2 limitation panel only |
-| C16–C18/C21 | One Collision, Two Worlds |
-| C19 | future breadth/performance panels |
-| C18–C21 geometry extension | Edit the Past (future) |
+| C16–C18 | One Collision, Two Worlds |
+| C19/C21 | Choose the Cause, Direct the Future |
+| C18–C21 geometry extension | deferred after E4 |
 | C20 | Logo Echo or optional same-present surgery shot |
 | C22 | all three scenes plus evidence release |
 

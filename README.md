@@ -63,6 +63,13 @@ with all `106` collision pairs in the full resimulation while reusing `79/105`
 baseline events; its peak affected set is `33/128` particles. See the
 [`E3 Result`](docs/benchmarks/molecular-time-machine-e3-result.md).
 
+E4 is now frozen as the next, creator-facing act: **Choose the Cause, Direct the
+Future**. A creator selects a visible terminal feature, the system ranks its past
+causal collisions from baseline ancestry, and a compact exact-preview palette lets
+them save one directed branch. The scope is one registered Hero, not a new grid of
+defensive performance or edit-family experiments; see the
+[`E4 Recipe`](docs/benchmarks/molecular-time-machine-e4-preregistration.md).
+
 ## Core idea
 
 An exact hard-sphere microstate stores:
@@ -160,7 +167,7 @@ documented limitation and diagnostic visualization, not an active contribution.
 | **E1** | Do exact-reverse and chaotized branches match the declared resolved present yet separate in the future? |
 | **E2** | **Closed negative:** budget grades recovery, but structured wiring does not beat dose/topology controls |
 | **E3** | Can one addressable past collision fork an exact causal branch that visibly splits and reuses history? |
-| **E4** | After the Hero passes, how broadly do locality, performance, and other edit families hold? |
+| **E4** | Can a desired terminal feature locate a past collision that a creator can edit into a directed exact future? |
 | **E5** | Can correlation surgery preserve the declared present while authoring distinct futures? |
 | **E6** | Are the method, interaction, performance, and physical result legible in SIG-quality scenes? |
 
@@ -183,6 +190,13 @@ only as a disclosed intervention whose stronger topology claim failed.
 The user selects and edits one past collision. Two futures begin almost identically,
 then the difference spreads through the collision causal graph. The system shows the
 causal cone and verifies the local branch against full resimulation.
+
+### Act 4 — Choose the Cause, Direct the Future
+
+The creator begins at the terminal result rather than with a hand-picked collision:
+they select a stroke of the recovered `E`, inspect the past collisions that causally
+reach it, and browse a small set of exact physical previews. One saved branch is
+then checked against full resimulation. This is the scoped E4 causal-steering Hero.
 
 ### Future extension — Edit the Past
 
@@ -284,6 +298,18 @@ PYTHONPATH=src python scripts/run_time_machine_e3.py \
 The E3 command writes the collision timeline, edit manifest, causal-cone report,
 local/full comparison, compact decision, two-world figure, compressed trajectories,
 and neutral MP4 from one immutable protocol.
+
+Run the frozen E4 causal-steering recipe:
+
+```bash
+PYTHONPATH=src python scripts/run_time_machine_e4.py \
+  --config configs/studies/molecular-time-machine-e4-v0.json \
+  --output results/molecular-time-machine-e4-v0
+```
+
+The E4 command writes the selected terminal feature, baseline-only collision ranking,
+exact preview palette, saved-branch correctness reference, neutral figure/video, and
+a self-contained local browser interaction artifact.
 
 The frozen result, claim boundary, numerical table, and artifact hashes are recorded
 in the [`E1 Result`](docs/benchmarks/molecular-echoes-e1-result.md).

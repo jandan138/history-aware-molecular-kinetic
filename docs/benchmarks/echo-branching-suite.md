@@ -9,7 +9,7 @@ flowchart LR
     E0[E0 Exact dynamics + reversal] --> E1[E1 Same resolved present]
     E1 --> E2[E2 Molecule-budget mechanism]
     E0 --> E3[E3 Addressable collision + exact causal branch]
-    E3 --> E4[E4 Breadth + performance]
+    E3 --> E4[E4 Causal steering]
     E1 --> E5[E5 Correlation surgery]
     E2 --> E5
     E4 --> E6[E6 SIG graphics evidence]
@@ -149,41 +149,42 @@ counterfactual branch after one past-collision edit?
 The graph passes only if it performs the branch. The frozen thresholds and artifact
 list are in the [E3 recipe](molecular-time-machine-e3-preregistration.md).
 
-## E4 — Breadth, performance, and additional edit families
+## E4 — Causal steering: choose the cause, direct the future
 
 ### Question
 
-After the single-collision Hero passes, over what edit ages, densities, and edit
-families does causal reuse remain useful, and when does a native implementation
-deliver interactive latency?
+Can a creator select a terminal visual feature, use baseline collision ancestry to
+find a useful past cause, and browse a small exact counterfactual palette before
+saving one verified branch?
 
-### Edits
+### Registered Hero
 
-1. later or larger pair edits;
-2. a second physical edit family;
-3. optional simple obstacle/aperture edits;
-4. native/parallel implementation after semantics are frozen.
-
-### Baselines
-
-- full resimulation from the checkpoint;
-- full state duplication per branch;
-- replay-only video editing, which is not physically recomputed;
-- approximate fixed-radius local recomputation.
+- same E1 exact-reverse `N=128`, seed `0` world as E3;
+- select the nonempty upper horizontal stroke of the recovered E;
+- rank the first 16 collisions solely from target-descendant coverage and purity;
+- browse `-2°, -1°, +1°, +2°` conservative pair-velocity edits for the top three;
+- save one branch and run the one complete-resimulation reference.
 
 ### Evidence
 
-- local-vs-full terminal state/event error;
-- affected particle and event fractions over time;
-- runtime and storage;
-- fallback-to-full frequency;
-- scaling with edit age and density.
+- target membership and baseline-only collision ranking;
+- cached exact local branch palette and interaction latency;
+- target change versus non-target foreground change;
+- one saved branch's reuse, causal cone, conservation, and local/full agreement;
+- figure, neutral video, browser interaction artifact, and manifests.
 
 ### Gate
 
-The local algorithm must never claim exactness when it truncates an uncertain cone.
-It either expands the cone, marks the result approximate, or falls back to full
-replay.
+`go` requires the selected feature to change at least twice as strongly as
+collateral E foreground, median exact-preview latency below `0.20 s`, at least 50%
+saved-branch event reuse, and one exact local/full reference. If only the target
+selectivity fails, the wording narrows from **causal steering** to **causal
+exploration**.
+
+The complete frozen contract is in the [E4 recipe](molecular-time-machine-e4-preregistration.md).
+
+No density grid, extra edit family, geometry scene, native rewrite, or user study is
+part of this gate.
 
 ## E5 — Resolved-state-preserving correlation surgery
 

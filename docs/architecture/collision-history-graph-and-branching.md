@@ -10,6 +10,13 @@ forced fork checkpoint, pair-relative-velocity rotation, conservative affected-s
 expansion, baseline-event reuse, and a full-resimulation comparison. Geometry edits,
 copy-on-write storage optimization, and approximate cones remain later extensions.
 
+E4 adds a scoped authoring layer without changing the physical semantics: a terminal
+feature resolves to persistent particle IDs, baseline descendants rank its past
+collision causes, and a cached palette uses the same exact local causal scheduler as
+E3. Only the creator's saved branch launches the full-resimulation oracle. Thus a
+preview is a real local physical branch, while the one publishable branch retains an
+explicit exact reference.
+
 ## 1. Design objective
 
 The system must support four operations without confusing them:

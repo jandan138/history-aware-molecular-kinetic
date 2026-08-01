@@ -159,30 +159,31 @@ affected set `33/128`, terminal color gap `0.188218`. See the
 
 ---
 
-## M5 — E4 breadth and interactive performance
+## M5 — E4 causal steering interaction
 
 Deliverables:
 
-- one second physical edit family;
-- targeted edit-age/density locality cases;
-- optional simple obstacle/aperture edit;
-- native or parallel causal-branch implementation;
-- conservative fallback to full replay;
-- affected fraction, latency, and storage evidence that supports the chosen claim;
-- **V1:** creator-facing One Collision, Two Worlds interaction.
+- terminal feature selection with persistent particle membership;
+- baseline-only causal ranking from descendant coverage and purity;
+- a compact cached exact-preview branch palette;
+- one selected branch/full-resimulation comparison;
+- target-versus-collateral outcome readout;
+- a self-contained creator-facing interaction artifact;
+- **V1:** Choose the Cause, Direct the Future interaction.
 
 Exit:
 
 - the E3 exact semantics remain unchanged;
-- at least one second edit family or a meaningful edit-age range retains useful
-  locality;
-- fallback behavior is correct and reported;
+- ranking sees baseline ancestry, not edited outcomes;
+- exact previews are physical branches, not renderer changes;
+- the selected target changes more than collateral foreground;
+- the one saved branch matches full resimulation;
 - the interaction is more than a replayed movie.
 
 Decision:
 
-If breadth cones become global, keep the proven E3 Hero scoped and remove the broad
-local-speed claim rather than diluting it with extra controls.
+If the exact interaction works but selectivity does not, call it causal exploration
+rather than causal steering. Do not add a breadth grid to rescue the Hero.
 
 ---
 

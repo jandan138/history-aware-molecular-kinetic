@@ -29,12 +29,12 @@ are recorded in the
 | Collision-addressable timeline | E3 event log/graph/checkpoints | stable IDs, ancestry query, hashes | the graph is a branchable representation | decorative/aggregated graph losing events |
 | One-event counterfactual correctness | E3 collision #2, +1° edit | local-vs-full pair/time/state error, edit invariants | exact causal branch matches full resimulation | hidden full resimulation or fixed local truncation |
 | Hero history reuse and causal reach | E3 frozen branch | reused baseline events, invalidated/recomputed events, affected fraction | useful reuse exists in the demonstrated world split | visual difference without computational reuse |
-| Causal locality and scaling | E4 targeted edit-age/density cases after Hero | affected fraction, native runtime, fallback, storage | breadth and interactive performance | overgeneralizing the single Hero |
-| Geometry edit | E4 obstacle/aperture branch | flux/residence/color outcome, local/full error | edit-the-past system works | render-only edit or mismatched reference |
+| Causal steering | E4 selected terminal stroke | target membership, baseline-only ranking, exact preview palette, target/collateral outcome, one full reference | a desired consequence can locate an editable causal event | hand-picking an event after observing branches |
+| Scoped interaction | E4 browser artifact | cached exact previews, saved-branch manifest, latency, render lock | authoring is more than replay or render deformation | pretending every preview was fully recomputed globally |
 | Correlation surgery audit | E5 constrained/random surgery | `f1_h` sweep, invariants, no-overlap, controllability | current resolved state preserved while future is authored | visible pivot change or random-seed effect |
 | Molecular Logo Echo | E6 ME shots | C10–C14 linked metrics | scientific hook and Deng-inspired information boundary | classic Loschmidt echo only |
 | One Collision, Two Worlds | E3/E6 locked shot | C16–C18/C21 linked metrics | addressable past edit, exact branch, and causal spread | generic graph animation or hidden full-only execution |
-| Edit the Past | E6 EP shots | C18–C21 linked metrics | interaction, reuse, and system value | keyframing or post-production compositing |
+| Choose the Cause | E4/E6 CS shots | C19/C21 linked metrics | outcome-to-cause interaction and scoped system value | keyframing or post-production compositing |
 | Limitations | E0/E1/E2/E4 failures | reverse divergence, fine-audit mismatch, null-control equivalence, global cone | honest applicability boundary | omitted negative cases |
 
 ## Deferred evidence

@@ -82,20 +82,24 @@ full resimulation, `79/105` baseline events are reused, peak affected fraction i
 - event log and branch state can diverge silently;
 - random access requires storing full frames without an honest baseline.
 
-## Gate G4 — Breadth and performance after the Hero
+## Gate G4 — Causal steering after the Hero
 
 **Go:**
 
-- E3 exact semantics remain unchanged in a native/optimized path;
-- a second edit family or targeted edit-age range has useful locality;
-- runtime/storage evidence supports only the breadth claim actually made;
-- global-cone cases narrow the claim instead of triggering more E3 experiments.
+- E3 exact semantics remain unchanged in the preview path;
+- a terminal target resolves to persistent particle membership;
+- the collision ranking uses unedited baseline ancestry only;
+- a small exact branch palette can change the selected feature more than collateral;
+- the one saved branch agrees with complete resimulation;
+- preview latency supports the registered bounded interaction.
 
-**No-Go:**
+**Narrow / No-Go:**
 
-- optimized execution changes the frozen physical result;
-- every added edit immediately becomes global and offers no authoring value;
-- a wall-clock headline is based only on the Python Hero observation.
+- target selectivity fails while exact preview works: call the result causal
+  exploration, not steering;
+- saved branch correctness fails: stop E4;
+- the interaction is a replayed movie or a renderer-only deformation: stop E4;
+- a wall-clock headline exceeds the registered Hero observation.
 
 ## Gate G5 — Useful locality and system value
 

@@ -96,6 +96,20 @@ class BranchTiming:
 
 
 @dataclass(frozen=True, slots=True)
+class CausalBranchPreview:
+    """One exact local branch intended for a responsive authoring preview.
+
+    A preview uses the same conservative causal scheduler as a verified branch,
+    but deliberately does not launch the complete full-resimulation oracle.  A
+    caller that wants to publish or save a chosen branch must still call
+    :func:`fork_causal_branch`, which performs that one final comparison.
+    """
+
+    local: CausalBranchRun
+    local_seconds: float
+
+
+@dataclass(frozen=True, slots=True)
 class CausalBranchResult:
     local: CausalBranchRun
     full_resimulation: SimulationResult
@@ -133,13 +147,52 @@ def fork_causal_branch(
     is therefore an addressable particle-pair collision.
     """
 
-    if domain.boundary is not BoundaryKind.PERIODIC:
-        raise ValueError("causal branching v0 supports periodic domains")
-    if checkpoint.time >= end_time:
-        raise ValueError("branch end_time must be later than its checkpoint")
-    if sample_interval <= 0:
-        raise ValueError("sample_interval must be positive")
+    preview = preview_causal_branch(
+        timeline,
+        domain,
+        checkpoint=checkpoint,
+        edit=edit,
+        end_time=end_time,
+        sample_interval=sample_interval,
+    )
+    edited_state, _ = apply_pair_relative_velocity_rotation(checkpoint.state, edit)
+    full_start = perf_counter()
+    full = _run_full_resimulation(
+        edited_state,
+        domain,
+        start_time=checkpoint.time,
+        end_time=end_time,
+    )
+    full_seconds = perf_counter() - full_start
+    return CausalBranchResult(
+        local=preview.local,
+        full_resimulation=full,
+        comparison=_compare_branch_runs(preview.local.simulation, full, domain),
+        timing=BranchTiming(
+            local_seconds=preview.local_seconds,
+            full_resimulation_seconds=full_seconds,
+        ),
+    )
 
+
+def preview_causal_branch(
+    timeline: TimelineRun,
+    domain: Domain2D,
+    *,
+    checkpoint: CausalCheckpoint,
+    edit: PairRelativeVelocityRotationEdit,
+    end_time: float,
+    sample_interval: float,
+) -> CausalBranchPreview:
+    """Run one exact causal preview without a full-resimulation oracle.
+
+    This separates the creator-facing loop from the publishing check.  The
+    preview is still physical: it applies the same conservative edit and exact
+    local causal recomputation as :func:`fork_causal_branch`; it simply avoids
+    spending an additional global run on every angle the creator briefly views.
+    """
+
+    _validate_branch_request(domain, checkpoint, end_time, sample_interval)
     edited_state, edit_audit = apply_pair_relative_velocity_rotation(checkpoint.state, edit)
     local_start = perf_counter()
     local = _run_local_branch(
@@ -152,24 +205,24 @@ def fork_causal_branch(
         end_time=end_time,
         sample_interval=sample_interval,
     )
-    local_seconds = perf_counter() - local_start
-    full_start = perf_counter()
-    full = _run_full_resimulation(
-        edited_state,
-        domain,
-        start_time=checkpoint.time,
-        end_time=end_time,
-    )
-    full_seconds = perf_counter() - full_start
-    return CausalBranchResult(
+    return CausalBranchPreview(
         local=local,
-        full_resimulation=full,
-        comparison=_compare_branch_runs(local.simulation, full, domain),
-        timing=BranchTiming(
-            local_seconds=local_seconds,
-            full_resimulation_seconds=full_seconds,
-        ),
+        local_seconds=perf_counter() - local_start,
     )
+
+
+def _validate_branch_request(
+    domain: Domain2D,
+    checkpoint: CausalCheckpoint,
+    end_time: float,
+    sample_interval: float,
+) -> None:
+    if domain.boundary is not BoundaryKind.PERIODIC:
+        raise ValueError("causal branching v0 supports periodic domains")
+    if checkpoint.time >= end_time:
+        raise ValueError("branch end_time must be later than its checkpoint")
+    if sample_interval <= 0:
+        raise ValueError("sample_interval must be positive")
 
 
 def _run_local_branch(
@@ -233,10 +286,7 @@ def _run_local_branch(
         nonlocal stale_candidates
         while candidate_heap:
             event = candidate_heap[0][2]
-            if (
-                event.count_left != counts[event.left]
-                or event.count_right != counts[event.right]
-            ):
+            if event.count_left != counts[event.left] or event.count_right != counts[event.right]:
                 heapq.heappop(candidate_heap)
                 stale_candidates += 1
                 continue
@@ -265,9 +315,7 @@ def _run_local_branch(
     while sample_index < len(sample_times):
         sample_time = sample_times[sample_index]
         baseline = (
-            baseline_events[baseline_index]
-            if baseline_index < len(baseline_events)
-            else None
+            baseline_events[baseline_index] if baseline_index < len(baseline_events) else None
         )
         candidate = peek_candidate()
         baseline_time = baseline.time if baseline is not None else inf
@@ -429,8 +477,7 @@ def _compare_branch_runs(
 ) -> BranchComparison:
     common = min(len(local.collision_events), len(full.collision_events))
     matching_pairs = sum(
-        local.collision_events[index].ordered_pair
-        == full.collision_events[index].ordered_pair
+        local.collision_events[index].ordered_pair == full.collision_events[index].ordered_pair
         for index in range(common)
     )
     denominator = max(len(local.collision_events), len(full.collision_events), 1)

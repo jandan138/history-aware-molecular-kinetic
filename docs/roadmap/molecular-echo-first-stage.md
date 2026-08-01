@@ -97,12 +97,18 @@ Those may become E4–E6 work only if the one-collision story earns them.
 
 ## Stage handoff after E3 passed
 
-The next phase should deepen the contribution in this order:
+E4 now turns the successful one-collision proof into the next story act: **Choose
+the Cause, Direct the Future**. It does not begin by collecting breadth cases. Its
+registered `Erase One Stroke` Hero starts from a selected terminal feature, ranks
+past collisions from baseline ancestry, previews a small exact palette, and verifies
+one saved branch. See the [E4 recipe](../benchmarks/molecular-time-machine-e4-preregistration.md).
 
-1. native/parallel branch execution and interactive latency;
+After that one authoring gate, later work may deepen the contribution in this order:
+
+1. native/parallel branch execution if the scoped interaction cannot remain responsive;
 2. one genuinely different physical edit family;
-3. a small locality/performance map chosen to support the algorithm claim;
-4. 3D art direction and creator-facing interaction;
+3. a small locality/performance map chosen to support a broader claim;
+4. geometry or 3D art direction only if it advances the story;
 5. only then, a focused user evaluation if the paper needs it.
 
 The first stage ends with a single result report and frozen evidence package—not a

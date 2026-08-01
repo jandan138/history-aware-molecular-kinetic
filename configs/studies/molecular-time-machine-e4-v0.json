@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0.0",
+  "study_id": "MOLECULAR-TIME-MACHINE-E4-v0",
+  "e1_protocol": "molecular-echoes-e1-v0.json",
+  "hero": {
+    "particle_count": 128,
+    "seed": 0,
+    "target": {
+      "id": "top-stroke",
+      "description": "the upper horizontal stroke of the recovered Molecular E",
+      "x_bounds": [0.65, 1.75],
+      "y_bounds": [1.45, 1.65],
+      "expected_foreground_particle_ids": [69, 76, 101, 106]
+    },
+    "expected_recommended_collision_ordinal": 4,
+    "expected_recommended_pair": [101, 111],
+    "expected_recommended_time": 0.05512038650510776,
+    "recipe_tolerance": 1.0e-12
+  },
+  "ranking": {
+    "candidate_event_limit": 16,
+    "shortlist_size": 3,
+    "expected_shortlist_ordinals": [4, 2, 12],
+    "score": "harmonic-mean(target-descendant-coverage, target-descendant-purity)"
+  },
+  "fork": {
+    "lead_time": 1.0e-6,
+    "checkpoint_interval_events": 16
+  },
+  "palette": {
+    "angles_degrees": [-2.0, -1.0, 1.0, 2.0],
+    "selection": "maximize target ejection minus collateral ejection; tie-break by smaller absolute angle"
+  },
+  "measurement": {
+    "end_time": 1.0,
+    "sample_interval": 0.02
+  },
+  "acceptance": {
+    "minimum_target_ejection_fraction": 0.50,
+    "minimum_target_to_collateral_ratio": 2.0,
+    "minimum_baseline_event_reuse_fraction": 0.50,
+    "maximum_preview_median_seconds": 0.20,
+    "minimum_collision_pair_agreement": 1.0,
+    "maximum_collision_time_error": 1.0e-9,
+    "maximum_terminal_position_rms": 1.0e-9,
+    "maximum_terminal_velocity_rms": 1.0e-9,
+    "maximum_edit_momentum_error": 1.0e-12,
+    "maximum_edit_energy_error": 1.0e-12
+  },
+  "render": {
+    "fps": 24,
+    "frame_repeat": 6,
+    "final_hold_frames": 72,
+    "foreground_color": "#36d6ff",
+    "background_color": "#2c3340",
+    "target_color": "#ffb000",
+    "selected_color": "#ff4f87",
+    "causal_cone_color": "#9b8cff"
+  }
+}

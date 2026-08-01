@@ -6,7 +6,7 @@ variant of the old dynamic-LOD demo.
 ```text
 Hero 1: Molecular Logo Echo       scientific hook
 Hero 2: One Collision, Two Worlds algorithmic core
-Hero 3: Edit the Past             interaction + performance
+Hero 3: Choose the Cause          outcome-to-cause interaction
 ```
 
 The old Zoomable Mixing, Correlation Labyrinth, and Expansion into Vacuum scene
@@ -120,53 +120,55 @@ recomputation agrees with full resimulation.
 
 ---
 
-## Hero 3 — Edit the Past
+## Hero 3 — Choose the Cause, Direct the Future
 
 ### Scene
 
-A transparent molecular maze or chamber contains simple analytic geometry. The user
-moves backward on the simulation timeline and:
+The recovered Molecular E is the outcome canvas. The user marks one visible feature
+of the future—E4's fixed Hero uses the upper horizontal stroke. The system then:
 
-- moves a baffle;
-- inserts/removes a circular/spherical obstacle;
-- opens/closes an aperture;
-- changes a rotor/plate pose under declared boundary dynamics.
+- traces that feature's particles backward through the unedited collision DAG;
+- ranks the few past collisions that cover the feature with least unrelated reach;
+- exposes a small exact local-preview angle palette;
+- saves one conservative edit as a second future.
 
 ### Primary responsibility
 
-Show the full authoring system and quantify reuse of unaffected history.
+Show that the collision graph is not only an explanation of a branch after the fact:
+it can turn a creator's desired consequence into an editable cause.
 
-### Required comparison
+### Required interaction
 
 ```text
-original branch
-history-aware local branch
-complete global resimulation
+select a future feature
+→ rank causal collisions in the past
+→ browse exact branch previews
+→ save one branch
+→ verify that saved branch once against full resimulation
 ```
 
 ### Required evidence
 
-- edit manifest and geometry revision;
-- checkpoint used;
-- expanding causal cone;
-- affected fraction and fallback behavior;
-- terminal correctness against full resimulation;
-- wall-clock and storage;
-- resulting color transport, exit flux, or residence-time difference.
+- target membership and candidate-ranking manifest;
+- explicit statement that ranking is baseline-only;
+- exact-preview latency and cache keys;
+- selected-feature change versus collateral foreground change;
+- checkpoint, edit, causal-cone, and branch lineage;
+- final local/full correctness for the saved branch only.
 
 ### Strongest shot
 
-The user drags one past obstacle. The old future fades only inside the invalidated
-causal region, a new branch grows forward, and the unchanged region remains stable.
-The final local branch matches the full reference while arriving sooner or sharing
-substantially more history.
+The user draws a box around one part of the recovered E. Three collision marks light
+up on the past timeline. They choose the first recommendation and move a tiny angle
+control; the selected stroke changes in the alternate future while most of the E
+remains. A small inset reports that the saved branch agrees with full replay.
 
 ### Avoid
 
-- complex CAD or rigid-body coupling before the analytic version passes;
-- pretending the cone is local when it has become global;
-- comparing against a weaker or lower-resolution full-resimulation baseline;
-- making the scene readable only through a full-screen debug mask.
+- turning the target choice into a hidden optimization over edited outcomes;
+- showing a broad edit-type or density matrix instead of one authoring session;
+- pretending cached previews are renderer effects rather than physical branches;
+- requiring a geometry solver rewrite to explain the interaction.
 
 ---
 
@@ -194,7 +196,8 @@ otherwise it remains a scientific supplementary result.
 |---|---|
 | same resolved present / history mechanism | Molecular Logo Echo |
 | graph, replay, causal branch correctness | One Collision, Two Worlds |
-| local reuse, geometry editing, system performance | Edit the Past |
+| outcome-to-cause authoring and scoped interaction | Choose the Cause |
+| geometry editing and broad native performance | deferred after E4 |
 | correlation surgery authoring | Logo Echo or supplementary surgery scene |
 
 ## Shared visual constraints

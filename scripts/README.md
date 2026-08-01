@@ -29,4 +29,11 @@ Molecular Time Machine E3 workflow:
   full-resimulation comparison, hashed causal artifacts, main figure, and neutral
   15–20 second video.
 
+Molecular Time Machine E4 workflow:
+
+- `run_time_machine_e4.py` runs the frozen outcome-to-cause authoring session:
+  terminal feature selection, baseline-only collision ranking, cached exact local
+  preview palette, one saved branch/full-resimulation comparison, figure/video, and
+  self-contained browser interaction artifact.
+
 Smoke mode checks pipeline integrity only and is never primary evidence.

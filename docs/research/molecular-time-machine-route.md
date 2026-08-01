@@ -68,6 +68,7 @@ molecules 被组织、传播和控制。它为“为什么应该看历史”提�
 → 物理编辑
 → 精确因果重算与历史复用（E3）
 → 两个可验证的未来
+→ 从目标未来反查可编辑原因（E4）
 ```
 
 我们不声称实现了证明中的 cutting algorithm，也不声称数学定理保证这套
@@ -94,3 +95,17 @@ molecules 被组织、传播和控制。它为“为什么应该看历史”提�
 范围峰值为 `33/128`。这意味着第一阶段的故事已经接上，而不是只剩下一
 个工程设想。完整数值和哈希见
 [E3 结果](../benchmarks/molecular-time-machine-e3-result.md)。
+
+### 第四幕：从想要的未来，找到该改的过去
+
+E3 证明“改这次碰撞，会出现什么未来”。E4 把问题反过来：创作者先在未来的
+画面上选择想改变的一笔，系统只查看原始碰撞图，反向找出最能触及这笔的过去
+碰撞，再给出少量物理上精确的预览。
+
+E4 的固定 Hero 叫 **Erase One Stroke**：选择 `E` 的上横杠，回溯到三个候选
+碰撞，浏览四个极小角度，再保存一条分支并只对这条分支做完整重模拟核验。
+它不承诺任意目标都可控制；它要建立的是更像创作工具的一句话：
+
+> I choose the consequence first; the timeline helps me find a cause to edit.
+
+完整冻结规则见 [E4 recipe](../benchmarks/molecular-time-machine-e4-preregistration.md)。
