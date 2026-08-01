@@ -33,7 +33,8 @@
 - interactive branch comparison;
 - instanced particles, transparent analytic geometry, event/graph insets, and
   reproducible render manifests;
-- Molecular Logo Echo, One Collision Two Worlds, and Choose the Cause.
+- Molecular Logo Echo, One Collision Two Worlds, Choose the Cause, and Same
+  Present Chosen Future.
 
 ## Explicit non-goals for the first SIG paper
 
@@ -61,9 +62,11 @@ The current primary edit set is deliberately bounded:
 1. perturb one particle before a selected event;
 2. modify/suppress one event under explicitly labeled semantics;
 3. apply one conservative pair-relative-velocity edit at a selected collision.
+4. apply one/two target-only same-cell velocity-ownership transpositions at the
+   registered E5 pivot.
 
-Analytic obstacle/aperture and correlation-surgery operators are deferred follow-on
-edit types. They enter only after a separate story gate, not as E4 breadth.
+Analytic obstacle/aperture edits remain deferred. E5 activates only the registered
+sparse correlation-surgery operator; broader surgery families remain follow-on work.
 
 ## Model-domain language
 

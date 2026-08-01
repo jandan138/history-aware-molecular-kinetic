@@ -192,28 +192,31 @@ The complete frozen contract is in the [E4 recipe](molecular-time-machine-e4-pre
 No density grid, extra edit family, geometry scene, native rewrite, or user study is
 part of this gate.
 
-## E5 — Resolved-state-preserving correlation surgery
+## E5 — Same Present, Chosen Future
 
 ### Question
 
-Can a user alter hidden correlations while preserving the declared visible present,
-and thereby author a different future?
+Can a creator select the future E middle stroke, preserve one declared visible
+present, and author a C-like future through a sparse hidden surgery?
 
-### Operators
+### Frozen Hero
 
-- block+color velocity permutation;
-- constrained moment matching;
-- optional finer-scale assignment minimizing `f1_h` mismatch;
-- partial history retention or molecule-targeted surgery.
+- `N=256`, seed `4`, common pivot `t=0.80`;
+- target-only velocity transpositions inside the same declared `4×2` cell;
+- one or two particle-disjoint swaps;
+- 30 complete-EDMD previews;
+- deterministic target-removal / collateral-retention selection.
 
 ### Evidence
 
-- multi-resolution resolved-state audit;
-- mass/momentum/energy preservation;
-- overlap validity;
-- branch divergence under the same renderer;
-- controllability and repeatability;
-- comparison with random surgery of equal magnitude.
+- identical positions, colors, and declared cellwise velocity multisets;
+- mass/momentum/energy and geometry contract;
+- target-region occupancy and non-target glyph retention;
+- matched E-versus-C exact futures;
+- cached creator-facing preview palette and surgery provenance.
+
+No random baseline, resolution sweep, seed grid, or additional edit family belongs
+to the E5 story gate.
 
 ## E6 — SIG graphics evidence
 

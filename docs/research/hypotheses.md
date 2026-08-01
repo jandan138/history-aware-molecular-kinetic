@@ -109,12 +109,12 @@ full resimulation.
 
 ## H11 — Correlation surgery is an authoring primitive
 
-A constrained surgery preserves the registered current `f1_h`/moments and primary
-invariants while producing repeatable, user-selectable future differences stronger
-than an equal-magnitude random surgery baseline.
+A sparse target-conditioned surgery preserves one declared current frame, cellwise
+velocity multiset, and primary invariants while selectively suppressing the chosen
+future stroke and retaining the rest of the glyph.
 
-**Falsifier:** current mismatch is visible, future results are uncontrolled noise, or
-random surgery performs equivalently.
+**Falsifier:** current mismatch is visible, the selected stroke does not change, or
+the rest of the terminal glyph collapses with it.
 
 ## H12 — The workflow is a graphics contribution
 

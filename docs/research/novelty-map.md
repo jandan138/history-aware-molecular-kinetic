@@ -62,15 +62,15 @@ The scientific component alone is more naturally a statistical-mechanics or
 computational-physics paper. The graphics component alone risks becoming generic
 rollback. The SIG case requires their combination.
 
-## Required null and prior-art controls
+## Required comparisons and prior-art boundaries
 
 - exact reverse versus simple backward video;
 - full resimulation versus causal-cone branch;
 - full state duplication versus copy-on-write branch store;
 - random collision suppression matched by count/time;
 - topology-shuffled event control;
-- random surgery matched by state perturbation magnitude;
-- coarse-only pivot audit versus multi-resolution audit;
+- E5 common pivot before/after surgery under its declared `4×2` state contract;
+- E5 original E future versus target-conditioned C-like future under matched rendering;
 - history graph visualization with and without physical branch recomputation.
 
 ## Deferred route: adaptive molecular–kinetic LOD

@@ -12,7 +12,7 @@ E0 exact reversal and replay
 → E2 collision-molecule mechanism
 → E3 history graph and deterministic replay
 → E4 causal steering from future target to past collision
-→ E5 correlation surgery
+→ E5 Same Present, Chosen Future
 → E6 SIG graphics evidence
 ```
 
@@ -94,8 +94,10 @@ see the [E4 result](molecular-time-machine-e4-result.md).
 
 ### E5 — Correlation surgery
 
-Tests whether hidden correlation can be changed while preserving the registered
-resolved present and primary invariants.
+Selects the future E middle stroke, preserves one declared `4×2` visible present,
+and chooses a sparse same-cell velocity-ownership surgery whose exact future
+suppresses that stroke while retaining the rest of the glyph. See the
+[frozen E5 recipe](molecular-time-machine-e5-preregistration.md).
 
 ### E6 — SIG graphics evidence
 

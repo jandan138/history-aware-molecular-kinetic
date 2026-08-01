@@ -82,7 +82,7 @@ E0 exact reversal and deterministic replay
 → E2 collision-molecule mechanism and null controls [closed negative]
 → E3 addressable collision + exact causal branch + One Collision, Two Worlds
 → E4 causal steering: select a future feature, find its past cause, direct a branch
-→ E5 correlation surgery and future authoring
+→ E5 Same Present, Chosen Future: keep the frame, turn E into C
 → E6 SIG graphics evidence
 ```
 
@@ -97,7 +97,7 @@ V0 event/replay viewer
 → V2 history-budget microscope
 → V3 One Collision, Two Worlds
 → V4 Choose the Cause, Direct the Future
-→ V5 deferred geometry/correlation surgery
+→ V5 Same Present, Chosen Future
 → V6 SIG production and evidence release
 ```
 

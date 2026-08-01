@@ -153,9 +153,11 @@ question visible; it is not the algorithmic claim.
 4. **One Collision, Two Worlds.** The one-degree edit, causal cone, original world,
    and edited world.
 5. **Exact reuse.** A compact event-reuse/correctness diagram and numerical table.
+6. **Same Present, Chosen Future.** One common pivot, four touched particles, and
+   matched E/C physical futures close the authoring loop.
 
 The complete E2 negative, fine-grid E1 limitation, engineering diagnostics, and
-future edit families belong in the supplement. They support honesty without
+other future edit families belong in the supplement. They support honesty without
 interrupting the main narrative.
 
 ## Venue route
@@ -168,3 +170,5 @@ See [ADR 0010](../decisions/0010-molecular-time-machine-paper-spine.md) and the
 [E3 frozen recipe](../benchmarks/molecular-time-machine-e3-preregistration.md).
 The canonical gate returned `go`; numerical evidence and hashes are in the
 [E3 result](../benchmarks/molecular-time-machine-e3-result.md).
+E4 causal steering and the frozen E5 same-present recipe extend that first gate into
+the complete creator-facing story.

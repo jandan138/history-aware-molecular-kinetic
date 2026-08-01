@@ -148,11 +148,12 @@ A user can edit a selected past collision. The system invalidates and recomputes
 the expanding future causal cone while reusing events whose two participants remain
 unaffected. Geometry edits are a later extension, not part of the first gate.
 
-### Future extension — resolved-state-preserving correlation surgery
+### Active E5 — resolved-present-preserving future authoring
 
-The user can preserve a declared current density/temperature/velocity distribution
-while modifying hidden particle–velocity pairing and collision ancestry, producing
-alternate futures from the same visible present.
+The creator selects the future E middle stroke. At one common visible pivot, the
+system exchanges velocity ownership between four selected particles inside their
+declared spatial cells. The frame and registered cellwise velocity multisets stay
+fixed, while exact physical evolution produces an E or C-like future.
 
 ### Plot twist / tested boundary — collision-molecule history budget
 
@@ -169,7 +170,7 @@ documented limitation and diagnostic visualization, not an active contribution.
 | **E2** | **Closed negative:** budget grades recovery, but structured wiring does not beat dose/topology controls |
 | **E3** | Can one addressable past collision fork an exact causal branch that visibly splits and reuses history? |
 | **E4** | Can a desired terminal feature locate a past collision that a creator can edit into a directed exact future? |
-| **E5** | Can correlation surgery preserve the declared present while authoring distinct futures? |
+| **E5** | Can the same declared present be authored into an E or C-like future through sparse hidden correlation surgery? |
 | **E6** | Are the method, interaction, performance, and physical result legible in SIG-quality scenes? |
 
 See [`Active Echo and Branching Benchmark Suite`](docs/benchmarks/echo-branching-suite.md).
@@ -198,6 +199,12 @@ The creator begins at the terminal result rather than with a hand-picked collisi
 they select a stroke of the recovered `E`, inspect the past collisions that causally
 reach it, and browse a small set of exact physical previews. One saved branch is
 then checked against full resimulation. This is the scoped E4 causal-steering Hero.
+
+### Act 5 — Same Present, Chosen Future
+
+The creator selects the future E middle stroke. The system returns to the common
+`t=0.80` present and swaps velocity ownership for four of 256 particles without
+moving or recoloring the frame. Exact matched branches then resolve into E and C.
 
 ### Future extension — Edit the Past
 

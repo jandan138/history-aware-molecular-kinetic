@@ -198,7 +198,8 @@ selected target → ranked cause → saved branch → full reference
 - 显示 baseline-event reuse；
 - 仅保存分支显示 local/full exactness inset。
 
-几何编辑和 correlation surgery 只有在后续单独通过 gate 后，才会成为新的镜头。
+E5 将 correlation surgery 收敛成一个独立主镜头：同一 `t=0.80` 当前画面，
+四个粒子的隐藏速度归属交换，让原始 E 未来变成 C-like 未来。
 
 ---
 
@@ -211,9 +212,10 @@ selected target → ranked cause → saved branch → full reference
 | Collision causal representation | TW-01/02/03 |
 | Counterfactual correctness | TW-05 |
 | Outcome-to-cause authoring | CS-01/02/03/04 |
+| Same Present, Chosen Future | SP-01/02/03/04 |
 | Broader locality/performance | deferred after E4 |
 | Past geometry edit | deferred after E4 |
-| Correlation surgery | deferred after E4 or ME-03/04 |
+| Correlation surgery | SP-01/02/03/04 |
 | Limitations | ME-06 + TW-07 |
 
 Composite figures must list run, branch, edit, frame time, camera hash, renderer hash, and metric artifact per panel.

@@ -40,7 +40,7 @@ implicitly revived in the Molecular Echoes paper.
 | C17 | The timeline can fork one conservative physical edit with complete branch provenance | E3 | edit/checkpoint/parent manifests, momentum and energy audit | **passes E3-v0 Hero**; `+1°` edit, momentum error `1.11e-15`, energy error `0` |
 | C18 | Exact expanding-causal-cone recomputation matches complete resimulation while reusing independent baseline events | E3 | local-vs-full pair/time/state error, reused events, affected fraction | **passes E3-v0 Hero**; pair agreement `1.0`, `79/105` events reused, peak affected `33/128` |
 | C19 | A creator can select a terminal feature, trace it to a ranked editable collision, and direct a scoped exact future | E4 | target membership, baseline-only causal ranking, exact preview palette, target/collateral change, one final full reference | **passes E4-v0 Hero**: collision #4, `−1°`, target/collateral `4.0x`, preview median `0.074740 s`, `100/100` exact reference pairs |
-| C20 | Resolved-state-preserving correlation surgery enables repeatable alternate-future authoring | E5 | multi-resolution `f1_h` audit, invariants, random-surgery baseline, controllability | proposed |
+| C20 | A sparse velocity-ownership surgery can preserve one declared visible present while directing the selected E middle stroke toward a C-like future | E5 | exact declared-cell multiset/invariant audit, target reduction, collateral retention, matched physical branches | frozen recipe; formal run pending |
 | C21 | Editing an addressable past collision provides an animation workflow beyond reverse playback, outcome browsing, and generic rollback | E3/E4/E6 | One Collision Hero, causal-steering interaction, exact branch evidence, Many-Worlds/Storyboard/Time-Warp comparison | E3 exact operation and E4 scoped causal-steering interaction pass; broad user value remains future |
 | C22 | The final visual evidence is physically recomputed, fair, and reproducible | E6 | branch/run/metric/render manifests, comparison lock, failure reel | proposed |
 
@@ -69,7 +69,7 @@ spine.
 | C16–C18 | One Collision, Two Worlds |
 | C19/C21 | Choose the Cause, Direct the Future |
 | C18–C21 geometry extension | deferred after E4 |
-| C20 | Logo Echo or optional same-present surgery shot |
+| C20 | Same Present, Chosen Future |
 | C22 | all three scenes plus evidence release |
 
 Every primary shot follows the active storyboard and must link to branch IDs,

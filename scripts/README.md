@@ -36,4 +36,11 @@ Molecular Time Machine E4 workflow:
   preview palette, one saved branch/full-resimulation comparison, figure/video, and
   self-contained browser interaction artifact.
 
+Molecular Time Machine E5 workflow:
+
+- `run_time_machine_e5.py` runs the frozen Same Present, Chosen Future session:
+  future middle-stroke selection, legal same-cell velocity-ownership palette,
+  complete EDMD previews, selected E-to-C future, declared-present audit,
+  figure/video, and self-contained browser artifact.
+
 Smoke mode checks pipeline integrity only and is never primary evidence.

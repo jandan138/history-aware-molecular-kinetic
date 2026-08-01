@@ -225,12 +225,15 @@ f_{1,h}[X]=f_{1,h}[\widetilde X],
 
 plus mass, momentum, energy, color counts, and overlap validity.
 
-The initial operator permutes velocities within fixed `(space block, passive color)`
-groups. Stronger versions may use constrained matching or optimal transport to
-reduce finer-scale one-particle mismatch.
+E5 v0 selects one terminal feature, then transposes complete velocity values only
+between selected target particles inside the same declared `4×2` spatial cell. The
+candidate family contains one or two particle-disjoint transpositions and every
+candidate receives a complete EDMD preview from the common pivot.
 
-The audit must report matching error over a resolution grid—not only at the one
-resolution used to construct the surgery.
+The audit establishes exact preservation of positions, colors, particle arrays,
+and complete velocity multisets at the declared construction grid, plus primary
+invariants and geometry validity. The method says **same declared resolved present**,
+not same exact microstate or equality at arbitrary finer resolution.
 
 ## 9. Collision-molecule budget
 

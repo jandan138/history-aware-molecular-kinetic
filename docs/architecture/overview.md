@@ -214,11 +214,13 @@ A surgery operator must declare:
 - spatial/velocity resolution;
 - moment constraints;
 - overlap validity;
-- random seed;
-- matching algorithm;
-- mismatch over finer audits.
+- deterministic candidate family and selection rule;
+- the exact resolution covered by the preservation claim.
 
 The interface may say “same resolved present” only when the registered audit passes.
+E5 v0 exchanges complete velocity values between target particles inside the same
+declared `4×2` cell, so positions/colors and cellwise velocity multisets are exact
+operator invariants. It makes no equality claim at unregistered finer resolutions.
 
 ## 9. External oracles and deferred kinetic route
 

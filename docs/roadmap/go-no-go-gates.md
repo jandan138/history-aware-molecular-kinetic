@@ -129,18 +129,20 @@ surgery and branch authoring remain strong; otherwise prepare a VIS analysis piv
 
 **Go:**
 
-- the declared current resolved state remains within tolerance;
-- surgery produces repeatable and controllable future differences;
-- random surgery of equal magnitude is a weaker baseline;
-- users can understand what is preserved and what is edited;
-- the method does more than select a random alternate seed.
+- positions, colors, and declared `4×2` cellwise velocity multisets remain fixed;
+- selected middle-stroke occupancy falls by at least 70%;
+- at least 90% of non-target glyph membership remains;
+- no more than four particles are touched;
+- users can understand “same present, E or C” without debug statistics.
 
 **No-Go:**
 
 - current-frame differences are already visible before playback;
-- the future is uncontrollable noise;
+- the selected stroke and the rest of the glyph collapse together;
 - the operation violates declared invariants or creates overlaps;
-- the claim depends on a single cherry-picked pattern.
+- the matched E/C difference is created by rendering rather than EDMD.
+
+The frozen E5 gate is one Hero, not a seed grid or random-surgery study.
 
 ## Gate G7 — SIG graphics value
 

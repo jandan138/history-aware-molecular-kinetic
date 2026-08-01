@@ -172,21 +172,22 @@ remains. A small inset reports that the saved branch agrees with full replay.
 
 ---
 
-## Optional supplementary scene — Same Present, User-Selected Future
+## Hero 4 — Same Present, Chosen Future
 
-At one pivot, expose a constrained surgery control:
+The creator first selects the recovered E's middle horizontal extension. The system
+returns to the `N=256`, seed-4 branch at `t=0.80`, where the terminal letter is not
+yet visible, and exposes a compact exact surgery palette:
 
 ```text
-retain more original collision molecules
-chaotize selected blocks
-preserve specified moments/f1_h bins
+same visible particle positions and colors
+same declared 4×2 cellwise velocity multisets
+swap velocity ownership for four selected particles
+original exact future E / chosen exact future C
 ```
 
-The user chooses among repeatable alternate futures while the current resolved
-appearance remains within tolerance.
-
-This scene becomes primary only if the surgery control is stable and interpretable;
-otherwise it remains a scientific supplementary result.
+The strongest shot freezes both branches on the pixel-identical pivot, pulses two
+hidden swap links, and then lets matched physics produce different terminal letters.
+The creator never erases particles in the renderer.
 
 ---
 
@@ -198,7 +199,7 @@ otherwise it remains a scientific supplementary result.
 | graph, replay, causal branch correctness | One Collision, Two Worlds |
 | outcome-to-cause authoring and scoped interaction | Choose the Cause |
 | geometry editing and broad native performance | deferred after E4 |
-| correlation surgery authoring | Logo Echo or supplementary surgery scene |
+| correlation surgery authoring | Same Present, Chosen Future |
 
 ## Shared visual constraints
 

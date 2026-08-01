@@ -270,7 +270,7 @@ E1 same resolved present / opposite futures
 E2 molecule budget and null controls [已完成，机制 no-go]
 E3 collision graph and deterministic replay
 E4 causal steering from future target to past collision
-E5 correlation surgery
+E5 Same Present, Chosen Future：保持当前画面，把 E 的未来改写成 C
 E6 SIG visual and interaction evidence
 ```
 

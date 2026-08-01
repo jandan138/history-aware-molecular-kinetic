@@ -66,6 +66,7 @@ nav:
       - E3 result: benchmarks/molecular-time-machine-e3-result.md
       - E4 frozen recipe: benchmarks/molecular-time-machine-e4-preregistration.md
       - E4 result: benchmarks/molecular-time-machine-e4-result.md
+      - E5 frozen recipe: benchmarks/molecular-time-machine-e5-preregistration.md
       - Metrics: benchmarks/metrics.md
       - Dataset policy: benchmarks/dataset-policy.md
       - Canonical cases: benchmarks/canonical-cases.md
@@ -109,3 +110,4 @@ nav:
       - Pivot to Molecular Echoes: decisions/0009-pivot-to-molecular-echoes-sig.md
       - One Collision paper spine: decisions/0010-molecular-time-machine-paper-spine.md
       - Causal steering E4: decisions/0011-causal-steering-e4.md
+      - Same Present, Chosen Future E5: decisions/0012-same-present-chosen-future-e5.md

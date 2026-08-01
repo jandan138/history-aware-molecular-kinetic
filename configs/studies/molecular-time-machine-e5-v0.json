@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0.0",
+  "study_id": "MOLECULAR-TIME-MACHINE-E5-v0",
+  "e1_protocol": "molecular-echoes-e1-v0.json",
+  "hero": {
+    "particle_count": 256,
+    "seed": 4,
+    "pivot_time": 0.8,
+    "target": {
+      "id": "middle-stroke-extension",
+      "description": "the horizontal extension of the Molecular E middle stroke",
+      "x_bounds": [0.95, 1.75],
+      "x_lower_inclusive": false,
+      "y_bounds": [0.9, 1.1],
+      "expected_foreground_particle_ids": [15, 48, 65, 82, 99, 106, 174, 211]
+    },
+    "expected_selected_swaps": [[48, 82], [174, 211]],
+    "expected_preview_count": 30,
+    "recipe_tolerance": 1.0e-12
+  },
+  "surgery": {
+    "declared_spatial_grid": [4, 2],
+    "maximum_disjoint_swaps": 2,
+    "candidate_family": "same-cell target-only velocity-ownership transpositions",
+    "selection": "require collateral retention, then maximize target ejection, collateral retention, and sparsity"
+  },
+  "measurement": {
+    "end_time": 1.0,
+    "sample_interval": 0.02
+  },
+  "acceptance": {
+    "minimum_target_ejection_fraction": 0.7,
+    "minimum_target_region_reduction_fraction": 0.7,
+    "minimum_collateral_retention_fraction": 0.9,
+    "maximum_touched_particle_count": 4,
+    "maximum_pivot_replay_position_rms": 1.0e-9,
+    "maximum_pivot_replay_velocity_rms": 1.0e-9,
+    "maximum_mass_error": 1.0e-12,
+    "maximum_momentum_error": 1.0e-12,
+    "maximum_energy_error": 1.0e-12
+  },
+  "render": {
+    "fps": 24,
+    "frame_repeat": 6,
+    "final_hold_frames": 72,
+    "foreground_color": "#36d6ff",
+    "background_color": "#2c3340",
+    "target_color": "#ffb000",
+    "selected_color": "#ff4f87",
+    "surgery_color": "#9b8cff"
+  }
+}

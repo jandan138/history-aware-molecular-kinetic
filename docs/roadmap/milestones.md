@@ -195,25 +195,28 @@ rather than causal steering. Do not add a breadth grid to rescue the Hero.
 
 ## M6 — E5 correlation surgery and authoring
 
+**Status:** active with frozen `Same Present, Chosen Future` recipe.
+
 Deliverables:
 
-- block+color velocity surgery;
-- constrained moment-matching refinement;
-- multi-resolution resolved-state audit;
-- primary invariant and no-overlap audit;
-- partial history/molecule retention controls;
-- repeatable alternate-future authoring;
-- **V2:** Molecular Logo Echo prototype;
-- **V3:** Edit the Past prototype.
+- selected future middle-stroke target with persistent particle membership;
+- one common `N=256`, seed-4 pivot at `t=0.80`;
+- one/two legal same-cell target-only velocity transpositions;
+- 30 cached complete-EDMD previews and a deterministic sparse selection rule;
+- exact visible-state, declared-cell multiset, invariant, and geometry contract;
+- matched E-versus-C future evidence;
+- **V5:** Same Present, Chosen Future figure, video, and browser artifact.
 
 Exit:
 
-- current resolved state stays within registered tolerance;
-- future branches are controllably different;
-- the effect survives matched rendering;
-- interaction and visual language are understandable without exposing every debug
-  statistic;
-- random surgery of equal magnitude is a weaker control.
+- the declared current frame and `4×2` velocity multisets are preserved;
+- middle-stroke occupancy falls by at least 70%;
+- at least 90% of non-target glyph membership remains;
+- at most four particles are touched;
+- all candidate and selected futures are complete EDMD runs under matched rendering.
+
+No seed grid, random-surgery baseline, alternate edit family, geometry scene, or
+user study is part of this gate.
 
 ---
 

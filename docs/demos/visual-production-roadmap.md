@@ -163,34 +163,27 @@ not imply that rendering itself performed a physical edit.
 
 ---
 
-## V5 — Deferred geometry edit and correlation surgery
+## V5 — Same Present, Chosen Future
 
-**Begins after G5/G6.**
+**Status:** active under the frozen E5 recipe.
 
-Two interaction modes:
-
-### Past geometry edit
-
-Move or insert a simple obstacle/open an aperture, then recompute the future cone.
-
-### Same-present future edit
-
-At the pivot, apply a surgery that preserves registered `f1_h`/moments while changing
-hidden particle pairing or retained molecule structure.
+The creator selects the future Molecular E middle stroke. At the common `t=0.80`
+present, two same-cell velocity-ownership swaps touch four of 256 particles while
+positions, colors, and declared `4×2` velocity multisets stay fixed. Matched EDMD
+branches resolve into E and C-like futures.
 
 Required audit views:
 
-- what is preserved;
-- what is edited;
-- pivot mismatch at multiple resolutions;
-- original and alternate futures;
-- random surgery baseline;
-- branch provenance.
+- selected future target;
+- one pixel-identical current frame;
+- two hidden swap links;
+- original E and chosen C terminal states;
+- target reduction, collateral retention, and surgery provenance.
 
 ### Exit
 
-A user can deliberately create and compare alternate futures rather than observe
-uncontrolled chaos.
+A viewer can understand “keep the frame, change the hidden ownership, choose the
+future” without reading a distribution plot. Geometry editing remains deferred.
 
 ---
 

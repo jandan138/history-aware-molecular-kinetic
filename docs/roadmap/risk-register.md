@@ -11,8 +11,8 @@
 | R6 | Local branch silently misses dependencies | Medium | Critical | local/full resimulation diverge | conservative cone expansion and full fallback; label approximate policies |
 | R7 | Causal cone becomes global immediately | High | High | affected fraction approaches 1 quickly | choose bounded edit horizons/scenes; remove speed claim; consider VIS pivot |
 | R8 | Branch storage equals full trajectory duplication | Medium | High | copy-on-write overhead dominates | segment/checkpoint sharing, compression, honest full-copy baseline |
-| R9 | Correlation surgery visibly changes the present | High | High | pivot mismatch is obvious or fails fine audit | constrained assignment/moment correction; narrow authoring claim |
-| R10 | Surgery future is uncontrolled noise | Medium-high | High | low repeatability or no monotone control | expose bounded controls/retention budget; compare random surgery; stop authoring claim |
+| R9 | Correlation surgery visibly changes the present | High | High | pivot position/color or declared-cell multiset changes | restrict E5 to exact same-cell velocity transpositions; narrow wording to the declared `4×2` state |
+| R10 | Surgery destroys the whole glyph rather than the chosen stroke | Medium-high | High | target reduction arrives with low collateral retention | require 90% collateral retention before ranking target removal; stop the glyph-authoring claim rather than add a breadth grid |
 | R11 | Reviewer sees a classic Loschmidt echo only | High | Critical | teaser can be summarized as “reverse velocities” | foreground branching, causal edit algorithm, correctness, storage, interaction |
 | R12 | Reviewer sees generic Time-Warp rollback | Medium | Critical | hard-sphere/correlation-specific contribution unclear | explicit prior-art boundary; physical edit semantics; surgery and molecule science |
 | R13 | Deng link is overstated | Medium | Critical | proof language used as algorithm guarantee | ADR/claim review; “inspired by” language; null controls and finite-system limits |
