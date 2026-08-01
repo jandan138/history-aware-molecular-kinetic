@@ -11,7 +11,7 @@ E0 exact reversal and replay
 → E1 same resolved present / opposite futures
 → E2 collision-molecule mechanism
 → E3 history graph and deterministic replay
-→ E4 counterfactual branching
+→ E4 causal steering from future target to past collision
 → E5 correlation surgery
 → E6 SIG graphics evidence
 ```
@@ -56,7 +56,7 @@ flowchart LR
     E0[E0 Exact dynamics] --> E1[E1 Same resolved present]
     E1 --> E2[E2 Molecule budget]
     E0 --> E3[E3 Graph + replay]
-    E3 --> E4[E4 Counterfactual branch]
+    E3 --> E4[E4 Causal steering]
     E1 --> E5[E5 Correlation surgery]
     E2 --> E5
     E4 --> E6[E6 SIG evidence]
@@ -85,10 +85,12 @@ suppression, topology-shuffled controls, ghost dynamics, and full EDMD.
 Validates event predecessors, repeated events, shared ancestors, graph queries,
 checkpoint restore, and copy-on-write history segments.
 
-### E4 — Counterfactual branching
+### E4 — Causal steering
 
-Compares causal-cone branch recomputation with complete resimulation after particle,
-collision, aperture, and obstacle edits.
+Starts with one terminal visual feature, ranks past collisions from baseline
+descendant coverage/purity, and exposes a compact exact preview palette before one
+saved branch receives a complete-resimulation check. The frozen Hero returns `go`;
+see the [E4 result](molecular-time-machine-e4-result.md).
 
 ### E5 — Correlation surgery
 
@@ -97,8 +99,8 @@ resolved present and primary invariants.
 
 ### E6 — SIG graphics evidence
 
-Freezes Molecular Logo Echo, One Collision Two Worlds, and Edit the Past with shared
-rendering and per-shot evidence.
+Freezes Molecular Logo Echo, One Collision Two Worlds, and Choose the Cause with
+shared rendering and per-shot evidence.
 
 ## 5. What remains useful from R0–B5
 

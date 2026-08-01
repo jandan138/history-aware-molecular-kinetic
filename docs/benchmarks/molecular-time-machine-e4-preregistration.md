@@ -1,6 +1,7 @@
 # Molecular Time Machine E4 preregistration — Choose the Cause, Direct the Future
 
-**Status:** frozen recipe, awaiting its canonical evidence run.
+**Status:** frozen recipe; canonical evidence returned `go`. See the
+[E4 result](molecular-time-machine-e4-result.md).
 
 **Study:** `MOLECULAR-TIME-MACHINE-E4-v0`.
 

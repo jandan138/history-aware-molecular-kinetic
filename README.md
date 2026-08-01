@@ -63,12 +63,13 @@ with all `106` collision pairs in the full resimulation while reusing `79/105`
 baseline events; its peak affected set is `33/128` particles. See the
 [`E3 Result`](docs/benchmarks/molecular-time-machine-e3-result.md).
 
-E4 is now frozen as the next, creator-facing act: **Choose the Cause, Direct the
-Future**. A creator selects a visible terminal feature, the system ranks its past
-causal collisions from baseline ancestry, and a compact exact-preview palette lets
-them save one directed branch. The scope is one registered Hero, not a new grid of
-defensive performance or edit-family experiments; see the
-[`E4 Recipe`](docs/benchmarks/molecular-time-machine-e4-preregistration.md).
+E4 now returns `go` for the creator-facing act: **Choose the Cause, Direct the
+Future**. Selecting the upper stroke of the recovered E makes baseline ancestry
+recommend collision #4; a saved `−1°` exact branch changes `2/4` target particles
+while only `1/8` other foreground particles leave the E. The 12 exact previews have
+a `0.074740 s` median, the saved branch reuses `79/103` baseline events, and all
+`100/100` collision pairs agree with full resimulation. See the
+[`E4 Result`](docs/benchmarks/molecular-time-machine-e4-result.md).
 
 ## Core idea
 

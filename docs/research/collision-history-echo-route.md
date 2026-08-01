@@ -281,9 +281,12 @@ f_{1,h}[X]\approx f_{1,h}[\widetilde X],
 
 用户点击并修改过去一次碰撞。差异从两个粒子开始，沿 collision causal graph 像闪电一样扩散。并排显示 original future、counterfactual future、affected fraction 与 full-resimulation validation。
 
-## Hero 3 — Edit the Past
+## Hero 3 — Choose the Cause, Direct the Future
 
-透明 molecular maze 中，用户回到过去移动挡板或打开出口。系统复用 unaffected history，只重算未来 cone，并与 full global resimulation 比较。
+用户先在未来的 Molecular E 上选择一个笔画。系统沿原始 collision DAG 回溯，
+推荐最能触及该笔画的过去碰撞，再展示少量 exact local previews。保存的 branch
+才与 full global resimulation 比较。E4 的 Hero 使用上横杠，避免把 interaction
+扩成新的几何求解器工程。
 
 这些场景分别承担：科学直觉、算法核心、交互与性能，不能平均堆满所有 diagnostics。
 

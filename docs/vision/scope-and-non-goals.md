@@ -26,14 +26,14 @@
 - checkpoints and deterministic random access;
 - collision-history causal graph;
 - immutable persistent branches and copy-on-write history reuse;
-- past particle/collision/simple-geometry edits;
+- past particle/collision edits, with simple geometry explicitly deferred after E4;
 - exact expanding causal-cone recomputation;
 - full-resimulation correctness and conservative fallback;
 - resolved-state-preserving correlation surgery;
 - interactive branch comparison;
 - instanced particles, transparent analytic geometry, event/graph insets, and
   reproducible render manifests;
-- Molecular Logo Echo, One Collision Two Worlds, and Edit the Past.
+- Molecular Logo Echo, One Collision Two Worlds, and Choose the Cause.
 
 ## Explicit non-goals for the first SIG paper
 
@@ -56,15 +56,14 @@
 
 ## First-paper edit classes
 
-The primary edit set is deliberately bounded:
+The current primary edit set is deliberately bounded:
 
 1. perturb one particle before a selected event;
 2. modify/suppress one event under explicitly labeled semantics;
-3. insert/remove/move one analytic obstacle;
-4. open/close one simple aperture;
-5. apply one declared correlation-surgery operator at a pivot.
+3. apply one conservative pair-relative-velocity edit at a selected collision.
 
-Additional edit types enter only after these pass correctness and locality studies.
+Analytic obstacle/aperture and correlation-surgery operators are deferred follow-on
+edit types. They enter only after a separate story gate, not as E4 breadth.
 
 ## Model-domain language
 

@@ -32,10 +32,12 @@ branch matches all `106` full-resimulation collision pairs, reuses `79/105`
 baseline events, and peaks at `33/128` affected particles. See the
 [E3 result](benchmarks/molecular-time-machine-e3-result.md).
 
-E4 is now frozen as the next story act: **Choose the Cause, Direct the Future**.
-Instead of handing a creator a collision, the Hero begins with a selected terminal
-feature, traces its baseline ancestors, and exposes a small exact branch palette.
-See the [E4 recipe](benchmarks/molecular-time-machine-e4-preregistration.md).
+E4 returned `go`: the creator selects four particles forming the recovered E's
+upper stroke, baseline ancestry recommends collision #4, and the saved `−1°` branch
+changes `2/4` target particles while only `1/8` other foreground particles leave the
+E. Its 12 exact previews have a `0.074740 s` median, the saved branch reuses
+`79/103` baseline collisions, and all `100/100` collision pairs agree with the
+complete reference. See the [E4 result](benchmarks/molecular-time-machine-e4-result.md).
 
 ## Read in this order
 
@@ -46,14 +48,15 @@ See the [E4 recipe](benchmarks/molecular-time-machine-e4-preregistration.md).
 5. [E3 frozen recipe](benchmarks/molecular-time-machine-e3-preregistration.md)
 6. [E3 result](benchmarks/molecular-time-machine-e3-result.md)
 7. [E4 frozen recipe](benchmarks/molecular-time-machine-e4-preregistration.md)
-8. [Deng–Hani–Ma connection](research/deng-hard-sphere-connection.md)
-9. [Paper positioning](vision/paper-positioning.md)
-10. [Venue strategy](vision/venue-strategy.md)
-11. [Active E0–E6 suite](benchmarks/echo-branching-suite.md)
-12. [Graph and branching architecture](architecture/collision-history-graph-and-branching.md)
-13. [First stage](roadmap/molecular-echo-first-stage.md)
-14. [Go/No-Go gates](roadmap/go-no-go-gates.md)
-15. [Hero scenes](demos/hero-scenes.md)
+8. [E4 result](benchmarks/molecular-time-machine-e4-result.md)
+9. [Deng–Hani–Ma connection](research/deng-hard-sphere-connection.md)
+10. [Paper positioning](vision/paper-positioning.md)
+11. [Venue strategy](vision/venue-strategy.md)
+12. [Active E0–E6 suite](benchmarks/echo-branching-suite.md)
+13. [Graph and branching architecture](architecture/collision-history-graph-and-branching.md)
+14. [First stage](roadmap/molecular-echo-first-stage.md)
+15. [Go/No-Go gates](roadmap/go-no-go-gates.md)
+16. [Hero scenes](demos/hero-scenes.md)
 
 ## Scientific and graphics bridge
 
@@ -78,7 +81,7 @@ E0 exact reversal and deterministic replay
 → E1 same resolved present / opposite futures
 → E2 collision-molecule mechanism and null controls [closed negative]
 → E3 addressable collision + exact causal branch + One Collision, Two Worlds
-→ E4 breadth/performance/other edit families only after the Hero passes
+→ E4 causal steering: select a future feature, find its past cause, direct a branch
 → E5 correlation surgery and future authoring
 → E6 SIG graphics evidence
 ```
@@ -93,8 +96,9 @@ V0 event/replay viewer
 → V1 scientific echo prototype
 → V2 history-budget microscope
 → V3 One Collision, Two Worlds
-→ V4 Edit the Past + correlation surgery
-→ V5 SIG production and evidence release
+→ V4 Choose the Cause, Direct the Future
+→ V5 deferred geometry/correlation surgery
+→ V6 SIG production and evidence release
 ```
 
 Read:

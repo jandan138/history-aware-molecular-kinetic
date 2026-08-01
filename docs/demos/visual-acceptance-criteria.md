@@ -133,15 +133,16 @@ Pass when:
 - affected fraction and runtime/storage are linked;
 - graph overlay explains the branch but is not the only result.
 
-### Edit the Past
+### Choose the Cause, Direct the Future
 
 Pass when:
 
-- geometry revision and checkpoint are explicit;
-- unaffected history is genuinely reused;
-- local/full edited futures agree;
-- at least one output such as exit flux, residence, or color transport changes;
-- a global-cone failure case is included.
+- the selected terminal feature has visible persistent membership;
+- the past ranking is explicitly baseline-only;
+- one small physical palette visibly changes the selected feature more than
+  collateral foreground;
+- the saved local/full branches agree;
+- cached previews are distinguished from the one final full reference.
 
 ## 9. Graphics-value gate
 
@@ -149,7 +150,7 @@ At least two of the following must be immediately legible without debug overlays
 
 - past pattern recovery versus continued mixing;
 - two futures diverging from one selected collision;
-- geometry edit changing a later transport outcome;
+- a selected future feature locating and changing through one past collision;
 - local branch matching the global edited reference;
 - same current resolved view leading to intentionally different futures.
 

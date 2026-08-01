@@ -19,6 +19,13 @@ and peaks at `33/128` affected particles. The frozen boundary and artifact hashe
 are recorded in the
 [E3 result](../docs/benchmarks/molecular-time-machine-e3-result.md).
 
+E4-v0 returned `go`: selecting the upper E stroke makes baseline ancestry recommend
+collision #4; its saved `−1°` branch changes `2/4` target particles versus `1/8`
+collateral foreground particles. The 12 exact previews have a `0.074740 s` median,
+the saved branch reuses `79/103` events, and it agrees with all `100/100`
+full-reference collision pairs. See the
+[E4 result](../docs/benchmarks/molecular-time-machine-e4-result.md).
+
 | Figure/table concept | Run families | Metrics | Primary interpretation | Alternative explanation to exclude |
 |---|---|---|---|---|
 | Exact reversal and replay audit | E0 forward/reverse/checkpoint | return error, event/checksum agreement, invariants | exact branch is numerically trustworthy | backward video, state snapping, event-order drift |

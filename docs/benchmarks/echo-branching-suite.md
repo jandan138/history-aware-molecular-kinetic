@@ -151,6 +151,12 @@ list are in the [E3 recipe](molecular-time-machine-e3-preregistration.md).
 
 ## E4 — Causal steering: choose the cause, direct the future
 
+**Result:** complete with `go`. Selecting the upper E stroke leads baseline ancestry
+to collision `#4`; the selected `−1°` branch changes `2/4` target particles versus
+`1/8` collateral foreground particles, reuses `79/103` events, and agrees with all
+`100/100` full-reference collision pairs. See the
+[E4 result](molecular-time-machine-e4-result.md).
+
 ### Question
 
 Can a creator select a terminal visual feature, use baseline collision ancestry to
@@ -217,8 +223,8 @@ and thereby author a different future?
    mixing depending on hidden history;
 2. **One Collision, Two Worlds** — one past event forks two futures and the causal
    influence spreads through the event graph;
-3. **Edit the Past** — a past geometry edit reuses unaffected history and
-   recomputes only the future cone.
+3. **Choose the Cause, Direct the Future** — a selected terminal feature traces to
+   a past collision and opens one scoped exact alternate future.
 
 ### Required comparison discipline
 

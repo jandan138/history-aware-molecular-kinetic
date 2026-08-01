@@ -84,6 +84,11 @@ full resimulation, `79/105` baseline events are reused, peak affected fraction i
 
 ## Gate G4 — Causal steering after the Hero
 
+**Observed E4-v0 decision:** **Go.** The target feature changes `50%` while
+collateral foreground ejection is `12.5%`; preview median is `0.074740 s`, the
+saved branch reuses `79/103` baseline events, and all `100` full-reference pairs
+agree.
+
 **Go:**
 
 - E3 exact semantics remain unchanged in the preview path;

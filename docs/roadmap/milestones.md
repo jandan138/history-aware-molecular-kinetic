@@ -161,6 +161,12 @@ affected set `33/128`, terminal color gap `0.188218`. See the
 
 ## M5 — E4 causal steering interaction
 
+**Status:** complete with `go` on 2026-08-01. The registered target-to-cause Hero
+selects the upper E stroke, ranks collision #4 from baseline ancestry, and saves a
+`−1°` branch with `4.0x` target-to-collateral change, `79/103` event reuse, and
+`100/100` local/full collision-pair agreement. See the
+[E4 result](../benchmarks/molecular-time-machine-e4-result.md).
+
 Deliverables:
 
 - terminal feature selection with persistent particle membership;

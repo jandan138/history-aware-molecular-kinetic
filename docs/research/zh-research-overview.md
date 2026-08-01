@@ -254,9 +254,11 @@ dose 解释了恢复。这个机制主张已经关闭，不再追加 seed、budg
 
 用户点击并编辑过去一次碰撞。差异从两个粒子开始沿 causal graph 扩散；original、local counterfactual 和 full-resimulation reference 并排比较。
 
-### Edit the Past
+### Choose the Cause, Direct the Future
 
-透明 molecular maze 中，用户回到过去移动挡板或打开出口。系统共享 unaffected history，只重算 future cone，并显示 runtime/storage 与最终正确性。
+用户先选未来 `E` 的一笔；系统从原始 causal graph 反查过去碰撞，给出少量
+exact preview，再保存一条需要 full reference 的分支。E4 的作用是把“手工点
+一个碰撞”推进成“从想要的结果找到该改的原因”。
 
 ---
 
@@ -267,7 +269,7 @@ E0 exact reversal and replay
 E1 same resolved present / opposite futures
 E2 molecule budget and null controls [已完成，机制 no-go]
 E3 collision graph and deterministic replay
-E4 counterfactual branching
+E4 causal steering from future target to past collision
 E5 correlation surgery
 E6 SIG visual and interaction evidence
 ```
@@ -311,9 +313,9 @@ E1 已正向通过，E2 已按冻结规则否定 molecule-topology 机制。现�
 而是只推进更窄的 graphics-system 验证：
 
 1. E3 collision graph、checkpoint 与 deterministic replay；
-2. E4 one-event branch 对 full resimulation 的正确性；
-3. causal cone 的 locality、runtime 与 storage 是否真有系统价值；
-4. 若这些也不成立，就停止 SIG 路线，而不是用更漂亮的 echo 视频替代算法贡献。
+2. E4 从 terminal target 到 past collision 的推荐和 exact preview；
+3. 保存分支对 full resimulation 的正确性与有限的 history reuse；
+4. 若选择性不成立，就收窄为 causal exploration，而不是堆更多实验。
 
 这一步通过后才投入 3D、交互 UI 和 SIG Hero polish。
 

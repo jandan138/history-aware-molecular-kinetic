@@ -104,8 +104,11 @@ E3 证明“改这次碰撞，会出现什么未来”。E4 把问题反过来�
 
 E4 的固定 Hero 叫 **Erase One Stroke**：选择 `E` 的上横杠，回溯到三个候选
 碰撞，浏览四个极小角度，再保存一条分支并只对这条分支做完整重模拟核验。
-它不承诺任意目标都可控制；它要建立的是更像创作工具的一句话：
+冻结运行返回 `go`：系统推荐 collision #4，`−1°` 让目标上横杠的 `2/4` 个
+粒子离开，同时其他 E 前景只有 `1/8` 离开；最终 `100/100` 次碰撞与完整重算
+一致。它不承诺任意目标都可控制；它要建立的是更像创作工具的一句话：
 
 > I choose the consequence first; the timeline helps me find a cause to edit.
 
-完整冻结规则见 [E4 recipe](../benchmarks/molecular-time-machine-e4-preregistration.md)。
+完整冻结规则见 [E4 recipe](../benchmarks/molecular-time-machine-e4-preregistration.md)，
+数值、图像和哈希见 [E4 result](../benchmarks/molecular-time-machine-e4-result.md)。

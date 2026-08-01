@@ -76,14 +76,14 @@ same resolved pivot
 - difference panel 只用于 correctness，不替代主画面；
 - branch tree 保持稳定 layout。
 
-## 5. Edit the Past 风格
+## 5. Choose the Cause 风格
 
-- 使用 analytic primitive geometry：透明墙、圆/球、挡板、孔口；
-- 用户操作要一眼可见；
-- geometry revision 用 ghosted old pose + solid new pose 短暂表达；
-- unaffected history 保持视觉稳定；
-- recomputed cone 与 full-resimulation reference 使用同一最终材质；
-- performance 图保持次要，不遮挡动画。
+- 未来 target 用清晰但克制的框选和粒子 outline 表达；
+- 过去 timeline 只突出三条推荐碰撞，不显示全图 hairball；
+- 角度 palette 看起来像创作控制，而不是参数扫表；
+- original 与 directed future 保持同一材质、相机和 particle density；
+- cached exact preview 与最终 full-reference confirmation 需要清楚区分；
+- 性能数字保持次要，不遮挡“未来选目标、过去找原因”的阅读顺序。
 
 ## 6. Graph visual design
 

@@ -12,10 +12,10 @@ change, a shot, and a quantitative companion.
 | C14 Closure-defect proxy tracks response | directional incoming-pair proxy | **not supported in E2-v0; diagnostic only** | ME-05 limitation panel only | proxy values by branch | registered proxy is non-discriminating |
 | C16 Collision causal graph is correct | ancestry/descendant query agreement | selected event reveals valid predecessor/descendant structure | TW-01/03 | graph reconstruction/query tests | graph is decorative or omits repeated events |
 | C17 Replay/branch representation works | checkpoint/event replay and shared history | branch tree forks from exact past state | TW-02 | replay hash, latency, full-copy vs copy-on-write storage | hidden full-frame duplication or silent divergence |
-| C18 Local causal branch matches full resimulation | state/event difference | local and full edited futures visually coincide | TW-05, EP-05 | terminal error, event agreement, fallback status | local branch misses dependencies |
-| C19 Branch reuse has value | affected fraction, runtime, storage | causal cone remains bounded while future changes | TW-03/06, EP-04/06 | cone fraction, speedup, shared storage, edit age/density | cone immediately global or no benefit over full replay |
+| C18 Local causal branch matches full resimulation | state/event difference | local and full edited futures visually coincide | TW-05, CS-04 | terminal error, event agreement | local branch misses dependencies |
+| C19 Causal steering | terminal target, baseline ancestry, selected branch outcome | user selects a future stroke, a past collision is ranked, and an exact future changes that stroke | CS-01/02/03/04 | target/collateral ratio, preview latency, saved-branch full reference | recommendation is post-hoc or target change is no more selective than collateral |
 | C20 Correlation surgery authors alternate futures | resolved-state preservation + controllable branch outcome | current frame stays matched, user-selected future changes | EP-07 or ME-03/04 | audit error, invariant error, control repeatability, random-surgery baseline | current-frame mismatch or uncontrolled randomness |
-| C21 New graphics workflow | task completion and novel result | user rewinds, edits, branches, and compares futures | TW sequence + EP sequence | interaction latency, task log, prior-art comparison | footage reducible to backward playback/keyframing |
+| C21 New graphics workflow | task completion and novel result | user selects a consequence, then edits the ranked past cause and compares futures | TW sequence + CS sequence | interaction latency, session log, prior-art comparison | footage reducible to backward playback/keyframing |
 | C22 Reproducible visual evidence | manifest completeness | neutral and hero versions tell same story | all | branch/run/edit/camera/renderer hashes | manual or method-specific compositing creates result |
 
 ## Scene ownership
@@ -29,9 +29,9 @@ E2 limitation, not as active visual claims.
 
 Owns C16–C19 and the core branch algorithm.
 
-### Edit the Past
+### Choose the Cause, Direct the Future
 
-Owns C18–C21 and the system/interaction/performance story.
+Owns C19/C21 and the scoped outcome-to-cause interaction story.
 
 ## Pixel-difference rule
 
