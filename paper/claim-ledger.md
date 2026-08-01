@@ -42,7 +42,7 @@ implicitly revived in the Molecular Echoes paper.
 | C19 | A creator can select a terminal feature, trace it to a ranked editable collision, and direct a scoped exact future | E4 | target membership, baseline-only causal ranking, exact preview palette, target/collateral change, one final full reference | **passes E4-v0 Hero**: collision #4, `−1°`, target/collateral `4.0x`, preview median `0.074740 s`, `100/100` exact reference pairs |
 | C20 | A sparse velocity-ownership surgery can preserve one declared visible present while directing the selected E middle stroke toward a C-like future | E5 | exact declared-cell multiset/invariant audit, target reduction, collateral retention, matched physical branches | **passes E5-v0 Hero**: four of 256 particles touched, target occupancy `8→2`, collateral retention `19/19` |
 | C21 | Editing an addressable past collision provides an animation workflow beyond reverse playback, outcome browsing, and generic rollback | E3/E4/E6 | One Collision Hero, causal-steering interaction, exact branch evidence, Many-Worlds/Storyboard/Time-Warp comparison | E3 exact operation and E4 scoped causal-steering interaction pass; broad user value remains future |
-| C22 | The final visual evidence is physically recomputed, fair, and reproducible | E6 | branch/run/metric/render manifests, comparison lock, failure reel | proposed |
+| C22 | The final visual evidence is physically recomputed, fairly compared, and reproducible across the cinematic and interactive clients | E6 | source/run/metric/render manifests, one renderer-neutral bundle, comparison lock, content hashes | **passes E6-v0 integration**: Blender, Web, and Genesis consume frozen coordinates; all render manifests record `physics_state_mutated=false` |
 
 ## D. Claim dependency graph
 
@@ -70,7 +70,7 @@ spine.
 | C19/C21 | Choose the Cause, Direct the Future |
 | C18–C21 geometry extension | deferred after E4 |
 | C20 | Same Present, Chosen Future |
-| C22 | all three scenes plus evidence release |
+| C22 | E5 Hero master plus the shared E1/E3/E4/E5 evidence release |
 
 Every primary shot follows the active storyboard and must link to branch IDs,
 artifacts, metrics, camera hashes, and renderer hashes.

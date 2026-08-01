@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0.0",
+  "config_id": "E6-BLACK-OBSIDIAN-HERO-v0",
+  "title": "Black Obsidian Time Laboratory",
+  "output": {
+    "preview": {"width": 960, "height": 540, "samples": 24},
+    "final": {"width": 3840, "height": 2160, "samples": 384},
+    "fps": 24,
+    "color_management": "AgX",
+    "master": "multilayer-half-float-exr",
+    "delivery": "h264-high"
+  },
+  "palette": {
+    "world": "#03050a",
+    "obsidian": "#0c101a",
+    "passive": "#263040",
+    "foreground": "#d9e7e8",
+    "target": "#36d6ff",
+    "history": "#ffb000",
+    "surgery": "#ff5b6e"
+  },
+  "comparison_lock": {
+    "camera": true,
+    "particle_radius": true,
+    "passive_materials": true,
+    "frame_times": true,
+    "lighting": true,
+    "tone_mapping": true,
+    "motion_treatment": true
+  },
+  "physics_boundary": {
+    "simulation": "planar-periodic-hard-disk-edmd",
+    "coordinate_map": "physics (x,y) -> scene (x,y,radius)",
+    "decorative_depth_offset": false,
+    "renderer_modifies_physics": false
+  }
+}

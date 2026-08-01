@@ -43,4 +43,17 @@ Molecular Time Machine E5 workflow:
   complete EDMD previews, selected E-to-C future, declared-present audit,
   figure/video, and self-contained browser artifact.
 
+Molecular Time Machine E6 workflow:
+
+- `export_e6_shot_bundle.py` packages frozen E1/E3/E4/E5 trajectories into one
+  renderer-neutral binary/JSON contract with source hashes and comparison locks;
+- `stage_e6_web_data.py` stages those bundles for the Three.js companion in
+  `demos/e6-web`;
+- `render_e6_genesis.py` performs a read-only neutral source-state render through
+  the canonical local Genesis wrapper;
+- `render_e6_blender.py` creates locked-camera Cycles style frames and physical
+  trajectory animations without feeding changes back into simulation;
+- `compose_e6_hero.py` retimes and captions the rendered E5 pixels into the
+  45-second **Same Present, Chosen Future** Hero master.
+
 Smoke mode checks pipeline integrity only and is never primary evidence.

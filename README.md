@@ -71,6 +71,21 @@ a `0.074740 s` median, the saved branch reuses `79/103` baseline events, and all
 `100/100` collision pairs agree with full resimulation. See the
 [`E4 Result`](docs/benchmarks/molecular-time-machine-e4-result.md).
 
+E5 completes the positive authoring payoff and returned `go`: at one common
+`t=0.80` visible pivot, two velocity-ownership swaps touch only `4/256` particles.
+The selected E middle stroke falls from `8` particles to `2` while all `19/19`
+collateral foreground particles remain. The exact futures resolve as the original
+E and the selected C-like result. See the
+[`E5 Result`](docs/benchmarks/molecular-time-machine-e5-result.md).
+
+E6 is the active SIG integration stage. It does not reopen the scientific gates or
+add defensive sweeps. One renderer-neutral, hash-addressed shot bundle now drives a
+Blender/Cycles Hero, a Three.js companion, and a neutral Genesis source-state
+check. The production spine is **Same Present, Chosen Future**; E1–E4 appear only
+as the concise setup that earns that payoff. The implemented integration and
+45-second preview master are recorded in the
+[`E6 Result`](docs/benchmarks/molecular-time-machine-e6-result.md).
+
 ## Core idea
 
 An exact hard-sphere microstate stores:

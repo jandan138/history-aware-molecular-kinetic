@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hamk.dev/schemas/e6-shot-bundle/1.0.0",
+  "title": "HAMK E6 renderer-neutral shot bundle",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "bundle_id",
+    "shot_id",
+    "study_id",
+    "story_act",
+    "physics",
+    "timeline",
+    "particles",
+    "branches",
+    "arrays",
+    "roles",
+    "events",
+    "metrics",
+    "source_artifacts",
+    "comparison_lock"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "bundle_id": {"type": "string", "pattern": "^e6-shot-[a-f0-9]{16}$"},
+    "shot_id": {
+      "enum": ["reveal-echo", "branch-collision", "choose-cause", "same-present-hero"]
+    },
+    "study_id": {"type": "string", "minLength": 1},
+    "story_act": {"type": "string", "minLength": 1},
+    "physics": {
+      "type": "object",
+      "required": ["representation", "simulation_dimensions", "render_dimensions", "renderer_modifies_physics", "post_hoc_particle_correction", "coordinate_map", "domain_lower", "domain_upper", "particle_radius"],
+      "properties": {
+        "representation": {"const": "planar-periodic-hard-disk-edmd"},
+        "simulation_dimensions": {"const": 2},
+        "render_dimensions": {"const": 3},
+        "renderer_modifies_physics": {"const": false},
+        "post_hoc_particle_correction": {"const": false},
+        "coordinate_map": {"type": "string"},
+        "domain_lower": {"type": "array", "prefixItems": [{"type": "number"}, {"type": "number"}], "items": false},
+        "domain_upper": {"type": "array", "prefixItems": [{"type": "number"}, {"type": "number"}], "items": false},
+        "particle_radius": {"type": "number", "exclusiveMinimum": 0}
+      }
+    },
+    "timeline": {"type": "object"},
+    "particles": {"type": "object"},
+    "branches": {"type": "array", "minItems": 2},
+    "arrays": {"type": "object"},
+    "roles": {"$ref": "#/$defs/fileRef"},
+    "events": {"$ref": "#/$defs/fileRef"},
+    "metrics": {"$ref": "#/$defs/fileRef"},
+    "source_artifacts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["path", "sha256"],
+        "properties": {
+          "path": {"type": "string", "minLength": 1},
+          "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+        }
+      }
+    },
+    "comparison_lock": {"type": "object"}
+  },
+  "$defs": {
+    "fileRef": {
+      "type": "object",
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    }
+  }
+}

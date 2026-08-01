@@ -225,20 +225,24 @@ user study is part of this gate.
 
 ## M7 — E6 SIG paper evidence and production
 
+**Status:** E6-v0 integration implementation passes under
+[ADR 0013](../decisions/0013-e6-sig-hero-integration.md). The shared bundles,
+Three.js companion, Genesis neutral check, Cycles/CUDA source animation, and exact
+45-second preview master are complete. Native-Windows 4K/EXR delivery and the
+3–5-minute technical cut remain production exports, not new experiments.
+
 Deliverables:
 
-- strongest prior-art baselines and ablations;
-- numerical/scaling studies;
-- full-resimulation correctness;
-- runtime/storage/interactivity results;
-- three 3D Hero Scenes;
+- a versioned renderer-neutral E6 shot bundle built from frozen E1/E3/E4/E5 artifacts;
+- one Black Obsidian Time Laboratory visual language;
+- a 4K Same Present, Chosen Future signature Hero;
+- a real-time 3D companion for Reveal, Trace & Branch, and Author;
+- locked 3D paper figures backed by the same evidence bundle;
 - 30–45 second teaser;
 - 3–5 minute technical video;
-- failure/limitation reel;
 - evidence registry and per-shot manifests;
-- artifact packaging;
-- SIG Journal/Conference-level package decision;
-- VIS pivot decision only if triggered.
+- source and asset license ledger;
+- provisional SIGGRAPH 2027 Conference paper spine.
 
 Exit:
 
@@ -246,9 +250,12 @@ Exit:
 - no old LOD claim is silently revived;
 - neutral and hero rendering agree;
 - no primary visual relies on backward video as a simulation result;
-- local branch claims are validated against full resimulation;
-- the Deng connection is accurate and bounded;
+- the E3/E4 local/full evidence remains linked rather than rerun as a new grid;
 - SIG graphics contribution is legible without the scientific appendix.
+
+No seed or density sweep, new baseline, random-surgery control, second edit family,
+geometry edit, user study, failure reel, or 3D physics rewrite belongs to this
+milestone.
 
 ---
 
@@ -266,9 +273,10 @@ Original/counterfactual/full-reference views with shared camera and time.
 
 Exact/chaotized/DSMC/history-budget branches; neutral first, hero polish later.
 
-### V3 — Final three-scene production
+### V3 — Final integrated production
 
-Molecular Logo Echo, One Collision Two Worlds, Edit the Past, plus evidence release.
+Same Present, Chosen Future is the signature Hero. Molecular Logo Echo and causal
+branching appear as supporting acts in the technical video and companion.
 
 ---
 

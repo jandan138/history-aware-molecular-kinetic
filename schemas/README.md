@@ -22,6 +22,7 @@ contracts rather than through backend-specific in-memory structures.
 | `camera-path.schema.json` | Versioned keyframed camera paths used by locked scientific and Hero shots |
 | `render-config.schema.json` | Renderer mode, camera, layers, comparison locks, temporal policy, and outputs |
 | `render-manifest.schema.json` | Shot plus optional case/run/claim linkage, input hashes, renderer provenance, comparison locks, frames, and outputs |
+| `e6-shot-bundle.schema.json` | Frozen renderer-neutral E6 trajectories, roles, events, metrics, coordinate map, and source hashes |
 
 ## Rules
 

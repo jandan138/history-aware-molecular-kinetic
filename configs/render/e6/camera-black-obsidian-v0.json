@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0.0",
+  "camera_id": "E6-CAMERA-BLACK-OBSIDIAN-v0",
+  "projection": "perspective",
+  "lens_mm": 52.0,
+  "sensor_width_mm": 36.0,
+  "comparison": {
+    "position": [0.0, -7.6, 9.8],
+    "look_at": [0.0, 0.0, 0.0]
+  },
+  "payoff": {
+    "position": [0.0, -7.6, 9.8],
+    "look_at": [0.0, 0.0, 0.0]
+  },
+  "notes": "Both physical branches share the same camera path and render settings."
+}

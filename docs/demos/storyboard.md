@@ -1,249 +1,83 @@
-# Storyboard and Shot Grammar — Molecular Echoes
+# Active E6 storyboard — Molecular Time Machine
 
-> 本文件定义 active SIG 视频的叙事结构与 shot IDs。最终相机、branch IDs、时间和 renderer config 必须由 evidence manifest 冻结。
+The active production is governed by
+[ADR 0013](../decisions/0013-e6-sig-hero-integration.md) and the
+[E6 production bible](e6-hero-production-bible.md).
 
----
+## Teaser
 
-## 1. 总体视频结构
-
-## Teaser：30–45 秒
-
-核心记忆点：
-
-> **Same resolved frame. Different collision histories. Opposite futures.**
-
-建议结构：
+The 30–45 second teaser is a single E5 story:
 
 ```text
-0–5 s    彩色分子图案在透明容器中开始扩散
-5–10 s   到达 pivot；exact/chaotized 当前画面与 f1_h 审计匹配
-10–17 s  exact reverse 重构图案，chaotized/DSMC 继续混合
-17–23 s  history-budget slider + molecule/null-control 对比
-23–31 s  点击一次碰撞，分叉为 Two Worlds，causal cone 扩散
-31–38 s  选择未来的一笔，回溯碰撞原因，导演新的 branch
-38–45 s  runtime/storage + title: Molecular Echoes
+future E
+→ select its middle stroke
+→ return to the common t=0.80 visible present
+→ browse 30 legal hidden surgeries
+→ exchange velocity ownership between four particles
+→ hold positions fixed at the pivot
+→ play matched E and C-like physical futures
 ```
 
-所有 fork 之后的画面都必须由 branch dynamics 向前生成。倒放视频只能作为明确标记的 baseline。
+The teaser does not explain E2 controls, local/full validation, storage, scaling,
+or failure cases. Those details belong to the paper and technical video.
 
-## Main video：3–5 分钟
-
-1. Deng–Hani–Ma 启发：一粒子闭合遗忘什么；
-2. Phase-I predictor 负结果与诚实转向；
-3. exact reverse / chaotized / DSMC；
-4. multi-resolution `f1_h` audit；
-5. collision-molecule budget 与 null controls；
-6. collision causal graph；
-7. checkpoint / replay / persistent branch；
-8. one-event and outcome-directed counterfactual edits；
-9. correlation surgery authoring；
-10. performance、limitations、failure cases。
-
----
-
-## 2. 通用 shot grammar
-
-Scientific shot：
+## Technical video
 
 ```text
-Pivot contract → controlled intervention → future response → mechanism control
+E1  Reveal: a frame is not a future
+E2  Turn: a slider is not a history
+E3  Branch: one collision creates two exact worlds
+E4  Direct: select the consequence and locate the cause
+E5  Author: keep the resolved visible present and choose the future
 ```
 
-Graphics shot：
+E2 is shown as one concise negative hinge. No new E2 experiment is required.
+
+## Shot grammar
+
+Every shot answers one question:
 
 ```text
-Past edit → branch fork → causal cone → recomputed future → full-reference audit → reuse benefit
+declared visible state
+→ user intention
+→ history-aware operation
+→ physically recomputed future
+→ one concise evidence readout
 ```
 
-每个镜头只承担一个主要问题。不要同时解释 `f1_h`、T-dynamics、branch storage 和 renderer。
+Branch identity uses framing, labels, and ghost trajectories. Passive particle
+colors do not change between methods. Renderer overlays never move particles,
+remove particles, or correct terminal glyphs.
 
----
+## Primary shot IDs
 
-## 3. Molecular Logo Echo
+| Shot | Source | Purpose |
+|---|---|---|
+| `SP-01-target` | E5 future target | select the future middle stroke |
+| `SP-02-pivot` | E5 common pivot | establish the same visible present |
+| `SP-03-palette` | E5 30-preview palette | expose the bounded authoring search |
+| `SP-04-surgery` | E5 selected swaps | reveal hidden velocity ownership |
+| `SP-05-two-futures` | E5 selected branch | deliver E versus C-like payoff |
+| `RV-01-echo` | E1 seed-4 exact/chaotized | open the information-boundary act |
+| `BR-01-collision` | E3 collision #2 | show one addressable past event |
+| `CS-01-cause` | E4 collision #4, `−1°` | show outcome-to-cause navigation |
 
-### ME-01 — Prepared pattern
+Each frozen shot records source artifact hashes, branch and particle IDs, frame
+times, coordinate map, camera hash, renderer hash, and metric paths.
 
-- 透明周期盒/容器；
-- passive colors 形成简单图案；
-- 短暂显示 initial anisotropy；
-- 不显示 graph。
+## Voice-over boundary
 
-**问题：**过去是什么？
+Say:
 
-### ME-02 — Mixing and pivot
+> “The branches share the declared visible and `4×2` resolved present while hidden
+> velocity ownership differs.”
 
-- 图案逐渐消失；
-- 到 `t_*` freeze；
-- exact reverse 与 chaotized reverse 并排；
-- 当前视觉一致。
+Do not say:
 
-**问题：**两个 branch 的现在看起来是否相同？
+> “The two exact microstates are identical.”
 
-### ME-03 — Resolved-state audit
+Say:
 
-- 固定 pivot；
-- 显示 spatial/velocity 多分辨率匹配表；
-- density、momentum、temperature、color counts；
-- 标注“same resolved present, not same microstate”。
+> “The browser plays cached exact EDMD previews.”
 
-**问题：**“same present”具体保持了什么？
-
-### ME-04 — Opposite futures
-
-- branch 向前播放；
-- exact reverse 重构图案；
-- chaotized/DSMC 继续混合；
-- 同步 anisotropy/color curve。
-
-**问题：**隐藏 history 是否改变未来？
-
-### ME-05 — History budget
-
-- full、small/medium budget、random count-matched、ghost；
-- 同一时间与 camera；
-- graph inset 显示 molecule 结构；
-- collision count 单独显示。
-
-**问题：**结构化 history 是否不只是更多碰撞？
-
-### ME-06 — Limitation
-
-- 展示一个 audit 过粗或 numerical reverse 失败的案例；
-- 说明 claim boundary。
-
----
-
-## 4. One Collision, Two Worlds
-
-### TW-01 — Select event
-
-- 播放原 branch；
-- 用户暂停并点击一次 collision；
-- 显示 event time、pair 和 immediate predecessors；
-- 不展开全部 graph。
-
-### TW-02 — Apply edit and fork
-
-- 修改一颗入射速度或声明的 event 语义；
-- branch tree 增加 child；
-- parent 保持不变；
-- checkpoint 被选中。
-
-### TW-03 — Causal cone begins
-
-- 差异从两颗粒子开始；
-- affected set 用克制的 outline/trail 表示；
-- 右侧小图显示 descendant graph；
-- affected fraction 曲线开始增长。
-
-### TW-04 — Two worlds diverge
-
-- original 与 counterfactual 并排；
-- passive-color transport / escape / residence 出现宏观差异；
-- 不显示 full-screen mask。
-
-### TW-05 — Correctness audit
-
-三列：
-
-```text
-local causal branch | full resimulation | absolute difference
-```
-
-显示 state/event tolerance、fallback 状态。
-
-### TW-06 — Cost and locality
-
-- causal cone fraction；
-- runtime；
-- shared event/checkpoint storage；
-- edit age/density 作为简洁 inset。
-
-### TW-07 — Global-cone failure
-
-- 选择一个老/强 edit；
-- cone 迅速全局化；
-- 系统明确 fallback 到 full replay。
-
----
-
-## 5. Choose the Cause, Direct the Future
-
-### CS-01 — Select the future feature
-
-- recovered `E` 作为终局画面；
-- 用户框选上横杠；
-- 高亮该 feature 的 persistent particle IDs；
-- 明确显示“我希望这里改变”。
-
-### CS-02 — Trace to past causes
-
-- timeline 回到过去，但不是倒放视频；
-- 三个候选碰撞按 baseline descendant coverage/purity 高亮；
-- 只显示必要的小图，不展开整张 graph。
-
-### CS-03 — Browse exact previews
-
-- 用户选择推荐碰撞并拨动 `-2°,-1°,+1°,+2°`；
-- 左右使用相同相机显示原未来和预览未来；
-- 标明 preview 是 exact local branch，而不是 renderer effect。
-
-### CS-04 — Save and verify
-
-```text
-selected target → ranked cause → saved branch → full reference
-```
-
-- 显示 target 与 collateral 的改变比例；
-- 显示 baseline-event reuse；
-- 仅保存分支显示 local/full exactness inset。
-
-E5 将 correlation surgery 收敛成一个独立主镜头：同一 `t=0.80` 当前画面，
-四个粒子的隐藏速度归属交换，让原始 E 未来变成 C-like 未来。
-
----
-
-## 6. 主图与镜头绑定
-
-| Figure concept | Shot source |
-|---|---|
-| Teaser / first page | ME-02 + ME-04 |
-| Deng-inspired information boundary | ME-03/04/05 |
-| Collision causal representation | TW-01/02/03 |
-| Counterfactual correctness | TW-05 |
-| Outcome-to-cause authoring | CS-01/02/03/04 |
-| Same Present, Chosen Future | SP-01/02/03/04 |
-| Broader locality/performance | deferred after E4 |
-| Past geometry edit | deferred after E4 |
-| Correlation surgery | SP-01/02/03/04 |
-| Limitations | ME-06 + TW-07 |
-
-Composite figures must list run, branch, edit, frame time, camera hash, renderer hash, and metric artifact per panel.
-
----
-
-## 7. Voice-over rules
-
-不要说：
-
-> “我们保存历史，所以牛顿方程可以倒放。”
-
-要说：
-
-> “Exact hard-sphere dynamics is reversible in principle. Our contribution is to make collision correlation a queryable branch representation, to audit what a resolved one-particle present forgets, and to support physically recomputed edits of the past.”
-
-不要说：
-
-> “这两个状态完全一样。”
-
-要说：
-
-> “They match the preregistered resolved one-particle state over the reported resolution sweep, while retaining different hidden multi-particle correlations.”
-
-不要说：
-
-> “我们只重算局部区域。”
-
-要说：
-
-> “We expand the causal cone conservatively and fall back to full replay when locality is lost.”
+Do not imply that WebGL or Blender computes the physical edit.

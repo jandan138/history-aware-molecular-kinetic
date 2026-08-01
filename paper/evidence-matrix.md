@@ -32,6 +32,12 @@ colors, and declared `4×2` velocity multisets. Middle-stroke occupancy falls fr
 8 to 2 and all 19 collateral foreground particles remain in the glyph. See the
 [E5 result](../docs/benchmarks/molecular-time-machine-e5-result.md).
 
+E6-v0 integrates rather than re-tests that spine. Hash-addressed shot bundles
+carry frozen E1/E3/E4/E5 positions, roles, events, metrics, and comparison locks
+to all visual clients. Blender/Cycles renders the E5 Hero, Three.js provides
+interactive inspection, and Genesis supplies a deliberately neutral source-state
+check. None of the three clients computes or corrects the physical edit.
+
 | Figure/table concept | Run families | Metrics | Primary interpretation | Alternative explanation to exclude |
 |---|---|---|---|---|
 | Exact reversal and replay audit | E0 forward/reverse/checkpoint | return error, event/checksum agreement, invariants | exact branch is numerically trustworthy | backward video, state snapping, event-order drift |
@@ -45,6 +51,8 @@ colors, and declared `4×2` velocity multisets. Middle-stroke occupancy falls fr
 | Causal steering | E4 selected terminal stroke | target membership, baseline-only ranking, exact preview palette, target/collateral outcome, one full reference | a desired consequence can locate an editable causal event | hand-picking an event after observing branches |
 | Scoped interaction | E4 browser artifact | cached exact previews, saved-branch manifest, latency, render lock | authoring is more than replay or render deformation | pretending every preview was fully recomputed globally |
 | Same Present, Chosen Future | E5 target-only same-cell velocity transpositions | declared-cell multiset/invariant contract, middle-stroke reduction, collateral retention | current resolved state remains fixed while a selected future feature changes | visible pivot edit or broad glyph destruction |
+| Shared E6 shot contract | frozen E1/E3/E4/E5 artifacts | source hashes, binary array hashes, roles/events/metrics, comparison lock | cinematic and interactive views show the same physical samples | renderer-specific state drift or post-hoc particle correction |
+| E5 Hero master | E5/E6 locked camera and timeline | Cycles device manifest, frame/content hashes, 45-second composition manifest | the positive authoring result is legible as one creator story | anthology editing that hides the common pivot or substitutes keyframing for physics |
 | Molecular Logo Echo | E6 ME shots | C10–C14 linked metrics | scientific hook and Deng-inspired information boundary | classic Loschmidt echo only |
 | One Collision, Two Worlds | E3/E6 locked shot | C16–C18/C21 linked metrics | addressable past edit, exact branch, and causal spread | generic graph animation or hidden full-only execution |
 | Choose the Cause | E4/E6 CS shots | C19/C21 linked metrics | outcome-to-cause interaction and scoped system value | keyframing or post-production compositing |

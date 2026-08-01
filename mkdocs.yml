@@ -46,6 +46,7 @@ nav:
       - Related work: research/related-work.md
       - Scientific risks: research/scientific-risks.md
       - Source ledger: research/source-ledger.md
+      - Open-source visual references: research/open-source-visual-reference-study.md
   - Architecture:
       - Overview: architecture/overview.md
       - Collision graph, replay, and branching: architecture/collision-history-graph-and-branching.md
@@ -68,6 +69,7 @@ nav:
       - E4 result: benchmarks/molecular-time-machine-e4-result.md
       - E5 frozen recipe: benchmarks/molecular-time-machine-e5-preregistration.md
       - E5 result: benchmarks/molecular-time-machine-e5-result.md
+      - E6 integration result: benchmarks/molecular-time-machine-e6-result.md
       - Metrics: benchmarks/metrics.md
       - Dataset policy: benchmarks/dataset-policy.md
       - Canonical cases: benchmarks/canonical-cases.md
@@ -75,6 +77,7 @@ nav:
       - Visual production roadmap: demos/visual-production-roadmap.md
       - Hero scenes: demos/hero-scenes.md
       - Storyboard: demos/storyboard.md
+      - E6 Hero production bible: demos/e6-hero-production-bible.md
       - Art direction: demos/art-direction.md
       - Visual acceptance criteria: demos/visual-acceptance-criteria.md
       - Claim-to-visual evidence: demos/claim-to-visual-evidence.md
@@ -104,6 +107,7 @@ nav:
           - Expansion into Vacuum: demos/scene-specs/expansion-into-vacuum.md
   - Reproducibility:
       - Contract: reproducibility/reproducibility-contract.md
+      - E6 render toolchain: reproducibility/e6-render-toolchain.md
       - Artifact policy: reproducibility/artifact-policy.md
       - Benchmark freezing: reproducibility/benchmark-freezing.md
   - Decisions:
@@ -112,3 +116,4 @@ nav:
       - One Collision paper spine: decisions/0010-molecular-time-machine-paper-spine.md
       - Causal steering E4: decisions/0011-causal-steering-e4.md
       - Same Present, Chosen Future E5: decisions/0012-same-present-chosen-future-e5.md
+      - SIG Hero integration E6: decisions/0013-e6-sig-hero-integration.md

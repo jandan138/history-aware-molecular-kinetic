@@ -15,6 +15,7 @@ identity, or license boundaries.
 - [0010 Make one editable collision the paper spine](0010-molecular-time-machine-paper-spine.md)
 - [0011 Make E4 a causal-steering Hero](0011-causal-steering-e4.md)
 - [0012 Make E5 Same Present, Chosen Future](0012-same-present-chosen-future-e5.md)
+- [0013 Make E6 the SIG Hero integration](0013-e6-sig-hero-integration.md)
 
 ADR 0009 records the initial research pivot. ADR 0010 is the active story decision:
 E1 is the hook, E2 is the plot turn, and one addressable collision plus exact causal
@@ -26,3 +27,7 @@ baseline collision ancestry to locate the past event a creator can edit.
 ADR 0012 closes the active authoring argument: a selected terminal stroke drives a
 sparse velocity-ownership surgery that preserves one declared present while
 changing the terminal glyph.
+
+ADR 0013 freezes E6 as evidence-to-Hero integration. It replaces the former broad
+experiment-and-production mix with one 3D cinematic and interactive presentation
+of the already frozen E1–E5 story.

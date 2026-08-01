@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#03050a" />
+    <title>Molecular Time Machine</title>
+  </head>
+  <body>
+    <main id="app">
+      <canvas id="stage" aria-label="Interactive molecular time machine"></canvas>
+      <header class="masthead">
+        <div>
+          <p class="eyebrow">History-aware molecular kinetics</p>
+          <h1>Molecular Time Machine</h1>
+        </div>
+        <div class="truth-chip"><span></span> frozen exact trajectories</div>
+      </header>
+      <nav class="acts" aria-label="Story acts">
+        <button data-shot="reveal-echo"><b>01</b><span>Reveal</span></button>
+        <button data-shot="branch-collision"><b>02</b><span>Branch</span></button>
+        <button data-shot="choose-cause"><b>03</b><span>Trace</span></button>
+        <button data-shot="same-present-hero" class="active"><b>04</b><span>Author</span></button>
+      </nav>
+      <section class="story-card">
+        <p class="section-label" id="act-label">E5 — Same Present, Chosen Future</p>
+        <h2 id="story-title">Same visible present.<br />Chosen physical future.</h2>
+        <p id="story-copy">Four of 256 particles exchange hidden velocity ownership while every visible position stays fixed at the pivot.</p>
+        <div class="legend">
+          <span><i class="cyan"></i> selected future</span>
+          <span><i class="coral"></i> hidden surgery</span>
+          <span><i class="ivory"></i> passive glyph</span>
+        </div>
+      </section>
+      <section class="metrics" id="metrics"></section>
+      <section class="timeline-panel">
+        <button id="play" aria-label="Play or pause">▶</button>
+        <div class="time-readout">
+          <span>physical time</span>
+          <strong id="time-value">1.00</strong>
+        </div>
+        <input id="timeline" type="range" min="0" max="50" value="50" step="1" aria-label="Physical time" />
+        <button id="reset-camera">Reset view</button>
+      </section>
+      <div class="branch-label left" id="branch-left">Original future — E</div>
+      <div class="branch-label right" id="branch-right">Chosen future — C-like</div>
+      <div class="loading" id="loading">Loading frozen evidence…</div>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
