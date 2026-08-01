@@ -26,6 +26,12 @@ the saved branch reuses `79/103` events, and it agrees with all `100/100`
 full-reference collision pairs. See the
 [E4 result](../docs/benchmarks/molecular-time-machine-e4-result.md).
 
+E5-v0 returned `go`: at one common `t=0.80` pivot, two same-cell
+velocity-ownership swaps touch four of 256 particles while preserving positions,
+colors, and declared `4×2` velocity multisets. Middle-stroke occupancy falls from
+8 to 2 and all 19 collateral foreground particles remain in the glyph. See the
+[E5 result](../docs/benchmarks/molecular-time-machine-e5-result.md).
+
 | Figure/table concept | Run families | Metrics | Primary interpretation | Alternative explanation to exclude |
 |---|---|---|---|---|
 | Exact reversal and replay audit | E0 forward/reverse/checkpoint | return error, event/checksum agreement, invariants | exact branch is numerically trustworthy | backward video, state snapping, event-order drift |

@@ -195,7 +195,10 @@ rather than causal steering. Do not add a breadth grid to rescue the Hero.
 
 ## M6 — E5 correlation surgery and authoring
 
-**Status:** active with frozen `Same Present, Chosen Future` recipe.
+**Status:** complete with `go` on 2026-08-01. The registered Hero touches four of
+256 particles, reduces middle-stroke occupancy from 8 to 2, and retains all 19
+collateral foreground particles. See the
+[E5 result](../benchmarks/molecular-time-machine-e5-result.md).
 
 Deliverables:
 

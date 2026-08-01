@@ -86,6 +86,10 @@ E0 exact reversal and deterministic replay
 → E6 SIG graphics evidence
 ```
 
+E5 now returns `go`: four of 256 particles change hidden velocity ownership,
+middle-stroke occupancy falls from 8 to 2, and all 19 collateral foreground
+particles remain in the glyph.
+
 A beautiful reverse movie is not the method, and a decorative graph cannot replace
 E3 branch correctness.
 

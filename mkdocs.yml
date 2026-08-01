@@ -67,6 +67,7 @@ nav:
       - E4 frozen recipe: benchmarks/molecular-time-machine-e4-preregistration.md
       - E4 result: benchmarks/molecular-time-machine-e4-result.md
       - E5 frozen recipe: benchmarks/molecular-time-machine-e5-preregistration.md
+      - E5 result: benchmarks/molecular-time-machine-e5-result.md
       - Metrics: benchmarks/metrics.md
       - Dataset policy: benchmarks/dataset-policy.md
       - Canonical cases: benchmarks/canonical-cases.md

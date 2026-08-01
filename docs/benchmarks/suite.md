@@ -97,7 +97,9 @@ see the [E4 result](molecular-time-machine-e4-result.md).
 Selects the future E middle stroke, preserves one declared `4×2` visible present,
 and chooses a sparse same-cell velocity-ownership surgery whose exact future
 suppresses that stroke while retaining the rest of the glyph. See the
-[frozen E5 recipe](molecular-time-machine-e5-preregistration.md).
+[frozen E5 recipe](molecular-time-machine-e5-preregistration.md) and
+[E5 result](molecular-time-machine-e5-result.md). The Hero returns `go`: target
+occupancy `8→2`, collateral retention `19/19`, four particles touched.
 
 ### E6 — SIG graphics evidence
 

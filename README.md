@@ -170,7 +170,7 @@ documented limitation and diagnostic visualization, not an active contribution.
 | **E2** | **Closed negative:** budget grades recovery, but structured wiring does not beat dose/topology controls |
 | **E3** | Can one addressable past collision fork an exact causal branch that visibly splits and reuses history? |
 | **E4** | Can a desired terminal feature locate a past collision that a creator can edit into a directed exact future? |
-| **E5** | Can the same declared present be authored into an E or C-like future through sparse hidden correlation surgery? |
+| **E5** | **Go:** four of 256 particles exchange hidden velocity ownership; middle-stroke occupancy falls `8→2`, collateral glyph retention is `19/19` |
 | **E6** | Are the method, interaction, performance, and physical result legible in SIG-quality scenes? |
 
 See [`Active Echo and Branching Benchmark Suite`](docs/benchmarks/echo-branching-suite.md).
@@ -205,6 +205,8 @@ then checked against full resimulation. This is the scoped E4 causal-steering He
 The creator selects the future E middle stroke. The system returns to the common
 `t=0.80` present and swaps velocity ownership for four of 256 particles without
 moving or recoloring the frame. Exact matched branches then resolve into E and C.
+The frozen Hero returns `go`; see the
+[E5 result](docs/benchmarks/molecular-time-machine-e5-result.md).
 
 ### Future extension — Edit the Past
 

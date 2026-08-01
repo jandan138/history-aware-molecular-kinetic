@@ -218,6 +218,11 @@ present, and author a C-like future through a sparse hidden surgery?
 No random baseline, resolution sweep, seed grid, or additional edit family belongs
 to the E5 story gate.
 
+The frozen Hero returns `go`: the selected two-swap surgery touches four of 256
+particles, reduces middle-stroke occupancy from 8 to 2, retains all 19 collateral
+foreground particles, and preserves the declared current-frame contract. See the
+[E5 result](molecular-time-machine-e5-result.md).
+
 ## E6 — SIG graphics evidence
 
 ### Hero scenes
